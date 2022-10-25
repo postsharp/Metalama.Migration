@@ -2,8 +2,10 @@
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     [AttributeUsage( AttributeTargets.Class | AttributeTargets.Assembly )]
-    [Obsolete( "Licensing is now based on hard-coded assembly name." )]
     public sealed class AllowFreeInstancesAttribute : Attribute
     {
         public AllowFreeInstancesAttribute( string featureName )

@@ -2,6 +2,9 @@
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     [AttributeUsage( AttributeTargets.Class, AllowMultiple = true )]
     public class MetricAttribute : Attribute
     {

@@ -78,6 +78,10 @@ namespace PostSharp.Aspects
         object Instance { get; }
     }
 
+    /// <summary>
+    /// In PostSharp, this interface exposed the run-time execution context to a location interception advice. However, in Metalama, advice do not execute at run time.
+    /// Instead, advice are templates that generate run-time code. This run-time code does not need helper objects to represent the execution context.
+    /// </summary>
     public interface ILocationInterceptionArgs<T> : ILocationInterceptionArgs
     {
         /// <summary>

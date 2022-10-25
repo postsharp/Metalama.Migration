@@ -2,6 +2,9 @@ using System;
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Interface |
         AttributeTargets.Method | AttributeTargets.Parameter | AttributeTargets.ReturnValue )]

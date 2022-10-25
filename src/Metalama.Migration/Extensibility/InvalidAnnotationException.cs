@@ -3,6 +3,9 @@ using System.Runtime.Serialization;
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     public class InvalidAnnotationException : Exception
     {
         public InvalidAnnotationException() { }

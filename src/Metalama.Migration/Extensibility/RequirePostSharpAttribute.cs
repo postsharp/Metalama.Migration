@@ -1,7 +1,11 @@
 using System;
+using Metalama.Framework.Aspects;
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// In Metalama, use <see cref="RequireAspectWeaverAttribute"/>.
+    /// </summary>
     [AttributeUsage( AttributeTargets.Struct | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Assembly, AllowMultiple = true )]
     public sealed class RequirePostSharpAttribute : Attribute
     {

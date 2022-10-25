@@ -3,6 +3,10 @@ using System.Runtime.Serialization;
 
 namespace PostSharp.Serialization
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
+    [Obsolete( "", true )]
     public class PortableSerializationException : Exception
     {
         //

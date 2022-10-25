@@ -1,5 +1,10 @@
-﻿namespace PostSharp.Reflection
+﻿using Metalama.Framework.Validation;
+
+namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// In Metalama, use <see cref="ReferenceKinds"/>.
+    /// </summary>
     public enum CodeReferenceKind
     {
         None = 0,

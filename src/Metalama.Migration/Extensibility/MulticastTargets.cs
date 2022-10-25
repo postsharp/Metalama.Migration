@@ -1,9 +1,14 @@
 using System;
+using Metalama.Framework.Eligibility;
 
 #pragma warning disable CA1008 // Enums should have zero value named None.
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// In Metalama, the valid targets are determined by the declaration types for which the <see cref="IAspect{T}"/> interface is implemented.
+    /// Additionally, you can implement the <see cref="IEligible{T}.BuildEligibility"/> method.
+    /// </summary>
     [Flags]
     public enum MulticastTargets
     {

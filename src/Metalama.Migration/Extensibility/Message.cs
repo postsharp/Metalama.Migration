@@ -1,9 +1,16 @@
 using System;
 using System.Reflection;
+using Metalama.Framework.Diagnostics;
 using PostSharp.Reflection;
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// In Metalama, a message is represented by a <see cref="Metalama.Framework.Diagnostics.IDiagnostic"/>.
+    /// To instantiate a diagnostic, you must first declare its <see cref="DiagnosticDefinition{T}"/> as a static field or property, then use
+    /// <see cref="DiagnosticDefinition{T}.WithArguments"/>.
+    /// </summary>
+    /// <seealso href="@diagnostics"/>
     public sealed class Message
     {
         #region Fields

@@ -4,6 +4,10 @@ using PostSharp.Reflection;
 
 namespace PostSharp.Serialization
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
+    [Obsolete( "", true )]
     public class PortableFormatter
     {
         public PortableFormatter() { }

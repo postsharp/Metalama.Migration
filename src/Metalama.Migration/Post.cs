@@ -1,7 +1,15 @@
+using System;
+
 namespace PostSharp
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     public static class Post
     {
+        /// <summary>
+        /// Not needed in Metalama. Hurah!
+        /// </summary>
         public static TTarget Cast<TSource, TTarget>( TSource o )
             where TSource : class
             where TTarget : class
@@ -9,25 +17,25 @@ namespace PostSharp
             return (TTarget)(object)o;
         }
 
+        /// <summary>
+        /// No equivalent in Metalama.
+        /// </summary>
         public static bool IsTransformed { get; }
 
-#pragma warning disable IDE0060, CA1801 // Remove unused parameter
-
+        /// <summary>
+        /// No equivalent in Metalama.
+        /// </summary>
         public static ref T GetMutableRef<T>( in T reference )
-#pragma warning restore IDE0060, CA1801 // Remove unused parameter
         {
-            // Dummy code to make things compile.
-            return ref DefaultValue<T>.Value;
+            throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// No equivalent in Metalama.
+        /// </summary>
         public static T GetValue<T>( T value ) where T : struct
         {
-            return value;
-        }
-
-        private static class DefaultValue<T>
-        {
-            public static T Value;
+            throw new NotImplementedException();
         }
     }
 }

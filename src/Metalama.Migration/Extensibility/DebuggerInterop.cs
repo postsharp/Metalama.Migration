@@ -2,6 +2,9 @@
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     public static class DebuggerInterop
     {
         public static long NextStateMachineId = 1;

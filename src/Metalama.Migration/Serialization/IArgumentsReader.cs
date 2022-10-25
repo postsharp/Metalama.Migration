@@ -3,6 +3,9 @@ using PostSharp.Reflection;
 
 namespace PostSharp.Serialization
 {
+    /// <summary>
+    /// In Metalama, use <see cref="Metalama.Framework.Serialization.IArgumentsReader"/>.
+    /// </summary>
     [InternalImplement]
     public interface IArgumentsReader
     {

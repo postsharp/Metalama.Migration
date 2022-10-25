@@ -3,6 +3,9 @@ using PostSharp.Constraints;
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     [InternalImplement]
     public interface IWeavingSymbolsService : IService
     {

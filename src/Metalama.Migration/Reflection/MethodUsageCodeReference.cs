@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Reflection;
+using Metalama.Framework.Validation;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// In Metalama, use <see cref="ReferenceValidationContext"/>.
+    /// </summary>
     public sealed class MethodUsageCodeReference : ICodeReference
     {
         public MethodBase UsingMethod { get; }

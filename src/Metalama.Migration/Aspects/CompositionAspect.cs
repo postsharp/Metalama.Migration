@@ -19,10 +19,7 @@ namespace PostSharp.Aspects
     [MulticastAttributeUsage( MulticastTargets.Class | MulticastTargets.Struct, AllowMultiple = true )]
     public abstract class CompositionAspect : TypeLevelAspect, ICompositionAspect
     {
-        /// <summary>
-        /// In Metalama, you would typically have this code in an initializer added to the type using
-        /// <see cref="IAdviceFactory.AddInitializer(Metalama.Framework.Code.INamedType,string,Metalama.Framework.Aspects.InitializerKind,object?,object?)"/>. 
-        /// </summary>
+        /// <inheritdoc/>
         public abstract object CreateImplementationObject( AdviceArgs args );
 
         /// <summary>

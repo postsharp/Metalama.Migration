@@ -1,7 +1,11 @@
 ﻿using System;
+using Metalama.Framework.Validation;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// In Metalama, use <see cref="ReferenceValidationContext"/>.
+    /// </summary>
     public sealed class MemberTypeCodeReference : ICodeReference
     {
         public Type Type { get; }

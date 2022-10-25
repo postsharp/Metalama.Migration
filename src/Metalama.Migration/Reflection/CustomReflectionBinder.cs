@@ -4,6 +4,9 @@ using System.Reflection;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     public sealed class CustomReflectionBinder : Binder
     {
         public static readonly CustomReflectionBinder Instance =

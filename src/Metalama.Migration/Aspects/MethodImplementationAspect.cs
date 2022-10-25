@@ -13,7 +13,6 @@ namespace PostSharp.Aspects
     [MulticastAttributeUsage(
         MulticastTargets.Method,
         AllowMultiple = false,
-        AllowExternalAssemblies = false,
         PersistMetaData = false,
         Inheritance = MulticastInheritance.None )]
     [AttributeUsage(

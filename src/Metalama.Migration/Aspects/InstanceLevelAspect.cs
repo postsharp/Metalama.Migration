@@ -12,7 +12,7 @@ namespace PostSharp.Aspects
     /// While porting a PostSharp <see cref="InstanceLevelAspect"/> into Metalama, you would typically introduce instance fields or properties into
     /// the target type, and use an initializer to initialize them.
     /// </summary>
-    [MulticastAttributeUsage( MulticastTargets.Class, AllowExternalAssemblies = false, TargetTypeAttributes = MulticastAttributes.Instance )]
+    [MulticastAttributeUsage( MulticastTargets.Class, TargetTypeAttributes = MulticastAttributes.Instance )]
     [AttributeUsage( AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Interface, AllowMultiple = true )]
     public abstract class InstanceLevelAspect : TypeLevelAspect, ICloneAwareAspect
     {

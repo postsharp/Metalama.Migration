@@ -1,7 +1,11 @@
 ﻿using System;
+using Metalama.Framework.Validation;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// In Metalama, use <see cref="ReferenceKinds"/>.
+    /// </summary>
     [Flags]
     public enum MethodUsageInstructions
     {

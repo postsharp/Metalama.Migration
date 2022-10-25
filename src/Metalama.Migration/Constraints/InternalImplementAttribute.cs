@@ -4,6 +4,9 @@ using PostSharp.Extensibility;
 
 namespace PostSharp.Constraints
 {
+    /// <summary>
+    /// Not implemented yet in Metalama, but it will be.
+    /// </summary>
     [AttributeUsage(
         AttributeTargets.All & ~( AttributeTargets.Parameter | AttributeTargets.ReturnValue | AttributeTargets.GenericParameter ),
         AllowMultiple = true )]

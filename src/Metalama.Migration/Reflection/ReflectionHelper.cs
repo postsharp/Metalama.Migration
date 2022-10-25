@@ -4,6 +4,9 @@ using PostSharp.Extensibility;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// The equivalent in Metalama is <see cref="Metalama.Framework.RunTime.ReflectionHelper"/> but it does not cover the same functions.
+    /// </summary>
     public static class ReflectionHelper
     {
         public static PropertyInfo GetProperty( Type declaringType, MethodInfo getter, MethodInfo setter )

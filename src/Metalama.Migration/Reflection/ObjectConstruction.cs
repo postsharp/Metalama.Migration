@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Metalama.Framework.Code.DeclarationBuilders;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// In Metalama, use <see cref="AttributeConstruction"/>.
+    /// </summary>
     public sealed class ObjectConstruction
     {
 #pragma warning disable CA1825 // Avoid zero-length array allocations. (API not available in .NET 4.0)

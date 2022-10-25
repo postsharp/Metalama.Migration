@@ -2,6 +2,9 @@ using System;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// There is no equivalent in Metalama.
+    /// </summary>
     [Flags]
     public enum ReflectionSearchOptions
     {

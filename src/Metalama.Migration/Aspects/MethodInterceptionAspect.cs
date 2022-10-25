@@ -15,7 +15,6 @@ namespace PostSharp.Aspects
     [MulticastAttributeUsage(
         MulticastTargets.Method | MulticastTargets.InstanceConstructor,
         AllowMultiple = true,
-        AllowExternalAssemblies = true,
         PersistMetaData = false,
         TargetMemberAttributes = MulticastAttributes.NonAbstract )]
     [AttributeUsage(

@@ -2,6 +2,9 @@
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     [Flags]
     public enum Semantics : long
     {
@@ -78,7 +81,9 @@ namespace PostSharp.Reflection
         OtherCompilerGeneratedType = 1 << 30
     }
 
-#pragma warning disable CA1815 // Override equals and operator equals on value types
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     public struct SemanticInfo
     {
         public Semantics Semantic { get; }

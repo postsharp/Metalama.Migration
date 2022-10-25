@@ -4,6 +4,9 @@ using System;
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     [AttributeUsage( AttributeTargets.Assembly )]
     public sealed class AssemblyIdAttribute : Attribute
     {

@@ -14,7 +14,6 @@ namespace PostSharp.Aspects
     /// </summary>
     [MulticastAttributeUsage(
         MulticastTargets.Field | MulticastTargets.Property | MulticastTargets.Parameter | MulticastTargets.ReturnValue,
-        AllowExternalAssemblies = false,
         AllowMultiple = true )]
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Field | AttributeTargets.Interface

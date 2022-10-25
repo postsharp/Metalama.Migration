@@ -1,7 +1,11 @@
 using Metalama.Framework.Aspects;
+using Metalama.Framework.Eligibility;
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// In Metalama, use <see cref="IAspect{T}"/> and implement <see cref="IEligible{T}.BuildEligibility"/> and/or <see cref="IAspect{T}.BuildAspect"/>.
+    /// </summary>
     [RequirePostSharp( null, "ValidateAnnotations" )]
     public interface IValidableAnnotation
     {

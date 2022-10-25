@@ -2,6 +2,9 @@
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     public interface IStateStore
     {
         T Get<T>() where T : class;

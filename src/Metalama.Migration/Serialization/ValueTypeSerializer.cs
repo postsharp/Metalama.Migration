@@ -2,6 +2,9 @@ using System;
 
 namespace PostSharp.Serialization
 {
+    /// <summary>
+    /// In Metalama, use <see cref="Metalama.Framework.Serialization.ValueTypeSerializer{T}"/>.
+    /// </summary>
     public abstract class ValueTypeSerializer<T> : ISerializer where T : struct
     {
         bool ISerializer.IsTwoPhase { get; }

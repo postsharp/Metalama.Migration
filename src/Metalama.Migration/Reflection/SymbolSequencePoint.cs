@@ -2,6 +2,9 @@ using System;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// Not exposed in Metalama.
+    /// </summary>
     public class SymbolSequencePoint :
         IComparable<SymbolSequencePoint>, IEquatable<SymbolSequencePoint>
     {

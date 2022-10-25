@@ -7,8 +7,12 @@ using PostSharp.Reflection.MethodBody;
 
 namespace PostSharp.Constraints
 {
+    /// <summary>
+    /// Not implemented yet in Metalama, and there is currently no plan to do it.
+    /// </summary>
     [AttributeUsage( AttributeTargets.Parameter )]
     [MulticastAttributeUsage( MulticastTargets.Parameter, Inheritance = MulticastInheritance.Strict )]
+    [Obsolete( "", true )]
     public abstract class ParameterValueConstraint : ReferentialConstraint
     {
         public sealed override bool ValidateConstraint( object target )

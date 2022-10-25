@@ -1,8 +1,12 @@
 using System.Reflection;
 using Metalama.Framework.Aspects;
+using Metalama.Framework.Code;
 
 namespace PostSharp.Aspects
 {
+    /// <summary>
+    /// Equivalent to <see cref="IAspect{T}"/> where <c>T</c> is <see cref="ICompilation"/>.
+    /// </summary>
     public interface IAssemblyLevelAspectBuildSemantics : IAspect
     {
         /// <summary>

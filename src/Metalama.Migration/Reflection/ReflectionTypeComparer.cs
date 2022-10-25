@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Metalama.Framework.Code;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// In Metalama, use <see cref="ICompilation"/>.<see cref="ICompilation.InvariantComparer"/>.
+    /// </summary>
     public sealed class ReflectionTypeComparer : IEqualityComparer<Type>, IEqualityComparer<Type[]>
     {
         public static ReflectionTypeComparer GetInstance()

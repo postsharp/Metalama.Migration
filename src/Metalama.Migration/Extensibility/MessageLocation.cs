@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Reflection;
+using Metalama.Framework.Diagnostics;
 using PostSharp.Reflection;
 using PostSharp.Reflection.MethodBody;
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// In Metalama, the equivalent is <see cref="IDiagnosticLocation"/>.
+    /// </summary>
     public class MessageLocation
     {
-        [NonSerialized]
-#pragma warning disable 649
         public static readonly MessageLocation Unknown;
-#pragma warning restore 649
 
         public static MessageLocation Of( SymbolSequencePoint symbolSequencePoint )
         {

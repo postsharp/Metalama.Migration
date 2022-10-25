@@ -2,9 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.Serialization;
+using Metalama.Framework.RunTime;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// In Metalama, use <see cref="FieldOrPropertyInfo"/>.
+    /// </summary>
     public sealed class LocationInfo : IEquatable<LocationInfo>
                                      , ISerializable
 

@@ -1,5 +1,10 @@
-﻿namespace PostSharp.Reflection
+﻿using Metalama.Framework.Code;
+
+namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// In Metalama, use <see cref="RefKindExtensions"/>.
+    /// </summary>
     public static class ParameterKindExtensions
     {
         public static bool IsInputParameter( this ParameterKind parameterKind )

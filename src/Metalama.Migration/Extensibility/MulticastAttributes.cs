@@ -2,6 +2,9 @@ using System;
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// See the remarks on <see cref="MulticastAttribute"/>.
+    /// </summary>
     [Flags]
 #pragma warning disable CA1008 // Enums should have zero value named None.
     public enum MulticastAttributes

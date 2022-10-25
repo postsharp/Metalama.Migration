@@ -4,6 +4,9 @@ using System.Resources;
 
 namespace PostSharp.Extensibility
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     public class MessageSource :
         MarshalByRefObject,
         IMessageSink

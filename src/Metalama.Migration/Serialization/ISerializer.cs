@@ -3,6 +3,9 @@ using PostSharp.Constraints;
 
 namespace PostSharp.Serialization
 {
+    /// <summary>
+    /// In Metalama, use <see cref="Metalama.Framework.Serialization.ISerializer"/>.
+    /// </summary>
     [InternalImplement]
     public interface ISerializer
     {

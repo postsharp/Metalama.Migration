@@ -3,6 +3,9 @@ using PostSharp.Extensibility;
 
 namespace PostSharp.Constraints
 {
+    /// <summary>
+    /// Not implemented yet in Metalama, but it will be.
+    /// </summary>
     [MulticastAttributeUsage( MulticastTargets.Class | MulticastTargets.Interface, Inheritance = MulticastInheritance.Strict )]
     [AttributeUsage( AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Assembly )]
     public sealed class NamingConventionAttribute : ScalarConstraint

@@ -1,9 +1,13 @@
 using System;
+using Metalama.Framework.Code;
 using PostSharp.Constraints;
 using PostSharp.Extensibility;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// In Metalama, use <see cref="IAssemblyIdentity"/>.
+    /// </summary>
     [InternalImplement]
     public interface IAssemblyName
     {
@@ -26,6 +30,9 @@ namespace PostSharp.Reflection
         BindingContext BindingContext { get; }
     }
 
+    /// <summary>
+    /// The processor architecture is not exposed in Metalama.
+    /// </summary>
     public enum AssemblyProcessorArchitecture
     {
         None = 0x0000,

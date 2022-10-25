@@ -1,15 +1,13 @@
 ﻿using System;
+using Metalama.Framework.Code;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// In Metalama, use <see cref="IAttributeData"/>.
+    /// </summary>
     public sealed class CustomAttributeInstance
     {
-        internal CustomAttributeInstance( object target, object annotation )
-        {
-            Target = target;
-            Annotation = annotation;
-        }
-
         public ObjectConstruction Construction { get; }
 
         public Attribute Attribute { get; }

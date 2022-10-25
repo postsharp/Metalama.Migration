@@ -5,6 +5,10 @@ namespace PostSharp.Serialization
 {
 // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
 
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
+    [Obsolete( "", true )]
     public class PortableSerializationBinder
     {
         public PortableSerializationBinder()

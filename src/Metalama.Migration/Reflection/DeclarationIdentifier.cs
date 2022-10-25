@@ -3,19 +3,11 @@ using System.Reflection;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     public struct DeclarationIdentifier : IEquatable<DeclarationIdentifier>
     {
-        // For details about the risk of collisions, see http://en.wikipedia.org/wiki/Birthday_attack
-
-        // Format:  AAAAAAATTTTKMMMM
-        //          FEDCBA9876543210
-        //   where: AAAAAAA:AssemblyId:  width = 32    32-64
-        //          TTTT:   TypeIndex:     width = 16    16-31   --> CEIP data shows a max number of 12K types in an assembly
-        //          MMMM :  MemberIndex:   width = 16    0-15
-        //          Total: 
-
-        // TODO: add next line in the .NET 4.5 profile only.
-        // [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public DeclarationIdentifier( long value )
         {
             throw new NotImplementedException();

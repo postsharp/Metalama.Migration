@@ -1,35 +1,57 @@
 ﻿using System;
 using System.Reflection;
+using Metalama.Framework.Code;
 
 namespace PostSharp.Reflection
 {
+    /// <summary>
+    /// There is no direct equivalent in Metalama, but individual methods may have. 
+    /// </summary>
     public static class ReflectionExtensions
     {
+        /// <summary>
+        /// In Metalama, backing field of automatic properties are not exposed to the code model.
+        /// </summary>
         public static PropertyInfo GetAutomaticProperty( this FieldInfo field )
         {
             return GetAutomaticProperty( field, true );
         }
 
+        /// <summary>
+        /// In Metalama, backing field of automatic properties are not exposed to the code model.
+        /// </summary>
         public static PropertyInfo GetAutomaticProperty( this FieldInfo field, bool inherit )
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// In Metalama, use <see cref="IFieldOrProperty.IsAutoPropertyOrField"/>.
+        /// </summary>
         public static bool IsAutomaticProperty( this PropertyInfo propertyInfo )
         {
             return GetBackingField( propertyInfo ) != null;
         }
 
+        /// <summary>
+        /// Not supported in Metalama.
+        /// </summary>
         public static FieldInfo GetBackingField( this PropertyInfo propertyInfo )
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Not exposed in Metalama.
+        /// </summary>
         public static StateMachineKind GetStateMachineKind( this MethodInfo method )
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Not exposed in Metalama.
+        /// </summary>
         public static MethodInfo GetStateMachinePublicMethod( this MethodInfo method )
         {
             throw new NotImplementedException();

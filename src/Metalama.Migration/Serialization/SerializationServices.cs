@@ -4,6 +4,10 @@ using PostSharp.Reflection;
 
 namespace PostSharp.Serialization
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
+    [Obsolete( "", true )]
     public static class SerializationServices
     {
         public static PortableSerializationException GetSerializationException( MemberInfo memberInfo )

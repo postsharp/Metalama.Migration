@@ -13,7 +13,6 @@ namespace PostSharp.Aspects
     [MulticastAttributeUsage(
         MulticastTargets.Field | MulticastTargets.Property,
         TargetMemberAttributes = MulticastAttributes.NonLiteral | MulticastAttributes.NonAbstract,
-        AllowExternalAssemblies = false,
         AllowMultiple = true )]
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Field | AttributeTargets.Interface

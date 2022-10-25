@@ -8,7 +8,6 @@ namespace PostSharp.Aspects
 {
     [MulticastAttributeUsage(
         MulticastTargets.Class | MulticastTargets.Struct | MulticastTargets.Interface,
-        AllowExternalAssemblies = false,
         AllowMultiple = true,
         PersistMetaData = false )]
     [AttributeUsage( AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface, AllowMultiple = true )]

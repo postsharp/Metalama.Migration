@@ -4,6 +4,9 @@ using PostSharp.Reflection;
 
 namespace PostSharp.Constraints
 {
+    /// <summary>
+    /// Not implemented yet in Metalama, but it will be.
+    /// </summary>
     public sealed class ComponentInternalAttribute : ReferenceConstraint
     {
         public ComponentInternalAttribute()

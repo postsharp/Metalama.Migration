@@ -4,6 +4,9 @@ using System;
 
 namespace PostSharp.Serialization
 {
+    /// <summary>
+    /// In Metalama, use <see cref="Metalama.Framework.Serialization.ReferenceTypeSerializer"/>.
+    /// </summary>
     public abstract class ReferenceTypeSerializer : ISerializer
     {
         bool ISerializer.IsTwoPhase { get; }

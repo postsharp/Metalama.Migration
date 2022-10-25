@@ -14,7 +14,6 @@ namespace PostSharp.Aspects
     /// </summary>
     [MulticastAttributeUsage(
         MulticastTargets.Event,
-        AllowExternalAssemblies = false,
         AllowMultiple = true )]
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Event,
