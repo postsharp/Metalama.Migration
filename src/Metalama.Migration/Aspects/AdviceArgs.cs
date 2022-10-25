@@ -1,6 +1,5 @@
 using System;
 using Metalama.Framework.Aspects;
-using PostSharp.Extensibility;
 using PostSharp.Reflection;
 
 namespace PostSharp.Aspects
@@ -11,12 +10,6 @@ namespace PostSharp.Aspects
     /// </summary>
     public class AdviceArgs
     {
-        static AdviceArgs()
-        {
-            // TODO: remove this after we have a different way of forcing DebuggerInterop type to load during debugging.
-            DebuggerInterop.Dummy();
-        }
-
         public AdviceArgs( object instance ) { }
 
         protected AdviceArgs() { }

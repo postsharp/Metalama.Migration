@@ -42,7 +42,7 @@ namespace PostSharp.Aspects
         public object YieldValue { get; set; }
 
         /// <summary>
-        /// In Metalama, when you have your own <c>try/c>/<c>catch</c>, this is the exception variable of the <c>catch</c> block.
+        /// In Metalama, when you have your own <c>try</c>/<c>catch</c>, this is the exception variable of the <c>catch</c> block.
         /// </summary>
         public Exception Exception { get; set; }
 
