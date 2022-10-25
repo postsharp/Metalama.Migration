@@ -1,10 +1,8 @@
 using System;
-using System.Diagnostics;
 using System.Reflection;
 
 namespace PostSharp.Reflection
 {
-    [Serializable]
     public struct DeclarationIdentifier : IEquatable<DeclarationIdentifier>
     {
         // For details about the risk of collisions, see http://en.wikipedia.org/wiki/Birthday_attack
@@ -15,8 +13,6 @@ namespace PostSharp.Reflection
         //          TTTT:   TypeIndex:     width = 16    16-31   --> CEIP data shows a max number of 12K types in an assembly
         //          MMMM :  MemberIndex:   width = 16    0-15
         //          Total: 
-
-        [DebuggerStepThrough]
 
         // TODO: add next line in the .NET 4.5 profile only.
         // [MethodImpl(MethodImplOptions.AggressiveInlining)]

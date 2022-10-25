@@ -4,6 +4,11 @@ using System;
 
 namespace PostSharp.Aspects.Advices
 {
-    [AttributeUsage( AttributeTargets.Method, AllowMultiple = true, Inherited = true )]
+    /// <summary>
+    /// There is no equivalent to this feature in Metalama.
+    /// </summary>
+    /// <seealso href="@overriding-events"/>
+    [Obsolete( "", true )]
+    [AttributeUsage( AttributeTargets.Method, AllowMultiple = true )]
     public sealed class OnEventInvokeHandlerAdvice : GroupingAdvice { }
 }

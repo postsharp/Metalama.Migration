@@ -3,7 +3,6 @@ using System.Runtime.Serialization;
 
 namespace PostSharp.Extensibility
 {
-    [Serializable]
     public class InvalidAnnotationException : Exception
     {
         public InvalidAnnotationException() { }

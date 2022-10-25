@@ -1,12 +1,9 @@
 using System;
-using System.Diagnostics;
 using System.Reflection;
 using PostSharp.Extensibility;
 
 namespace PostSharp.Reflection
 {
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
     public static class ReflectionHelper
     {
         public static PropertyInfo GetProperty( Type declaringType, MethodInfo getter, MethodInfo setter )

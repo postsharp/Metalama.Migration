@@ -1,10 +1,7 @@
 using System;
-using System.Diagnostics;
 
 namespace PostSharp.Aspects
 {
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
     public class TypeIdentity
     {
         public static TypeIdentity FromType( Type type )

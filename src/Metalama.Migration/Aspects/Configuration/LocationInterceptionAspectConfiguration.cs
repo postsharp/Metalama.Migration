@@ -1,7 +1,7 @@
 ﻿namespace PostSharp.Aspects.Configuration
 {
-    public sealed class LocationInterceptionAspectConfiguration : AspectConfiguration
-    {
-        // TODO: Implement field suppression (and its configuration).
-    }
+    /// <summary>
+    /// There is no aspect configuration in Metalama.
+    /// </summary>
+    public sealed class LocationInterceptionAspectConfiguration : AspectConfiguration { }
 }

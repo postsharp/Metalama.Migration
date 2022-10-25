@@ -1,12 +1,10 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace PostSharp.Reflection
 {
     public class SymbolSequencePoint :
         IComparable<SymbolSequencePoint>, IEquatable<SymbolSequencePoint>
     {
-        [SuppressMessage( "Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes" )]
         public static readonly SymbolSequencePoint Hidden = null;
 
         public bool IsHidden { get; }

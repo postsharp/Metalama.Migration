@@ -4,9 +4,7 @@ namespace PostSharp.Extensibility
 {
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Interface |
-        AttributeTargets.Method | AttributeTargets.Parameter | AttributeTargets.ReturnValue,
-        AllowMultiple = false,
-        Inherited = true )]
+        AttributeTargets.Method | AttributeTargets.Parameter | AttributeTargets.ReturnValue )]
     public sealed class HasInheritedAttributeAttribute : Attribute
     {
         public HasInheritedAttributeAttribute() { }

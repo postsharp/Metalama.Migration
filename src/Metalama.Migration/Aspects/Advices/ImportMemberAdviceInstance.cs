@@ -2,6 +2,11 @@
 
 namespace PostSharp.Aspects.Advices
 {
+    /// <summary>
+    /// In Metalama, members of the target declaration do not need to be imported into the aspect. Instead, the
+    /// aspect accesses the target code using dynamic code or invokers.
+    /// </summary>
+    /// <seealso href="template-dynamic-code"/>
     public abstract class ImportMemberAdviceInstance : AdviceInstance
     {
         public FieldInfo AspectField { get; }

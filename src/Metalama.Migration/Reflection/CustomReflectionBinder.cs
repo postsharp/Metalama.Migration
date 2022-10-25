@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
 
@@ -7,7 +6,6 @@ namespace PostSharp.Reflection
 {
     public sealed class CustomReflectionBinder : Binder
     {
-        [SuppressMessage( "Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes" )]
         public static readonly CustomReflectionBinder Instance =
             new();
 

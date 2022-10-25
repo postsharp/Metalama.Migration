@@ -2,6 +2,9 @@
 
 namespace PostSharp.Aspects.Configuration
 {
+    /// <summary>
+    /// There is no declarative aspect configuration in Metalama.
+    /// </summary>
     public sealed class OnExceptionAspectConfigurationAttribute : AspectConfigurationAttribute
     {
         public Type ExceptionType { get; set; }
@@ -13,12 +16,7 @@ namespace PostSharp.Aspects.Configuration
 
         protected override void SetAspectConfiguration( AspectConfiguration aspectConfiguration )
         {
-            base.SetAspectConfiguration( aspectConfiguration );
-
-            var onExceptionAspectConfiguration = (OnExceptionAspectConfiguration)
-                aspectConfiguration;
-
-            onExceptionAspectConfiguration.ExceptionType = TypeIdentity.FromType( ExceptionType );
+            throw new NotImplementedException();
         }
     }
 }

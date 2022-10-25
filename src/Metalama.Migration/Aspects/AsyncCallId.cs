@@ -2,6 +2,9 @@
 
 namespace PostSharp.Aspects
 {
+    /// <summary>
+    /// There is no equivalent to this type in Metalama. The equivalent concept can be built manually.
+    /// </summary>
     public struct AsyncCallId : IEquatable<AsyncCallId>
     {
         public bool IsNull { get; }

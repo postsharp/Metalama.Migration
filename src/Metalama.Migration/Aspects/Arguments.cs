@@ -1,16 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+using Metalama.Framework.Aspects;
+using Metalama.Framework.Code.Advised;
 
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
 namespace PostSharp.Aspects
 {
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
-    public class Arguments : IList<object>
-                           , ICloneable
+    /// <summary>
+    /// In Metalama, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Parameters"/>.<see cref="IAdvisedParameterList.Values"/>.
+    /// </summary>
+    public class Arguments : IList<object>, ICloneable
 
     {
         public static readonly Arguments Empty = new();

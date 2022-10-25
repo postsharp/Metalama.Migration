@@ -1,11 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace PostSharp.Reflection
 {
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
     public sealed class ReflectionTypeComparer : IEqualityComparer<Type>, IEqualityComparer<Type[]>
     {
         public static ReflectionTypeComparer GetInstance()

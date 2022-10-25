@@ -3,7 +3,6 @@ using System.Runtime.Serialization;
 
 namespace PostSharp.Serialization
 {
-    [Serializable]
     public class PortableSerializationException : Exception
     {
         //

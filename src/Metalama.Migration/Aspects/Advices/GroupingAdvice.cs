@@ -4,7 +4,7 @@ using System;
 
 namespace PostSharp.Aspects.Advices
 {
-    [AttributeUsage( AttributeTargets.Method, AllowMultiple = false, Inherited = false )]
+    [AttributeUsage( AttributeTargets.Method, Inherited = false )]
     public abstract class GroupingAdvice : Advice
     {
         public string Master { get; set; }

@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reflection;
 
 namespace PostSharp.Reflection
 {
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
     public sealed class ObjectConstruction
     {
 #pragma warning disable CA1825 // Avoid zero-length array allocations. (API not available in .NET 4.0)

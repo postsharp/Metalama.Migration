@@ -1,5 +1,8 @@
 namespace PostSharp.Aspects.Dependencies
 {
+    /// <summary>
+    /// In Metalama, advice methods have no dependencies.
+    /// </summary>
     public sealed class AdviceDependencyAttribute : AspectDependencyAttribute
     {
         public AdviceDependencyAttribute(

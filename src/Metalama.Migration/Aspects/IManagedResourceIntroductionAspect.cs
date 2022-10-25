@@ -2,5 +2,8 @@
 
 namespace PostSharp.Aspects
 {
+    /// <summary>
+    /// Not implemented in Metalama.
+    /// </summary>
     public interface IManagedResourceIntroductionAspect : IAspect { }
 }

@@ -1,8 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace PostSharp.Aspects
 {
-    [AttributeUsage( AttributeTargets.Class, AllowMultiple = false )]
+    /// <summary>
+    /// In Metalama, use <see cref="DescriptionAttribute"/>.
+    /// </summary>
+    [AttributeUsage( AttributeTargets.Class )]
     public sealed class AspectDescriptionAttribute : Attribute
     {
         public AspectDescriptionAttribute( string description )

@@ -2,6 +2,9 @@
 
 namespace PostSharp.Aspects
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     public interface ILicensedAspect
     {
         string GetLicenseRequirements();

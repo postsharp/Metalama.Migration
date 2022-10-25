@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.Serialization;
 
 namespace PostSharp.Reflection
 {
-    [DebuggerNonUserCode]
-    [Serializable]
     public sealed class LocationInfo : IEquatable<LocationInfo>
                                      , ISerializable
 

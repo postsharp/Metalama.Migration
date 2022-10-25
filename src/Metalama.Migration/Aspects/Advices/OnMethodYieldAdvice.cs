@@ -4,6 +4,10 @@ using System;
 
 namespace PostSharp.Aspects.Advices
 {
-    [AttributeUsage( AttributeTargets.Method, AllowMultiple = true, Inherited = true )]
+    /// <summary>
+    /// There is no equivalent to this advice in Metalama and it is currently not possible to build the equivalent feature.
+    /// </summary>
+    [Obsolete( "", true )]
+    [AttributeUsage( AttributeTargets.Method, AllowMultiple = true )]
     public sealed class OnMethodYieldAdvice : OnMethodBoundaryAdvice { }
 }

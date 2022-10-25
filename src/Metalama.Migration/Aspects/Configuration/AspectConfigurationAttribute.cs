@@ -1,12 +1,23 @@
 ﻿using System;
+using Metalama.Framework.Aspects;
 
 namespace PostSharp.Aspects.Configuration
 {
+    /// <summary>
+    /// There is no aspect configuration in Metalama.
+    /// </summary>
     [AttributeUsage( AttributeTargets.Class )]
     public class AspectConfigurationAttribute : Attribute
     {
+        /// <summary>
+        /// There is no numeric aspect priority in Metalama. Use <see cref="AspectOrderAttribute"/>. 
+        /// </summary>
+        /// <seealso href="@ordering"/>
         public int AspectPriority { get; set; }
 
+        /// <summary>
+        /// In Metalama, aspects are also serializable, but for different reasons. Serialization is not configurable.
+        /// </summary>
         public Type SerializerType { get; set; }
 
         protected virtual AspectConfiguration CreateAspectConfiguration()

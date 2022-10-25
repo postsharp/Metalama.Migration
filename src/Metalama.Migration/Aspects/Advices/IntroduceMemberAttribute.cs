@@ -1,11 +1,14 @@
 using System;
+using Metalama.Framework.Aspects;
 using PostSharp.Reflection;
 
 namespace PostSharp.Aspects.Advices
 {
-    [AttributeUsage(
-        AttributeTargets.Event | AttributeTargets.Property | AttributeTargets.Method,
-        AllowMultiple = false )]
+    /// <summary>
+    /// In Metalama, use the <see cref="IntroduceAttribute"/> custom attribute. 
+    /// </summary>
+    /// <seealso href="@introducing-members"/>
+    [AttributeUsage( AttributeTargets.Event | AttributeTargets.Property | AttributeTargets.Method )]
     public sealed class IntroduceMemberAttribute : Advice
     {
         public Visibility Visibility { get; set; }

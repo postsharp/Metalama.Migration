@@ -1,5 +1,8 @@
 namespace PostSharp.Aspects.Dependencies
 {
+    /// <summary>
+    /// Aspect roles are not supported in Metalama.
+    /// </summary>
     public static class StandardRoles
     {
         public const string Validation = "Validation";

@@ -1,14 +1,14 @@
 using System;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using Metalama.Framework.Aspects;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
-using PostSharp.Serialization;
 
 namespace PostSharp.Aspects
 {
-    [Serializable]
+    /// <summary>
+    /// In Metalama, use <see cref="OverrideMethodAspect"/>.
+    /// </summary>
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Constructor |
         AttributeTargets.Event | AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Interface |
@@ -19,42 +19,56 @@ namespace PostSharp.Aspects
         MulticastTargets.Method | MulticastTargets.StaticConstructor | MulticastTargets.InstanceConstructor,
         AllowMultiple = true,
         TargetMemberAttributes = MulticastAttributes.NonAbstract )]
-    [SuppressMessage( "Microsoft.Naming", "CA1710" /* IdentifiersShouldHaveCorrectSuffix */ )]
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
-    [AspectConfigurationAttributeType( typeof(OnMethodBoundaryAspectConfigurationAttribute) )]
-    [Serializer( null )]
     public abstract class OnMethodBoundaryAspect : MethodLevelAspect, IOnStateMachineBoundaryAspect
     {
+        /// <inheritdoc/>
         public virtual void OnEntry( MethodExecutionArgs args ) { }
 
+        /// <inheritdoc/>
         public virtual void OnExit( MethodExecutionArgs args ) { }
 
+        /// <inheritdoc/>
         public virtual void OnSuccess( MethodExecutionArgs args ) { }
 
+        /// <inheritdoc/>
         public virtual void OnException( MethodExecutionArgs args ) { }
 
+        // <summary>
+        /// In Metalama, implement different methods <see cref="OverrideMethodAspect.OverrideMethod"/>, <see cref="OverrideMethodAspect.OverrideAsyncMethod"/>,
+        /// <see cref="OverrideMethodAspect.OverrideEnumerableMethod"/> or <see cref="OverrideMethodAspect.OverrideEnumeratorMethod"/>, and
+        /// set the properties <see cref="OverrideMethodAspect.UseAsyncTemplateForAnyAwaitable"/> or <see cref="OverrideMethodAspect.UseEnumerableTemplateForAnyEnumerable"/>.
+        /// </summary>
         protected SemanticallyAdvisedMethodKinds SemanticallyAdvisedMethodKinds { get; set; }
 
-        // TODO: This property is redundant. Remove in next major version.
+        /// <summary>
+        /// There is no equivalent in Metalama. Unsupported targets will throw an exception.
+        /// </summary>
         public new UnsupportedTargetAction UnsupportedTargetAction
         {
             get => base.UnsupportedTargetAction;
             set => base.UnsupportedTargetAction = value;
         }
 
+        /// <summary>
+        /// Not supported in Metalama.
+        /// </summary>
         protected sealed override AspectConfiguration CreateAspectConfiguration()
         {
             return new OnMethodBoundaryAspectConfiguration();
         }
 
+        /// <inheritdoc/>
         protected override void SetAspectConfiguration( AspectConfiguration aspectConfiguration, MethodBase targetMethod )
         {
             throw new NotImplementedException();
         }
 
+        /// <inheritdoc/>
+        [Obsolete( "", true )]
         public virtual void OnResume( MethodExecutionArgs args ) { }
 
+        /// <inheritdoc/>
+        [Obsolete( "", true )]
         public virtual void OnYield( MethodExecutionArgs args ) { }
     }
 }

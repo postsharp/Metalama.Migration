@@ -4,6 +4,9 @@ using PostSharp.Reflection;
 
 namespace PostSharp.Aspects.Serialization
 {
+    /// <summary>
+    /// Aspect are also serializable in Metalama, but the serializer cannot be customized.
+    /// </summary>
     public sealed class PortableAspectSerializer : AspectSerializer
     {
         public override void Serialize( IAspect[] aspects, Stream stream, IMetadataEmitter metadataEmitter )

@@ -1,5 +1,10 @@
-﻿namespace PostSharp.Aspects
+﻿using Metalama.Framework.Aspects;
+
+namespace PostSharp.Aspects
 {
+    /// <summary>
+    /// Equivalent to <see cref="ContractDirection"/>.
+    /// </summary>
     public enum LocationValidationContext
     {
         None = 0,

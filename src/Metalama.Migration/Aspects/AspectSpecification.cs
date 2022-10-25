@@ -1,11 +1,11 @@
-using System.Diagnostics;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Reflection;
 
 namespace PostSharp.Aspects
 {
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
+    /// <summary>
+    /// There is no equivalent to this class in Metalama.
+    /// </summary>
     public class AspectSpecification
     {
         public AspectConfiguration AspectConfiguration { get; }

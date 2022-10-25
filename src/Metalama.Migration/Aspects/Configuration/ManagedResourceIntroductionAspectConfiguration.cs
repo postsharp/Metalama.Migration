@@ -2,41 +2,19 @@
 
 namespace PostSharp.Aspects.Configuration
 {
+    /// <summary>
+    /// There is no aspect configuration in Metalama.
+    /// </summary>
     public sealed class ManagedResourceIntroductionAspectConfiguration : AspectConfiguration
     {
         public ManagedResourceIntroductionAspectConfiguration( string name, byte[] data )
         {
-            if (string.IsNullOrEmpty( name ))
-            {
-                throw new ArgumentNullException( nameof(name) );
-            }
-
-            if (data == null)
-            {
-                throw new ArgumentNullException( nameof(data) );
-            }
-
-            Name = name;
-#pragma warning disable 618
-            Data = data;
-#pragma warning restore 618
-            DataProvider = () => data;
+            throw new NotImplementedException();
         }
 
         public ManagedResourceIntroductionAspectConfiguration( string name, Func<byte[]> dataProvider )
         {
-            if (string.IsNullOrEmpty( name ))
-            {
-                throw new ArgumentNullException( nameof(name) );
-            }
-
-            if (dataProvider == null)
-            {
-                throw new ArgumentNullException( nameof(dataProvider) );
-            }
-
-            Name = name;
-            DataProvider = dataProvider;
+            throw new NotImplementedException();
         }
 
         public string Name { get; }

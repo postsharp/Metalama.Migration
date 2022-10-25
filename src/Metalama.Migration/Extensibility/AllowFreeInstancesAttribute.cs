@@ -2,7 +2,7 @@
 
 namespace PostSharp.Extensibility
 {
-    [AttributeUsage( AttributeTargets.Class | AttributeTargets.Assembly, AllowMultiple = false )]
+    [AttributeUsage( AttributeTargets.Class | AttributeTargets.Assembly )]
     [Obsolete( "Licensing is now based on hard-coded assembly name." )]
     public sealed class AllowFreeInstancesAttribute : Attribute
     {

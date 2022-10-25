@@ -1,11 +1,12 @@
-using System.Diagnostics;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Reflection;
 
 namespace PostSharp.Aspects
 {
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
+    /// <summary>
+    /// In PostSharp, this class was used with <see cref="IAspectProvider"/>. In Metalama, no additional object is necessary when adding
+    /// an aspect instance. Read-only access to aspect instances is provided through the <see cref="IAspectInstance"/> interface.
+    /// </summary>
     public sealed class AspectInstance : AspectSpecification
     {
         public AspectInstance( object targetElement, IAspect aspect ) { }

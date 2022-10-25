@@ -1,10 +1,8 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace PostSharp.Extensibility
 {
     [Flags]
-    [SuppressMessage( "Microsoft.Usage", "CA2217:DoNotMarkEnumsWithFlags" )]
 #pragma warning disable CA1008 // Enums should have zero value named None.
     public enum MulticastAttributes
     {

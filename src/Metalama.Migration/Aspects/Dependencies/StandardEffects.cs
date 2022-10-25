@@ -1,5 +1,8 @@
 namespace PostSharp.Aspects.Dependencies
 {
+    /// <summary>
+    /// Aspect effects are not supported in Metalama.
+    /// </summary>
     public static class StandardEffects
     {
         public const string MemberImport = "MemberImport";

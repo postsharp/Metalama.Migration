@@ -3,6 +3,9 @@ using PostSharp.Aspects.Advices;
 
 namespace PostSharp.Aspects.Configuration
 {
+    /// <summary>
+    /// There is no aspect configuration in Metalama.
+    /// </summary>
     public sealed class CompositionAspectConfiguration : AspectConfiguration
     {
 #pragma warning disable CA1819 // Properties should not return arrays (TODO)

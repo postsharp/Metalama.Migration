@@ -2,7 +2,10 @@
 
 namespace PostSharp.Aspects
 {
-    [AttributeUsage( AttributeTargets.Class, AllowMultiple = false )]
+    /// <summary>
+    /// This feature is not implemented in Metalama.
+    /// </summary>
+    [AttributeUsage( AttributeTargets.Class )]
     public sealed class LinesOfCodeAvoidedAttribute : Attribute
     {
         public LinesOfCodeAvoidedAttribute( int lines )

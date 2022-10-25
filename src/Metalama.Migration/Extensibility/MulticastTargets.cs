@@ -1,12 +1,10 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 
 #pragma warning disable CA1008 // Enums should have zero value named None.
 
 namespace PostSharp.Extensibility
 {
     [Flags]
-    [SuppressMessage( "Microsoft.Usage", "CA2217:DoNotMarkEnumsWithFlags" )]
     public enum MulticastTargets
     {
         Default = 0,

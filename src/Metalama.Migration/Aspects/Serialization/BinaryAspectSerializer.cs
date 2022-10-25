@@ -1,13 +1,13 @@
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization;
 using PostSharp.Reflection;
 
 namespace PostSharp.Aspects.Serialization
 {
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
+    /// <summary>
+    /// Aspect are also serializable in Metalama, but the serializer cannot be customized.
+    /// </summary>
     public class BinaryAspectSerializer : AspectSerializer
     {
         protected override IAspect[] Deserialize( Stream stream, IMetadataDispenser metadataDispenser )

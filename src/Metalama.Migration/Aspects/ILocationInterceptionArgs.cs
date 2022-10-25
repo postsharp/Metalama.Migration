@@ -1,44 +1,105 @@
-using System.Diagnostics;
+using Metalama.Framework.Aspects;
+using Metalama.Framework.Code;
+using Metalama.Framework.Code.Advised;
+using Metalama.Framework.Code.SyntaxBuilders;
 using PostSharp.Reflection;
 
 namespace PostSharp.Aspects
 {
+    /// <summary>
+    /// In PostSharp, this interface exposed the run-time execution context to a location interception advice. However, in Metalama, advice do not execute at run time.
+    /// Instead, advice are templates that generate run-time code. This run-time code does not need helper objects to represent the execution context.
+    /// </summary>
     public interface ILocationInterceptionArgs
     {
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.
+        /// </summary>
         ILocationBinding Binding { get; }
 
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Parameters"/>.<see cref="IAdvisedParameterList.Values"/>, but in case of the setter,
+        /// this will also contain the <c>value</c>.
+        /// </summary>
         Arguments Index { get; }
 
+        /// <summary>
+        /// In the get override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
+        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// </summary>
         void ProceedGetValue();
 
+        /// <summary>
+        /// In the set override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
+        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// </summary>
         void ProceedSetValue();
 
+        /// <summary>
+        /// In the get override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
+        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// </summary>
         object GetCurrentValue();
 
+        /// <summary>
+        /// In the set override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
+        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// </summary>
         void SetNewValue( object value );
 
+        /// <summary>
+        /// No equivalent in Metalama.
+        /// </summary>
         void Execute<TPayload>( ILocationInterceptionArgsAction<TPayload> action, ref TPayload payload );
 
+        /// <summary>
+        /// In PostSharp, this property is set when <see cref="ProceedGetValue"/> is called. It is not necessary on Metalama.
+        /// </summary>
         object Value { get; set; }
 
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.
+        /// </summary>
         LocationInfo Location { get; set; }
 
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="INamedDeclaration.Name"/>.
+        /// </summary>
         string LocationName { get; set; }
 
+        /// <summary>
+        /// Not implemented in Metalama.
+        /// </summary>
         string LocationFullName { get; set; }
 
-        [DebuggerNonUserCode]
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.This"/>.
+        /// </summary>
         object Instance { get; }
     }
 
     public interface ILocationInterceptionArgs<T> : ILocationInterceptionArgs
     {
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.
+        /// </summary>
         new ILocationBinding<T> Binding { get; }
 
+        /// <summary>
+        /// In PostSharp, this property is set when <see cref="ILocationInterceptionArgs.ProceedGetValue"/> is called. It is not necessary on Metalama.
+        /// </summary>
         new T Value { get; set; }
 
+        /// <summary>
+        /// In the get override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
+        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// </summary>
         new T GetCurrentValue();
 
+        /// <summary>
+        /// In the set override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
+        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// </summary>
         void SetNewValue( T value );
     }
 }

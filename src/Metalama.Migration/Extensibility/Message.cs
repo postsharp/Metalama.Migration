@@ -4,7 +4,6 @@ using PostSharp.Reflection;
 
 namespace PostSharp.Extensibility
 {
-    [Serializable]
     public sealed class Message
     {
         #region Fields

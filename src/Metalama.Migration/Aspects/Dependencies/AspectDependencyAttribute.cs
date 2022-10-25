@@ -1,8 +1,13 @@
 using System;
+using Metalama.Framework.Aspects;
 
 namespace PostSharp.Aspects.Dependencies
 {
-    [AttributeUsage( AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Assembly, AllowMultiple = true, Inherited = true )]
+    /// <summary>
+    /// In Metalama, use <see cref="AspectOrderAttribute"/> to specify order dependencies (typically one attribute per aspect library).
+    /// The other kinds of dependencies are not supported in Metalama.
+    /// </summary>
+    [AttributeUsage( AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Assembly, AllowMultiple = true )]
     public abstract class AspectDependencyAttribute : Attribute
     {
         protected AspectDependencyAttribute( AspectDependencyAction action )

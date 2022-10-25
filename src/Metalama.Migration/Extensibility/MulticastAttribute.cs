@@ -1,11 +1,7 @@
 using System;
-using PostSharp.Aspects.Serialization;
-using PostSharp.Serialization;
 
 namespace PostSharp.Extensibility
 {
-    [Serializable]
-    [Serializer( null )]
     public abstract class MulticastAttribute : Attribute
     {
         [AspectSerializerIgnore]

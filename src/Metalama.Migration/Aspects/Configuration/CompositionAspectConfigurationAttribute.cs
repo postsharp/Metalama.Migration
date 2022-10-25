@@ -3,6 +3,9 @@ using PostSharp.Aspects.Advices;
 
 namespace PostSharp.Aspects.Configuration
 {
+    /// <summary>
+    /// There is no aspect configuration in Metalama.
+    /// </summary>
     public sealed class CompositionAspectConfigurationAttribute : AspectConfigurationAttribute
     {
         public string[] PublicInterfaces { get; set; }

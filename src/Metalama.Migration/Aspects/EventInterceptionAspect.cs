@@ -1,38 +1,44 @@
 using System;
-using System.Diagnostics;
+using Metalama.Framework.Aspects;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
-using PostSharp.Serialization;
 
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
 namespace PostSharp.Aspects
 {
-    [Serializable]
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
+    /// <summary>
+    /// In Metalama, use <see cref="OverrideEventAspect"/>. Overriding aspect invocation is not yet implemented in Metalama. There is currently no workaround.
+    /// </summary>
     [MulticastAttributeUsage( MulticastTargets.Event, AllowMultiple = true, PersistMetaData = false, TargetMemberAttributes = MulticastAttributes.NonAbstract )]
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Event | AttributeTargets.Struct,
         AllowMultiple = true )]
-    [AspectConfigurationAttributeType( typeof(EventInterceptionAspectConfigurationAttribute) )]
-    [Serializer( null )]
     public abstract class EventInterceptionAspect : EventLevelAspect, IEventInterceptionAspect
-
     {
+        /// <summary>
+        /// Use <see cref="OverrideEventAspect.OverrideAdd"/>.
+        /// </summary>
         public virtual void OnAddHandler( EventInterceptionArgs args )
         {
-            args.ProceedAddHandler();
+            throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Use <see cref="OverrideEventAspect.OverrideRemove"/>.
+        /// </summary>
         public virtual void OnRemoveHandler( EventInterceptionArgs args )
         {
-            args.ProceedRemoveHandler();
+            throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Overriding aspect invocation is not yet implemented in Metalama. There is currently no workaround.
+        /// </summary>
+        [Obsolete( "", true )]
         public virtual void OnInvokeHandler( EventInterceptionArgs args )
         {
-            args.ProceedInvokeHandler();
+            throw new NotImplementedException();
         }
 
         protected override AspectConfiguration CreateAspectConfiguration()

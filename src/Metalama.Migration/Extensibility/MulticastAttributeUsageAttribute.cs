@@ -2,7 +2,7 @@ using System;
 
 namespace PostSharp.Extensibility
 {
-    [AttributeUsage( AttributeTargets.Class, AllowMultiple = false, Inherited = true )]
+    [AttributeUsage( AttributeTargets.Class )]
     public sealed class MulticastAttributeUsageAttribute : Attribute
     {
         public MulticastAttributeUsageAttribute( MulticastTargets validOn )

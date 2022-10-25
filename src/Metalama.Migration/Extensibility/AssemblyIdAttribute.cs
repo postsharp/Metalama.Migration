@@ -4,7 +4,7 @@ using System;
 
 namespace PostSharp.Extensibility
 {
-    [AttributeUsage( AttributeTargets.Assembly, AllowMultiple = false, Inherited = false )]
+    [AttributeUsage( AttributeTargets.Assembly )]
     public sealed class AssemblyIdAttribute : Attribute
     {
         public AssemblyIdAttribute( int id )

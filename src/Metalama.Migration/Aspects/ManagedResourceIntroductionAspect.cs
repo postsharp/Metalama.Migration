@@ -4,6 +4,10 @@ using PostSharp.Extensibility;
 
 namespace PostSharp.Aspects
 {
+    /// <summary>
+    /// Not implemented in Metalama.
+    /// </summary>
+    [Obsolete( "", true )]
     public sealed class ManagedResourceIntroductionAspect : IManagedResourceIntroductionAspect, IAspectBuildSemantics
     {
         public ManagedResourceIntroductionAspect( string name, byte[] data )
@@ -47,6 +51,7 @@ namespace PostSharp.Aspects
 
         public Func<byte[]> DataProvider { get; }
 
+        /// <inheritdoc/>
         bool IValidableAnnotation.CompileTimeValidate( object target ) => true;
 
         AspectConfiguration IAspectBuildSemantics.GetAspectConfiguration( object targetElement )

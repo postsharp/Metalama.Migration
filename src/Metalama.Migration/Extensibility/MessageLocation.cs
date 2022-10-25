@@ -5,7 +5,6 @@ using PostSharp.Reflection.MethodBody;
 
 namespace PostSharp.Extensibility
 {
-    [Serializable]
     public class MessageLocation
     {
         [NonSerialized]

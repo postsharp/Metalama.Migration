@@ -1,5 +1,8 @@
 ﻿namespace PostSharp.Aspects
 {
+    /// <summary>
+    /// No equivalent in Metalama.
+    /// </summary>
     public sealed class NullTaskSentinel
     {
         static NullTaskSentinel()

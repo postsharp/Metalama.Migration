@@ -2,6 +2,9 @@ using System;
 
 namespace PostSharp.Aspects.Dependencies
 {
+    /// <summary>
+    /// Aspect roles are not supported in Metalama.
+    /// </summary>
     [AttributeUsage( AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true )]
     public sealed class ProvideAspectRoleAttribute : AspectDependencyAttribute
     {

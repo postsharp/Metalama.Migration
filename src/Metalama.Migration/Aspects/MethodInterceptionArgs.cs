@@ -1,32 +1,65 @@
-using System.Diagnostics;
 using System.Reflection;
+using Metalama.Framework.Aspects;
+using Metalama.Framework.Code.Advised;
 
 #pragma warning disable CA2227 // Collection properties should be read only
 
 namespace PostSharp.Aspects
 {
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
+    /// <summary>
+    /// In PostSharp, this object exposed the run-time execution context to the advice. However, in Metalama, advice do not execute at run time.
+    /// Instead, advice are templates that generate run-time code. This run-time code does not need helper objects to represent the execution context.
+    /// </summary>
     public abstract class MethodInterceptionArgs : AdviceArgs
     {
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.
+        /// </summary>
         public abstract IMethodBinding Binding { get; }
 
+        /// <summary>
+        /// When you call <see cref="meta"/>.<see cref="meta.Proceed"/>, store the return value in a local variable.
+        /// </summary>
         public abstract object ReturnValue { get; set; }
 
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.
+        /// </summary>
         public MethodBase Method { get; set; }
 
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Parameters"/>.<see cref="IAdvisedParameterList.Values"/>.
+        /// </summary>
         public Arguments Arguments { get; protected set; }
 
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.Proceed"/>.
+        /// </summary>
         public abstract void Proceed();
 
+        /// <summary>
+        /// Use  <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.<see cref="IAdvisedMethod.Invoke"/>.
+        /// </summary>
         public abstract object Invoke( Arguments arguments );
 
+        /// <summary>
+        /// Currently not exposed in the Metalama API.
+        /// </summary>
         public abstract bool IsAsync { get; }
 
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.
+        /// </summary>
         public abstract IAsyncMethodBinding AsyncBinding { get; }
 
+        /// <summary>
+        /// Use <see cref="meta"/>.<see cref="meta.ProceedAsync"/>.
+        /// </summary>
         public abstract MethodInterceptionProceedAwaitable ProceedAsync();
 
+        /// <summary>
+        /// Use  <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.<see cref="IAdvisedMethod.Invoke"/>.
+        /// </summary>
         public abstract MethodBindingInvokeAwaitable InvokeAsync( Arguments arguments );
     }
 }

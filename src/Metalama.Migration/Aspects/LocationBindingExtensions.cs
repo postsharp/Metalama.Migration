@@ -2,8 +2,6 @@
 
 namespace PostSharp.Aspects
 {
-    // TODO: Create a profile that targets .NET 3.5 so we can use the 'this' keyword for the first parameter.
-
     public static class LocationBindingExtensions
     {
         public static object GetValue( this ILocationBinding locationBinding, object instance, Arguments index )

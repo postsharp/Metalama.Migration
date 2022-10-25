@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Diagnostics;
+using Metalama.Framework.Aspects;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
-using PostSharp.Serialization;
 
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
 namespace PostSharp.Aspects
 {
-    [Serializable]
+    /// <summary>
+    /// In Metalama, use <see cref="OverrideMethodAspect"/>.
+    /// </summary>
     [MulticastAttributeUsage(
         MulticastTargets.Method,
         AllowMultiple = false,
@@ -20,13 +21,14 @@ namespace PostSharp.Aspects
         AttributeTargets.Property |
         AttributeTargets.Event | AttributeTargets.Struct,
         AllowMultiple = true )]
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
-    [Serializer( null )]
     public abstract class MethodImplementationAspect : MethodLevelAspect, IMethodInterceptionAspect
     {
+        /// <summary>
+        /// In Metalama, override <see cref="OverrideMethodAspect.OverrideMethod"/>.
+        /// </summary>
         public abstract void OnInvoke( MethodInterceptionArgs args );
 
+        /// <inheritdoc/>
         protected override AspectConfiguration CreateAspectConfiguration()
         {
             return new MethodInterceptionAspectConfiguration();

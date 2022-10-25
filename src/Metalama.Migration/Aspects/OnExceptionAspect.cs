@@ -1,14 +1,14 @@
 using System;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using Metalama.Framework.Aspects;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
-using PostSharp.Serialization;
 
 namespace PostSharp.Aspects
 {
-    [Serializable]
+    /// <summary>
+    /// In Metalama, use <see cref="OverrideMethodAspect"/> and write your own try/catch block.
+    /// </summary>
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Constructor |
         AttributeTargets.Event | AttributeTargets.Method | AttributeTargets.Property |
@@ -21,34 +21,44 @@ namespace PostSharp.Aspects
             MulticastAttributes.NonAbstract | MulticastAttributes.AnyScope | MulticastAttributes.AnyVisibility |
             MulticastAttributes.Managed,
         AllowMultiple = true )]
-    [SuppressMessage( "Microsoft.Naming", "CA1710" /* IdentifiersShouldHaveCorrectSuffix */ )]
-    [DebuggerStepThrough]
-    [DebuggerNonUserCode]
-    [AspectConfigurationAttributeType( typeof(OnExceptionAspectConfigurationAttribute) )]
-    [Serializer( null )]
     public abstract class OnExceptionAspect : MethodLevelAspect, IOnExceptionAspect
     {
+        /// <inheritdoc/>
         public virtual void OnException( MethodExecutionArgs args ) { }
 
+        /// <summary>
+        /// In Metalama, implement different methods <see cref="OverrideMethodAspect.OverrideMethod"/>, <see cref="OverrideMethodAspect.OverrideAsyncMethod"/>,
+        /// <see cref="OverrideMethodAspect.OverrideEnumerableMethod"/> or <see cref="OverrideMethodAspect.OverrideEnumeratorMethod"/>, and
+        /// set the properties <see cref="OverrideMethodAspect.UseAsyncTemplateForAnyAwaitable"/> or <see cref="OverrideMethodAspect.UseEnumerableTemplateForAnyEnumerable"/>.
+        /// </summary>
         protected SemanticallyAdvisedMethodKinds SemanticallyAdvisedMethodKinds { get; set; }
 
-        // TODO: This property is redundant. Remove in next major version.
+        /// <summary>
+        /// There is no equivalent in Metalama. Unsupported targets will throw an exception.
+        /// </summary>
         public new UnsupportedTargetAction UnsupportedTargetAction
         {
             get => base.UnsupportedTargetAction;
             set => base.UnsupportedTargetAction = value;
         }
 
+        /// <summary>
+        /// There is no equivalent in Metalama because you write your own try/catch code in the template.
+        /// </summary>
         public virtual Type GetExceptionType( MethodBase targetMethod )
         {
             return null;
         }
 
+        /// <summary>
+        /// No equivalent in Metalama.
+        /// </summary>
         protected sealed override AspectConfiguration CreateAspectConfiguration()
         {
             return new OnExceptionAspectConfiguration();
         }
 
+        /// <inheritdoc/>
         protected override void SetAspectConfiguration( AspectConfiguration aspectConfiguration, MethodBase targetMethod )
         {
             throw new NotImplementedException();
