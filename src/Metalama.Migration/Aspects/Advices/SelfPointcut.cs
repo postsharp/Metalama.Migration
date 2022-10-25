@@ -11,7 +11,5 @@ namespace PostSharp.Aspects.Advices
     /// <include file = "../Documentation.xml" path = "/documentation/section[@name='seeAlsoAddBehaviorsToMembers']/*" />
     /// <remarks>
     /// </remarks>
-    public sealed class SelfPointcut : Pointcut
-    {
-    }
+    public sealed class SelfPointcut : Pointcut { }
 }

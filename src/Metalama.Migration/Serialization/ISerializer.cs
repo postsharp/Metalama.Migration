@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using PostSharp.Constraints;
 
 namespace PostSharp.Serialization
@@ -23,7 +20,7 @@ namespace PostSharp.Serialization
         ///             not equal to the deserialization-time. The current method is invoked
         /// at deserialization time to perform the conversion.</para>
         /// </remarks>
-        object Convert(object value, Type targetType);
+        object Convert( object value, Type targetType );
 
         /// <summary>
         /// Creates an instance of the given type.
@@ -47,7 +44,6 @@ namespace PostSharp.Serialization
         /// </remarks>
         void DeserializeFields( ref object obj, IArgumentsReader initializationArguments );
 
-
         /// <summary>
         /// Serializes an object
         /// </summary>
@@ -62,6 +58,4 @@ namespace PostSharp.Serialization
         /// </summary>
         bool IsTwoPhase { get; }
     }
-
-  
 }

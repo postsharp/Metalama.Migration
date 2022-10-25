@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Reflection.MethodBody
@@ -8,7 +5,7 @@ namespace PostSharp.Reflection.MethodBody
     /// <summary>
     /// Represents an exception handler (either <c>catch</c>, <c>finally</c> or <c>filter</c>) attached to a block.
     /// </summary>
-    public interface IExceptionHandler 
+    public interface IExceptionHandler
     {
         /// <summary>
         /// Gets the type of handled exception, or <c>null</c> if all exceptions are handled.
@@ -46,4 +43,3 @@ namespace PostSharp.Reflection.MethodBody
         ExceptionHandlerKind ExceptionHandlerKind { get; }
     }
 }
-

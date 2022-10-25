@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 
 namespace PostSharp.Aspects.Configuration
 {
@@ -13,7 +10,6 @@ namespace PostSharp.Aspects.Configuration
     /// <include file = "../Documentation.xml" path = "/documentation/section[@name='seeAlsoConfiguringAspects']/*" />
     public sealed class OnExceptionAspectConfiguration : AspectConfiguration
     {
-
         /// <summary>
         ///   Gets or sets the type of exceptions that are caught by this aspect.
         /// </summary>

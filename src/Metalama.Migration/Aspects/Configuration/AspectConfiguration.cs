@@ -1,12 +1,7 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using PostSharp.Aspects.Dependencies;
+﻿using PostSharp.Aspects.Dependencies;
 using PostSharp.Aspects.Serialization;
 
 #pragma warning disable CA2227 // Collection properties should be read only
-
 
 namespace PostSharp.Aspects.Configuration
 {

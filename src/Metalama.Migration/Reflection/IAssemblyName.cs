@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using PostSharp.Constraints;
 using PostSharp.Extensibility;
@@ -77,16 +74,13 @@ namespace PostSharp.Reflection
         /// Gets the <see cref="BindingContext"/> in which the assembly name is valid.
         /// </summary>
         BindingContext BindingContext { get; }
-
     }
-
 
     /// <summary>
     /// Processor architectures of an assembly.
     /// </summary>
     public enum AssemblyProcessorArchitecture
     {
-
         /// <summary>
         /// None (or not set).
         /// </summary>
@@ -122,8 +116,4 @@ namespace PostSharp.Reflection
         /// </summary>
         NoPlatform = 0x0007
     }
-
-    
-
 }
-

@@ -5,6 +5,7 @@
 // To transform, run this: "C:\Program Files (x86)\Common Files\Microsoft Shared\TextTemplating\14.0\TextTransform.exe" BuildTimeLogger.Generated.tt
 // The transformation is not automatic because we are in a shared project.
 
+using System;
 
 
 namespace PostSharp.Extensibility.BuildTimeLogging
@@ -22,8 +23,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg1">Value of the 1-th parameter.</param>
 			public void Write<T1>( string format, T1 arg1 )
 		{
-			string message = SafeStringFormat( format, arg1 );
-			this.InternalWrite( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -34,8 +34,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg1">Value of the 1-th parameter.</param>
 			public void WriteLine<T1>( string format, T1 arg1 )
 		{
-			string message = SafeStringFormat( format, arg1 );
-			this.InternalWriteLine( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -48,8 +47,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg1">Value of the 1-th parameter.</param>
 			public BuildTimeLogActivity Activity<T1>( string format, T1 arg1 )
 		{
-			string message = SafeStringFormat( format, arg1 );
-			return this.Activity( message );
+			throw new NotImplementedException();
 		}
 
 			/// <summary>
@@ -63,8 +61,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg2">Value of the 2-th parameter.</param>
 			public void Write<T1, T2>( string format, T1 arg1, T2 arg2 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2 );
-			this.InternalWrite( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -77,8 +74,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg2">Value of the 2-th parameter.</param>
 			public void WriteLine<T1, T2>( string format, T1 arg1, T2 arg2 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2 );
-			this.InternalWriteLine( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -93,8 +89,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg2">Value of the 2-th parameter.</param>
 			public BuildTimeLogActivity Activity<T1, T2>( string format, T1 arg1, T2 arg2 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2 );
-			return this.Activity( message );
+			throw new NotImplementedException();
 		}
 
 			/// <summary>
@@ -110,8 +105,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg3">Value of the 3-th parameter.</param>
 			public void Write<T1, T2, T3>( string format, T1 arg1, T2 arg2, T3 arg3 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3 );
-			this.InternalWrite( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -126,8 +120,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg3">Value of the 3-th parameter.</param>
 			public void WriteLine<T1, T2, T3>( string format, T1 arg1, T2 arg2, T3 arg3 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3 );
-			this.InternalWriteLine( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -144,8 +137,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg3">Value of the 3-th parameter.</param>
 			public BuildTimeLogActivity Activity<T1, T2, T3>( string format, T1 arg1, T2 arg2, T3 arg3 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3 );
-			return this.Activity( message );
+			throw new NotImplementedException();
 		}
 
 			/// <summary>
@@ -163,8 +155,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg4">Value of the 4-th parameter.</param>
 			public void Write<T1, T2, T3, T4>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4 );
-			this.InternalWrite( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -181,8 +172,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg4">Value of the 4-th parameter.</param>
 			public void WriteLine<T1, T2, T3, T4>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4 );
-			this.InternalWriteLine( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -201,8 +191,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg4">Value of the 4-th parameter.</param>
 			public BuildTimeLogActivity Activity<T1, T2, T3, T4>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4 );
-			return this.Activity( message );
+			throw new NotImplementedException();
 		}
 
 			/// <summary>
@@ -222,8 +211,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg5">Value of the 5-th parameter.</param>
 			public void Write<T1, T2, T3, T4, T5>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4, arg5 );
-			this.InternalWrite( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -242,8 +230,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg5">Value of the 5-th parameter.</param>
 			public void WriteLine<T1, T2, T3, T4, T5>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4, arg5 );
-			this.InternalWriteLine( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -264,8 +251,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg5">Value of the 5-th parameter.</param>
 			public BuildTimeLogActivity Activity<T1, T2, T3, T4, T5>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4, arg5 );
-			return this.Activity( message );
+			throw new NotImplementedException();
 		}
 
 			/// <summary>
@@ -287,8 +273,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg6">Value of the 6-th parameter.</param>
 			public void Write<T1, T2, T3, T4, T5, T6>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4, arg5, arg6 );
-			this.InternalWrite( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -309,8 +294,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg6">Value of the 6-th parameter.</param>
 			public void WriteLine<T1, T2, T3, T4, T5, T6>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4, arg5, arg6 );
-			this.InternalWriteLine( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -333,8 +317,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg6">Value of the 6-th parameter.</param>
 			public BuildTimeLogActivity Activity<T1, T2, T3, T4, T5, T6>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4, arg5, arg6 );
-			return this.Activity( message );
+			throw new NotImplementedException();
 		}
 
 			/// <summary>
@@ -358,8 +341,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg7">Value of the 7-th parameter.</param>
 			public void Write<T1, T2, T3, T4, T5, T6, T7>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4, arg5, arg6, arg7 );
-			this.InternalWrite( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -382,8 +364,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg7">Value of the 7-th parameter.</param>
 			public void WriteLine<T1, T2, T3, T4, T5, T6, T7>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4, arg5, arg6, arg7 );
-			this.InternalWriteLine( message );
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -408,8 +389,7 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 		/// <param name="arg7">Value of the 7-th parameter.</param>
 			public BuildTimeLogActivity Activity<T1, T2, T3, T4, T5, T6, T7>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7 )
 		{
-			string message = SafeStringFormat( format, arg1, arg2, arg3, arg4, arg5, arg6, arg7 );
-			return this.Activity( message );
+			throw new NotImplementedException();
 		}
 
 	

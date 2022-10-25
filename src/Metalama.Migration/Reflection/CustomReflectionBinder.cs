@@ -1,8 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-#if LEGACY_REFLECTION_API
-
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -19,24 +14,29 @@ namespace PostSharp.Reflection
         /// <summary>
         ///   Singleton instance.
         /// </summary>
-        [SuppressMessage( "Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes" )] public static readonly CustomReflectionBinder Instance =
-            new CustomReflectionBinder();
-
-        private CustomReflectionBinder()
-        {
-        }
+        [SuppressMessage( "Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes" )]
+        public static readonly CustomReflectionBinder Instance =
+            new();
 
         /// <inheritdoc />
-        public override FieldInfo BindToField( BindingFlags bindingFlags, FieldInfo[] match, object value,
-                                               CultureInfo culture )
+        public override FieldInfo BindToField(
+            BindingFlags bindingFlags,
+            FieldInfo[] match,
+            object value,
+            CultureInfo culture )
         {
             throw new NotImplementedException();
         }
 
         /// <inheritdoc />
-        public override MethodBase BindToMethod( BindingFlags bindingFlags, MethodBase[] match, ref object[] args,
-                                                 ParameterModifier[] modifiers, CultureInfo culture, string[] names,
-                                                 out object state )
+        public override MethodBase BindToMethod(
+            BindingFlags bindingFlags,
+            MethodBase[] match,
+            ref object[] args,
+            ParameterModifier[] modifiers,
+            CultureInfo culture,
+            string[] names,
+            out object state )
         {
             throw new NotImplementedException();
         }
@@ -54,36 +54,41 @@ namespace PostSharp.Reflection
         }
 
         /// <inheritdoc />
-        public override MethodBase SelectMethod( BindingFlags bindingFlags, MethodBase[] match, Type[] types,
-                                                 ParameterModifier[] modifiers )
+        public override MethodBase SelectMethod(
+            BindingFlags bindingFlags,
+            MethodBase[] match,
+            Type[] types,
+            ParameterModifier[] modifiers )
         {
             MethodBase selectedMethod = null;
 
-            foreach ( MethodBase candidate in match )
+            foreach (var candidate in match)
             {
-                ParameterInfo[] candidateParameters = candidate.GetParameters();
+                var candidateParameters = candidate.GetParameters();
 
-                if ( candidateParameters.Length != types.Length )
+                if (candidateParameters.Length != types.Length)
                 {
                     continue;
                 }
 
-                bool isMatch = true;
-                for ( int i = 0; i < candidateParameters.Length; i++ )
+                var isMatch = true;
+
+                for (var i = 0; i < candidateParameters.Length; i++)
                 {
-                    if ( !ReflectionTypeComparer.GetInstance().Equals( candidateParameters[i].ParameterType, types[i] ) )
+                    if (!ReflectionTypeComparer.GetInstance().Equals( candidateParameters[i].ParameterType, types[i] ))
                     {
                         isMatch = false;
+
                         break;
                     }
                 }
 
-                if ( !isMatch )
+                if (!isMatch)
                 {
                     continue;
                 }
 
-                if ( selectedMethod != null )
+                if (selectedMethod != null)
                 {
                     throw new AmbiguousMatchException();
                 }
@@ -95,12 +100,14 @@ namespace PostSharp.Reflection
         }
 
         /// <inheritdoc />
-        public override PropertyInfo SelectProperty( BindingFlags bindingFlags, PropertyInfo[] match, Type returnType,
-                                                     Type[] indexes, ParameterModifier[] modifiers )
+        public override PropertyInfo SelectProperty(
+            BindingFlags bindingFlags,
+            PropertyInfo[] match,
+            Type returnType,
+            Type[] indexes,
+            ParameterModifier[] modifiers )
         {
             throw new NotImplementedException();
         }
     }
 }
-
-#endif

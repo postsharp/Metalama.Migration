@@ -1,11 +1,7 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using PostSharp.Aspects.Advices;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Aspects.Serialization;
@@ -28,24 +24,14 @@ namespace PostSharp.Aspects
     /// <br/>
     /// <include file="Documentation.xml" path="/documentation/section[@name='aspectSerialization']/*"/>
     /// </remarks>
-
-#if SERIALIZABLE
     [Serializable]
-#endif
     [SuppressMessage( "Microsoft.Naming", "CA1710" /* IdentifiersShouldHaveCorrectSuffix */ )]
     [DebuggerStepThrough]
     [DebuggerNonUserCode]
     [AspectConfigurationAttributeType( typeof(AspectConfigurationAttribute) )]
-    [Serializer(null)]
+    [Serializer( null )]
     public abstract class Aspect : MulticastAttribute, IAspect, IAspectBuildSemantics
     {
-#if SERIALIZABLE
-        [NonSerialized]
-#endif
-        [PNonSerialized]
-        private int? aspectPriority;
-
-
         /// <summary>
         ///   Gets or sets the weaving priority of the aspect.
         /// </summary>
@@ -62,18 +48,7 @@ namespace PostSharp.Aspects
         ///     influences the multicasting process.</para>
         /// </remarks>
         /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoAspectDependencies']/*" />
-        public int AspectPriority
-        {
-            get { return this.aspectPriority ?? 0; }
-            set { this.aspectPriority = value; }
-        }
-
-#if SERIALIZABLE
-        [NonSerialized] 
-#endif
-        [PNonSerialized]
-        private Type serializerType;
-
+        public int AspectPriority { get; set; }
 
         /// <summary>
         ///   Gets or sets the <see cref = "Type" /> of the serializer (a type derived
@@ -81,17 +56,7 @@ namespace PostSharp.Aspects
         ///   at build time and deserialize it at runtime.
         /// </summary>
         /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoAspectSerialization']/*" />
-        protected Type SerializerType
-        {
-            get { return this.serializerType; }
-            set { this.serializerType = value; }
-        }
-
-        [PNonSerialized]
-#if SERIALIZABLE
-        [NonSerialized]
-#endif
-        private UnsupportedTargetAction? unsupportedTargetAction;
+        protected Type SerializerType { get; set; }
 
         /// <summary>
         /// Specifies the action to take when the aspect is applied to an unsupported target element.  This property affects only simple aspects, not composite aspects. 
@@ -99,16 +64,12 @@ namespace PostSharp.Aspects
         /// <remarks>
         /// This property only affects the built-in advices of the simple aspect classes, not advices of composite aspects. See <see href="custom-aspects.htm" target="_self">the conceptual documentation</see> for details.  For composite aspects, use the <c>UnsupportedTargetAction</c> property of the advice custom attribute, e.g. <see cref="OnMethodBoundaryAdvice.UnsupportedTargetAction"/>.
         /// </remarks>
-        public UnsupportedTargetAction UnsupportedTargetAction
-        {
-            get { return this.unsupportedTargetAction.GetValueOrDefault( UnsupportedTargetAction.Default ); }
-            set { this.unsupportedTargetAction = value; }
-        }
+        public UnsupportedTargetAction UnsupportedTargetAction { get; set; }
 
         /// <inheritdoc />
         bool IValidableAnnotation.CompileTimeValidate( object target )
         {
-            return this.CompileTimeValidate( target );
+            return CompileTimeValidate( target );
         }
 
         /// <summary>
@@ -147,13 +108,7 @@ namespace PostSharp.Aspects
         /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoConfiguringAspects']/*" />
         protected virtual void SetAspectConfiguration( AspectConfiguration aspectConfiguration, object targetElement )
         {
-            aspectConfiguration.AspectPriority = this.aspectPriority;
-            aspectConfiguration.SerializerType = TypeIdentity.FromType( this.serializerType );
-            
-            if ( this.unsupportedTargetAction.HasValue )
-            {
-                aspectConfiguration.UnsupportedTargetAction = this.unsupportedTargetAction;
-            }
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -173,14 +128,8 @@ namespace PostSharp.Aspects
         /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoConfiguringAspects']/*" />
         public AspectConfiguration GetAspectConfiguration( object targetElement )
         {
-            AspectConfiguration aspectConfiguration = this.CreateAspectConfiguration();
-            if ( aspectConfiguration != null )
-            {
-                this.SetAspectConfiguration( aspectConfiguration, targetElement );
-            }
-            return aspectConfiguration;
+            throw new NotImplementedException();
         }
-
 
         /// <summary>
         ///   Method invoked at build time to ensure that the aspect has been applied to the right target.
@@ -200,8 +149,5 @@ namespace PostSharp.Aspects
         {
             return true;
         }
-
-
-        internal const string XmlNamespace = "http://schemas.postsharp.net/2.0/aspects";
     }
 }

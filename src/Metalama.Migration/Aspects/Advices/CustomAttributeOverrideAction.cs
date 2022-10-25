@@ -1,5 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
 namespace PostSharp.Aspects.Advices
 {
     /// <summary>
@@ -13,15 +11,18 @@ namespace PostSharp.Aspects.Advices
         ///   Default (<see cref = "Fail" />).
         /// </summary>
         Default,
+
         /// <summary>
         ///   Emits an error message.
         /// </summary>
         Fail = Default,
+
         /// <summary>
         ///   Silently ignore this custom attribute (does not copy it, without
         ///   error message).
         /// </summary>
         Ignore,
+
         /// <summary>
         ///   Adds a new copy (possibly duplicate) of the custom attribute.
         /// </summary>

@@ -1,11 +1,7 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Diagnostics;
 using System.Reflection;
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
 using PostSharp.Extensibility;
 using PostSharp.Serialization;
 
@@ -22,28 +18,25 @@ namespace PostSharp.Aspects
     /// <include file="Documentation.xml" path="/documentation/section[@name='aspectSerialization']/*"/>
     /// </remarks>
     /// <seealso cref="IEventLevelAspect"/>
-#if SERIALIZABLE
     [Serializable]
-#endif
-    [MulticastAttributeUsage( MulticastTargets.Event, AllowExternalAssemblies = false,
+    [MulticastAttributeUsage(
+        MulticastTargets.Event,
+        AllowExternalAssemblies = false,
         AllowMultiple = true )]
-    [AttributeUsage( AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Event, AllowMultiple = true,
+    [AttributeUsage(
+        AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Event,
+        AllowMultiple = true,
         Inherited = false )]
     [DebuggerStepThrough]
     [DebuggerNonUserCode]
-    [Serializer(null)]
+    [Serializer( null )]
     public abstract class EventLevelAspect : Aspect, IEventLevelAspect, IEventLevelAspectBuildSemantics
     {
         /// <inheritdoc />
-        [RuntimeInitializeOptimization( RuntimeInitializeOptimizations.Ignore )]
-        public virtual void RuntimeInitialize( EventInfo eventInfo )
-        {
-        }
+        public virtual void RuntimeInitialize( EventInfo eventInfo ) { }
 
         /// <inheritdoc />
-        public virtual void CompileTimeInitialize( EventInfo targetEvent, AspectInfo aspectInfo )
-        {
-        }
+        public virtual void CompileTimeInitialize( EventInfo targetEvent, AspectInfo aspectInfo ) { }
 
         /// <summary>
         ///   Method invoked at build time to ensure that the aspect has been applied to the right target.
@@ -62,7 +55,6 @@ namespace PostSharp.Aspects
             return true;
         }
 
-
         /// <summary>
         ///   Method invoked at build time to set up an <see cref = "AspectConfiguration" /> object according to the current 
         ///   <see cref = "Aspect" /> instance and a specified target element of the current aspect.
@@ -76,24 +68,21 @@ namespace PostSharp.Aspects
         ///     <see cref = "AspectConfiguration" />.</para>
         /// </remarks>
         /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoConfiguringAspects']/*" />
-        protected virtual void SetAspectConfiguration( AspectConfiguration aspectConfiguration, EventInfo targetEvent )
-        {
-        }
+        protected virtual void SetAspectConfiguration( AspectConfiguration aspectConfiguration, EventInfo targetEvent ) { }
 
         /// <inheritdoc />
-        protected sealed override void SetAspectConfiguration( AspectConfiguration aspectConfiguration,
-                                                               object targetElement )
+        protected sealed override void SetAspectConfiguration(
+            AspectConfiguration aspectConfiguration,
+            object targetElement )
         {
             base.SetAspectConfiguration( aspectConfiguration, targetElement );
-            this.SetAspectConfiguration( aspectConfiguration, (EventInfo) targetElement );
+            SetAspectConfiguration( aspectConfiguration, (EventInfo)targetElement );
         }
-
 
         /// <inheritdoc />
         public sealed override bool CompileTimeValidate( object target )
         {
-            return this.CompileTimeValidate( (EventInfo) target );
+            return CompileTimeValidate( (EventInfo)target );
         }
-
     }
 }

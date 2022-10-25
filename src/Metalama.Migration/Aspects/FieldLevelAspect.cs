@@ -1,13 +1,9 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
 using PostSharp.Extensibility;
 using PostSharp.Serialization;
 
@@ -27,17 +23,13 @@ namespace PostSharp.Aspects
     /// <include file="Documentation.xml" path="/documentation/section[@name='aspectSerialization']/*"/>
     /// </remarks>
     /// <seealso cref="LocationLevelAspect"/>
-#if SERIALIZABLE
     [Serializable]
-#endif
     [SuppressMessage( "Microsoft.Naming", "CA1710" /* IdentifiersShouldHaveCorrectSuffix */ )]
     [DebuggerStepThrough]
     [DebuggerNonUserCode]
-    [Serializer(null)]
+    [Serializer( null )]
     public abstract class FieldLevelAspect : Aspect, IFieldLevelAspect, IFieldLevelAspectBuildSemantics
     {
-
-
         /// <summary>
         ///   Method invoked at build time to ensure that the aspect has been applied to the right target.
         /// </summary>
@@ -58,18 +50,22 @@ namespace PostSharp.Aspects
         /// <inheritdoc />
         public sealed override bool CompileTimeValidate( object target )
         {
-            FieldInfo field = target as FieldInfo;
-            if ( field == null )
-                throw new ArgumentException( string.Format(CultureInfo.InvariantCulture, "Aspects of type {0} can be applied to fields only.",
-                                                            this.GetType().FullName ) );
+            var field = target as FieldInfo;
 
-            return this.CompileTimeValidate( field );
+            if (field == null)
+            {
+                throw new ArgumentException(
+                    string.Format(
+                        CultureInfo.InvariantCulture,
+                        "Aspects of type {0} can be applied to fields only.",
+                        GetType().FullName ) );
+            }
+
+            return CompileTimeValidate( field );
         }
 
         /// <inheritdoc />
-        public virtual void CompileTimeInitialize( FieldInfo field, AspectInfo aspectInfo )
-        {
-        }
+        public virtual void CompileTimeInitialize( FieldInfo field, AspectInfo aspectInfo ) { }
 
         /// <summary>
         ///   Method invoked at build time to set up an <see cref = "AspectConfiguration" /> object according to the current 
@@ -84,22 +80,18 @@ namespace PostSharp.Aspects
         ///     <see cref = "AspectConfiguration" />.</para>
         /// </remarks>
         /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoConfiguringAspects']/*" />
-        protected virtual void SetAspectConfiguration( AspectConfiguration aspectConfiguration, FieldInfo targetField )
-        {
-        }
+        protected virtual void SetAspectConfiguration( AspectConfiguration aspectConfiguration, FieldInfo targetField ) { }
 
         /// <inheritdoc />
-        protected sealed override void SetAspectConfiguration( AspectConfiguration aspectConfiguration,
-                                                               object targetElement )
+        protected sealed override void SetAspectConfiguration(
+            AspectConfiguration aspectConfiguration,
+            object targetElement )
         {
             base.SetAspectConfiguration( aspectConfiguration, targetElement );
-            this.SetAspectConfiguration( aspectConfiguration, (FieldInfo) targetElement );
+            SetAspectConfiguration( aspectConfiguration, (FieldInfo)targetElement );
         }
 
         /// <inheritdoc />
-        [RuntimeInitializeOptimization( RuntimeInitializeOptimizations.Ignore )]
-        public virtual void RuntimeInitialize( FieldInfo field )
-        {
-        }
+        public virtual void RuntimeInitialize( FieldInfo field ) { }
     }
 }

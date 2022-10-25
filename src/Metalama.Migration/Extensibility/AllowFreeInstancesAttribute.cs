@@ -1,15 +1,8 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using System.Collections.Generic;
-using System.Text;
-using PostSharp.Constraints;
+﻿using System;
 
 namespace PostSharp.Extensibility
 {
     /// <exclude/>
-    [Internal]
     [AttributeUsage( AttributeTargets.Class | AttributeTargets.Assembly, AllowMultiple = false )]
     [Obsolete( "Licensing is now based on hard-coded assembly name." )]
     public sealed class AllowFreeInstancesAttribute : Attribute
@@ -17,21 +10,21 @@ namespace PostSharp.Extensibility
         /// <exclude/>
         public AllowFreeInstancesAttribute( string featureName )
         {
-            this.FeatureName = featureName;
+            FeatureName = featureName;
         }
 
         /// <exclude/>
         public AllowFreeInstancesAttribute( string featureName, int count )
         {
-            this.FeatureName = featureName;
-            this.FreeInstanceCount = count;
+            FeatureName = featureName;
+            FreeInstanceCount = count;
         }
 
         /// <exclude/>
-        public string FeatureName { get; private set; }
+        public string FeatureName { get; }
 
         /// <exclude/>
-        public int? FreeInstanceCount { get; private set; }
+        public int? FreeInstanceCount { get; }
 
         /// <exclude/>
         public bool ApplyToType { get; set; }

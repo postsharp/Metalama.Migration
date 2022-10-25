@@ -1,10 +1,5 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
-using System.Globalization;
 using System.Reflection;
-using System.Text;
 using PostSharp.Reflection;
 
 namespace PostSharp.Extensibility
@@ -12,9 +7,7 @@ namespace PostSharp.Extensibility
     /// <summary>
     ///   Encapsulates a message (error, warning, info, ...).
     /// </summary>
-#if SERIALIZABLE
     [Serializable]
-#endif
     public sealed class Message
     {
         #region Fields
@@ -24,10 +17,6 @@ namespace PostSharp.Extensibility
         /// <see cref="MessageLocation.EndColumn"/>, <see cref="MessageLocation.StartLine"/>, <see cref="MessageLocation.EndLine"/>, means that the value of this property is unknown.
         /// </summary>
         public const int NotAvailable = 0;
-
-        private const string customSource = null;
-
-        private static readonly MessageLocation NullLocation = MessageLocation.Explicit( null, NotAvailable, NotAvailable, NotAvailable, NotAvailable );
 
         #endregion
 
@@ -45,39 +34,17 @@ namespace PostSharp.Extensibility
         /// <param name = "innerException">The <see cref = "Exception" /> that caused this message,
         ///   or <c>null</c> if this message was not caused by an
         ///   exception.</param>
-        public Message( MessageLocation location, SeverityType severity, string messageId, string messageText, string helpLink, string source,
-                        Exception innerException )
+        public Message(
+            MessageLocation location,
+            SeverityType severity,
+            string messageId,
+            string messageText,
+            string helpLink,
+            string source,
+            Exception innerException )
         {
-            #region Preconditions
-
-            if ( string.IsNullOrEmpty( messageId ) )
-            {
-                throw new ArgumentNullException( nameof(messageId));
-            }
-
-            if ( string.IsNullOrEmpty( messageText ) )
-            {
-                throw new ArgumentNullException( nameof(messageText));
-            }
-
-            #endregion
-
-            this.Source = source;
-            this.Severity = severity;
-            this.MessageId = messageId;
-            this.InnerException = innerException;
-            this.HelpLink = helpLink;
-            this.MessageText = messageText.TrimEnd( '.' ) + ".";
-
-
-            this.location = location ?? NullLocation;
-
-            if ( this.Severity <= SeverityType.Warning && MessageSource.Formatter != null && MessageSource.Formatter.IsMessageIgnored( messageId, location ) )
-            {
-                this.Severity = SeverityType.None;
-            }
+            throw new NotImplementedException();
         }
-
 
         /// <summary>
         ///   Initializes a new <see cref = "Message" /> and specifies all its properties.
@@ -98,33 +65,19 @@ namespace PostSharp.Extensibility
         /// <param name = "source">Name of the component emitting the message.</param>
         /// <param name = "helpLink">Link to the help file page associated to this message.</param>
         /// <param name = "messageText">Fully formatted message text.</param>
-        public Message( SeverityType severity, string messageId,
-                        string messageText, string helpLink, string source,
-                        string locationFile, int locationLine, int locationColumn, Exception innerException )
+        public Message(
+            SeverityType severity,
+            string messageId,
+            string messageText,
+            string helpLink,
+            string source,
+            string locationFile,
+            int locationLine,
+            int locationColumn,
+            Exception innerException )
         {
-            #region Preconditions
-
-            if ( string.IsNullOrEmpty( messageId ) )
-            {
-                throw new ArgumentNullException( nameof(messageId));
-            }
-
-            if ( string.IsNullOrEmpty( messageText ) )
-            {
-                throw new ArgumentNullException( nameof(messageText));
-            }
-
-            #endregion
-
-            this.Source = source;
-            this.Severity = severity;
-            this.MessageId = messageId;
-            this.location = MessageLocation.Explicit( locationFile, locationLine, locationColumn );
-            this.InnerException = innerException;
-            this.HelpLink = helpLink;
-            this.MessageText = messageText;
+            throw new NotImplementedException();
         }
-
 
         /// <summary>
         ///   Initializes a new <see cref = "Message" /> and specifies all its properties.
@@ -151,34 +104,20 @@ namespace PostSharp.Extensibility
         /// <param name = "source">Name of the component emitting the message.</param>
         /// <param name = "helpLink">Link to the help file page associated to this message.</param>
         /// <param name = "messageText">Fully formatted message text.</param>
-        public Message( SeverityType severity, string messageId,
-                        string messageText, string helpLink, string source,
-                        string locationFile, int locationStartLine, int locationStartColumn,
-                        int locationEndLine, int locationEndColumn, Exception innerException )
+        public Message(
+            SeverityType severity,
+            string messageId,
+            string messageText,
+            string helpLink,
+            string source,
+            string locationFile,
+            int locationStartLine,
+            int locationStartColumn,
+            int locationEndLine,
+            int locationEndColumn,
+            Exception innerException )
         {
-            #region Preconditions
-
-            if ( string.IsNullOrEmpty( messageId ) )
-            {
-                throw new ArgumentNullException( nameof(messageId));
-            }
-
-            if ( string.IsNullOrEmpty( messageText ) )
-            {
-                throw new ArgumentNullException( nameof(messageText));
-            }
-
-
-            #endregion
-
-            this.Source = source;
-            this.Severity = severity;
-            this.OriginalSeverity = severity;
-            this.MessageId = messageId;
-            this.location = MessageLocation.Explicit( locationFile, locationStartLine, locationStartColumn, locationEndLine, locationEndColumn );
-            this.InnerException = innerException;
-            this.HelpLink = helpLink;
-            this.MessageText = messageText;
+            throw new NotImplementedException();
         }
 
         #region Properties
@@ -189,45 +128,34 @@ namespace PostSharp.Extensibility
         public SeverityType Severity { get; internal set; }
 
         /// <summary>
-        ///   Gets the original message severity.
-        /// </summary>
-        internal SeverityType OriginalSeverity { get; private set; }
-
-        /// <summary>
         ///   Gets the message type identifier.
         /// </summary>
-        public string MessageId { get; private set; }
-
-        private MessageLocation location;
+        public string MessageId { get; }
 
         /// <summary>
         /// Location of the source code artifact causing the message.
         /// </summary>
-        public MessageLocation Location
-        {
-            get { return this.location; }
-            set { this.location = value ?? NullLocation; }
-        }
+        public MessageLocation Location { get; set; }
 
         /// <summary>
         ///   Gets the
         /// </summary>
-        public Exception InnerException { get; private set; }
+        public Exception InnerException { get; }
 
         /// <summary>
         ///   Gets or sets the name of the source component.
         /// </summary>
-        public string Source { get; private set; }
+        public string Source { get; }
 
         /// <summary>
         ///   Gets the message formatted text.
         /// </summary>
-        public string MessageText { get; private set; }
+        public string MessageText { get; }
 
         /// <summary>
         ///   Gets the help link.
         /// </summary>
-        public string HelpLink { get; private set; }
+        public string HelpLink { get; }
 
         #endregion
 
@@ -241,28 +169,7 @@ namespace PostSharp.Extensibility
         ///   concatenated by the string <c>--&gt;</c>.</returns>
         public static string GetExceptionStackMessage( Exception outerException )
         {
-            #region Preconditions
-
-            if ( outerException == null )
-            {
-                throw new ArgumentNullException( nameof(outerException));
-            }
-
-            #endregion
-
-            Exception cursor = outerException;
-            StringBuilder builder = new StringBuilder();
-            while ( cursor != null )
-            {
-                if ( builder.Length > 0 )
-                {
-                    builder.Append( " --> " );
-                }
-                builder.Append( cursor.Message );
-                cursor = cursor.InnerException;
-            }
-
-            return builder.ToString();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -271,9 +178,7 @@ namespace PostSharp.Extensibility
         /// <param name = "message">A <see cref = "Message" />.</param>
         public static void Write( Message message )
         {
-            if ( MessageSource.MessageSink == null )
-                return;
-            MessageSource.MessageSink.Write( message );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -287,9 +192,7 @@ namespace PostSharp.Extensibility
         /// to which the message applies. When called from PostSharp.Sdk, the parameter can also contain a <c>MetadataDeclaration</c>.</param>
         public static void Write( MessageLocation messageLocation, SeverityType severity, string errorCode, string message )
         {
-            if ( MessageSource.MessageSink == null )
-                return;
-            MessageSource.MessageSink.Write( new Message( messageLocation, severity, errorCode, message, null, customSource, null ) );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -304,7 +207,7 @@ namespace PostSharp.Extensibility
         /// to which the message applies. When called from PostSharp.Sdk, the parameter can also contain a <c>MetadataDeclaration</c>.</param>
         public static void Write( MessageLocation messageLocation, SeverityType severity, string errorCode, string format, params object[] arguments )
         {
-            Write( messageLocation, severity, errorCode, MessageSource.Formatter.Format(CultureInfo.InvariantCulture, format, arguments ) );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -317,7 +220,7 @@ namespace PostSharp.Extensibility
         /// <param name="codeElement">Element of code to which the message applies.</param>
         public static void Write( MemberInfo codeElement, SeverityType severity, string errorCode, string format, params object[] arguments )
         {
-            Write( MessageLocation.Of( codeElement ), severity, errorCode, MessageSource.Formatter.Format(CultureInfo.InvariantCulture, format, arguments ) );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -330,7 +233,7 @@ namespace PostSharp.Extensibility
         /// <param name="type">Element of code to which the message applies.</param>
         public static void Write( Type type, SeverityType severity, string errorCode, string format, params object[] arguments )
         {
-            Write( MessageLocation.Of( type ), severity, errorCode, MessageSource.Formatter.Format(CultureInfo.InvariantCulture, format, arguments ) );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -343,7 +246,7 @@ namespace PostSharp.Extensibility
         /// <param name="codeElement">Element of code to which the message applies.</param>
         public static void Write( ParameterInfo codeElement, SeverityType severity, string errorCode, string format, params object[] arguments )
         {
-            Write( MessageLocation.Of( codeElement ), severity, errorCode, MessageSource.Formatter.Format(CultureInfo.InvariantCulture, format, arguments ) );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -356,7 +259,7 @@ namespace PostSharp.Extensibility
         /// <param name="codeElement">Element of code to which the message applies.</param>
         public static void Write( Assembly codeElement, SeverityType severity, string errorCode, string format, params object[] arguments )
         {
-            Write( MessageLocation.Of( codeElement ), severity, errorCode, MessageSource.Formatter.Format(CultureInfo.InvariantCulture, format, arguments ) );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -369,8 +272,7 @@ namespace PostSharp.Extensibility
         /// <param name="codeElement">Element of code to which the message applies.</param>
         public static void Write( LocationInfo codeElement, SeverityType severity, string errorCode, string format, params object[] arguments )
         {
-            Write( MessageLocation.Of( codeElement ), severity, errorCode, MessageSource.Formatter.Format(CultureInfo.InvariantCulture, format, arguments ) );
+            throw new NotImplementedException();
         }
     }
 }
-

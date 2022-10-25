@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using PostSharp.Aspects.Configuration;
+﻿using PostSharp.Aspects.Configuration;
 
 #pragma warning disable CA1040 // Avoid empty interfaces
 
@@ -15,8 +12,5 @@ namespace PostSharp.Aspects
     /// </remarks>
     /// <seealso cref = "ManagedResourceIntroductionAspect" />
     /// <seealso cref = "ManagedResourceIntroductionAspectConfiguration" />
-    public interface IManagedResourceIntroductionAspect : IAspect
-    {
-    }
+    public interface IManagedResourceIntroductionAspect : IAspect { }
 }
-

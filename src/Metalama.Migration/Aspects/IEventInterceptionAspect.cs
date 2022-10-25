@@ -1,9 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
-using PostSharp.Extensibility;
 
 namespace PostSharp.Aspects
 {
@@ -18,7 +13,6 @@ namespace PostSharp.Aspects
     /// </remarks>   /// <see cref = "EventInterceptionAspect" />
     /// <see cref = "EventInterceptionAspectConfiguration" />
     /// <see cref = "EventInterceptionAspectConfigurationAttribute" />
-    [HasInheritedAttribute]
     public interface IEventInterceptionAspect : IEventLevelAspect
     {
         /// <summary>
@@ -34,7 +28,6 @@ namespace PostSharp.Aspects
         ///   <br />
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='eventInterceptionAdvice']/*" />
         /// </remarks>
-        [RequiresEventInterceptionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.RunToTarget), HasInheritedAttribute]
         void OnAddHandler( EventInterceptionArgs args );
 
         /// <summary>
@@ -45,7 +38,6 @@ namespace PostSharp.Aspects
         /// <remarks>
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='eventInterceptionAdvice']/*" />
         /// </remarks>
-        [RequiresEventInterceptionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.RunToTarget), HasInheritedAttribute]
         void OnRemoveHandler( EventInterceptionArgs args );
 
         /// <summary>
@@ -58,7 +50,6 @@ namespace PostSharp.Aspects
         ///   <br />
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='invokeEventHandler']/*" />
         /// </remarks>
-        [RequiresEventInterceptionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.RunToTarget), HasInheritedAttribute]
         void OnInvokeHandler( EventInterceptionArgs args );
     }
 }

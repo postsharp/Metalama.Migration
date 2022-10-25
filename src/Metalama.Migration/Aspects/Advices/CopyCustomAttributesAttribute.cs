@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Aspects.Advices
@@ -14,8 +11,7 @@ namespace PostSharp.Aspects.Advices
     /// </summary>
     /// <seealso cref = "IntroduceMemberAttribute" />
     /// <include file = "../Documentation.xml" path = "/documentation/section[@name='seeAlsoIntroduceImportMembers']/*" />
-    [AttributeUsage(
-        AttributeTargets.Class | AttributeTargets.Event | AttributeTargets.Property | AttributeTargets.Method )]
+    [AttributeUsage( AttributeTargets.Class | AttributeTargets.Event | AttributeTargets.Property | AttributeTargets.Method )]
     public sealed class CopyCustomAttributesAttribute : Advice
     {
         /// <summary>
@@ -25,7 +21,7 @@ namespace PostSharp.Aspects.Advices
         /// <param name = "type">Base type of custom attributes to be copied.</param>
         public CopyCustomAttributesAttribute( Type type )
         {
-            this.Types = new[] {type,};
+            Types = new[] { type };
         }
 
         /// <summary>
@@ -35,7 +31,7 @@ namespace PostSharp.Aspects.Advices
         /// <param name = "types">Base types of custom attributes to be copied.</param>
         public CopyCustomAttributesAttribute( params Type[] types )
         {
-            this.Types = types;
+            Types = types;
         }
 
         /// <summary>
@@ -47,6 +43,6 @@ namespace PostSharp.Aspects.Advices
         /// <summary>
         ///   Gets the list of custom attribute types to be copied.
         /// </summary>
-        public Type[] Types { get; private set; }
+        public Type[] Types { get; }
     }
 }

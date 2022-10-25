@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Serialization
@@ -8,7 +5,7 @@ namespace PostSharp.Serialization
     /// <summary>
     /// Custom attribute that, when applied to an assembly, points to a type in the assembly implementing <see cref="IActivator"/>.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Assembly)]
+    [AttributeUsage( AttributeTargets.Assembly )]
     public sealed class ActivatorTypeAttribute : Attribute
     {
         /// <summary>
@@ -18,12 +15,12 @@ namespace PostSharp.Serialization
         /// a default constructor.</param>
         public ActivatorTypeAttribute( Type activatorType )
         {
-            this.ActivatorType = activatorType;
+            ActivatorType = activatorType;
         }
 
         /// <summary>
         /// Gets the activator type.
         /// </summary>
-        public Type ActivatorType { get; private set; }
+        public Type ActivatorType { get; }
     }
 }

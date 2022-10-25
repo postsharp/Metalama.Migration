@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System.Reflection;
 
 namespace PostSharp.Aspects
@@ -9,7 +6,6 @@ namespace PostSharp.Aspects
     ///   Build-time semantics of aspects applied at assembly level.
     /// </summary>
     /// <seealso cref = "AssemblyLevelAspect" />
-    
     public interface IAssemblyLevelAspectBuildSemantics : IAspect
     {
         /// <summary>

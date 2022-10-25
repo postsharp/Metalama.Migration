@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -42,7 +39,7 @@ namespace PostSharp.Aspects
         /// <see cref="IEnumerator{T}"/>.
         /// </summary>
         ReturnsEnumerable = 1 << 3,
-        
+
         /// <summary>
         /// Apply semantic advising to async methods which return IAsyncEnumerable. Semantic advising for this C# 8.0 feature is not supported by PostSharp yet.
         /// </summary>

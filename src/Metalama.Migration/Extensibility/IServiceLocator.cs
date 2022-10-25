@@ -1,5 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
 namespace PostSharp.Extensibility
 {
     /// <summary>
@@ -15,6 +13,6 @@ namespace PostSharp.Extensibility
         /// The default value is <c>true</c>.</param>
         /// <returns>The service <typeparamref name="T"/>, or <c>null</c> if the service could not be acquired and <paramref name="throwing"/>
         /// was set to <c>false</c>.</returns>
-        T GetService<T>(bool throwing = true) where T : class, IService;
+        T GetService<T>( bool throwing = true ) where T : class, IService;
     }
 }

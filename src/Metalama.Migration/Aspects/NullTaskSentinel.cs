@@ -1,6 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-namespace PostSharp.Aspects
+﻿namespace PostSharp.Aspects
 {
     /// <summary>
     /// The singleton instance of this class is assigned to the <see cref="MethodExecutionArgs.ReturnValue"/> property when

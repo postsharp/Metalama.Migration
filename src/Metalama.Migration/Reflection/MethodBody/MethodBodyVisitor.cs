@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using PostSharp.Collections;
 
@@ -26,30 +23,28 @@ namespace PostSharp.Reflection.MethodBody
         /// <returns><paramref name="methodBody"/>, unless the override returns something else.</returns>
         public virtual object VisitMethodBody( IMethodBody methodBody )
         {
-            if ( methodBody.RootBlock != null )
+            if (methodBody.RootBlock != null)
             {
-                this.VisitBlockExpression( methodBody.RootBlock );
+                VisitBlockExpression( methodBody.RootBlock );
             }
+
             return methodBody;
         }
-
 
         /// <summary>
         /// Visits an instruction block and, recursively, all syntax nodes.
         /// </summary>
         /// <param name="instructionBlock">The method body to be visited.</param>
         /// <returns><paramref name="instructionBlock"/>, unless the override returns something else.</returns>
-        public virtual object VisitBlockExpression(IBlockExpression instructionBlock)
+        public virtual object VisitBlockExpression( IBlockExpression instructionBlock )
         {
-            foreach ( IExpression instruction in LinkedListExtensions.ToEnumerable( instructionBlock.Items ) )
+            foreach (var instruction in LinkedListExtensions.ToEnumerable( instructionBlock.Items ))
             {
-                this.VisitSyntaxElement( instruction );
+                VisitSyntaxElement( instruction );
             }
 
             return instructionBlock;
         }
-
-
 
         /// <summary>
         /// Visits an instruction block and, recursively, all syntax nodes.
@@ -58,21 +53,19 @@ namespace PostSharp.Reflection.MethodBody
         /// <returns><paramref name="statementExpression"/>, unless the override returns something else.</returns>
         public virtual object VisitStatementExpression( IStatementExpression statementExpression )
         {
-            this.VisitSyntaxElement( statementExpression.Expression );
+            VisitSyntaxElement( statementExpression.Expression );
 
             return statementExpression;
         }
-
-
 
         /// <summary>
         /// Visits a syntax element and, recursively, all children elements.
         /// </summary>
         /// <param name="syntaxElement">The element to be visited.</param>
         /// <returns><paramref name="syntaxElement"/>, unless the override returns something else.</returns>
-        public virtual object VisitSyntaxElement(IMethodBodyElement syntaxElement)
+        public virtual object VisitSyntaxElement( IMethodBodyElement syntaxElement )
         {
-            switch ( syntaxElement.MethodBodyElementKind )
+            switch (syntaxElement.MethodBodyElementKind)
             {
                 case MethodBodyElementKind.Add:
                 case MethodBodyElementKind.AddChecked:
@@ -95,13 +88,13 @@ namespace PostSharp.Reflection.MethodBody
                 case MethodBodyElementKind.Xor:
                 case MethodBodyElementKind.ShiftLeft:
                 case MethodBodyElementKind.ShiftRight:
-                    return this.VisitBinaryExpression( (IBinaryExpression) syntaxElement );
+                    return VisitBinaryExpression( (IBinaryExpression)syntaxElement );
 
                 case MethodBodyElementKind.ValueOf:
-                    return this.VisitValueOfExpression( (IValueOfExpression) syntaxElement );
+                    return VisitValueOfExpression( (IValueOfExpression)syntaxElement );
 
                 case MethodBodyElementKind.AddressOf:
-                    return this.VisitAddressOfExpression( (IAddressOfExpression) syntaxElement );
+                    return VisitAddressOfExpression( (IAddressOfExpression)syntaxElement );
 
                 case MethodBodyElementKind.ArrayLength:
                 case MethodBodyElementKind.Cast:
@@ -120,74 +113,71 @@ namespace PostSharp.Reflection.MethodBody
                 case MethodBodyElementKind.Return:
                 case MethodBodyElementKind.Convert:
                 case MethodBodyElementKind.ConvertChecked:
-                    return this.VisitUnaryExpression( (IUnaryExpression) syntaxElement );
+                    return VisitUnaryExpression( (IUnaryExpression)syntaxElement );
 
                 case MethodBodyElementKind.Constant:
-                    return this.VisitConstantExpression( (IConstantExpression) syntaxElement );
+                    return VisitConstantExpression( (IConstantExpression)syntaxElement );
 
                 case MethodBodyElementKind.Conditional:
-                    return this.VisitConditionalExpression( (IConditionalExpression) syntaxElement );
+                    return VisitConditionalExpression( (IConditionalExpression)syntaxElement );
 
                 case MethodBodyElementKind.CopyBuffer:
-                    return this.VisitCopyBufferExpression( (ICopyBufferExpression) syntaxElement );
+                    return VisitCopyBufferExpression( (ICopyBufferExpression)syntaxElement );
 
                 case MethodBodyElementKind.Field:
-                    return this.VisitFieldExpression( (IFieldExpression) syntaxElement );
+                    return VisitFieldExpression( (IFieldExpression)syntaxElement );
 
                 case MethodBodyElementKind.Goto:
-                    return this.VisitGotoExpression( (IGotoExpression) syntaxElement );
+                    return VisitGotoExpression( (IGotoExpression)syntaxElement );
 
                 case MethodBodyElementKind.InitBuffer:
-                    return this.VisitInitBufferExpression( (IInitBufferExpression) syntaxElement );
+                    return VisitInitBufferExpression( (IInitBufferExpression)syntaxElement );
 
                 case MethodBodyElementKind.Variable:
-                    return this.VisitVariableExpression( (ILocalVariableExpression) syntaxElement );
-
+                    return VisitVariableExpression( (ILocalVariableExpression)syntaxElement );
 
                 case MethodBodyElementKind.LoadToken:
                 case MethodBodyElementKind.DefaultValue:
                 case MethodBodyElementKind.SizeOf:
-                    return this.VisitMetadataExpression( (IMetadataExpression) syntaxElement );
+                    return VisitMetadataExpression( (IMetadataExpression)syntaxElement );
 
                 case MethodBodyElementKind.MethodCall:
-                    return this.VisitMethodCallExpression( (IMethodCallExpression) syntaxElement );
+                    return VisitMethodCallExpression( (IMethodCallExpression)syntaxElement );
 
                 case MethodBodyElementKind.NewObject:
-                    return this.VisitNewObjectExpression( (INewObjectExpression) syntaxElement );
+                    return VisitNewObjectExpression( (INewObjectExpression)syntaxElement );
 
                 case MethodBodyElementKind.MethodPointer:
-                    return this.VisitMethodPointerExpression( (IMethodPointerExpression) syntaxElement );
+                    return VisitMethodPointerExpression( (IMethodPointerExpression)syntaxElement );
 
                 case MethodBodyElementKind.NewArray:
-                    return this.VisitNewArrayExpression( (INewArrayExpression) syntaxElement );
+                    return VisitNewArrayExpression( (INewArrayExpression)syntaxElement );
 
                 case MethodBodyElementKind.Parameter:
-                    return this.VisitParameterExpression( (IParameterExpression) syntaxElement );
+                    return VisitParameterExpression( (IParameterExpression)syntaxElement );
 
                 case MethodBodyElementKind.ArgumentList:
                 case MethodBodyElementKind.This:
                 case MethodBodyElementKind.Rethrow:
-                    return this.VisitZeroaryExpression( (IZeroaryExpression) syntaxElement );
+                    return VisitZeroaryExpression( (IZeroaryExpression)syntaxElement );
 
                 case MethodBodyElementKind.Switch:
-                    return this.VisitSwitchExpression( (ISwitchExpression) syntaxElement );
-
+                    return VisitSwitchExpression( (ISwitchExpression)syntaxElement );
 
                 case MethodBodyElementKind.Block:
-                    return this.VisitBlockExpression( (IBlockExpression) syntaxElement );
+                    return VisitBlockExpression( (IBlockExpression)syntaxElement );
 
                 case MethodBodyElementKind.Statement:
-                    return this.VisitStatementExpression((IStatementExpression)syntaxElement);
+                    return VisitStatementExpression( (IStatementExpression)syntaxElement );
 
                 case MethodBodyElementKind.MethodBody:
-                    return this.VisitMethodBody( (IMethodBody) syntaxElement );
+                    return VisitMethodBody( (IMethodBody)syntaxElement );
 
                 case MethodBodyElementKind.LocalVariableDefinition:
-                    return this.VisitLocalVariable( (ILocalVariable) syntaxElement );
-
+                    return VisitLocalVariable( (ILocalVariable)syntaxElement );
 
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(syntaxElement));
+                    throw new ArgumentOutOfRangeException( nameof(syntaxElement) );
             }
         }
 
@@ -198,7 +188,8 @@ namespace PostSharp.Reflection.MethodBody
         /// <returns><paramref name="expression"/>, unless the override returns something else.</returns>
         public virtual object VisitAddressOfExpression( IAddressOfExpression expression )
         {
-            this.VisitUnaryExpression( expression );
+            VisitUnaryExpression( expression );
+
             return expression;
         }
 
@@ -207,9 +198,10 @@ namespace PostSharp.Reflection.MethodBody
         /// </summary>
         /// <param name="expression">The element to be visited.</param>
         /// <returns><paramref name="expression"/>, unless the override returns something else.</returns>
-        public virtual object VisitValueOfExpression(IValueOfExpression expression)
+        public virtual object VisitValueOfExpression( IValueOfExpression expression )
         {
-            this.VisitUnaryExpression( expression );
+            VisitUnaryExpression( expression );
+
             return expression;
         }
 
@@ -223,7 +215,6 @@ namespace PostSharp.Reflection.MethodBody
             return localVariable;
         }
 
-
         /// <summary>
         /// Visits an expression of type <see cref="ISwitchExpression"/>  and, recursively, all children elements.
         /// </summary>
@@ -231,10 +222,11 @@ namespace PostSharp.Reflection.MethodBody
         /// <returns><paramref name="expression"/>, unless the override returns something else.</returns>
         public virtual object VisitSwitchExpression( ISwitchExpression expression )
         {
-            this.VisitSyntaxElement( expression.Condition );
-            foreach ( IExpression target in expression.Targets )
+            VisitSyntaxElement( expression.Condition );
+
+            foreach (var target in expression.Targets)
             {
-                this.VisitSyntaxElement( target );
+                VisitSyntaxElement( target );
             }
 
             return expression;
@@ -267,7 +259,8 @@ namespace PostSharp.Reflection.MethodBody
         /// <returns><paramref name="expression"/>, unless the override returns something else.</returns>
         public virtual object VisitNewArrayExpression( INewArrayExpression expression )
         {
-            this.VisitSyntaxElement( expression.Length );
+            VisitSyntaxElement( expression.Length );
+
             return expression;
         }
 
@@ -288,9 +281,9 @@ namespace PostSharp.Reflection.MethodBody
         /// <returns><paramref name="expression"/>, unless the override returns something else.</returns>
         public virtual object VisitNewObjectExpression( INewObjectExpression expression )
         {
-            foreach ( IExpression argument in expression.Arguments )
+            foreach (var argument in expression.Arguments)
             {
-                this.VisitSyntaxElement( argument );
+                VisitSyntaxElement( argument );
             }
 
             return expression;
@@ -303,12 +296,14 @@ namespace PostSharp.Reflection.MethodBody
         /// <returns><paramref name="expression"/>, unless the override returns something else.</returns>
         public virtual object VisitMethodCallExpression( IMethodCallExpression expression )
         {
-            if ( expression.Instance != null )
-                this.VisitSyntaxElement( expression.Instance );
-
-            foreach ( IExpression argument in expression.Arguments )
+            if (expression.Instance != null)
             {
-                this.VisitSyntaxElement( argument );
+                VisitSyntaxElement( expression.Instance );
+            }
+
+            foreach (var argument in expression.Arguments)
+            {
+                VisitSyntaxElement( argument );
             }
 
             return expression;
@@ -341,7 +336,8 @@ namespace PostSharp.Reflection.MethodBody
         /// <returns><paramref name="expression"/>, unless the override returns something else.</returns>
         public virtual object VisitInitBufferExpression( IInitBufferExpression expression )
         {
-            this.VisitSyntaxElement( expression.Buffer );
+            VisitSyntaxElement( expression.Buffer );
+
             return expression;
         }
 
@@ -362,20 +358,21 @@ namespace PostSharp.Reflection.MethodBody
         public virtual object VisitFieldExpression( IFieldExpression expression )
         {
             if (expression.Instance != null)
-                this.VisitSyntaxElement( expression.Instance );
+            {
+                VisitSyntaxElement( expression.Instance );
+            }
 
             return expression;
         }
 
-        
-         /// <summary>
+        /// <summary>
         /// Visits an expression of type <see cref="IBinaryExpression"/> and, recursively, all children elements.
         /// </summary>
         /// <param name="expression">The element to be visited.</param>
         public virtual object VisitBinaryExpression( IBinaryExpression expression )
         {
-            this.VisitSyntaxElement( expression.Left );
-            this.VisitSyntaxElement( expression.Right );
+            VisitSyntaxElement( expression.Left );
+            VisitSyntaxElement( expression.Right );
 
             return expression;
         }
@@ -388,12 +385,11 @@ namespace PostSharp.Reflection.MethodBody
         {
             if (expression.Value != null)
             {
-                this.VisitSyntaxElement(expression.Value);
+                VisitSyntaxElement( expression.Value );
             }
 
             return expression;
         }
-
 
         /// <summary>
         /// Visits an expression of type <see cref="IUnaryExpression"/> and, recursively, all children elements.
@@ -401,13 +397,17 @@ namespace PostSharp.Reflection.MethodBody
         /// <param name="expression">The element to be visited.</param>
         public virtual object VisitConditionalExpression( IConditionalExpression expression )
         {
-            this.VisitSyntaxElement( expression.Condition );
+            VisitSyntaxElement( expression.Condition );
 
-            if ( expression.IfTrue != null )
-                this.VisitSyntaxElement( expression.IfTrue );
+            if (expression.IfTrue != null)
+            {
+                VisitSyntaxElement( expression.IfTrue );
+            }
 
-            if ( expression.IfFalse != null )
-                this.VisitSyntaxElement( expression.IfFalse );
+            if (expression.IfFalse != null)
+            {
+                VisitSyntaxElement( expression.IfFalse );
+            }
 
             return expression;
         }
@@ -421,16 +421,15 @@ namespace PostSharp.Reflection.MethodBody
             return expression;
         }
 
-
         /// <summary>
         /// Visits an expression of type <see cref="ICopyBufferExpression"/> and, recursively, all children elements.
         /// </summary>
         /// <param name="expression">The element to be visited.</param>
-        public virtual object VisitCopyBufferExpression(ICopyBufferExpression expression)
+        public virtual object VisitCopyBufferExpression( ICopyBufferExpression expression )
         {
-            this.VisitSyntaxElement( expression.Destination );
-            this.VisitSyntaxElement( expression.Source );
-            this.VisitSyntaxElement( expression.Length );
+            VisitSyntaxElement( expression.Destination );
+            VisitSyntaxElement( expression.Source );
+            VisitSyntaxElement( expression.Length );
 
             return expression;
         }

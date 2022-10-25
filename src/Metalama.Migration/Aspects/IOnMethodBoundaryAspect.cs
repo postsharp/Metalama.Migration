@@ -1,9 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
-using PostSharp.Extensibility;
 
 namespace PostSharp.Aspects
 {
@@ -16,7 +11,6 @@ namespace PostSharp.Aspects
     /// <seealso cref = "OnMethodBoundaryAspect" />
     /// <seealso cref = "OnMethodBoundaryAspectConfiguration" />
     /// <seealso cref = "OnMethodBoundaryAspectConfigurationAttribute" />
-    [HasInheritedAttribute]
     public interface IOnMethodBoundaryAspect : IMethodLevelAspect
     {
         /// <summary>
@@ -30,7 +24,6 @@ namespace PostSharp.Aspects
         ///   after the <c>this</c> pointer has been initialized, that is, after
         ///   the base constructor has been called.
         /// </remarks>
-        [RequiresMethodExecutionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut), HasInheritedAttribute]
         void OnEntry( MethodExecutionArgs args );
 
         /// <summary>
@@ -40,7 +33,6 @@ namespace PostSharp.Aspects
         /// </summary>
         /// <param name = "args">Event arguments specifying which method
         ///   is being executed and which are its arguments.</param>
-        [RequiresMethodExecutionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut), HasInheritedAttribute]
         void OnExit( MethodExecutionArgs args );
 
         /// <summary>
@@ -50,7 +42,6 @@ namespace PostSharp.Aspects
         /// </summary>
         /// <param name = "args">Event arguments specifying which method
         ///   is being executed and which are its arguments.</param>
-        [RequiresMethodExecutionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut), HasInheritedAttribute]
         void OnSuccess( MethodExecutionArgs args );
 
         /// <summary>
@@ -59,7 +50,6 @@ namespace PostSharp.Aspects
         /// </summary>
         /// <param name = "args">Event arguments specifying which method
         ///   is being executed and which are its arguments.</param>
-        [RequiresMethodExecutionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut), HasInheritedAttribute]
         void OnException( MethodExecutionArgs args );
     }
 }

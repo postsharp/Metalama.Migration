@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 namespace PostSharp
 {
     /// <summary>
@@ -28,7 +25,7 @@ namespace PostSharp
             where TSource : class
             where TTarget : class
         {
-            return (TTarget) (object) o;
+            return (TTarget)(object)o;
         }
 
         /// <summary>
@@ -39,10 +36,7 @@ namespace PostSharp
         ///   <c>true</c> if the calling program has been transformed by PostSharp, otherwise
         ///   <c>false</c>.
         /// </value>
-        public static bool IsTransformed
-        {
-            get { return false; }
-        }
+        public static bool IsTransformed { get; }
 
 #pragma warning disable IDE0060, CA1801 // Remove unused parameter
         /// <summary>
@@ -52,7 +46,7 @@ namespace PostSharp
         /// <param name="reference">A read-only reference.</param>
         /// <typeparam name="T">Reference type.</typeparam>
         /// <returns>Exactly <paramref name="reference"/>.</returns>
-        public static ref T GetMutableRef<T>( in T reference)
+        public static ref T GetMutableRef<T>( in T reference )
 #pragma warning restore IDE0060, CA1801 // Remove unused parameter
         {
             // Dummy code to make things compile.
@@ -72,7 +66,7 @@ namespace PostSharp
             return value;
         }
 
-        static class DefaultValue<T>
+        private static class DefaultValue<T>
         {
             public static T Value;
         }

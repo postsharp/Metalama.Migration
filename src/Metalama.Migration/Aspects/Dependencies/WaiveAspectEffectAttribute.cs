@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Aspects.Dependencies
@@ -23,9 +20,7 @@ namespace PostSharp.Aspects.Dependencies
         ///   the aspect class or advice to which this custom attribute is applied has
         ///   no effect at all.
         /// </summary>
-        public WaiveAspectEffectAttribute()
-        {
-        }
+        public WaiveAspectEffectAttribute() { }
 
         /// <summary>
         ///   Initializes a new <see cref = "WaiveAspectEffectAttribute" /> declaring that
@@ -36,7 +31,7 @@ namespace PostSharp.Aspects.Dependencies
         ///   to which this custom attribute is applied is guaranteed to be exempt.</param>
         public WaiveAspectEffectAttribute( params string[] effects )
         {
-            this.Effects = effects;
+            Effects = effects;
         }
 
         /// <summary>

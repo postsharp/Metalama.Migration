@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Extensibility
@@ -19,37 +16,43 @@ namespace PostSharp.Extensibility
         /// <param name="prefix">Prefix of all messages provided by the new dispenser.</param>
         protected MessageDispenser( string prefix )
         {
-            this.Prefix = prefix ?? "";
+            Prefix = prefix ?? "";
         }
 
         /// <summary>
         /// Gets the message prefix.
         /// </summary>
-        public string Prefix { get; private set; }
+        public string Prefix { get; }
 
         /// <inheritdoc />
         public string GetMessage( string key )
         {
-            if ( !key.StartsWith( this.Prefix, StringComparison.Ordinal ) )
+            if (!key.StartsWith( Prefix, StringComparison.Ordinal ))
+            {
                 return null;
+            }
 
-            bool isHelp = key.EndsWith( "?", StringComparison.Ordinal );
-            if ( isHelp )
+            var isHelp = key.EndsWith( "?", StringComparison.Ordinal );
+
+            if (isHelp)
             {
                 key = key.TrimEnd( '?' );
             }
 
             int number;
-            if ( !int.TryParse( key.Substring( this.Prefix.Length ), out number ) )
+
+            if (!int.TryParse( key.Substring( Prefix.Length ), out number ))
+            {
                 return null;
+            }
 
             if (isHelp)
             {
-                return this.GetHelpUrl( number );
+                return GetHelpUrl( number );
             }
             else
             {
-                return this.GetMessage( number );
+                return GetMessage( number );
             }
         }
 
@@ -66,7 +69,7 @@ namespace PostSharp.Extensibility
         /// </summary>
         /// <param name="number">Message number.</param>
         /// <returns>The message help URL corresponding to <paramref name="number"/>.</returns>
-        protected virtual string GetHelpUrl(int number)
+        protected virtual string GetHelpUrl( int number )
 #pragma warning restore CA1055 // Uri return values should not be strings
         {
             return null;

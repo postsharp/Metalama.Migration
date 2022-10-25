@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 namespace PostSharp.Aspects.Dependencies
 {
     /// <summary>
@@ -31,11 +28,13 @@ namespace PostSharp.Aspects.Dependencies
         /// <param name = "action">Dependency action.</param>
         /// <param name = "position">Dependency position.</param>
         /// <param name = "effect">Effect (see <see cref = "StandardEffects" />).</param>
-        public AspectEffectDependencyAttribute( AspectDependencyAction action, AspectDependencyPosition position,
-                                                string effect )
+        public AspectEffectDependencyAttribute(
+            AspectDependencyAction action,
+            AspectDependencyPosition position,
+            string effect )
             : base( action, position )
         {
-            this.Effect = effect;
+            Effect = effect;
         }
 
         /// <summary>
@@ -47,12 +46,12 @@ namespace PostSharp.Aspects.Dependencies
         public AspectEffectDependencyAttribute( AspectDependencyAction action, string effect )
             : base( action )
         {
-            this.Effect = effect;
+            Effect = effect;
         }
 
         /// <summary>
         ///   Gets the effect that the aspects or advices must have in order to match the current dependency.
         /// </summary>
-        public string Effect { get; private set; }
+        public string Effect { get; }
     }
 }

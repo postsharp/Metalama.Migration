@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Serialization
@@ -13,7 +10,7 @@ namespace PostSharp.Serialization
     ///     <para>Windows Phone 7.0 does not allow to assign generic types to parameters of custom attributes.</para>
     /// </remarks>
     /// <seealso cref="ImportSerializerAttribute"/>
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
+    [AttributeUsage( AttributeTargets.Class | AttributeTargets.Struct )]
     public sealed class SerializerAttribute : Attribute
     {
         /// <summary>
@@ -22,9 +19,9 @@ namespace PostSharp.Serialization
         /// <param name="serializerType">Serializer type. This type must implement <see cref="ISerializer"/> or <see cref="ISerializerFactory"/>,
         /// and must have a public default constructor. If <paramref name="serializerType"/> is a generic type, if must have the same number
         /// of generic type parameters as the target type, and have a compatible set of constraints.</param>
-        public SerializerAttribute(Type serializerType)
+        public SerializerAttribute( Type serializerType )
         {
-            this.SerializerType = serializerType;
+            SerializerType = serializerType;
         }
 
         /// <summary>
@@ -35,7 +32,6 @@ namespace PostSharp.Serialization
         /// and must have a public default constructor. If <see cref="SerializerType"/> is a generic type, if must have the same number
         /// of generic type parameters as the target type, and have a compatible set of constraints.
         /// </remarks>
-        public Type SerializerType { get; private set; }
-        
+        public Type SerializerType { get; }
     }
 }

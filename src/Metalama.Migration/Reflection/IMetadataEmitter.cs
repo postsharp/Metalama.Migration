@@ -1,17 +1,11 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using PostSharp.Extensibility;
-
-
-namespace PostSharp.Reflection
+﻿namespace PostSharp.Reflection
 {
     /// <summary>
     ///   Semantics of a service that allows build-time code to serialize references
     ///   to metadata objects (i.e. reflection objects) in a way that is compatible with obfuscators.
     ///   References are deserialized at run-time using <see cref = "IMetadataDispenser" />.
     /// </summary>
-    public interface IMetadataEmitter 
+    public interface IMetadataEmitter
     {
         /// <summary>
         ///   Gets the index of a serialized metadata reference.
@@ -22,4 +16,3 @@ namespace PostSharp.Reflection
         int GetMetadataIndex( object metadata );
     }
 }
-

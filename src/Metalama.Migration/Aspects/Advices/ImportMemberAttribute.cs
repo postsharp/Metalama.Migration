@@ -1,8 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
-using System.Reflection;
 
 namespace PostSharp.Aspects.Advices
 {
@@ -27,7 +23,7 @@ namespace PostSharp.Aspects.Advices
     /// </remarks>
     /// <include file = "../Documentation.xml" path = "/documentation/section[@name='seeAlsoIntroduceImportMembers']/*" />
     [AttributeUsage( AttributeTargets.Field, AllowMultiple = false )]
-    public sealed class ImportMemberAttribute : Advice, IImportMemberAdviseProperties
+    public sealed class ImportMemberAttribute : Advice
     {
         /// <summary>
         ///   Initializes a new <see cref = "ImportMemberAttribute" /> and specifies several possible names for the member to import.
@@ -35,7 +31,7 @@ namespace PostSharp.Aspects.Advices
         /// <param name = "memberNames">Possible names of the member to import in the order of precedence.</param>
         public ImportMemberAttribute( params string[] memberNames )
         {
-            this.MemberNames = memberNames;
+            MemberNames = memberNames;
         }
 
         /// <summary>
@@ -44,9 +40,8 @@ namespace PostSharp.Aspects.Advices
         /// <param name="memberName">The name of the member to import.</param>
         public ImportMemberAttribute( string memberName )
         {
-            this.MemberNames = new[] { memberName };
+            MemberNames = new[] { memberName };
         }
-
 
         /// <summary>
         ///   Determines whether a build time error must be issued if the member to be
@@ -55,12 +50,10 @@ namespace PostSharp.Aspects.Advices
         /// </summary>
         public bool IsRequired { get; set; }
 
-     
-
         /// <summary>
         ///   Array of possible names of imported member in the order of precedence.
         /// </summary>
-        public string[] MemberNames { get; private set; }
+        public string[] MemberNames { get; }
 
         /// <summary>
         ///   Determines when the member should be imported: either before (<see cref = "ImportMemberOrder.BeforeIntroductions" />)

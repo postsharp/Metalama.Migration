@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Diagnostics;
 using System.Reflection;
@@ -20,32 +17,17 @@ namespace PostSharp.Aspects
     public abstract class EventInterceptionArgs : AdviceArgs
     {
         /// <summary>
-        ///   Initializes a new <see cref = "EventInterceptionArgs" />.
-        /// </summary>
-        /// <param name = "instance">The instance related to the aspect handler invocation, or
-        ///   <c>null</c> if the handler is associated to a static element.</param>
-        /// <param name = "arguments">Arguments of <paramref name = "handler" />, when it is being invoked.</param>
-        /// <param name = "handler">The delegate being added to the event, removed from the event, or invoked.</param>
-        internal EventInterceptionArgs( object instance, Arguments arguments, Delegate handler )
-            : base( instance )
-        {
-            this.Handler = handler;
-            this.Arguments = arguments;
-        }
-
-        /// <summary>
         ///   Gets an interface that allows to invoke the next node in the chain of invocation of the intercepted method.
         /// </summary>
         /// <remarks>
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='bindingProperty']/*" />
         /// </remarks>
-        public abstract IEventBinding Binding { [DebuggerHidden]get; }
+        public abstract IEventBinding Binding { get; }
 
         /// <summary>
         ///   Gets the delegate being added, removed, or invoked.
         /// </summary>
-        public Delegate Handler { [DebuggerHidden]get; [DebuggerHidden]private set; }
-
+        public Delegate Handler { get; }
 
         /// <summary>
         ///   Gets the return value of the delegate.
@@ -55,7 +37,7 @@ namespace PostSharp.Aspects
         ///   <para>This property is typically set by the <see cref = "ProceedInvokeHandler" /> method. It is also legal for
         ///     an implementation of <see cref = "IEventInterceptionAspect.OnInvokeHandler" /> to change the value of this property.</para>
         /// </remarks>
-        public object ReturnValue { [DebuggerHidden]get; [DebuggerHidden]set; }
+        public object ReturnValue { get; set; }
 
         /// <summary>
         ///   Gets the event to which the current aspect has been applied.
@@ -67,7 +49,7 @@ namespace PostSharp.Aspects
         ///     aspect instances and to make use of reflection only at build time.
         ///   </note>
         /// </remarks>
-        public EventInfo Event { [DebuggerHidden]get; [DebuggerHidden]set; }
+        public EventInfo Event { get; set; }
 
         /// <summary>
         ///   Gets the delegate arguments.
@@ -77,7 +59,7 @@ namespace PostSharp.Aspects
         ///   <para>This property is typically accessed by the <see cref = "ProceedInvokeHandler" /> method. Implementations of
         ///     <see cref = "IEventInterceptionAspect.OnInvokeHandler" /> can also get or change the value of this property.</para>
         /// </remarks>
-        public Arguments Arguments { [DebuggerHidden]get; [DebuggerHidden]private set; }
+        public Arguments Arguments { get; }
 
         /// <summary>
         ///   Proceeds with adding the <see cref = "Delegate" /> to the event to which the current aspect. 
@@ -91,7 +73,6 @@ namespace PostSharp.Aspects
         /// </summary>
         /// <param name = "handler">The handler to add to the event.</param>
         public abstract void AddHandler( Delegate handler );
-
 
         /// <summary>
         ///   Proceeds with removing the <see cref = "Delegate" /> from the event to which the current aspect. 

@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
 namespace PostSharp.Aspects.Advices
@@ -30,13 +27,12 @@ namespace PostSharp.Aspects.Advices
         ///   a specific signature as discussed in the <see cref = "MethodPointcut">class documentation</see>.</param>
         public MethodPointcut( string methodName )
         {
-            this.MethodName = methodName;
+            MethodName = methodName;
         }
 
         /// <summary>
         ///   Gets the name of the method returning the set of code elements.
         /// </summary>
-        public string MethodName { get; private set; }
+        public string MethodName { get; }
     }
 }
-

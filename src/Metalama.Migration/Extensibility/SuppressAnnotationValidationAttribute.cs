@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Extensibility
@@ -10,7 +7,5 @@ namespace PostSharp.Extensibility
     /// not be processed by the default component.
     /// </summary>
     [AttributeUsage( AttributeTargets.Class | AttributeTargets.Interface )]
-    public class SuppressAnnotationValidationAttribute : Attribute
-    {
-    }
+    public class SuppressAnnotationValidationAttribute : Attribute { }
 }

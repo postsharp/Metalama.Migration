@@ -1,10 +1,5 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
-using PostSharp.Extensibility;
 
 namespace PostSharp.Aspects
 {
@@ -17,7 +12,6 @@ namespace PostSharp.Aspects
     /// <see cref = "MethodInterceptionAspect" />
     /// <see cref = "MethodInterceptionAspectConfiguration" />
     /// <see cref = "MethodInterceptionAspectConfigurationAttribute" />
-    [HasInheritedAttribute]
     public interface IMethodInterceptionAspect : IMethodLevelAspect
     {
         /// <summary>
@@ -31,12 +25,6 @@ namespace PostSharp.Aspects
         ///     are normally set by calling <see cref = "MethodInterceptionArgs.Proceed" />.</para>
         /// </remarks>
         /// <seealso cref = "MethodInterceptionArgs" />
-        [RequiresMethodInterceptionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.RunToTarget), HasInheritedAttribute]
         void OnInvoke( MethodInterceptionArgs args );
     }
-
-#if ASYNCAWAIT
-
-#endif
-
 }

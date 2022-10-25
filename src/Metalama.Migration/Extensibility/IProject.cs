@@ -1,7 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
 using System.Collections.Generic;
 using System.Reflection;
 using PostSharp.Constraints;
@@ -27,13 +23,12 @@ namespace PostSharp.Extensibility
         ///   resolved.</returns>
         string EvaluateExpression( string expression );
 
-        
         /// <summary>
         ///   Gets the assembly that is being transformed by PostSharp.
         /// </summary>
         /// <returns>The assembly being processed.</returns>
         Assembly TargetAssembly { get; }
-        
+
         /// <summary>
         /// Gets a build-time service exposed by PostSharp.
         /// </summary>
@@ -43,7 +38,6 @@ namespace PostSharp.Extensibility
         /// <returns>The service <typeparamref name="T"/>, or <c>null</c> if the service could not be acquired and <paramref name="throwing"/>
         /// was set to <c>false</c>.</returns>
         new T GetService<T>( bool throwing = true ) where T : class, IService;
-
 
         /// <summary>
         /// Gets the set of project extension elements (<see cref="ProjectExtensionElement"/>) given their name and XML namespace.

@@ -1,11 +1,6 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-#if ASYNCAWAIT
 using System;
-using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
-using PostSharp.Extensibility;
 using System.Threading.Tasks;
+using PostSharp.Aspects.Configuration;
 
 namespace PostSharp.Aspects
 {
@@ -19,7 +14,6 @@ namespace PostSharp.Aspects
     /// <see cref = "MethodInterceptionAspect" />
     /// <see cref = "MethodInterceptionAspectConfiguration" />
     /// <see cref = "MethodInterceptionAspectConfigurationAttribute" />
-    [HasInheritedAttribute]
     public interface IAsyncMethodInterceptionAspect : IMethodInterceptionAspect
     {
         /// <summary>
@@ -36,8 +30,6 @@ namespace PostSharp.Aspects
         ///   </para>
         /// </remarks>
         /// <seealso cref = "MethodInterceptionArgs" />
-        [RequiresMethodInterceptionAdviceAnalysis, RequiresDebuggerEnhancement( DebuggerStepOverAspectBehavior.RunToTarget ), HasInheritedAttribute]
-        System.Threading.Tasks.Task OnInvokeAsync( MethodInterceptionArgs args );
+        Task OnInvokeAsync( MethodInterceptionArgs args );
     }
 }
-#endif

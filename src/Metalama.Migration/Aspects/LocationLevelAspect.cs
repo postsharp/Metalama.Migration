@@ -1,10 +1,6 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Diagnostics;
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
 using PostSharp.Extensibility;
 using PostSharp.Reflection;
 using PostSharp.Serialization;
@@ -22,9 +18,7 @@ namespace PostSharp.Aspects
     /// <include file="Documentation.xml" path="/documentation/section[@name='aspectSerialization']/*"/>
     /// </remarks>
     /// <seealso cref="ILocationLevelAspect"/>
-#if SERIALIZABLE
     [Serializable]
-#endif
     [MulticastAttributeUsage(
         MulticastTargets.Field | MulticastTargets.Property | MulticastTargets.Parameter | MulticastTargets.ReturnValue,
         AllowExternalAssemblies = false,
@@ -32,23 +26,18 @@ namespace PostSharp.Aspects
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Field | AttributeTargets.Interface
         | AttributeTargets.Property | AttributeTargets.Struct | AttributeTargets.Parameter |
-        AttributeTargets.ReturnValue, AllowMultiple = true )]
+        AttributeTargets.ReturnValue,
+        AllowMultiple = true )]
     [DebuggerStepThrough]
     [DebuggerNonUserCode]
-    [Serializer(null)]
+    [Serializer( null )]
     public abstract class LocationLevelAspect : Aspect, ILocationLevelAspect, ILocationLevelAspectBuildSemantics
     {
         /// <inheritdoc />
-        [RuntimeInitializeOptimization( RuntimeInitializeOptimizations.Ignore )]
-        public virtual void RuntimeInitialize( LocationInfo locationInfo )
-        {
-        }
+        public virtual void RuntimeInitialize( LocationInfo locationInfo ) { }
 
         /// <inheritdoc />
-        public virtual void CompileTimeInitialize( LocationInfo targetLocation, AspectInfo aspectInfo )
-        {
-        }
-
+        public virtual void CompileTimeInitialize( LocationInfo targetLocation, AspectInfo aspectInfo ) { }
 
         /// <summary>
         ///   Method invoked at build time to ensure that the aspect has been applied to the right target.
@@ -79,24 +68,23 @@ namespace PostSharp.Aspects
         ///     changes to the <see cref = "AspectConfiguration" />.</para>
         /// </remarks>
         /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoConfiguringAspects']/*" />
-        protected virtual void SetAspectConfiguration( AspectConfiguration aspectConfiguration,
-                                                       LocationInfo targetLocation )
-        {
-        }
+        protected virtual void SetAspectConfiguration(
+            AspectConfiguration aspectConfiguration,
+            LocationInfo targetLocation ) { }
 
         /// <inheritdoc />
-        protected sealed override void SetAspectConfiguration( AspectConfiguration aspectConfiguration,
-                                                               object targetElement )
+        protected sealed override void SetAspectConfiguration(
+            AspectConfiguration aspectConfiguration,
+            object targetElement )
         {
             base.SetAspectConfiguration( aspectConfiguration, targetElement );
-            this.SetAspectConfiguration( aspectConfiguration, (LocationInfo) targetElement );
+            SetAspectConfiguration( aspectConfiguration, (LocationInfo)targetElement );
         }
 
         /// <inheritdoc />
         public sealed override bool CompileTimeValidate( object target )
         {
-            return this.CompileTimeValidate( (LocationInfo) target );
+            return CompileTimeValidate( (LocationInfo)target );
         }
-
     }
 }

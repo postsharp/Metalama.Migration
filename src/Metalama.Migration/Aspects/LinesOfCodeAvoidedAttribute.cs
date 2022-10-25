@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 
 namespace PostSharp.Aspects
 {
@@ -18,12 +15,12 @@ namespace PostSharp.Aspects
         /// <param name="lines">Number of lines of code saved every time the aspect is applied to a target class.</param>
         public LinesOfCodeAvoidedAttribute( int lines )
         {
-            this.Count = lines;
+            Count = lines;
         }
 
         /// <summary>
         /// Gets the number of lines of code saved every time the aspect is applied to a target class.
         /// </summary>
-        public int Count { get; private set; }
+        public int Count { get; }
     }
 }

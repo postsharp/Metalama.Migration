@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
 
@@ -20,13 +17,21 @@ namespace PostSharp.Aspects
         /// <param name = "data">Content of the managed resource.</param>
         public ManagedResourceIntroductionAspect( string name, byte[] data )
         {
-            if ( string.IsNullOrEmpty( name ) ) throw new ArgumentNullException( nameof(name));
-            if ( data == null ) throw new ArgumentNullException( nameof(data));
-            this.Name = name;
-            this.Data = data;
-            this.DataProvider = () => data;
+            if (string.IsNullOrEmpty( name ))
+            {
+                throw new ArgumentNullException( nameof(name) );
+            }
+
+            if (data == null)
+            {
+                throw new ArgumentNullException( nameof(data) );
+            }
+
+            Name = name;
+            Data = data;
+            DataProvider = () => data;
         }
-        
+
         /// <summary>
         ///   Initializes a new <see cref = "ManagedResourceIntroductionAspect" /> by passing a delegate for late evaluation of
         /// the resource content.
@@ -37,10 +42,18 @@ namespace PostSharp.Aspects
         /// .</param>
         public ManagedResourceIntroductionAspect( string name, Func<byte[]> dataProvider )
         {
-            if ( string.IsNullOrEmpty( name ) ) throw new ArgumentNullException( nameof(name));
-            if ( dataProvider == null ) throw new ArgumentNullException( nameof(dataProvider));
-            this.Name = name;
-            this.DataProvider = dataProvider;
+            if (string.IsNullOrEmpty( name ))
+            {
+                throw new ArgumentNullException( nameof(name) );
+            }
+
+            if (dataProvider == null)
+            {
+                throw new ArgumentNullException( nameof(dataProvider) );
+            }
+
+            Name = name;
+            DataProvider = dataProvider;
         }
 
         /// <summary>
@@ -51,9 +64,9 @@ namespace PostSharp.Aspects
         /// <summary>
         ///   Gets the content of the managed resource.
         /// </summary>
-        #pragma warning disable CA1819 // Properties should not return arrays (TODO)
+#pragma warning disable CA1819 // Properties should not return arrays (TODO)
         public byte[] Data { get; }
-        #pragma warning restore CA1819 // Properties should not return arrays (TODO)
+#pragma warning restore CA1819 // Properties should not return arrays (TODO)
 
         /// <summary>
         /// Gets a delegate that provides content of the managed resource.
@@ -64,8 +77,7 @@ namespace PostSharp.Aspects
 
         AspectConfiguration IAspectBuildSemantics.GetAspectConfiguration( object targetElement )
         {
-            return new ManagedResourceIntroductionAspectConfiguration( this.Name, this.DataProvider );
+            return new ManagedResourceIntroductionAspectConfiguration( Name, DataProvider );
         }
     }
 }
-

@@ -1,8 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using PostSharp.Constraints;
-
 namespace PostSharp.Aspects
 {
     /// <summary>
@@ -11,7 +6,6 @@ namespace PostSharp.Aspects
     /// </summary>
     /// <seealso cref="PostSharp.Aspects.Advices.ImportMemberAttribute"/>
     /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoAspectBindings']/*" />
-    [Internal]
     public interface IMethodBinding
     {
         /// <summary>
@@ -25,6 +19,4 @@ namespace PostSharp.Aspects
         /// </remarks>
         object Invoke( ref object instance, Arguments arguments );
     }
-
-
 }

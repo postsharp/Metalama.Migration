@@ -1,8 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
-using PostSharp.Aspects.Internals;
 
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
@@ -18,10 +14,6 @@ namespace PostSharp.Aspects.Advices
     /// this advice to type <c>A</c>, and class <c>B</c> extends class <c>A</c>, then if you create a new instance of <c>B</c>, the method will be invoked only
     /// after B's constructor ends.
     /// </remarks>
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
-    [RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut)]
-    public sealed class OnInstanceConstructedAdvice : Advice
-    {
-        
-    }
+    [AttributeUsage( AttributeTargets.Method, AllowMultiple = false, Inherited = false )]
+    public sealed class OnInstanceConstructedAdvice : Advice { }
 }

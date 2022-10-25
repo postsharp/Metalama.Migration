@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using PostSharp.Aspects.Advices;
 
 namespace PostSharp.Aspects
@@ -25,13 +22,13 @@ namespace PostSharp.Aspects
         /// the <see cref="AspectDescriptionAttribute"/> custom attribute is applied.</param>
         public AspectDescriptionAttribute( string description )
         {
-            this.Description = description;
+            Description = description;
         }
 
         /// <summary>
         /// Gets a human-readable description of the aspect class to which
         /// the <see cref="AspectDescriptionAttribute"/> custom attribute is applied.
         /// </summary>
-        public string Description { get; private set; }
+        public string Description { get; }
     }
 }

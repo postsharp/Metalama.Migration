@@ -1,8 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
-using PostSharp.Extensibility;
 using PostSharp.Reflection;
 
 namespace PostSharp.Serialization
@@ -14,17 +10,12 @@ namespace PostSharp.Serialization
     /// </summary>
     public class PortableSerializationBinder
     {
-        private readonly IReflectionBindingManagerService reflectionBindingManagerService;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PortableSerializationBinder"/> class.
         /// </summary>
         public PortableSerializationBinder()
         {
-            if ( PostSharpEnvironment.IsPostSharpRunning )
-            {
-                this.reflectionBindingManagerService = PostSharpEnvironment.CurrentProject.GetService<IReflectionBindingManagerService>();
-            }
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -44,18 +35,9 @@ namespace PostSharp.Serialization
         /// <param name="type">The <see cref="Type"/>.</param>
         /// <param name="typeName">At output, the name of <paramref name="type"/>.</param>
         /// <param name="assemblyName">At output, the name of <paramref name="assemblyName"/>.</param>
-        public virtual void BindToName( Type type, out string typeName, out string assemblyName)
+        public virtual void BindToName( Type type, out string typeName, out string assemblyName )
         {
-            typeName = type.FullName;
-            if ( this.reflectionBindingManagerService != null )
-            {
-                assemblyName = this.reflectionBindingManagerService.ResolveAssembly(type) ?? type.GetAssembly().FullName;
-            }
-            else
-            {
-                assemblyName = type.GetAssembly().FullName;    
-            }
-
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,10 +1,6 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Diagnostics;
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
 using PostSharp.Extensibility;
 using PostSharp.Serialization;
 
@@ -50,53 +46,44 @@ namespace PostSharp.Aspects
     /// <include file="Documentation.xml" path="/documentation/section[@name='aspectSerialization']/*"/>
     /// </remarks>
     /// <include file="Documentation.xml" path="/documentation/section[@name='seeAlsoInterceptionAspects']/*"/>
-#if SERIALIZABLE
     [Serializable]
-#endif
-    [MulticastAttributeUsage( MulticastTargets.Field | MulticastTargets.Property, TargetMemberAttributes = MulticastAttributes.NonLiteral | MulticastAttributes.NonAbstract,
+    [MulticastAttributeUsage(
+        MulticastTargets.Field | MulticastTargets.Property,
+        TargetMemberAttributes = MulticastAttributes.NonLiteral | MulticastAttributes.NonAbstract,
         AllowExternalAssemblies = false,
         AllowMultiple = true )]
-    [HasInheritedAttribute]
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Field | AttributeTargets.Interface
-        | AttributeTargets.Property | AttributeTargets.Struct, AllowMultiple = true )]
+        | AttributeTargets.Property | AttributeTargets.Struct,
+        AllowMultiple = true )]
     [DebuggerStepThrough]
     [DebuggerNonUserCode]
     [AspectConfigurationAttributeType( typeof(LocationInterceptionAspectConfigurationAttribute) )]
-    [Serializer(null)]
+    [Serializer( null )]
     public abstract class LocationInterceptionAspect : LocationLevelAspect, ILocationInterceptionAspect, IOnInstanceLocationInitializedAspect
     {
         /// <inheritdoc />
-        [RequiresLocationInterceptionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.RunToTarget), HasInheritedAttribute]
-        [LocationInterceptionAdviceOptimization( LocationInterceptionAdviceOptimizations.IgnoreAdvice )]
         public virtual void OnGetValue( LocationInterceptionArgs args )
         {
             args.ProceedGetValue();
         }
 
         /// <inheritdoc />
-        [RequiresLocationInterceptionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.RunToTarget), HasInheritedAttribute]
-        [LocationInterceptionAdviceOptimization( LocationInterceptionAdviceOptimizations.IgnoreAdvice )]
         public virtual void OnSetValue( LocationInterceptionArgs args )
         {
             args.ProceedSetValue();
         }
 
         /// <inheritdoc />
-        [RequiresLocationInterceptionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.RunToTarget), HasInheritedAttribute] // TODO document attributes
-        [LocationInterceptionAdviceOptimization(LocationInterceptionAdviceOptimizations.IgnoreAdvice)] // TODO what does this mean?
         public virtual void OnInstanceLocationInitialized( LocationInitializationArgs args )
         {
             // Do nothing.
         }
-
 
         /// <inheritdoc />
         protected sealed override AspectConfiguration CreateAspectConfiguration()
         {
             return new LocationInterceptionAspectConfiguration();
         }
-
-
     }
 }

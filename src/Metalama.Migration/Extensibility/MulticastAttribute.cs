@@ -1,10 +1,6 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using PostSharp.Aspects.Serialization;
 using PostSharp.Serialization;
-
 
 namespace PostSharp.Extensibility
 {
@@ -26,67 +22,15 @@ namespace PostSharp.Extensibility
     /// available on the <b>CustomAttributeDictionaryTask</b> class.
     /// </para>
     /// </remarks>
-#if SERIALIZABLE
     [Serializable]
-#endif
-    [Serializer(null)]
+    [Serializer( null )]
     public abstract class MulticastAttribute : Attribute
     {
-        private class Fields
-        {
-            public MulticastTargets Targets = MulticastTargets.All;
-
-            public string TargetTypes;
-
-            public MulticastAttributes TargetTypeAttributes = MulticastAttributes.All;
-            public MulticastAttributes TargetExternalTypeAttributes = MulticastAttributes.All;
-
-            public string TargetMembers;
-
-            public MulticastAttributes TargetMemberAttributes;
-            public MulticastAttributes TargetExternalMemberAttributes;
-
-            public string TargetParameters;
-
-            public MulticastAttributes TargetParameterAttributes;
-
-            public string TargetAssemblies;
-
-            public bool Exclude;
-
-            public int Priority;
-
-            public bool Replace;
-
-            public MulticastInheritance Inheritance;
-
-            public long Id;
-        }
-
-#if SERIALIZABLE
-        [NonSerialized]
-#endif
-        [PNonSerialized]
-            private readonly Fields fields = new Fields();
-
-        private Fields GetFields()
-        {
-            if ( this.fields == null )
-                throw new NotSupportedException( "Members of MulticastAttribute are not available." );
-
-            return this.fields;
-        }
-
-
         /// <summary>
         /// Gets or sets the kind of elements to which this custom attributes applies.
         /// </summary>
         [AspectSerializerIgnore]
-        public MulticastTargets AttributeTargetElements
-        {
-            get { return this.GetFields().Targets; }
-            set { this.GetFields().Targets = value; }
-        }
+        public MulticastTargets AttributeTargetElements { get; set; }
 
         /// <summary>
         /// Gets or sets the assemblies to which the current attribute apply.
@@ -104,12 +48,7 @@ namespace PostSharp.Extensibility
         /// are <i>referenced</i> by the current assembly.
         /// </remarks>
         [AspectSerializerIgnore]
-        public string AttributeTargetAssemblies
-        {
-            get { return this.GetFields().TargetAssemblies; }
-            set { this.GetFields().TargetAssemblies = value; }
-        }
-
+        public string AttributeTargetAssemblies { get; set; }
 
         /// <summary>
         /// Gets or sets the expression specifying to which types
@@ -135,22 +74,14 @@ namespace PostSharp.Extensibility
         /// </para>
         /// </remarks>
         [AspectSerializerIgnore]
-        public string AttributeTargetTypes
-        {
-            get { return this.GetFields().TargetTypes; }
-            set { this.GetFields().TargetTypes = value; }
-        }
+        public string AttributeTargetTypes { get; set; }
 
         /// <summary>
         /// Gets or sets the attributes of types to which this attribute applies. Visibility, scope (<see cref="MulticastAttributes.Instance"/> or <see cref="MulticastAttributes.Static"/>)
         ///   and generation are the only categories that are taken into account; attributes of other categories are ignored.
         /// </summary>
         [AspectSerializerIgnore]
-        public MulticastAttributes AttributeTargetTypeAttributes
-        {
-            get { return this.GetFields().TargetTypeAttributes; }
-            set { this.GetFields().TargetTypeAttributes = value; }
-        }
+        public MulticastAttributes AttributeTargetTypeAttributes { get; set; }
 
         /// <summary>
         /// Gets or sets the visibilities of types to which this attribute applies,
@@ -160,12 +91,7 @@ namespace PostSharp.Extensibility
         /// On type-level, the only meaningful enumeration values are related to visibility.
         /// </remarks>
         [AspectSerializerIgnore]
-        public MulticastAttributes AttributeTargetExternalTypeAttributes
-        {
-            get { return this.GetFields().TargetExternalTypeAttributes; }
-            set { this.GetFields().TargetExternalTypeAttributes = value; }
-        }
-
+        public MulticastAttributes AttributeTargetExternalTypeAttributes { get; set; }
 
         /// <summary>
         /// Gets or sets the expression specifying to which members 
@@ -182,11 +108,7 @@ namespace PostSharp.Extensibility
         /// </para>
         /// </remarks>
         [AspectSerializerIgnore]
-        public string AttributeTargetMembers
-        {
-            get { return this.GetFields().TargetMembers; }
-            set { this.GetFields().TargetMembers = value; }
-        }
+        public string AttributeTargetMembers { get; set; }
 
         /// <summary>
         /// Gets or sets the visibilities, scopes, virtualities, and other characteristics 
@@ -207,11 +129,7 @@ namespace PostSharp.Extensibility
         /// </para>
         /// </remarks>
         [AspectSerializerIgnore]
-        public MulticastAttributes AttributeTargetMemberAttributes
-        {
-            get { return this.GetFields().TargetMemberAttributes; }
-            set { this.GetFields().TargetMemberAttributes = value; }
-        }
+        public MulticastAttributes AttributeTargetMemberAttributes { get; set; }
 
         /// <summary>
         /// Gets or sets the visibilities, scopes, virtualities, and implementation
@@ -232,12 +150,7 @@ namespace PostSharp.Extensibility
         /// </para>
         /// </remarks>
         [AspectSerializerIgnore]
-        public MulticastAttributes AttributeTargetExternalMemberAttributes
-        {
-            get { return this.GetFields().TargetExternalMemberAttributes; }
-            set { this.GetFields().TargetExternalMemberAttributes = value; }
-        }
-
+        public MulticastAttributes AttributeTargetExternalMemberAttributes { get; set; }
 
         /// <summary>
         /// Gets or sets the expression specifying to which parameters 
@@ -255,11 +168,7 @@ namespace PostSharp.Extensibility
         /// </para>
         /// </remarks>
         [AspectSerializerIgnore]
-        public string AttributeTargetParameters
-        {
-            get { return this.GetFields().TargetParameters; }
-            set { this.GetFields().TargetParameters = value; }
-        }
+        public string AttributeTargetParameters { get; set; }
 
         /// <summary>
         /// Gets or sets the passing style (by value, <b>out</b> or <b>ref</b>)
@@ -270,23 +179,14 @@ namespace PostSharp.Extensibility
         /// </para>
         /// </remarks>
         [AspectSerializerIgnore]
-        public MulticastAttributes AttributeTargetParameterAttributes
-        {
-            get { return this.GetFields().TargetParameterAttributes; }
-            set { this.GetFields().TargetParameterAttributes = value; }
-        }
-
+        public MulticastAttributes AttributeTargetParameterAttributes { get; set; }
 
         /// <summary>
         /// If true, indicates that this attribute <i>removes</i> all other instances of the
         /// same attribute type from the set of elements defined by the current instance.
         /// </summary>
         [AspectSerializerIgnore]
-        public bool AttributeExclude
-        {
-            get { return this.GetFields().Exclude; }
-            set { this.GetFields().Exclude = value; }
-        }
+        public bool AttributeExclude { get; set; }
 
         /// <summary>
         /// Gets or sets the priority of the current attribute in case that multiple 
@@ -296,11 +196,7 @@ namespace PostSharp.Extensibility
         /// You should use only 16-bit values in user code. Top 16 bits are reserved for the system.
         /// </remarks>
         [AspectSerializerIgnore]
-        public int AttributePriority
-        {
-            get { return this.GetFields().Priority; }
-            set { this.GetFields().Priority = value; }
-        }
+        public int AttributePriority { get; set; }
 
         /// <summary>
         /// Determines whether this attribute replaces other attributes found on the
@@ -311,11 +207,7 @@ namespace PostSharp.Extensibility
         /// if it will be added to previous instances.
         /// </value>
         [AspectSerializerIgnore]
-        public bool AttributeReplace
-        {
-            get { return this.GetFields().Replace; }
-            set { this.GetFields().Replace = value; }
-        }
+        public bool AttributeReplace { get; set; }
 
         /// <summary>
         /// Determines whether this attribute is inherited
@@ -335,20 +227,12 @@ namespace PostSharp.Extensibility
         /// </list>
         /// </remarks>
         [AspectSerializerIgnore]
-        public MulticastInheritance AttributeInheritance
-        {
-            get { return this.GetFields().Inheritance; }
-            set { this.GetFields().Inheritance = value; }
-        }
+        public MulticastInheritance AttributeInheritance { get; set; }
 
         // TODO: Used in compiler.
         /// <exclude />
         [Obsolete( "Do not use this property in customer code.", true )]
         [AspectSerializerIgnore]
-        public long AttributeId
-        {
-            get { return this.GetFields().Id; }
-            set { this.GetFields().Id = value; }
-        }
+        public long AttributeId { get; set; }
     }
 }

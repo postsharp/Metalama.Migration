@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using System.Reflection;
 
 namespace PostSharp.Reflection
@@ -13,28 +10,17 @@ namespace PostSharp.Reflection
     /// </summary>
     public sealed class MethodUsageCodeReference : ICodeReference
     {
-        internal MethodUsageCodeReference( MethodBase usingMethod, MemberInfo usedMember, MethodUsageInstructions instructions )
-        {
-#if DEBUG
-            if (usingMethod == null) throw new ArgumentNullException( nameof(usingMethod));
-            if (usedMember == null) throw new ArgumentNullException( nameof(usedMember));
-#endif
-            this.UsingMethod = usingMethod;
-            this.UsedDeclaration = usedMember;
-            this.Instructions = instructions;
-        }
-
         /// <summary>
         /// Gets the method (<see cref="MethodInfo"/> or <see cref="ConstructorInfo"/>)
         /// whose body uses the declaration.
         /// </summary>
-        public MethodBase UsingMethod { get; private set; }
+        public MethodBase UsingMethod { get; }
 
         /// <summary>
         /// Gets the declaration (<see cref="Type"/>, <see cref="MethodInfo"/>
         /// or <see cref="ConstructorInfo"/>) used by the method.
         /// </summary>
-        public MemberInfo UsedDeclaration { get; private set; }
+        public MemberInfo UsedDeclaration { get; }
 
         /// <summary>
         /// Gets the <see cref="Type"/> used by the method. If the current
@@ -42,32 +28,20 @@ namespace PostSharp.Reflection
         /// or <see cref="ConstructorInfo"/>, this property returns the declaring
         /// type of the method or constructor.
         /// </summary>
-        public Type UsedType
-        {
-            get { return this.UsedDeclaration.AsType() ?? this.UsedDeclaration.DeclaringType; }
-        }
+        public Type UsedType { get; }
 
         /// <summary>
         /// Gets the instructions that reference <see cref="UsedDeclaration"/>.
         /// </summary>
-        public MethodUsageInstructions Instructions { get; private set; }
+        public MethodUsageInstructions Instructions { get; }
 
         /// <inheritdoc />
-        object ICodeReference.ReferencingDeclaration
-        {
-            get { return this.UsingMethod; }
-        }
+        object ICodeReference.ReferencingDeclaration { get; }
 
         /// <inheritdoc />
-        object ICodeReference.ReferencedDeclaration
-        {
-            get { return this.UsedDeclaration; }
-        }
+        object ICodeReference.ReferencedDeclaration { get; }
 
         /// <inheritdoc />
-        CodeReferenceKind ICodeReference.ReferenceKind
-        {
-            get { return CodeReferenceKind.MethodUsage; }
-        }
+        CodeReferenceKind ICodeReference.ReferenceKind { get; }
     }
 }

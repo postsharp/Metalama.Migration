@@ -1,12 +1,7 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System.Diagnostics;
 using System.Reflection;
-using PostSharp.Aspects.Internals;
 
 #pragma warning disable CA2227 // Collection properties should be read only
-
 
 namespace PostSharp.Aspects
 {
@@ -21,12 +16,6 @@ namespace PostSharp.Aspects
     [DebuggerNonUserCode]
     public abstract class MethodInterceptionArgs : AdviceArgs
     {
-        internal MethodInterceptionArgs( object instance, Arguments arguments )
-            : base( instance )
-        {
-            this.Arguments = arguments;
-        }
-
         /// <summary>
         ///   Gets an interface that allows to invoke the next node in the chain of invocation of the intercepted method.
         /// </summary>
@@ -34,7 +23,7 @@ namespace PostSharp.Aspects
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='bindingProperty']/*" />
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgsProperty']/*" />
         /// </remarks>
-        public abstract IMethodBinding Binding { [DebuggerHidden]get; }
+        public abstract IMethodBinding Binding { get; }
 
         /// <summary>
         ///   Gets or sets the return value of the method.
@@ -42,7 +31,7 @@ namespace PostSharp.Aspects
         /// <remarks>
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgsProperty']/*" />
         /// </remarks>
-        public abstract object ReturnValue { [DebuggerHidden]get; [DebuggerHidden]set; }
+        public abstract object ReturnValue { get; set; }
 
         /// <summary>
         ///   Gets the method being executed.
@@ -59,7 +48,7 @@ namespace PostSharp.Aspects
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgsProperty']/*" />
         /// </remarks>
         /// <seealso cref = "MethodLevelAspect.CompileTimeInitialize" />
-        public MethodBase Method { [DebuggerHidden]get; [DebuggerHidden]set; }
+        public MethodBase Method { get; set; }
 
         /// <summary>
         ///   Gets the list of arguments with which the method has been invoked.
@@ -67,7 +56,7 @@ namespace PostSharp.Aspects
         /// <remarks>
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgsProperty']/*" />
         /// </remarks>
-        public Arguments Arguments { [DebuggerHidden]get; [DebuggerHidden]protected set; }
+        public Arguments Arguments { get; protected set; }
 
         /// <summary>
         ///   Proceeds with invocation of the method that has been intercepted by calling the next node in the chain of invocation, 
@@ -84,8 +73,6 @@ namespace PostSharp.Aspects
         /// <returns>Value returned by the intercepted method.</returns>
         public abstract object Invoke( Arguments arguments );
 
-#if ASYNCAWAIT
-
         /// <summary>
         /// Determines whether the intercepted method is <c>async</c>, and therefore whether the <see cref="AsyncBinding"/> property
         /// and <see cref="ProceedAsync"/> method are available.
@@ -99,8 +86,8 @@ namespace PostSharp.Aspects
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='bindingProperty']/*" />
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgsProperty']/*" />
         /// </remarks>
-        public abstract IAsyncMethodBinding AsyncBinding { [DebuggerHidden] get; }
-        
+        public abstract IAsyncMethodBinding AsyncBinding { get; }
+
         /// <summary>
         ///   Proceeds asynchronously with invocation of the method that has been intercepted by calling the next node in the chain of invocation, 
         ///   passing the current <see cref = "Arguments" /> to that method and 
@@ -115,9 +102,5 @@ namespace PostSharp.Aspects
         /// <param name = "arguments">Arguments passed to the intercepted method.</param>
         /// <returns>The value that can be awaited to get the result of the intercepted method's invocation.</returns>
         public abstract MethodBindingInvokeAwaitable InvokeAsync( Arguments arguments );
-#endif
     }
-
-#if ASYNCAWAIT
-#endif
 }

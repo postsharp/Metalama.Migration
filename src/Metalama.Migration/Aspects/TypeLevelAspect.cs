@@ -1,12 +1,7 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
 using PostSharp.Extensibility;
 using PostSharp.Serialization;
 
@@ -21,19 +16,19 @@ namespace PostSharp.Aspects
     /// <br/>
     /// <include file="Documentation.xml" path="/documentation/section[@name='aspectSerialization']/*"/>
     /// </remarks>
-#if SERIALIZABLE
     [Serializable]
-#endif
     [DebuggerStepThrough]
     [DebuggerNonUserCode]
     [SuppressMessage( "Microsoft.Naming", "CA1710" /* IdentifiersShouldHaveCorrectSuffix */ )]
-    [MulticastAttributeUsage( MulticastTargets.Class | MulticastTargets.Struct | MulticastTargets.Interface, AllowExternalAssemblies = false,
-        AllowMultiple = true, PersistMetaData = false )]
+    [MulticastAttributeUsage(
+        MulticastTargets.Class | MulticastTargets.Struct | MulticastTargets.Interface,
+        AllowExternalAssemblies = false,
+        AllowMultiple = true,
+        PersistMetaData = false )]
     [AttributeUsage( AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface, AllowMultiple = true )]
-    [Serializer(null)]
+    [Serializer( null )]
     public abstract class TypeLevelAspect : Aspect, ITypeLevelAspect, ITypeLevelAspectBuildSemantics
     {
-
         /// <summary>
         ///   Method invoked at build time to ensure that the aspect has been applied to the right target.
         /// </summary>
@@ -54,12 +49,7 @@ namespace PostSharp.Aspects
         /// <inheritdoc />
         public sealed override bool CompileTimeValidate( object target )
         {
-            Type type = target as Type;
-            if ( type == null )
-                throw new ArgumentException( string.Format(CultureInfo.InvariantCulture, "Aspects of type {0} can be applied to types only.",
-                                                            this.GetType().FullName ) );
-
-            return this.CompileTimeValidate( type );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -75,28 +65,20 @@ namespace PostSharp.Aspects
         ///     <see cref = "AspectConfiguration" />.</para>
         /// </remarks>
         /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoConfiguringAspects']/*" />
-        protected virtual void SetAspectConfiguration( AspectConfiguration aspectConfiguration, Type targetType )
+        protected virtual void SetAspectConfiguration( AspectConfiguration aspectConfiguration, Type targetType ) { }
+
+        /// <inheritdoc />
+        protected sealed override void SetAspectConfiguration(
+            AspectConfiguration aspectConfiguration,
+            object targetElement )
         {
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
-        protected sealed override void SetAspectConfiguration( AspectConfiguration aspectConfiguration,
-                                                               object targetElement )
-        {
-            base.SetAspectConfiguration( aspectConfiguration, targetElement );
-            this.SetAspectConfiguration( aspectConfiguration, (Type) targetElement );
-        }
-
+        public virtual void CompileTimeInitialize( Type type, AspectInfo aspectInfo ) { }
 
         /// <inheritdoc />
-        public virtual void CompileTimeInitialize( Type type, AspectInfo aspectInfo )
-        {
-        }
-
-        /// <inheritdoc />
-        [RuntimeInitializeOptimization( RuntimeInitializeOptimizations.Ignore )]
-        public virtual void RuntimeInitialize( Type type )
-        {
-        }
+        public virtual void RuntimeInitialize( Type type ) { }
     }
 }

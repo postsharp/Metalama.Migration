@@ -1,11 +1,7 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using PostSharp.Aspects.Internals;
 
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
@@ -28,35 +24,18 @@ namespace PostSharp.Aspects
     [DebuggerStepThrough]
     [DebuggerNonUserCode]
     public class Arguments : IList<object>
-#if CLONEABLE
-                             , ICloneable
-#endif
-    {
-        private readonly int count;
+                           , ICloneable
 
+    {
         /// <summary>
         ///   Empty list of <see cref = "Arguments" />.
         /// </summary>
-        public static readonly Arguments Empty = new Arguments();
-
-        private Arguments()
-        {
-        }
-
-        internal Arguments( int count )
-        {
-            this.count = count;
-        }
-
+        public static readonly Arguments Empty = new();
 
         /// <summary>
         ///   Gets the number of arguments encapsulated by the current object.
         /// </summary>
-        public int Count
-        {
-            get { return this.count; }
-        }
-
+        public int Count { get; }
 
         /// <summary>
         ///   Gets the value of the argument at a given index.
@@ -66,9 +45,8 @@ namespace PostSharp.Aspects
         /// <exception cref = "ArgumentOutOfRangeException"><paramref name = "index" /> is lower than zero or greater or equal than <see cref = "Count" />.</exception>
         public virtual object GetArgument( int index )
         {
-            throw new ArgumentOutOfRangeException( nameof(index));
+            throw new ArgumentOutOfRangeException( nameof(index) );
         }
-
 
         /// <summary>
         ///   Gets or sets the value of an argument. Setting the value is only supported in specific situations. See <see cref="SetArgument"/> for details.  
@@ -78,8 +56,8 @@ namespace PostSharp.Aspects
         /// <exception cref = "ArgumentOutOfRangeException"><paramref name = "index" /> is lower than zero or greater or equal than <see cref = "Count" />.</exception>
         public object this[ int index ]
         {
-            get { return this.GetArgument( index ); }
-            set { this.SetArgument( index, value ); }
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
         }
 
         /// <summary>
@@ -108,7 +86,7 @@ namespace PostSharp.Aspects
         /// </remarks>
         public virtual void SetArgument( int index, object value )
         {
-            throw new ArgumentOutOfRangeException( nameof(index));
+            throw new ArgumentOutOfRangeException( nameof(index) );
         }
 
         /// <summary>
@@ -119,10 +97,7 @@ namespace PostSharp.Aspects
         /// <exception cref = "ArgumentNullException"><paramref name = "array" /> is <c>null</c>.</exception>
         /// <exception cref = "ArgumentOutOfRangeException"><paramref name = "index" /> is lower than zero.</exception>
         /// <seealso cref = "CopyTo" />
-        public virtual void CopyFrom( object[] array, int index )
-        {
-        }
-
+        public virtual void CopyFrom( object[] array, int index ) { }
 
         /// <summary>
         ///   Copies all arguments values to the specified <see cref = "Array" /> starting at the specified destination <see cref = "Array" /> index.
@@ -130,9 +105,7 @@ namespace PostSharp.Aspects
         /// <param name = "array">The array that is the destination of argument values copied from the current <see cref = "Arguments" />.</param>
         /// <param name = "index">An integer that represents the index in <paramref name = "array" /> at which copying begins</param>
         /// <seealso cref = "CopyFrom" />
-        public virtual void CopyTo( object[] array, int index )
-        {
-        }
+        public virtual void CopyTo( object[] array, int index ) { }
 
         /// <summary>
         ///   Converts the current argument list into an <see cref = "Array" />.
@@ -140,8 +113,9 @@ namespace PostSharp.Aspects
         /// <returns>An <see cref = "Array" /> whose elements are equal to the values encapsulated by the current <see cref = "Arguments" />.</returns>
         public object[] ToArray()
         {
-            object[] array = new object[this.Count];
-            this.CopyTo( array, 0 );
+            var array = new object[Count];
+            CopyTo( array, 0 );
+
             return array;
         }
 
@@ -151,16 +125,15 @@ namespace PostSharp.Aspects
         /// <returns>A shallow copy of the current object.</returns>
         public Arguments Clone()
         {
-            return (Arguments) this.MemberwiseClone();
+            return (Arguments)MemberwiseClone();
         }
 
-#if CLONEABLE
         /// <inheritdoc />
         object ICloneable.Clone()
         {
-            return this.Clone();
+            return Clone();
         }
-#endif
+
         /// <summary>
         /// Creates a strongly-typed <see cref="Arguments"/> object representing 1 argument.
         /// </summary>
@@ -169,7 +142,7 @@ namespace PostSharp.Aspects
         /// <returns></returns>
         public static Arguments Create<T>( T arg0 )
         {
-            return new Arguments<T> {Arg0 = arg0};
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -180,9 +153,9 @@ namespace PostSharp.Aspects
         /// <param name="arg0"></param>
         /// <param name="arg1"></param>
         /// <returns></returns>
-        public static Arguments Create<T0,T1>(T0 arg0,T1 arg1)
+        public static Arguments Create<T0, T1>( T0 arg0, T1 arg1 )
         {
-            return new Arguments<T0,T1> { Arg0 = arg0, Arg1 = arg1};
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -195,9 +168,9 @@ namespace PostSharp.Aspects
         /// <param name="arg1"></param>
         /// <param name="arg2"></param>
         /// <returns></returns>
-        public static Arguments Create<T0, T1,T2>(T0 arg0, T1 arg1, T2 arg2)
+        public static Arguments Create<T0, T1, T2>( T0 arg0, T1 arg1, T2 arg2 )
         {
-            return new Arguments<T0, T1, T2> { Arg0 = arg0, Arg1 = arg1, Arg2 = arg2};
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -212,11 +185,10 @@ namespace PostSharp.Aspects
         /// <param name="arg2"></param>
         /// <param name="arg3"></param>
         /// <returns></returns>
-        public static Arguments Create<T0, T1, T2, T3>(T0 arg0, T1 arg1, T2 arg2, T3 arg3)
+        public static Arguments Create<T0, T1, T2, T3>( T0 arg0, T1 arg1, T2 arg2, T3 arg3 )
         {
-            return new Arguments<T0, T1, T2, T3> { Arg0 = arg0, Arg1 = arg1, Arg2 = arg2, Arg3 = arg3};
+            throw new NotImplementedException();
         }
-
 
         /// <summary>
         /// Creates a strongly-typed <see cref="Arguments"/> object representing 5 arguments.
@@ -232,9 +204,9 @@ namespace PostSharp.Aspects
         /// <param name="arg3"></param>
         /// <param name="arg4"></param>
         /// <returns></returns>
-        public static Arguments Create<T0, T1, T2, T3, T4>(T0 arg0, T1 arg1, T2 arg2, T3 arg3, T4 arg4)
+        public static Arguments Create<T0, T1, T2, T3, T4>( T0 arg0, T1 arg1, T2 arg2, T3 arg3, T4 arg4 )
         {
-            return new Arguments<T0, T1, T2, T3, T4> { Arg0 = arg0, Arg1 = arg1, Arg2 = arg2, Arg3 = arg3, Arg4 = arg4 };
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -253,9 +225,9 @@ namespace PostSharp.Aspects
         /// <param name="arg4"></param>
         /// <param name="args5"></param>
         /// <returns></returns>
-        public static Arguments Create<T0, T1, T2, T3, T4, T5>(T0 arg0, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 args5)
+        public static Arguments Create<T0, T1, T2, T3, T4, T5>( T0 arg0, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 args5 )
         {
-            return new Arguments<T0, T1, T2, T3, T4, T5> { Arg0 = arg0, Arg1 = arg1, Arg2 = arg2, Arg3 = arg3, Arg4 = arg4, Arg5 = args5};
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -276,9 +248,9 @@ namespace PostSharp.Aspects
         /// <param name="args5"></param>
         /// <param name="args6"></param>
         /// <returns></returns>
-        public static Arguments Create<T0, T1, T2, T3, T4, T5, T6>(T0 arg0, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 args5, T6 args6)
+        public static Arguments Create<T0, T1, T2, T3, T4, T5, T6>( T0 arg0, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 args5, T6 args6 )
         {
-            return new Arguments<T0, T1, T2, T3, T4, T5, T6> { Arg0 = arg0, Arg1 = arg1, Arg2 = arg2, Arg3 = arg3, Arg4 = arg4, Arg5 = args5, Arg6 = args6};
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -301,9 +273,9 @@ namespace PostSharp.Aspects
         /// <param name="args6"></param>
         /// <param name="args7"></param>
         /// <returns></returns>
-        public static Arguments Create<T0, T1, T2, T3, T4, T5, T6, T7>(T0 arg0, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 args5, T6 args6, T7 args7)
+        public static Arguments Create<T0, T1, T2, T3, T4, T5, T6, T7>( T0 arg0, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 args5, T6 args6, T7 args7 )
         {
-            return new Arguments<T0, T1, T2, T3, T4, T5, T6, T7> { Arg0 = arg0, Arg1 = arg1, Arg2 = arg2, Arg3 = arg3, Arg4 = arg4, Arg5 = args5, Arg6 = args6, Arg7 = args7};
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -311,50 +283,39 @@ namespace PostSharp.Aspects
         /// </summary>
         /// <param name="array"></param>
         /// <returns></returns>
-        public static Arguments Create(params object[] array )
+        public static Arguments Create( params object[] array )
         {
-            return new ArgumentsArray( array ); 
+            throw new NotImplementedException();
         }
+
         #region Implementation of IEnumerable
 
         /// <inheritdoc />
         public IEnumerator<object> GetEnumerator()
         {
-            for ( int i = 0; i < this.count; i++ )
-            {
-                yield return this.GetArgument( i );
-            }
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this.GetEnumerator();
+            throw new NotImplementedException();
         }
 
         #endregion
 
         #region Implementation of IList
 
-        bool ICollection<object>.IsReadOnly
-        {
-            get { return true; }
-        }
+        bool ICollection<object>.IsReadOnly { get; }
 
         bool ICollection<object>.Remove( object item )
         {
-            throw new NotSupportedException();
+            throw new NotImplementedException();
         }
 
         int IList<object>.IndexOf( object item )
         {
-            for ( int i = 0; i < this.count; i++ )
-            {
-                if ( Equals( item, this.GetArgument( i ) ) )
-                    return i;
-            }
-
-            return -1;
+            throw new NotImplementedException();
         }
 
         void IList<object>.Insert( int index, object item )
@@ -379,13 +340,7 @@ namespace PostSharp.Aspects
 
         bool ICollection<object>.Contains( object item )
         {
-            for ( int i = 0; i < this.count; i++ )
-            {
-                if ( Equals( item, this.GetArgument( i ) ) )
-                    return true;
-            }
-
-            return false;
+            throw new NotImplementedException();
         }
 
         #endregion

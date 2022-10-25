@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 
 namespace PostSharp.Aspects.Configuration
 {
@@ -21,8 +18,6 @@ namespace PostSharp.Aspects.Configuration
         /// </remarks>
         public Type ExceptionType { get; set; }
 
-
-
         /// <inheritdoc />
         protected override AspectConfiguration CreateAspectConfiguration()
         {
@@ -34,9 +29,10 @@ namespace PostSharp.Aspects.Configuration
         {
             base.SetAspectConfiguration( aspectConfiguration );
 
-            OnExceptionAspectConfiguration onExceptionAspectConfiguration = (OnExceptionAspectConfiguration)
-                                                                            aspectConfiguration;
-            onExceptionAspectConfiguration.ExceptionType = TypeIdentity.FromType( this.ExceptionType );
+            var onExceptionAspectConfiguration = (OnExceptionAspectConfiguration)
+                aspectConfiguration;
+
+            onExceptionAspectConfiguration.ExceptionType = TypeIdentity.FromType( ExceptionType );
         }
     }
 }

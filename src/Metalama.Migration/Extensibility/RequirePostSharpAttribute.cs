@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Extensibility
@@ -13,9 +10,6 @@ namespace PostSharp.Extensibility
     [AttributeUsage( AttributeTargets.Struct | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Assembly, AllowMultiple = true )]
     public sealed class RequirePostSharpAttribute : Attribute
     {
-        private readonly string plugIn;
-        private readonly string task;
-
         /// <summary>
         ///   Initializes a new <see cref = "RequirePostSharpAttribute" /> and specifies the required plug-in name and task name.
         /// </summary>
@@ -23,8 +17,7 @@ namespace PostSharp.Extensibility
         /// <param name = "task">Name of the required task (should be defined in <paramref name = "plugIn" />).</param>
         public RequirePostSharpAttribute( string plugIn, string task )
         {
-            this.plugIn = plugIn;
-            this.task = task;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -34,7 +27,7 @@ namespace PostSharp.Extensibility
         /// <param name = "plugIn">Name of the required plug-in (file name without extension).</param>
         public RequirePostSharpAttribute( string plugIn )
         {
-            this.plugIn = plugIn;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -43,24 +36,18 @@ namespace PostSharp.Extensibility
         /// <param name="serviceType">A type derived from <see cref="IService"/>.</param>
         public RequirePostSharpAttribute( Type serviceType )
         {
-            this.ServiceType = serviceType;
+            ServiceType = serviceType;
         }
 
         /// <summary>
         ///   Gets the name of the required plug-in (file name without the extension).
         /// </summary>
-        public string PlugIn
-        {
-            get { return this.plugIn; }
-        }
+        public string PlugIn { get; }
 
         /// <summary>
         ///   Gets the name of the required task (should be defined in <see cref = "PlugIn" />).
         /// </summary>
-        public string Task
-        {
-            get { return this.task; }
-        }
+        public string Task { get; }
 
         /// <summary>
         /// Gets the type of the required <see cref="IService"/>.
@@ -82,8 +69,4 @@ namespace PostSharp.Extensibility
         /// </summary>
         public bool AnyTypeReference { get; set; }
     }
-
- 
-
-
 }

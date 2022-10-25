@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using PostSharp.Aspects.Serialization;
 using PostSharp.Extensibility;
 
@@ -14,8 +11,6 @@ namespace PostSharp.Aspects.Configuration
     [AttributeUsage( AttributeTargets.Class )]
     public class AspectConfigurationAttribute : Attribute
     {
-        private int? aspectPriority;
-
         /// <summary>
         ///   Gets or sets the weaving priority of the aspect.
         /// </summary>
@@ -28,11 +23,7 @@ namespace PostSharp.Aspects.Configuration
         ///   <para>This property must not be confused with <see cref = "MulticastAttribute.AttributePriority" />, which
         ///     solely influences the multicasting process.</para>
         /// </remarks>
-        public int AspectPriority
-        {
-            get { return this.aspectPriority ?? 0; }
-            set { this.aspectPriority = value; }
-        }
+        public int AspectPriority { get; set; }
 
         /// <summary>
         ///   Gets or sets the <see cref = "Type" /> of the serializer that will be used
@@ -63,7 +54,6 @@ namespace PostSharp.Aspects.Configuration
             return new AspectConfiguration();
         }
 
-
         /// <summary>
         ///   Gets the <see cref = "AspectConfiguration" /> corresponding to the current custom attribute.
         /// </summary>
@@ -74,11 +64,8 @@ namespace PostSharp.Aspects.Configuration
         /// </remarks>
         public AspectConfiguration GetAspectConfiguration()
         {
-            AspectConfiguration aspectConfiguration = this.CreateAspectConfiguration();
-            this.SetAspectConfiguration( aspectConfiguration );
-            return aspectConfiguration;
+            throw new NotImplementedException();
         }
-
 
         /// <summary>
         ///   Sets up an <see cref = "AspectConfiguration" /> object according to the current  custom attribute instance.
@@ -91,8 +78,7 @@ namespace PostSharp.Aspects.Configuration
         /// </remarks>
         protected virtual void SetAspectConfiguration( AspectConfiguration aspectConfiguration )
         {
-            aspectConfiguration.AspectPriority = this.aspectPriority;
-            aspectConfiguration.SerializerType = TypeIdentity.FromType( this.SerializerType );
+            throw new NotImplementedException();
         }
     }
 }

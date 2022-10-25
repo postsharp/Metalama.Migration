@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 #pragma warning disable IDE0060 // Remove unused parameter (metadata is used)
@@ -24,7 +21,7 @@ namespace PostSharp.Extensibility
         /// <param name = "id">Assembly identifier.</param>
         public AssemblyIdAttribute( int id )
         {
-            this.AssemblyId = id;
+            AssemblyId = id;
         }
 
         /// <summary>

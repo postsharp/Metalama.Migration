@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using PostSharp.Aspects.Advices;
 
 namespace PostSharp.Aspects.Configuration
@@ -13,13 +10,12 @@ namespace PostSharp.Aspects.Configuration
     /// <include file = "../Documentation.xml" path = "/documentation/section[@name='seeAlsoConfiguringAspects']/*" />
     public sealed class CompositionAspectConfiguration : AspectConfiguration
     {
-        #pragma warning disable CA1819 // Properties should not return arrays (TODO)
+#pragma warning disable CA1819 // Properties should not return arrays (TODO)
         /// <summary>
         ///   Gets or sets the array of interfaces that should be introduced publicly into the target type of the aspect.
         /// </summary>
         public TypeIdentity[] PublicInterfaces { get; set; }
-        #pragma warning restore CA1819 // Properties should not return arrays (TODO)
-
+#pragma warning restore CA1819 // Properties should not return arrays (TODO)
 
         /// <summary>
         ///   Specifies the action (<see cref = "InterfaceOverrideAction.Fail" /> or <see cref = "InterfaceOverrideAction.Ignore" />)
@@ -47,7 +43,7 @@ namespace PostSharp.Aspects.Configuration
         /// <summary>
         ///   This property has no effect.
         /// </summary>
-        [Obsolete("This property has no effect and will be removed in a future version.")]
+        [Obsolete( "This property has no effect and will be removed in a future version." )]
         public bool? GenerateImplementationAccessor { get; set; }
     }
 }

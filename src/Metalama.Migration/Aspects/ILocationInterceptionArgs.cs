@@ -1,9 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System.Diagnostics;
-using PostSharp.Aspects.Internals;
-using PostSharp.Constraints;
 using PostSharp.Reflection;
 
 namespace PostSharp.Aspects
@@ -15,7 +10,7 @@ namespace PostSharp.Aspects
     /// <para>This interface is not generally used directly, but it serves as a base for the strongly-typed <see cref="ILocationInterceptionArgs{T}"/>,
     /// which is used by <see cref="LocationInterceptionArgs.Execute{TPayload}"/>.</para>
     /// </remarks>
-    public interface ILocationInterceptionArgs 
+    public interface ILocationInterceptionArgs
     {
         /// <summary>
         ///   Gets an interface that allows to invoke the next node in the chain of invocation of the intercepted method.
@@ -96,13 +91,13 @@ namespace PostSharp.Aspects
         /// </para>
         /// </note>
         /// </remarks>
-        void Execute<TPayload>(ILocationInterceptionArgsAction<TPayload> action, ref TPayload payload);
-        
+        void Execute<TPayload>( ILocationInterceptionArgsAction<TPayload> action, ref TPayload payload );
+
         /// <summary>
         /// See <see cref="LocationLevelAdviceArgs.Value" />
         /// </summary>
         object Value { get; set; }
-        
+
         /// <summary>
         /// See <see cref="LocationLevelAdviceArgs.Location" />
         /// </summary>
@@ -127,7 +122,7 @@ namespace PostSharp.Aspects
         ///   right type.
         /// </remarks>
         [DebuggerNonUserCode]
-        object Instance { get; [Internal] set; }
+        object Instance { get; }
     }
 
     /// <summary>
@@ -179,7 +174,6 @@ namespace PostSharp.Aspects
         ///   <br />
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='locationInterceptionArgsStateWarning']/*" />
         /// </remarks>
-        void SetNewValue(T value);
-
+        void SetNewValue( T value );
     }
 }

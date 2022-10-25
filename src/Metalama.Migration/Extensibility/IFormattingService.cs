@@ -1,11 +1,5 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Reflection;
-using System.Text;
 
 namespace PostSharp.Extensibility
 {
@@ -22,7 +16,7 @@ namespace PostSharp.Extensibility
         /// <param name="format">The formatting string.</param>
         /// <param name="arguments">Arguments.</param>
         /// <returns>The formatted string where parameters in <paramref name="format"/> are replaced by formatted <paramref name="arguments"/>.</returns>
-        [Obsolete("Pass the IFormatProvider. This helps the analyzers.")]
+        [Obsolete( "Pass the IFormatProvider. This helps the analyzers." )]
         string Format( string format, params object[] arguments );
 
         /// <summary>

@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Aspects
@@ -10,8 +7,6 @@ namespace PostSharp.Aspects
     /// </summary>
     public sealed class AspectUtilities
     {
-       
-
         /// <summary>
         ///   Initializes the all the aspects of the calling instance. This method must be
         ///   invoked from an instance method (not a static method) of a type that has been enhanced

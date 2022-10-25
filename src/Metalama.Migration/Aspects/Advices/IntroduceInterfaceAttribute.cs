@@ -1,8 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
-using PostSharp.Aspects.Internals;
 
 namespace PostSharp.Aspects.Advices
 {
@@ -14,12 +10,9 @@ namespace PostSharp.Aspects.Advices
     /// <remarks>
     /// <para>The introduced interface will be implemented explicitly by the type to which the aspect is applied.</para>
     /// </remarks>
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
-    [RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut)]
-    public sealed class IntroduceInterfaceAttribute : Advice, IIntroduceInterfaceAdviceProperties
+    [AttributeUsage( AttributeTargets.Class, AllowMultiple = true, Inherited = true )]
+    public sealed class IntroduceInterfaceAttribute : Advice
     {
-        private readonly Type interfaceType;
-
         /// <summary>
         ///   Initializes a new <see cref = "IntroduceInterfaceAttribute" />.
         /// </summary>
@@ -27,13 +20,9 @@ namespace PostSharp.Aspects.Advices
         ///   to which the aspect is applied.</param>
         public IntroduceInterfaceAttribute( Type interfaceType )
         {
-            if ( interfaceType == null )
-                throw new ArgumentNullException(nameof(interfaceType));
-
-            this.interfaceType = interfaceType;
+            throw new NotImplementedException();
         }
 
-    
         /// <summary>
         ///   Specifies the action (<see cref = "InterfaceOverrideAction.Fail" /> or <see cref = "InterfaceOverrideAction.Ignore" />)
         ///   to be overtaken when the interface specified in the constructor of this custom attribute
@@ -42,7 +31,6 @@ namespace PostSharp.Aspects.Advices
         /// <seealso cref = "AncestorOverrideAction" />
         public InterfaceOverrideAction OverrideAction { get; set; }
 
-
         /// <summary>
         ///   Specifies the action (<see cref = "InterfaceOverrideAction.Fail" /> or <see cref = "InterfaceOverrideAction.Ignore" />)
         ///   to be overtaken when an <i>ancestor</i> of the interface specified in the constructor of this custom attribute
@@ -50,10 +38,5 @@ namespace PostSharp.Aspects.Advices
         /// </summary>
         /// <seealso cref = "OverrideAction" />
         public InterfaceOverrideAction AncestorOverrideAction { get; set; }
-
-        Type IIntroduceInterfaceAdviceProperties.InterfaceType
-        {
-            get { return this.interfaceType; }
-        }
     }
 }

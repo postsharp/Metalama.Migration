@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,28 +16,23 @@ namespace PostSharp.Collections
         /// <summary>
         /// Gets the first node of the list.
         /// </summary>
-        public ISinglyLinkedListNode<T> FirstNode { get; private set; }
-
-        internal ReadOnlySinglyLinkedList(ISinglyLinkedListNode<T> node) : this()
-        {
-            this.FirstNode = node;
-        }
+        public ISinglyLinkedListNode<T> FirstNode { get; }
 
         /// <summary>
         /// Determines whether the list is empty.
         /// </summary>
-        public bool IsEmpty { get { return this.FirstNode == null; }}
+        public bool IsEmpty { get; }
 
         /// <inheritdoc />
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
-            return new Enumerator(this.FirstNode);
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return new Enumerator(this.FirstNode);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -49,7 +41,7 @@ namespace PostSharp.Collections
         /// <returns>An enumerator.</returns>
         public Enumerator GetEnumerator()
         {
-            return new Enumerator(this.FirstNode);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -57,40 +49,19 @@ namespace PostSharp.Collections
         /// </summary>
         public struct Enumerator : IEnumerator<T>
         {
-            private bool started;
-            private ISinglyLinkedListNode<T> cursor;
-
-            internal Enumerator( ISinglyLinkedListNode<T> cursor )
-            {
-                this.cursor = cursor;
-                this.started = false;
-            }
-
             /// <inheritdoc />
-            public void Dispose()
-            {
-                
-            }
+            public void Dispose() { }
 
             /// <inheritdoc />
             public bool MoveNext()
             {
-                if ( this.started )
-                {
-                    this.cursor = this.cursor.Next;
-                }
-                else
-                {
-                    this.started = true;
-                }
-
-                return this.cursor != null;
+                throw new NotImplementedException();
             }
 
             /// <inheritdoc />
             void IEnumerator.Reset()
             {
-                throw new System.NotSupportedException();
+                throw new NotSupportedException();
             }
 
             /// <inheritdoc />
@@ -98,18 +69,12 @@ namespace PostSharp.Collections
             {
                 get
                 {
-                    if ( !this.started )
-                        throw new InvalidOperationException();
-
-                    return this.cursor.Value;
+                    throw new NotImplementedException();
                 }
             }
 
             /// <inheritdoc />
-            object IEnumerator.Current
-            {
-                get { return this.Current; }
-            }
+            object IEnumerator.Current { get; }
         }
     }
 }

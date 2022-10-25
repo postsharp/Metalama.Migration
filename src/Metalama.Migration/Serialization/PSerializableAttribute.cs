@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using PostSharp.Aspects;
 using PostSharp.Extensibility;
 
@@ -16,12 +13,9 @@ namespace PostSharp.Serialization
     /// add this aspect to several classes using a single line, or to add this aspect to derived classes through inheritance.</para>
     /// </remarks>
     /// <seealso cref="PortableFormatter"/>
-    [AttributeUsage( AttributeTargets.Class | AttributeTargets.Struct |  AttributeTargets.Assembly)]
-    [MulticastAttributeUsage(MulticastTargets.Class | MulticastTargets.Struct)]
-    [RequirePostSharp(null, "PortableSerializer")]
-    [LinesOfCodeAvoided(0)]
-    public sealed class PSerializableAttribute : MulticastAttribute, IAspect
-    {
-      
-    }
+    [AttributeUsage( AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Assembly )]
+    [MulticastAttributeUsage( MulticastTargets.Class | MulticastTargets.Struct )]
+    [RequirePostSharp( null, "PortableSerializer" )]
+    [LinesOfCodeAvoided( 0 )]
+    public sealed class PSerializableAttribute : MulticastAttribute, IAspect { }
 }

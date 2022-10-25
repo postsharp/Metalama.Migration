@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Aspects.Dependencies
@@ -17,13 +14,15 @@ namespace PostSharp.Aspects.Dependencies
         /// <param name = "action">Dependency action.</param>
         /// <param name = "position">Dependency position.</param>
         /// <param name = "aspectType">Aspect type (derived from <see cref = "IAspect" />).</param>
-         /// <remarks>
-    /// </remarks>
-    public AspectTypeDependencyAttribute( AspectDependencyAction action, AspectDependencyPosition position,
-                                              Type aspectType )
+        /// <remarks>
+        /// </remarks>
+        public AspectTypeDependencyAttribute(
+            AspectDependencyAction action,
+            AspectDependencyPosition position,
+            Type aspectType )
             : base( action, position )
         {
-            this.AspectType = aspectType;
+            AspectType = aspectType;
         }
 
         /// <summary>
@@ -35,12 +34,12 @@ namespace PostSharp.Aspects.Dependencies
         public AspectTypeDependencyAttribute( AspectDependencyAction action, Type aspectType )
             : base( action )
         {
-            this.AspectType = aspectType;
+            AspectType = aspectType;
         }
 
         /// <summary>
         ///   Gets the type from which the aspects should be derived in order to match the current dependency.
         /// </summary>
-        public Type AspectType { get; private set; }
+        public Type AspectType { get; }
     }
 }

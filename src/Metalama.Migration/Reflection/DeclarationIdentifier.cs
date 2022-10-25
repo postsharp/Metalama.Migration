@@ -1,12 +1,7 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System.Runtime.CompilerServices;
-using PostSharp.Aspects;
-using PostSharp.Constraints;
 using System;
 using System.Diagnostics;
 using System.Reflection;
+using PostSharp.Aspects;
 using PostSharp.Extensibility;
 
 namespace PostSharp.Reflection
@@ -38,12 +33,9 @@ namespace PostSharp.Reflection
     /// </note>
     /// </remarks>
     /// <see cref="AdviceArgs.DeclarationIdentifier"/>
-#if SERIALIZABLE
     [Serializable]
-#endif
     public struct DeclarationIdentifier : IEquatable<DeclarationIdentifier>
     {
-
         // For details about the risk of collisions, see http://en.wikipedia.org/wiki/Birthday_attack
 
         // Format:  AAAAAAATTTTKMMMM
@@ -52,80 +44,37 @@ namespace PostSharp.Reflection
         //          TTTT:   TypeIndex:     width = 16    16-31   --> CEIP data shows a max number of 12K types in an assembly
         //          MMMM :  MemberIndex:   width = 16    0-15
         //          Total: 
-        private readonly ulong value;
 
         /// <exclude/>
-        [Internal]
         [DebuggerStepThrough]
+
         // TODO: add next line in the .NET 4.5 profile only.
         // [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public DeclarationIdentifier(long value)
+        public DeclarationIdentifier( long value )
         {
-            unchecked
-            {
-                this.value = (ulong)value;    
-            }
+            throw new NotImplementedException();
         }
 
-
-        private const int assemblyIdShift = 32;
-
-        private const int typeIndexShift = 16;
-        private const int typeIndexMask = 0xFFFF;
-        private const int memberIndexMask = 0xFFFF;
-
-       
         /// <summary>
         /// Maximum number of types per assembly supported by the <see cref="DeclarationIdentifier"/> class.
         /// </summary>
-        public const int MaxTypeIndex = typeIndexMask;
+        public const int MaxTypeIndex = 0;
 
         /// <summary>
         /// Maximum number of the same kind in the same type supported by the <see cref="DeclarationIdentifier"/> class.
         /// </summary>
-        public const int MaxMemberIndex = memberIndexMask;
+        public const int MaxMemberIndex = 0;
 
         /// <summary>
         /// Gets a null instance of the <see cref="DeclarationIdentifier"/> type/
         /// </summary>
         /// <seealso cref="IsNull"/>
-        public static DeclarationIdentifier Null { get { return new DeclarationIdentifier();}}
-
-        internal DeclarationIdentifier( int assemblyId, int typeIndex, int memberIndex )
-        {
-            if ((memberIndex & memberIndexMask) != memberIndex)
-                throw new ArgumentOutOfRangeException(nameof(memberIndex));
-
-            if ((typeIndex & typeIndexMask) != typeIndex)
-                throw new ArgumentOutOfRangeException(nameof(typeIndex));
-
-          
-            unchecked
-            {
-#pragma warning disable 675
-                this.value =   ( ((ulong)assemblyId ) << assemblyIdShift) |
-                                (((ulong)typeIndex) << typeIndexShift) | 
-                                ((ulong)memberIndex);
-#pragma warning restore 675
-            }
-
-        }
-
-        internal long Value
-        {
-            get
-            {
-                unchecked
-                {
-                    return (long)this.value;    
-                }
-            }
-        }
+        public static DeclarationIdentifier Null { get; }
 
         /// <summary>
         /// Determines whether the current <see cref="DeclarationIdentifier"/> is null.
         /// </summary>
-        public bool IsNull { get { return this.value == 0; }}
+        public bool IsNull { get; }
 
         /// <summary>
         /// Gets a number that uniquely identifies the member inside its declaring type, for the given member kind. 
@@ -134,17 +83,17 @@ namespace PostSharp.Reflection
         /// <para>The value of this property is guaranteed to be smaller than the total number of methods in the declaring type.</para>
         /// <para>The value is guaranteed to be unique only in the declaring type, not in the set of base types. Numbering of members restarts at 0 for every derived type.</para>
         /// </remarks>
-        public int MemberIndex { get { return (int)(this.value & memberIndexMask); } }
+        public int MemberIndex { get; }
 
-          /// <summary>
+        /// <summary>
         /// Gets a number that uniquely identifies the type inside its declaring assembly.
         /// </summary>
-        public int TypeIndex { get { return (int) ((this.value >> typeIndexShift) & typeIndexMask); } }
+        public int TypeIndex { get; }
 
         /// <summary>
         /// Gets a 29-bit of the name of the assembly containing the declaration represented by the current <see cref="DeclarationIdentifier"/>.
         /// </summary>
-        public int AssemblyId { get { return (int)(this.value >> assemblyIdShift); } }
+        public int AssemblyId { get; }
 
         /// <summary>
         /// Gets the <see cref="DeclarationIdentifier"/> that represents the declaring type of the declaration represented by the current <see cref="DeclarationIdentifier"/>.
@@ -154,9 +103,8 @@ namespace PostSharp.Reflection
         /// </returns>
         public DeclarationIdentifier GetDeclaringTypeIdentifier()
         {
-            return new DeclarationIdentifier(this.AssemblyId, this.TypeIndex, 0);
+            throw new NotImplementedException();
         }
-
 
         /// <summary>
         /// Gets the <see cref="DeclarationIdentifier"/> for a given declaration.
@@ -165,29 +113,30 @@ namespace PostSharp.Reflection
         /// <returns>A <see cref="DeclarationIdentifier"/> that identifies <paramref name="declaration"/>.</returns>
         public static DeclarationIdentifier GetDeclarationIdentifier( MemberInfo declaration )
         {
-            return ReflectionHelper.GetDeclarationIdentifier( declaration );
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
         public bool Equals( DeclarationIdentifier other )
         {
-            return this.value == other.value;
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
         public override bool Equals( object obj )
         {
-            if ( ReferenceEquals( null, obj ) )
+            if (ReferenceEquals( null, obj ))
             {
                 return false;
             }
-            return obj is DeclarationIdentifier && this.Equals( (DeclarationIdentifier) obj );
+
+            return obj is DeclarationIdentifier && Equals( (DeclarationIdentifier)obj );
         }
 
         /// <inheritdoc />
         public override int GetHashCode()
         {
-            return this.value.GetHashCode();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -212,5 +161,4 @@ namespace PostSharp.Reflection
             return !left.Equals( right );
         }
     }
-
 }

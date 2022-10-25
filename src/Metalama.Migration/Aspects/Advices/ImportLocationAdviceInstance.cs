@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using System.Reflection;
 using PostSharp.Reflection;
 
@@ -15,25 +12,15 @@ namespace PostSharp.Aspects.Advices
     /// <seealso cref="ImportMemberAttribute"/>
     public sealed class ImportLocationAdviceInstance : ImportMemberAdviceInstance
     {
-        private readonly string[] memberNames;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ImportLocationAdviceInstance"/> class and specifies which field or property should be imported by giving its reflection representation.
         /// </summary>
         /// <param name="aspectField">A field of the aspect class to which <paramref name="location"/> should be bound at runtime.
         ///     This field can be of type <see cref="ILocationBinding"/>, <see cref="Property{TValue}"/>, or a type that is both (a) derived from <c>ICollection&lt;ILocationBinding&gt;</c> and (b) has a parameterless constructor.</param>
         /// <param name="location">The field or property to import.</param>
-        public ImportLocationAdviceInstance(FieldInfo aspectField, LocationInfo location)
-            : base(aspectField, ImportMemberOrder.BeforeIntroductions, true)
+        public ImportLocationAdviceInstance( FieldInfo aspectField, LocationInfo location )
         {
-            if ( location == null )
-                throw new ArgumentNullException(nameof(location));
-
-            
-            // TODO: validate that the type is compatible.
-
-            this.Location = location;
-            this.memberNames = new[] { location.Name };
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -48,10 +35,13 @@ namespace PostSharp.Aspects.Advices
         /// </param>
         /// <param name="order">Determines whether the <paramref name="aspectField"/> should be bound to the member
         /// as resolved before or after introduction of new members into the target class by the current advise.</param>
-        public ImportLocationAdviceInstance( FieldInfo aspectField, string propertyName, bool isRequired = false, ImportMemberOrder order = ImportMemberOrder.Default ) : 
-            base(aspectField,order,isRequired)
+        public ImportLocationAdviceInstance(
+            FieldInfo aspectField,
+            string propertyName,
+            bool isRequired = false,
+            ImportMemberOrder order = ImportMemberOrder.Default )
         {
-            this.memberNames = new[] { propertyName };
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -66,27 +56,24 @@ namespace PostSharp.Aspects.Advices
         /// </param>
         /// <param name="order">Determines whether the <paramref name="aspectField"/> should be bound to the member
         /// as resolved before or after introduction of new members into the target class by the current advise.</param>
-        public ImportLocationAdviceInstance(FieldInfo aspectField, string[] propertyNames, bool isRequired = false, ImportMemberOrder order = ImportMemberOrder.Default) :
-            base(aspectField, order, isRequired)
+        public ImportLocationAdviceInstance(
+            FieldInfo aspectField,
+            string[] propertyNames,
+            bool isRequired = false,
+            ImportMemberOrder order = ImportMemberOrder.Default )
         {
-            this.memberNames = propertyNames;
+            throw new NotImplementedException();
         }
 
         /// <summary>
         /// Gets the field or property of the target class that needs to be imported into the aspect.
         /// </summary>
-        public LocationInfo Location { get; private set; }
+        public LocationInfo Location { get; }
 
         /// <inheritdoc />
-        public override object Member
-        {
-            get { return this.Location; }
-        }
+        public override object Member { get; }
 
         /// <inheritdoc />
-        public override string[] MemberNames
-        {
-            get { return this.memberNames; }
-        }
+        public override string[] MemberNames { get; }
     }
 }

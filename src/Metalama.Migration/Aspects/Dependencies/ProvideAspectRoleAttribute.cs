@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Aspects.Dependencies
@@ -22,13 +19,13 @@ namespace PostSharp.Aspects.Dependencies
         /// <param name = "role">Role.</param>
         public ProvideAspectRoleAttribute( string role ) : base( AspectDependencyAction.None )
         {
-            this.Role = role;
+            Role = role;
         }
 
         /// <summary>
         ///   Gets the role into which the aspect or advice to which this custom
         ///   attribute is applied will be enrolled.
         /// </summary>
-        public string Role { get; private set; }
+        public string Role { get; }
     }
 }

@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 namespace PostSharp.Aspects.Dependencies
 {
     /// <summary>
@@ -26,11 +23,13 @@ namespace PostSharp.Aspects.Dependencies
         /// <param name = "action">Dependency action.</param>
         /// <param name = "position">Dependency position.</param>
         /// <param name = "role">Role.</param>
-        public AspectRoleDependencyAttribute( AspectDependencyAction action, AspectDependencyPosition position,
-                                              string role )
+        public AspectRoleDependencyAttribute(
+            AspectDependencyAction action,
+            AspectDependencyPosition position,
+            string role )
             : base( action, position )
         {
-            this.Role = role;
+            Role = role;
         }
 
         /// <summary>
@@ -42,12 +41,12 @@ namespace PostSharp.Aspects.Dependencies
         public AspectRoleDependencyAttribute( AspectDependencyAction action, string role )
             : base( action )
         {
-            this.Role = role;
+            Role = role;
         }
 
         /// <summary>
         ///   Gets the role that the aspects or advices must be a part of in order to match the current dependency.
         /// </summary>
-        public string Role { get; private set; }
+        public string Role { get; }
     }
 }

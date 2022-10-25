@@ -1,10 +1,5 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Reflection;
-using System.Text;
 
 namespace PostSharp.Reflection
 {
@@ -204,59 +199,15 @@ namespace PostSharp.Reflection
 #pragma warning disable CA1815 // Override equals and operator equals on value types
     public struct SemanticInfo
     {
-        private static readonly Dictionary<Semantics, string> declarationKindNames = new Dictionary<Semantics, string>
-                                {
-                                    {Semantics.InstanceConstructor, "instance constructor"},
-                                    {Semantics.StaticConstructor, "static constructor"},
-                                    {Semantics.EventAdder, "event adder"},
-                                    {Semantics.EventRemover, "event remover"},
-                                    {Semantics.PropertyGetter, "property getter"},
-                                    {Semantics.PropertySetter, "property setter"},
-                                    {Semantics.Operator, "operator"},
-                                    {Semantics.AnonymousMethod, "anonymous method"},
-                                    {Semantics.LocalFunction, "local function"},
-                                    {Semantics.Method, "method"},
-                                    {Semantics.Finalizer, "finalizer"},
-                                    {Semantics.Field, "field"},
-                                    {Semantics.AnonymousMethodCacheField, "anonymous method cache field" },
-                                    {Semantics.Property, "property"},
-                                    {Semantics.Type, "type"},
-                                    {Semantics.ComClass, "COM class"},
-                                    {Semantics.CompilerGeneratedTypeMember, "member of compiler-generated type" },
-                                    {Semantics.EventRaiser, "event raiser"},
-                                    {Semantics.OtherSpecialMethod, "special method"},
-                                    {Semantics.PropertyBackingField, "property-backing field"},
-                                    {Semantics.EventBackingField, "event-backing field"},
-                                    {Semantics.OtherCompilerGeneratedField, "compiler-generated field"},
-                                    {Semantics.OtherCompilerGeneratedMethod, "compiler-generated method"},
-                                    {Semantics.CompilerGeneratedMethodParameter, "parameter of compiler-generated method"},
-                                    {Semantics.DefaultConstructor, "default constructor" },
-                                    {Semantics.Parameter, "parameter" },
-                                    {Semantics.OtherDeclaration, "other declaration (for which DeclarationKind is not implemented)" },
-                                    {Semantics.CodeContractsField, "Code Contracts helper field" },
-                                    {Semantics.AsyncStateMachineType, "async state-machine type"},
-                                    {Semantics.IteratorStateMachineType, "iterator state-machine type"},
-                                    {Semantics.OtherCompilerGeneratedType, "compiler-generated type"},
-                                    {Semantics.OtherCompilerGeneratedProperty, "compiler-generated property"}
-                                };
-
-        internal DeclarationFlags Flags { get; }
-
         /// <summary>
         /// Gets the semantic of the MSIL method in the source language.
         /// </summary>
         public Semantics Semantic { get; }
 
-        internal SemanticInfo(Semantics semantic, DeclarationFlags flags = DeclarationFlags.None)
-        {
-            this.Semantic = semantic;
-            this.Flags = flags;
-        }
-
         /// <summary>
         /// Determines whether the declaration is compiler-generated.
         /// </summary>
-        public bool IsCompilerGenerated => (this.Flags & DeclarationFlags.CompilerGenerated) != 0;
+        public bool IsCompilerGenerated { get; }
 
         /// <summary>
         /// Determines whether the declaration can be safely selected in a pointcut using the standard <c>System.Reflection</c> API.
@@ -266,33 +217,11 @@ namespace PostSharp.Reflection
         /// can move from one type to another because of a mere change of the method body in C#. It is also <c>false</c> for
         /// implementation details such as anonymous method cache fields, or closure types, which should never be advised.
         /// </remarks>
-        public bool IsSelectable => (this.Flags & DeclarationFlags.NonSelectable) == 0;
+        public bool IsSelectable { get; }
 
         /// <summary>
         /// Gets a human-readable description of the <see cref="Semantic"/> property.
         /// </summary>
-        public string DisplayName
-        {
-            get
-            {
-                string name;
-                if ( !declarationKindNames.TryGetValue( this.Semantic, out name ) )
-                {
-                    name = this.Semantic.ToString();
-                    declarationKindNames[this.Semantic] = name;
-                }
-
-                return name;
-            }
-        }
-
-    }
-
-    [Flags]
-    internal enum DeclarationFlags
-    {
-        None,
-        CompilerGenerated = 1,
-        NonSelectable = 2
+        public string DisplayName { get; }
     }
 }

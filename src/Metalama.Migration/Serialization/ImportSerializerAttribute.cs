@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Serialization
@@ -15,7 +12,7 @@ namespace PostSharp.Serialization
     /// For types whose source code you can modify, it is preferable to use <see cref="PSerializableAttribute"/> or <see cref="SerializerAttribute"/>.
     /// </para>
     /// </remarks>
-    [AttributeUsage(AttributeTargets.Class|AttributeTargets.Struct|AttributeTargets.Assembly, AllowMultiple = true)]
+    [AttributeUsage( AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Assembly, AllowMultiple = true )]
     public sealed class ImportSerializerAttribute : Attribute
     {
         /// <summary>
@@ -28,14 +25,14 @@ namespace PostSharp.Serialization
         /// <seealso cref="SerializerAttribute"/>
         public ImportSerializerAttribute( Type objectType, Type serializerType )
         {
-            this.ObjectType = objectType;
-            this.SerializerType = serializerType;
+            ObjectType = objectType;
+            SerializerType = serializerType;
         }
 
         /// <summary>
         /// Gets the type of the object to be made serializable
         /// </summary>
-        public Type ObjectType { get; private set; }
+        public Type ObjectType { get; }
 
         /// <summary>
         /// Gets the serializer type.
@@ -45,7 +42,6 @@ namespace PostSharp.Serialization
         /// and must have a public default constructor. If <see cref="SerializerType"/> is a generic type, if must have the same number
         /// of generic type parameters as <see cref="ObjectType"/>, and have a compatible set of constraints.
         /// </remarks>
-        public Type SerializerType { get; private set; }
-        
+        public Type SerializerType { get; }
     }
 }

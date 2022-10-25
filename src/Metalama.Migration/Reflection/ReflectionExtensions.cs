@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using System.Reflection;
 
 namespace PostSharp.Reflection
@@ -22,11 +19,6 @@ namespace PostSharp.Reflection
             return GetAutomaticProperty( field, true );
         }
 
-        internal static string GetAutomaticPropertyName( string fieldName )
-        {
-            return ReflectionHelper.GetReflectionHelperService().GetAutomaticPropertyName( fieldName );
-        }
-
         /// <summary>
         /// Gets the <see cref="PropertyInfo"/> whose a given field is the backing field and specifies whether base types should be considered.
         /// </summary>
@@ -36,20 +28,7 @@ namespace PostSharp.Reflection
         /// if <paramref name="field"/> is not the backing field of an automatic property.</returns>
         public static PropertyInfo GetAutomaticProperty( this FieldInfo field, bool inherit )
         {
-            string propertyName = GetAutomaticPropertyName( field.Name );
-            if ( propertyName != null )
-            {
-                BindingFlags flags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
-                if ( !inherit )
-                {
-                    flags |= BindingFlags.DeclaredOnly;
-                }
-                return field.DeclaringType.GetProperty( propertyName, flags );
-            }
-            else
-            {
-                return null;
-            }
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -70,7 +49,7 @@ namespace PostSharp.Reflection
         /// is not an automatic property.</returns>
         public static FieldInfo GetBackingField( this PropertyInfo propertyInfo )
         {
-            return ReflectionHelper.GetReflectionHelperService().GetBackingField( propertyInfo );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -78,14 +57,9 @@ namespace PostSharp.Reflection
         /// </summary>
         /// <param name="method">A method.</param>
         /// <returns>A <see cref="StateMachineKind"/> value, or <see cref="StateMachineKind.None"/> if <paramref name="method"/> is not implemented by a state machine.</returns>
-        public static StateMachineKind GetStateMachineKind(this MethodInfo method)
+        public static StateMachineKind GetStateMachineKind( this MethodInfo method )
         {
-            if (method == null)
-            {
-                throw new ArgumentNullException(nameof(method));
-            }
-
-            return ReflectionHelper.GetReflectionHelperService().GetStateMachineKind(method);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -95,12 +69,7 @@ namespace PostSharp.Reflection
         /// <returns>The public (kick-off method) corresponding to <paramref name="method"/>.</returns>
         public static MethodInfo GetStateMachinePublicMethod( this MethodInfo method )
         {
-            if (method == null)
-            {
-                throw new ArgumentNullException(nameof(method));
-            }
-
-            return ReflectionHelper.GetReflectionHelperService().GetStateMachinePublicMethod(method);
+            throw new NotImplementedException();
         }
     }
 }

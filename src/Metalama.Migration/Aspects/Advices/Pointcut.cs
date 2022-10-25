@@ -14,8 +14,6 @@ namespace PostSharp.Aspects.Advices
     /// <remarks>
     /// </remarks>
     /// <include file = "../Documentation.xml" path = "/documentation/section[@name='seeAlsoAddBehaviorsToMembers']/*" />
-    [AttributeUsage( AttributeTargets.Method, AllowMultiple = true)]
-    public abstract class Pointcut : Attribute
-    {
-    }
+    [AttributeUsage( AttributeTargets.Method, AllowMultiple = true )]
+    public abstract class Pointcut : Attribute { }
 }

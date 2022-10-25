@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System.Collections.Generic;
 
 namespace PostSharp.Collections
@@ -18,11 +15,14 @@ namespace PostSharp.Collections
         /// <returns>An <see cref="IEnumerable{T}"/> that can enumerate all elements in <paramref name="linkedList"/>.
         /// If <paramref name="linkedList"/> is <c>null</c>, an empty enumerable is returned.
         ///  </returns>
-        public static IEnumerable<T> ToEnumerable<T>(IReadOnlyLinkedList<T> linkedList)
+        public static IEnumerable<T> ToEnumerable<T>( IReadOnlyLinkedList<T> linkedList )
         {
-            if (linkedList == null) yield break;
+            if (linkedList == null)
+            {
+                yield break;
+            }
 
-            for ( ILinkedListNode<T> cursor = linkedList.First; cursor != null; cursor = cursor.Next )
+            for (var cursor = linkedList.First; cursor != null; cursor = cursor.Next)
             {
                 yield return cursor.Value;
             }
@@ -36,9 +36,9 @@ namespace PostSharp.Collections
         /// <returns>An <see cref="IEnumerable{T}"/> that can enumerate all elements in <paramref name="linkedList"/>.
         /// If <paramref name="linkedList"/> is <c>null</c>, an empty enumerable is returned.
         ///  </returns>
-        public static IEnumerable<T> ToEnumerable<T>(ReadOnlyLinkedList<T> linkedList)
+        public static IEnumerable<T> ToEnumerable<T>( ReadOnlyLinkedList<T> linkedList )
         {
-            for (ILinkedListNode<T> cursor = linkedList.First; cursor != null; cursor = cursor.Next)
+            for (var cursor = linkedList.First; cursor != null; cursor = cursor.Next)
             {
                 yield return cursor.Value;
             }

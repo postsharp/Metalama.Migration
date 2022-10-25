@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using System.Reflection;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
@@ -26,25 +23,16 @@ namespace PostSharp.Aspects
     ///   </note>
     /// </remarks>
     /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoAspectProvider']/*" />
-    
-    [LinesOfCodeAvoided(1)]
+    [LinesOfCodeAvoided( 1 )]
     public sealed class CustomAttributeIntroductionAspect : ICustomAttributeIntroductionAspect, IAspectBuildSemantics
     {
-        private readonly ObjectConstruction customAttribute;
-
         /// <summary>
         ///   Initializes a new <see cref = "CustomAttributeIntroductionAspect" /> by specifying an <see cref = "ObjectConstruction" />.
         /// </summary>
         /// <param name = "attribute">Construction of the custom attribute to be added to the target.</param>
         public CustomAttributeIntroductionAspect( ObjectConstruction attribute )
         {
-            #region Preconditions
-
-            if ( attribute == null ) throw new ArgumentNullException( nameof(attribute));
-
-            #endregion
-
-            this.customAttribute = attribute;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -54,19 +42,13 @@ namespace PostSharp.Aspects
         /// <param name = "customAttributeData">Construction of the custom attribute to be added to the target.</param>
         public CustomAttributeIntroductionAspect( CustomAttributeData customAttributeData )
         {
-            if ( customAttributeData == null ) throw new ArgumentNullException( nameof(customAttributeData));
-
-            this.customAttribute = new ObjectConstruction( customAttributeData );
+            throw new NotImplementedException();
         }
 
         /// <summary>
         ///   Gets the construction of the custom attribute that must be applied to the target of this aspect.
         /// </summary>
-        public ObjectConstruction CustomAttribute
-        {
-            get { return this.customAttribute; }
-        }
-
+        public ObjectConstruction CustomAttribute { get; }
 
         bool IValidableAnnotation.CompileTimeValidate( object target )
         {
@@ -75,8 +57,7 @@ namespace PostSharp.Aspects
 
         AspectConfiguration IAspectBuildSemantics.GetAspectConfiguration( object targetElement )
         {
-            return new CustomAttributeIntroductionAspectConfiguration {ObjectConstruction = customAttribute};
+            throw new NotImplementedException();
         }
     }
 }
-

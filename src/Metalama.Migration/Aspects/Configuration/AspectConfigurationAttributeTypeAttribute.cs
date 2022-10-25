@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 
 namespace PostSharp.Aspects.Configuration
 {
@@ -17,9 +14,9 @@ namespace PostSharp.Aspects.Configuration
         /// </summary>
         /// <param name="type">Custom attribute type
         /// (derived from <see cref="AspectConfigurationAttribute"/>).</param>
-        public AspectConfigurationAttributeTypeAttribute( Type type)
+        public AspectConfigurationAttributeTypeAttribute( Type type )
         {
-            this.AttributeType = type;
+            AttributeType = type;
         }
 
         /// <summary>

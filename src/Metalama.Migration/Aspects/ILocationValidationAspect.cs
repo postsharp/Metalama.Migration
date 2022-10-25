@@ -1,11 +1,5 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using PostSharp.Aspects.Advices;
-using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
-using PostSharp.Extensibility;
 using PostSharp.Reflection;
 
 #pragma warning disable CA1040 // Avoid empty interfaces
@@ -19,9 +13,7 @@ namespace PostSharp.Aspects
     /// <para>This interface exists only because PostSharp SDK requires a common non-generic interface for <see cref="ILocationValidationAspect{T}"/>.
     /// It should not be used in user code.</para>
     /// </remarks>
-    public interface ILocationValidationAspect : IAspect
-    {
-    }
+    public interface ILocationValidationAspect : IAspect { }
 
     /// <summary>
     ///   Runtime semantics of an aspect that, when applied on a location (field, property, or parameter), 
@@ -41,7 +33,6 @@ namespace PostSharp.Aspects
     /// </para>
     /// </remarks>
     /// <seealso cref="LocationValidationAdvice"/>
-    [HasInheritedAttribute]
     public interface ILocationValidationAspect<T> : ILocationValidationAspect
     {
         /// <summary>
@@ -54,7 +45,6 @@ namespace PostSharp.Aspects
         /// </param>
         /// <param name="context">Indicates the context in which the value is being validated, such as precondition or postcondition for ref method parameters.</param>
         /// <returns>The <see cref="Exception"/> to be thrown, or <c>null</c> if no exception needs to be thrown.</returns>
-        [RequiresDebuggerEnhancement( DebuggerStepOverAspectBehavior.StepOut ), HasInheritedAttribute]
         Exception ValidateValue( T value, string locationName, LocationKind locationKind, LocationValidationContext context );
     }
 }

@@ -1,11 +1,8 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Diagnostics;
 using System.Reflection;
+using System.Threading.Tasks;
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
 using PostSharp.Extensibility;
 using PostSharp.Serialization;
 
@@ -29,12 +26,13 @@ namespace PostSharp.Aspects
     /// <include file="Documentation.xml" path="/documentation/section[@name='aspectSerialization']/*"/>
     /// </remarks>
     /// <include file="Documentation.xml" path="/documentation/section[@name='seeAlsoInterceptionAspects']/*"/>
-#if SERIALIZABLE
     [Serializable]
-#endif
-    [MulticastAttributeUsage( MulticastTargets.Method | MulticastTargets.InstanceConstructor, AllowMultiple = true, AllowExternalAssemblies = true,
-        PersistMetaData = false, TargetMemberAttributes = MulticastAttributes.NonAbstract )]
-    [HasInheritedAttribute]
+    [MulticastAttributeUsage(
+        MulticastTargets.Method | MulticastTargets.InstanceConstructor,
+        AllowMultiple = true,
+        AllowExternalAssemblies = true,
+        PersistMetaData = false,
+        TargetMemberAttributes = MulticastAttributes.NonAbstract )]
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Method |
         AttributeTargets.Property |
@@ -43,18 +41,11 @@ namespace PostSharp.Aspects
     [DebuggerStepThrough]
     [DebuggerNonUserCode]
     [AspectConfigurationAttributeType( typeof(MethodInterceptionAspectConfigurationAttribute) )]
-    [Serializer(null)]
+    [Serializer( null )]
     public abstract class MethodInterceptionAspect : MethodLevelAspect, IMethodInterceptionAspect
-#if ASYNCAWAIT
-                                                     , IAsyncMethodInterceptionAspect
-#endif
-    {
-        [PNonSerialized]
-#if SERIALIZABLE
-        [NonSerialized]
-#endif
-        private SemanticallyAdvisedMethodKinds? semanticallyAdvisedMethods;
+                                                   , IAsyncMethodInterceptionAspect
 
+    {
         /// <summary>
         /// Determines which target methods will be advised semantically. This affects the behavior of the aspect when it's applied to
         /// iterator or async methods, which are compiled into state machines.
@@ -66,11 +57,7 @@ namespace PostSharp.Aspects
         /// of MSIL and for backward-compatibility with the versions of PostSharp prior to 3.1.
         /// </para>
         /// </remarks>
-        protected SemanticallyAdvisedMethodKinds SemanticallyAdvisedMethodKinds
-        {
-            get { return this.semanticallyAdvisedMethods.GetValueOrDefault( SemanticallyAdvisedMethodKinds.Default ); }
-            set { this.semanticallyAdvisedMethods = value; }
-        }
+        protected SemanticallyAdvisedMethodKinds SemanticallyAdvisedMethodKinds { get; set; }
 
         /// <summary>
         /// Specifies the action to take when the aspect is applied to an async method with unsupported return value type.
@@ -85,6 +72,7 @@ namespace PostSharp.Aspects
         /// Set this property to change how unsupported async methods are handled during compile time.
         /// </para>
         /// </remarks>
+
         // TODO: This property is redundant. Remove in next major version.
         public new UnsupportedTargetAction UnsupportedTargetAction
         {
@@ -92,24 +80,17 @@ namespace PostSharp.Aspects
             set => base.UnsupportedTargetAction = value;
         }
 
-
         /// <inheritdoc />
-        [RequiresMethodInterceptionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.RunToTarget), HasInheritedAttribute]
-        [MethodInterceptionAdviceOptimization( MethodInterceptionAdviceOptimizations.IgnoreAdvice )]
         public virtual void OnInvoke( MethodInterceptionArgs args )
         {
             args.Proceed();
         }
 
-#if ASYNCAWAIT
         /// <inheritdoc />
-        [RequiresMethodInterceptionAdviceAnalysis, RequiresDebuggerEnhancement( DebuggerStepOverAspectBehavior.RunToTarget ), HasInheritedAttribute]
-        [MethodInterceptionAdviceOptimization( MethodInterceptionAdviceOptimizations.IgnoreAdvice )]
-        public virtual System.Threading.Tasks.Task OnInvokeAsync( MethodInterceptionArgs args )
+        public virtual Task OnInvokeAsync( MethodInterceptionArgs args )
         {
             return args.ProceedAsync().GetTask();
         }
-#endif
 
         /// <inheritdoc />
         protected override AspectConfiguration CreateAspectConfiguration()
@@ -120,14 +101,7 @@ namespace PostSharp.Aspects
         /// <inheritdoc />
         protected override void SetAspectConfiguration( AspectConfiguration aspectConfiguration, MethodBase targetMethod )
         {
-            base.SetAspectConfiguration( aspectConfiguration, targetMethod );
-
-            MethodInterceptionAspectConfiguration configuration = (MethodInterceptionAspectConfiguration) aspectConfiguration;
-
-            if ( this.semanticallyAdvisedMethods.HasValue )
-            {
-                configuration.SemanticallyAdvisedMethodKinds = this.semanticallyAdvisedMethods;
-            }
+            throw new NotImplementedException();
         }
     }
 }

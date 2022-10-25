@@ -1,8 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace PostSharp.Extensibility
 {
@@ -24,7 +20,7 @@ namespace PostSharp.Extensibility
         /// </summary>
         /// <typeparam name="T">Type of the new value.</typeparam>
         /// <param name="value">The new value.</param>
-        void Set<T>(T value) where T : class;
+        void Set<T>( T value ) where T : class;
 
         /// <summary>
         /// Gets a value from the cache or adds it if it does not exist yet.
@@ -44,6 +40,4 @@ namespace PostSharp.Extensibility
         /// either a new object of type <typeparamref name="T"/>.</returns>
         T GetOrNew<T>() where T : new();
     }
-
-   
 }

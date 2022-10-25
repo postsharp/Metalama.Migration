@@ -1,9 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
-using PostSharp.Extensibility;
 
 namespace PostSharp.Aspects
 {
@@ -17,7 +12,6 @@ namespace PostSharp.Aspects
     /// <see cref = "LocationInterceptionAspect" />
     /// <see cref = "LocationInterceptionAspectConfiguration" />
     /// <see cref = "LocationInterceptionAspectConfigurationAttribute" />
-    [HasInheritedAttribute]
     public interface ILocationInterceptionAspect : ILocationLevelAspect
     {
         /// <summary>
@@ -26,7 +20,6 @@ namespace PostSharp.Aspects
         /// </summary>
         /// <param name = "args">Advice arguments.</param>
         /// <seealso cref = "LocationInterceptionArgs" />
-        [RequiresLocationInterceptionAdviceAnalysis, RequiresDebuggerEnhancement( DebuggerStepOverAspectBehavior.RunToTarget ), HasInheritedAttribute]
         void OnGetValue( LocationInterceptionArgs args );
 
         /// <summary>
@@ -51,7 +44,6 @@ namespace PostSharp.Aspects
         /// </remarks>
         /// <param name = "args">Advice arguments.</param>
         /// <seealso cref = "LocationInterceptionArgs" />
-        [RequiresLocationInterceptionAdviceAnalysis, RequiresDebuggerEnhancement( DebuggerStepOverAspectBehavior.RunToTarget ), HasInheritedAttribute]
         void OnSetValue( LocationInterceptionArgs args );
     }
 }

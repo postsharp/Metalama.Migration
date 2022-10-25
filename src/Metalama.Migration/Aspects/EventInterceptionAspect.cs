@@ -1,10 +1,6 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Diagnostics;
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
 using PostSharp.Extensibility;
 using PostSharp.Serialization;
 
@@ -39,51 +35,40 @@ namespace PostSharp.Aspects
     /// <include file="Documentation.xml" path="/documentation/section[@name='aspectSerialization']/*"/>
     /// </remarks>
     ///  <include file="Documentation.xml" path="/documentation/section[@name='seeAlsoInterceptionAspects']/*"/>
-#if SERIALIZABLE
     [Serializable]
-#endif
-    [HasInheritedAttribute]
     [DebuggerStepThrough]
     [DebuggerNonUserCode]
-    [MulticastAttributeUsage(MulticastTargets.Event, AllowMultiple = true, PersistMetaData = false, TargetMemberAttributes = MulticastAttributes.NonAbstract)]
+    [MulticastAttributeUsage( MulticastTargets.Event, AllowMultiple = true, PersistMetaData = false, TargetMemberAttributes = MulticastAttributes.NonAbstract )]
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Event | AttributeTargets.Struct,
-        AllowMultiple = true)]
+        AllowMultiple = true )]
     [AspectConfigurationAttributeType( typeof(EventInterceptionAspectConfigurationAttribute) )]
-    [Serializer(null)]
+    [Serializer( null )]
     public abstract class EventInterceptionAspect : EventLevelAspect, IEventInterceptionAspect
 
     {
         /// <inheritdoc />
-        [RequiresEventInterceptionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.RunToTarget), HasInheritedAttribute]
-        [EventInterceptionAdviceOptimization( EventInterceptionAdviceOptimizations.IgnoreAdvice )]
         public virtual void OnAddHandler( EventInterceptionArgs args )
         {
             args.ProceedAddHandler();
         }
 
         /// <inheritdoc />
-        [RequiresEventInterceptionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.RunToTarget), HasInheritedAttribute]
-        [EventInterceptionAdviceOptimization( EventInterceptionAdviceOptimizations.IgnoreAdvice )]
         public virtual void OnRemoveHandler( EventInterceptionArgs args )
         {
             args.ProceedRemoveHandler();
         }
 
         /// <inheritdoc />
-        [RequiresEventInterceptionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.RunToTarget), HasInheritedAttribute]
-        [EventInterceptionAdviceOptimization( EventInterceptionAdviceOptimizations.IgnoreAdvice )]
         public virtual void OnInvokeHandler( EventInterceptionArgs args )
         {
             args.ProceedInvokeHandler();
         }
-
 
         /// <inheritdoc />
         protected override AspectConfiguration CreateAspectConfiguration()
         {
             return new EventInterceptionAspectConfiguration();
         }
-
     }
 }

@@ -1,8 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using PostSharp.Aspects.Advices;
+﻿using System;
 using PostSharp.Constraints;
 using PostSharp.Reflection;
 
@@ -64,7 +60,7 @@ namespace PostSharp.Aspects
         /// <typeparam name="TPayload">Type of the payload passed to the <paramref name="payload"/> parameter.</typeparam>
         /// <param name="action">Action.</param>
         /// <param name="payload">Payload.</param>
-        void Execute<TPayload>(ILocationBindingAction<TPayload> action, ref TPayload payload);
+        void Execute<TPayload>( ILocationBindingAction<TPayload> action, ref TPayload payload );
     }
 
     /// <summary>
@@ -82,7 +78,7 @@ namespace PostSharp.Aspects
         /// <remarks>
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='binding']/*" />
         /// </remarks>
-        new T GetValue(ref object instance, Arguments index);
+        new T GetValue( ref object instance, Arguments index );
 
         /// <summary>
         ///   Invokes the <c>Set</c> semantic on the next node in the chain of invocation.
@@ -93,6 +89,6 @@ namespace PostSharp.Aspects
         /// <remarks>
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='binding']/*" />
         /// </remarks>
-        void SetValue(ref object instance, Arguments index, T value);
+        void SetValue( ref object instance, Arguments index, T value );
     }
 }

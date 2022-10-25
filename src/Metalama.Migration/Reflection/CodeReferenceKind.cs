@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-namespace PostSharp.Reflection
+﻿namespace PostSharp.Reflection
 {
     /// <summary>
     ///   Kinds of code references (<see cref = "ICodeReference" />).
@@ -12,6 +9,7 @@ namespace PostSharp.Reflection
         ///   No code reference.
         /// </summary>
         None = 0,
+
         /// <summary>
         ///   Type inheritance. The base type is the <see cref = "ICodeReference.ReferencedDeclaration" />;
         ///   the child type is the <see cref = "ICodeReference.ReferencingDeclaration" />.

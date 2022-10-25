@@ -1,9 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
 using System.Diagnostics;
-using PostSharp.Constraints;
 using PostSharp.Extensibility;
 using PostSharp.Reflection;
 
@@ -27,14 +22,9 @@ namespace PostSharp.Aspects
         /// </summary>
         /// <param name = "instance">The instance related to the advice invocation, or
         ///   <c>null</c> if the advice is associated to a static element of code.</param>
-        [DebuggerHidden]
-        public AdviceArgs( object instance )
-        {
-            this.InstanceField = instance;
-        }
+        public AdviceArgs( object instance ) { }
 
-
-        internal object InstanceField;
+        protected AdviceArgs() { }
 
         /// <summary>
         ///   Gets or sets the object instance on which the method is being executed.
@@ -45,16 +35,8 @@ namespace PostSharp.Aspects
         ///   right type.</para> 
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgsProperty']/*" />
         /// </remarks>
-        public object Instance
-        {
-            [DebuggerHidden]
-            get { return this.InstanceField; }
-            [DebuggerHidden]
-            [Internal]
-            set { this.InstanceField = value; }
-        }
+        public object Instance { get; }
 
-     
         /// <summary>
         ///   Gets the <see cref="DeclarationIdentifier"/> of the declaration to which the
         ///   advice has been applied.
@@ -63,14 +45,6 @@ namespace PostSharp.Aspects
         ///   <para>For usage information, see the remarks of the <see cref="DeclarationIdentifier"/> type documentation.</para>
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgsProperty']/*" />
         /// </remarks>
-        public DeclarationIdentifier DeclarationIdentifier
-        {
-            [DebuggerHidden]
-            get;
-            [DebuggerHidden]
-            [Internal]
-            set;
-        }
+        public DeclarationIdentifier DeclarationIdentifier { get; }
     }
-
 }

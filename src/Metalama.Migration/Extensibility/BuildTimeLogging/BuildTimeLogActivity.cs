@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Extensibility.BuildTimeLogging
@@ -17,25 +14,13 @@ namespace PostSharp.Extensibility.BuildTimeLogging
     /// </remarks>
     public struct BuildTimeLogActivity : IDisposable
     {
-        bool dispose;
-
-        internal BuildTimeLogActivity(bool dispose)
-        {
-            this.dispose = dispose;
-        }
-
-
         /// <summary>
         /// When the current <see cref="BuildTimeLogActivity"/> has been returned by the  <see cref="BuildTimeLogger.Activity(string)"/> method,
         /// decreases the indentation level.
         /// </summary>
         public void Dispose()
         {
-            if (this.dispose )
-            {
-                BuildTimeLogger.UnindentCore();
-            }
+            throw new NotImplementedException();
         }
     }
 }
-

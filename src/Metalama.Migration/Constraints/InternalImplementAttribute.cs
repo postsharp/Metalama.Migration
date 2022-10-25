@@ -1,12 +1,6 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using System.Diagnostics;
+﻿using System;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using PostSharp.Extensibility;
-using PostSharp.Reflection;
 
 namespace PostSharp.Constraints
 {
@@ -18,8 +12,10 @@ namespace PostSharp.Constraints
     /// </summary>
     /// <remarks>
     /// </remarks>
-    [AttributeUsage(AttributeTargets.All & ~(AttributeTargets.Parameter | AttributeTargets.ReturnValue | AttributeTargets.GenericParameter), AllowMultiple = true)]
-    [MulticastAttributeUsage(MulticastTargets.Interface, TargetTypeAttributes = MulticastAttributes.Public)]
+    [AttributeUsage(
+        AttributeTargets.All & ~( AttributeTargets.Parameter | AttributeTargets.ReturnValue | AttributeTargets.GenericParameter ),
+        AllowMultiple = true )]
+    [MulticastAttributeUsage( MulticastTargets.Interface, TargetTypeAttributes = MulticastAttributes.Public )]
     public sealed class InternalImplementAttribute : ReferentialConstraint
     {
         /// <summary>
@@ -27,7 +23,7 @@ namespace PostSharp.Constraints
         /// </summary>
         public InternalImplementAttribute()
         {
-            this.Severity = SeverityType.Warning;
+            Severity = SeverityType.Warning;
         }
 
         /// <summary>
@@ -41,25 +37,7 @@ namespace PostSharp.Constraints
         /// <inheritdoc />
         public override void ValidateCode( object target, Assembly assembly )
         {
-            Type type = (Type) target;
-
-            foreach ( TypeInheritanceCodeReference reference in ReflectionSearch.GetDerivedTypes( type ) )
-            {
-                if (  !reference.BaseType.GetAssembly().AreInternalsVisibleTo( reference.DerivedType.GetAssembly()))
-                {
-#if LEGACY_REFLECTION_API
-                    MemberInfo derivedType = reference.DerivedType;
-#else
-                    MemberInfo derivedType = reference.DerivedType.GetTypeInfo();
-#endif
-                    ArchitectureMessageSource.Instance.Write( derivedType, this.Severity, "AR0101", new object[]
-                                                                                       {
-                                                                                           reference.BaseType.FullName,
-                                                                                           reference.DerivedType.FullName
-                                                                                       });
-                }
-            }
+            throw new NotImplementedException();
         }
     }
-
 }

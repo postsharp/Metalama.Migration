@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Aspects.Advices
@@ -10,7 +7,7 @@ namespace PostSharp.Aspects.Advices
     /// </summary>
     /// <seealso cref="IAdviceProvider"/>
     /// <seealso cref="IntroduceInterfaceAttribute"/>
-    public sealed class IntroduceInterfaceAdviceInstance : AdviceInstance, IIntroduceInterfaceAdviceProperties
+    public sealed class IntroduceInterfaceAdviceInstance : AdviceInstance
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IntroduceInterfaceAdviceInstance"/> class.
@@ -22,22 +19,25 @@ namespace PostSharp.Aspects.Advices
         /// <param name="ancestorOverrideAction"> Specifies the action (<see cref = "InterfaceOverrideAction.Fail" /> or <see cref = "InterfaceOverrideAction.Ignore" />)
         ///   to be overtaken when an <i>ancestor</i> of the interface specified in the constructor of this custom attribute
         ///   is already implemented by the type to which the current aspect is applied.</param>
-        public IntroduceInterfaceAdviceInstance( Type interfaceType, InterfaceOverrideAction overrideAction = InterfaceOverrideAction.Fail, InterfaceOverrideAction ancestorOverrideAction = InterfaceOverrideAction.Fail)
+        public IntroduceInterfaceAdviceInstance(
+            Type interfaceType,
+            InterfaceOverrideAction overrideAction = InterfaceOverrideAction.Fail,
+            InterfaceOverrideAction ancestorOverrideAction = InterfaceOverrideAction.Fail )
         {
-            if ( interfaceType == null )
-                throw new ArgumentNullException(nameof(interfaceType));
+            if (interfaceType == null)
+            {
+                throw new ArgumentNullException( nameof(interfaceType) );
+            }
 
-            this.InterfaceType = interfaceType;
-            this.OverrideAction = overrideAction;
-            this.AncestorOverrideAction = ancestorOverrideAction;
+            InterfaceType = interfaceType;
+            OverrideAction = overrideAction;
+            AncestorOverrideAction = ancestorOverrideAction;
         }
 
         /// <summary>
         /// Gets the interface to be introduced into the target class.
         /// </summary>
-        public Type InterfaceType { get; private set; }
-
-     
+        public Type InterfaceType { get; }
 
         /// <summary>
         ///   Specifies the action (<see cref = "InterfaceOverrideAction.Fail" /> or <see cref = "InterfaceOverrideAction.Ignore" />)
@@ -45,8 +45,7 @@ namespace PostSharp.Aspects.Advices
         ///   is already implemented by the type to which the current aspect is applied.
         /// </summary>
         /// <seealso cref = "AncestorOverrideAction" />
-        public InterfaceOverrideAction OverrideAction { get; private set; }
-
+        public InterfaceOverrideAction OverrideAction { get; }
 
         /// <summary>
         ///   Specifies the action (<see cref = "InterfaceOverrideAction.Fail" /> or <see cref = "InterfaceOverrideAction.Ignore" />)
@@ -54,12 +53,9 @@ namespace PostSharp.Aspects.Advices
         ///   is already implemented by the type to which the current aspect is applied.
         /// </summary>
         /// <seealso cref = "OverrideAction" />
-        public InterfaceOverrideAction AncestorOverrideAction { get; private set; }
+        public InterfaceOverrideAction AncestorOverrideAction { get; }
 
         /// <inhericdoc />
-        public override object MasterAspectMember
-        {
-            get { return null; }
-        }
+        public override object MasterAspectMember { get; }
     }
 }

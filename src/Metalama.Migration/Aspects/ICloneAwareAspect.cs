@@ -1,13 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using System.Collections.Generic;
-using System.Text;
-using PostSharp.Aspects.Internals;
-using PostSharp.Extensibility;
-
-namespace PostSharp.Aspects
+﻿namespace PostSharp.Aspects
 {
     /// <summary>
     /// Defines the semantics of aspects that require to be notified after
@@ -30,7 +21,6 @@ namespace PostSharp.Aspects
         /// aspect instance.
         /// </para>
         /// </remarks>
-        [HasInheritedAttribute, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut)]
         void OnCloned( ICloneAwareAspect source );
     }
 }

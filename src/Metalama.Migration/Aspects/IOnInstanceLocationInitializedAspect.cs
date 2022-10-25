@@ -1,16 +1,8 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
-using PostSharp.Extensibility;
-
 namespace PostSharp.Aspects
 {
     /// <summary>
     /// Contains the signature of <see cref="OnInstanceLocationInitialized"/>, a location-level advice.
     /// </summary>
-    [HasInheritedAttribute]
     public interface IOnInstanceLocationInitializedAspect : ILocationLevelAspect
     {
         /// <summary>
@@ -34,7 +26,6 @@ namespace PostSharp.Aspects
         /// </para>
         /// </remarks>
         /// <param name="args">Information about the location.</param>
-        [RequiresLocationInterceptionAdviceAnalysis, RequiresDebuggerEnhancement( DebuggerStepOverAspectBehavior.RunToTarget ), HasInheritedAttribute]
         void OnInstanceLocationInitialized( LocationInitializationArgs args );
     }
 }

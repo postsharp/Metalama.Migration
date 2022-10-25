@@ -1,22 +1,20 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
+using System;
 using System.Diagnostics;
-using PostSharp.Aspects.Advices;
-using PostSharp.Constraints;
 using PostSharp.Reflection;
 
 namespace PostSharp.Aspects.Internals
 {
     /// <exclude />
-    [Internal]
     public abstract class LocationLevelAdviceArgs : AdviceArgs
     {
         /// <exclude />
-        protected LocationLevelAdviceArgs( object instance ) : base( instance )
+        protected LocationLevelAdviceArgs( object instance ) : base( instance ) { }
+
+        protected LocationLevelAdviceArgs()
         {
+            throw new NotImplementedException();
         }
-        
+
         /// <summary>
         ///   Gets or sets the location value.
         /// </summary>
@@ -39,7 +37,7 @@ namespace PostSharp.Aspects.Internals
             [DebuggerHidden]
             set;
         }
-        
+
         /// <summary>
         ///   Gets the location (field, property or parameter) related to the aspect or advice being executed.
         /// </summary>

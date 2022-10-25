@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 
 namespace PostSharp.Aspects
 {
@@ -20,11 +17,14 @@ namespace PostSharp.Aspects
         /// <param name="index">The arguments of the indexer.</param>
         /// <returns>The indexer value.</returns>
         /// <seealso cref="ILocationBinding.GetValue"/>
-        public static object GetValue( this ILocationBinding locationBinding, object instance, Arguments index  ) 
+        public static object GetValue( this ILocationBinding locationBinding, object instance, Arguments index )
         {
-            if ( locationBinding == null ) throw new ArgumentNullException(nameof(locationBinding));
+            if (locationBinding == null)
+            {
+                throw new ArgumentNullException( nameof(locationBinding) );
+            }
 
-            return locationBinding.GetValue(ref instance, index);
+            return locationBinding.GetValue( ref instance, index );
         }
 
         /// <summary>
@@ -35,11 +35,14 @@ namespace PostSharp.Aspects
         /// <param name="index">The arguments of the indexer.</param>
         /// <returns>The indexer value.</returns>
         /// <seealso cref="ILocationBinding.GetValue"/>
-        public static T GetValue<T>(this ILocationBinding<T> locationBinding, object instance, Arguments index)
+        public static T GetValue<T>( this ILocationBinding<T> locationBinding, object instance, Arguments index )
         {
-            if (locationBinding == null) throw new ArgumentNullException(nameof(locationBinding));
+            if (locationBinding == null)
+            {
+                throw new ArgumentNullException( nameof(locationBinding) );
+            }
 
-            return locationBinding.GetValue(ref instance, index);
+            return locationBinding.GetValue( ref instance, index );
         }
 
         /// <summary>
@@ -49,11 +52,14 @@ namespace PostSharp.Aspects
         /// <param name="instance">The instance for which the field or property is evaluated, or <c>null</c> if the location is static.</param>
         /// <returns>The field or property value.</returns>
         /// <seealso cref="ILocationBinding.GetValue"/>
-        public static object GetValue(this ILocationBinding locationBinding, object instance)
+        public static object GetValue( this ILocationBinding locationBinding, object instance )
         {
-            if (locationBinding == null) throw new ArgumentNullException(nameof(locationBinding));
+            if (locationBinding == null)
+            {
+                throw new ArgumentNullException( nameof(locationBinding) );
+            }
 
-            return locationBinding.GetValue(ref instance, Arguments.Empty);
+            return locationBinding.GetValue( ref instance, Arguments.Empty );
         }
 
         /// <summary>
@@ -63,11 +69,14 @@ namespace PostSharp.Aspects
         /// <param name="instance">The instance for which the field or property is evaluated, or <c>null</c> if the location is static.</param>
         /// <returns>The field or property value.</returns>
         /// <seealso cref="ILocationBinding.GetValue"/>
-        public static T GetValue<T>(this ILocationBinding<T> locationBinding, object instance)
+        public static T GetValue<T>( this ILocationBinding<T> locationBinding, object instance )
         {
-            if (locationBinding == null) throw new ArgumentNullException(nameof(locationBinding));
+            if (locationBinding == null)
+            {
+                throw new ArgumentNullException( nameof(locationBinding) );
+            }
 
-            return locationBinding.GetValue(ref instance, Arguments.Empty);
+            return locationBinding.GetValue( ref instance, Arguments.Empty );
         }
 
         /// <summary>
@@ -79,11 +88,14 @@ namespace PostSharp.Aspects
         /// <param name="value">The new value.</param>
         /// <returns>The indexer value.</returns>
         /// <seealso cref="ILocationBinding.GetValue"/>
-        public static void SetValue(this ILocationBinding locationBinding, object instance, Arguments index, object value)
+        public static void SetValue( this ILocationBinding locationBinding, object instance, Arguments index, object value )
         {
-            if (locationBinding == null) throw new ArgumentNullException(nameof(locationBinding));
+            if (locationBinding == null)
+            {
+                throw new ArgumentNullException( nameof(locationBinding) );
+            }
 
-            locationBinding.SetValue(ref instance, index, value);
+            locationBinding.SetValue( ref instance, index, value );
         }
 
         /// <summary>
@@ -95,11 +107,14 @@ namespace PostSharp.Aspects
         /// <param name="value">The new value.</param>
         /// <returns>The indexer value.</returns>
         /// <seealso cref="ILocationBinding.GetValue"/>
-        public static void SetValue<T>(this ILocationBinding<T> locationBinding, object instance, Arguments index, T value)
+        public static void SetValue<T>( this ILocationBinding<T> locationBinding, object instance, Arguments index, T value )
         {
-            if (locationBinding == null) throw new ArgumentNullException(nameof(locationBinding));
+            if (locationBinding == null)
+            {
+                throw new ArgumentNullException( nameof(locationBinding) );
+            }
 
-            locationBinding.SetValue(ref instance, index, value);
+            locationBinding.SetValue( ref instance, index, value );
         }
 
         /// <summary>
@@ -110,11 +125,14 @@ namespace PostSharp.Aspects
         /// <param name="value">The new value assigned to the field or property.</param>
         /// <returns>The field or property value.</returns>
         /// <seealso cref="ILocationBinding.GetValue"/>
-        public static void SetValue<T>(this ILocationBinding<T> locationBinding, object instance, T value)
+        public static void SetValue<T>( this ILocationBinding<T> locationBinding, object instance, T value )
         {
-            if (locationBinding == null) throw new ArgumentNullException(nameof(locationBinding));
+            if (locationBinding == null)
+            {
+                throw new ArgumentNullException( nameof(locationBinding) );
+            }
 
-            locationBinding.SetValue(ref instance, Arguments.Empty, value);
+            locationBinding.SetValue( ref instance, Arguments.Empty, value );
         }
 
         /// <summary>
@@ -125,11 +143,14 @@ namespace PostSharp.Aspects
         /// <param name="value">The new value assigned to the field or property.</param>
         /// <returns>The field or property value.</returns>
         /// <seealso cref="ILocationBinding.GetValue"/>
-        public static void SetValue(this ILocationBinding locationBinding, object instance, object value)
+        public static void SetValue( this ILocationBinding locationBinding, object instance, object value )
         {
-            if (locationBinding == null) throw new ArgumentNullException(nameof(locationBinding));
+            if (locationBinding == null)
+            {
+                throw new ArgumentNullException( nameof(locationBinding) );
+            }
 
-            locationBinding.SetValue(ref instance, Arguments.Empty, value);
+            locationBinding.SetValue( ref instance, Arguments.Empty, value );
         }
     }
 }

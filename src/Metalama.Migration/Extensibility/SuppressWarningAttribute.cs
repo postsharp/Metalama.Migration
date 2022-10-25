@@ -1,9 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using System.Diagnostics;
-using PostSharp.Constraints;
+﻿using System;
 
 namespace PostSharp.Extensibility
 {
@@ -11,7 +6,7 @@ namespace PostSharp.Extensibility
     /// Instructs PostSharp to ignore warnings and information messages. Errors cannot be ignored.
     /// </summary>
     /// <remarks>
-   /// </remarks>
+    /// </remarks>
     [AttributeUsage( AttributeTargets.All, AllowMultiple = true, Inherited = false )]
     public class SuppressWarningAttribute : Attribute
     {
@@ -21,18 +16,17 @@ namespace PostSharp.Extensibility
         /// <param name="messageId">Identifier of the ignored warning.</param>
         public SuppressWarningAttribute( string messageId )
         {
-            this.MessageId = messageId;
+            MessageId = messageId;
         }
 
         /// <summary>
         /// Gets the identifier of the ignored warning.
         /// </summary>
-        public string MessageId { get; private set; }
+        public string MessageId { get; }
 
         /// <summary>
         /// Gets or set the reason (a human-readable text) why the warning must be ignored.
         /// </summary>
         public string Reason { get; set; }
-
     }
 }

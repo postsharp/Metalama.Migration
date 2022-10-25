@@ -1,9 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using PostSharp.Aspects.Advices;
-using PostSharp.Aspects.Internals;
-using PostSharp.Extensibility;
 
 namespace PostSharp.Aspects
 {
@@ -25,10 +20,8 @@ namespace PostSharp.Aspects
     ///     the aspect will be statically scoped and the interface will be ignored.</para>
     /// </remarks>
     /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoAspectLifetime']/*" />
-    [HasInheritedAttribute]
     public interface IInstanceScopedAspect : IAspect
     {
-
         // TODO: The correct semantics seem to be:
         //  object CreateInstance();   --> called before inline field assign,ent
         // void RuntimeInitializeInstance(object target --> called after base constructor (when 'this' is available).
@@ -41,7 +34,6 @@ namespace PostSharp.Aspects
         /// <remarks>
         ///   This method is typically implemented by invoking <see cref = "object.MemberwiseClone" />.
         /// </remarks>
-        [RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut), HasInheritedAttribute, RequiresCreateInstanceAnalysis]
         object CreateInstance( AdviceArgs adviceArgs );
 
         /// <summary>
@@ -49,7 +41,6 @@ namespace PostSharp.Aspects
         ///   have completed.
         /// </summary>
         /// <seealso cref="InitializeAspectInstanceAdvice"/>
-        [RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut), HasInheritedAttribute]
         void RuntimeInitializeInstance();
     }
 }

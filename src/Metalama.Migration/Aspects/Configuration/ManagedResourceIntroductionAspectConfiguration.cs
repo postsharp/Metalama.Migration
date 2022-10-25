@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 
 namespace PostSharp.Aspects.Configuration
 {
@@ -18,23 +15,23 @@ namespace PostSharp.Aspects.Configuration
         /// <param name = "data">Content of the managed resource.</param>
         public ManagedResourceIntroductionAspectConfiguration( string name, byte[] data )
         {
-            if ( string.IsNullOrEmpty( name ) )
+            if (string.IsNullOrEmpty( name ))
             {
-                throw new ArgumentNullException( nameof(name));
+                throw new ArgumentNullException( nameof(name) );
             }
 
-            if ( data == null )
+            if (data == null)
             {
-                throw new ArgumentNullException( nameof(data));
+                throw new ArgumentNullException( nameof(data) );
             }
 
-            this.Name = name;
+            Name = name;
 #pragma warning disable 618
-            this.Data = data;
+            Data = data;
 #pragma warning restore 618
-            this.DataProvider = () => data;
+            DataProvider = () => data;
         }
-        
+
         /// <summary>
         ///   Initializes a new <see cref = "ManagedResourceIntroductionAspectConfiguration" />
         /// by passing a delegate for late evaluation of the resource content.
@@ -44,21 +41,19 @@ namespace PostSharp.Aspects.Configuration
         /// the aspect will be ignored and no managed resource will be introduced.</param>
         public ManagedResourceIntroductionAspectConfiguration( string name, Func<byte[]> dataProvider )
         {
-            if ( string.IsNullOrEmpty( name ) )
+            if (string.IsNullOrEmpty( name ))
             {
-                throw new ArgumentNullException( nameof(name));
+                throw new ArgumentNullException( nameof(name) );
             }
 
-            if ( dataProvider == null )
+            if (dataProvider == null)
             {
-                throw new ArgumentNullException( nameof(dataProvider));
+                throw new ArgumentNullException( nameof(dataProvider) );
             }
 
-            this.Name = name;
-            this.DataProvider = dataProvider;
-            
+            Name = name;
+            DataProvider = dataProvider;
         }
-
 
         /// <summary>
         ///   Gets the name of the managed resource.
@@ -68,8 +63,8 @@ namespace PostSharp.Aspects.Configuration
         /// <summary>
         ///   Gets the content of the managed resource.
         /// </summary>
-        [Obsolete("Use DataProvider.")]
-        #pragma warning disable CA1819 // Properties should not return arrays (TODO)
+        [Obsolete( "Use DataProvider." )]
+#pragma warning disable CA1819 // Properties should not return arrays (TODO)
         public byte[] Data { get; }
 #pragma warning restore CA1819 // Properties should not return arrays (TODO)
 

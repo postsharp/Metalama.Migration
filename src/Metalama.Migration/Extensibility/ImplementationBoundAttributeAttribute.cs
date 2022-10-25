@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using PostSharp.Aspects;
 
@@ -29,8 +26,6 @@ namespace PostSharp.Extensibility
     [AttributeUsage( AttributeTargets.Assembly, AllowMultiple = true )]
     public sealed class ImplementationBoundAttributeAttribute : Attribute
     {
-        private readonly Type attributeType;
-
         /// <summary>
         ///   Initializes the new <see cref = "ImplementationBoundAttributeAttribute" />.
         /// </summary>
@@ -38,16 +33,13 @@ namespace PostSharp.Extensibility
         ///   should not be moved from implementation to semantic.</param>
         public ImplementationBoundAttributeAttribute( Type attributeType )
         {
-            this.attributeType = attributeType;
+            throw new NotImplementedException();
         }
 
         /// <summary>
         ///   Gets the type of the custom attribute that
         ///   should not be moved from implementation to semantic.
         /// </summary>
-        public Type AttributeType
-        {
-            get { return this.attributeType; }
-        }
+        public Type AttributeType { get; }
     }
 }

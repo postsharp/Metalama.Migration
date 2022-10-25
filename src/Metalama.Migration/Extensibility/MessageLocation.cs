@@ -1,56 +1,27 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using System.Reflection;
 using PostSharp.Reflection;
 using PostSharp.Reflection.MethodBody;
 
 namespace PostSharp.Extensibility
 {
-
     /// <summary>
     /// Represents the location of a message, which means, for the end-user, a line in a file of source code.
     /// From the aspect developer, the location can be known as an object representing an element of code
     /// (for instance a <see cref="Type"/> or <see cref="MethodInfo"/>). Such implicit locations are resolved
     /// by PostSharp to a file and line number.
     /// </summary>
-#if SERIALIZABLE
     [Serializable]
-#endif
     public class MessageLocation
     {
-#if SERIALIZABLE
-        [NonSerialized] 
-#endif        
-        private readonly object codeElement;
-
+        [NonSerialized]
 #pragma warning disable 649
+
         /// <summary>
         /// Represents an unknown or indeterminate location of the error message.
         /// </summary>
         public static readonly MessageLocation Unknown;
 #pragma warning restore 649
-
-        private MessageLocation( object codeElement )
-        {
-            this.codeElement = codeElement;
-        }
-
-        private MessageLocation(string file, int startLine, int startColumn, int endLine, int endColumn)
-            : this(file, startLine, startColumn, endLine, endColumn, null)
-        {
-        }
-
-        private MessageLocation(string file, int startLine, int startColumn, int endLine, int endColumn, object parentCodeElement)
-        {
-            this.File = file;
-            this.StartLine = startLine;
-            this.StartColumn = startColumn;
-            this.EndLine = endLine;
-            this.EndColumn = endColumn;
-            this.codeElement = parentCodeElement;
-        }
 
         /// <summary>
         /// Builds a <see cref="MessageLocation"/> from a <see cref="SymbolSequencePoint"/>.
@@ -59,45 +30,8 @@ namespace PostSharp.Extensibility
         /// <returns>A <see cref="MessageLocation"/> corresponding to <paramref name="symbolSequencePoint"/>.</returns>
         public static MessageLocation Of( SymbolSequencePoint symbolSequencePoint )
         {
-            if ( symbolSequencePoint == null )
-                return new MessageLocation( null, Message.NotAvailable, Message.NotAvailable, Message.NotAvailable, Message.NotAvailable );
-            
-            string fileName;
-            int startLine;
-            int startColumn;
-            int endLine;
-            int endColumn;
-                
-            object sourceDeclaration = symbolSequencePoint.SourceDeclaration;
-
-            if ( !symbolSequencePoint.IsHidden )
-            {
-                startLine = symbolSequencePoint.StartLine;
-                startColumn = symbolSequencePoint.StartColumn;
-                endLine = symbolSequencePoint.StartLine;
-                endColumn = symbolSequencePoint.StartColumn;
-
-                if ( symbolSequencePoint.SourceDocument != null )
-                {
-                    fileName = symbolSequencePoint.SourceDocument.FileName;
-                }
-                else
-                {
-                    fileName = null;
-                }
-            }
-            else
-            {
-                startLine = Message.NotAvailable;
-                startColumn = Message.NotAvailable;
-                endLine = Message.NotAvailable;
-                endColumn = Message.NotAvailable;
-                fileName = null;
-            }
-
-            return new MessageLocation( fileName, startLine, startColumn, endLine, endColumn, sourceDeclaration );
+            throw new NotImplementedException();
         }
-
 
         /// <summary>
         /// Builds a <see cref="MessageLocation"/> explicitly by specifying a filename, line, and column.
@@ -108,11 +42,10 @@ namespace PostSharp.Extensibility
         /// <param name="lineEnd">Ending line number.</param>
         /// <param name="columnEnd">Ending column number.</param>
         /// <returns>A <see cref="MessageLocation"/>.</returns>
-        public static MessageLocation Explicit(string file, int lineStart, int columnStart, int lineEnd, int columnEnd)
+        public static MessageLocation Explicit( string file, int lineStart, int columnStart, int lineEnd, int columnEnd )
         {
-            return new MessageLocation( file, lineStart, columnStart, lineEnd, columnEnd );
+            throw new NotImplementedException();
         }
-
 
         /// <summary>
         /// Builds a <see cref="MessageLocation"/> explicitly by specifying a filename, line, and column.
@@ -123,7 +56,7 @@ namespace PostSharp.Extensibility
         /// <returns>A <see cref="MessageLocation"/>.</returns>
         public static MessageLocation Explicit( string file, int line, int column )
         {
-            return new MessageLocation( file, line, column, 0, 0 );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -133,7 +66,7 @@ namespace PostSharp.Extensibility
         /// <returns>A <see cref="MessageLocation"/>.</returns>
         public static MessageLocation Explicit( string file )
         {
-            return new MessageLocation( file, 0, 0, 0, 0 );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -154,7 +87,7 @@ namespace PostSharp.Extensibility
         /// </remarks>
         public static MessageLocation Of( object codeElement )
         {
-            return new MessageLocation( codeElement );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -168,7 +101,7 @@ namespace PostSharp.Extensibility
         /// <returns>A <see cref="MessageLocation"/>.</returns>
         public static MessageLocation Of( MemberInfo member )
         {
-            return new MessageLocation( member );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -178,7 +111,7 @@ namespace PostSharp.Extensibility
         /// <returns>A <see cref="MessageLocation"/>.</returns>
         public static MessageLocation Of( ParameterInfo parameter )
         {
-            return new MessageLocation( parameter );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -186,9 +119,9 @@ namespace PostSharp.Extensibility
         /// </summary>
         /// <param name="location">A <see cref="LocationInfo"/>.</param>
         /// <returns>A <see cref="MessageLocation"/>.</returns>
-        public static MessageLocation Of(LocationInfo location)
+        public static MessageLocation Of( LocationInfo location )
         {
-            return new MessageLocation(location);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -196,10 +129,9 @@ namespace PostSharp.Extensibility
         /// </summary>
         /// <param name="assembly">An <see cref="Assembly"/> (<see cref="Assembly"/> or its wrapper).</param>
         /// <returns>A <see cref="MessageLocation"/>.</returns>
-        
         public static MessageLocation Of( Assembly assembly )
         {
-            return new MessageLocation( assembly );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -209,16 +141,13 @@ namespace PostSharp.Extensibility
         /// <returns>A <see cref="MessageLocation"/>.</returns>
         public static MessageLocation Of( IExpression expression )
         {
-            return new MessageLocation(expression);
+            throw new NotImplementedException();
         }
 
         /// <summary>
         /// Element of code (reflection object or <c>Declaration</c>) from which the location must be resolved.
         /// </summary>
-        public object CodeElement
-        {
-            get { return this.codeElement; }
-        }
+        public object CodeElement { get; }
 
         /// <summary>
         ///   Gets the name of the file that caused the message.
@@ -227,7 +156,7 @@ namespace PostSharp.Extensibility
         ///   Absolute path to the file or <c>null</c> if the file name
         ///   is unknown or not applicable.
         /// </value>
-        public string File { get; private set; }
+        public string File { get; }
 
         /// <summary>
         ///   Gets the starting line in the file that caused the message.
@@ -236,7 +165,7 @@ namespace PostSharp.Extensibility
         ///   An integer greater or equal to 1, or 0
         ///   if the line is unknown or does not apply.
         /// </summary>
-        public int StartLine { get; private set; }
+        public int StartLine { get; }
 
         /// <summary>
         ///   Gets the starting column in the file that caused the message.
@@ -245,7 +174,7 @@ namespace PostSharp.Extensibility
         ///   An integer greater or equal to 1, or 0
         ///   if the column is unknown or does not apply.
         /// </summary>
-        public int StartColumn { get; private set; }
+        public int StartColumn { get; }
 
         /// <summary>
         ///   Gets the ending line in the file that caused the message.
@@ -254,7 +183,7 @@ namespace PostSharp.Extensibility
         ///   An integer greater or equal to 1, or 0
         ///   if the line is unknown or does not apply.
         /// </summary>
-        public int EndLine { get; private set; }
+        public int EndLine { get; }
 
         /// <summary>
         ///   Gets the ending column in the file that caused the
@@ -264,8 +193,6 @@ namespace PostSharp.Extensibility
         ///   An integer greater or equal to 1, or 0
         ///   if the column is unknown or does not apply.
         /// </summary>
-        public int EndColumn { get; private set; }
+        public int EndColumn { get; }
     }
-
-
 }

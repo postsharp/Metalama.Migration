@@ -1,10 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using System.Threading;
-using PostSharp.Constraints;
-using System.Globalization;
+﻿using System;
 
 namespace PostSharp.Aspects
 {
@@ -13,49 +7,32 @@ namespace PostSharp.Aspects
     /// </summary>
     public struct AsyncCallId : IEquatable<AsyncCallId>
     {
-        private static long counter;
-        private readonly long id;
-
-        private AsyncCallId( long id )
-        {
-            this.id = id;
-        }
-
         /// <summary>
         /// Determines whether the current <see cref="AsyncCallId"/> is null.
         /// </summary>
-        public bool IsNull => this.id == 0;
+        public bool IsNull { get; }
 
         /// <summary>
         /// Gets a null instance of the <see cref="AsyncCallId"/> struct.
         /// </summary>
-        public static AsyncCallId Null => default(AsyncCallId);
-
-        /// <exclude/>
-        [Internal]
-        public static AsyncCallId GetNext()
-        {
-            return new AsyncCallId( Interlocked.Increment( ref counter ) );
-        }
+        public static AsyncCallId Null => default;
 
         /// <inheritdoc/>
         public bool Equals( AsyncCallId other )
         {
-            return Equals( this.id, other.id );
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>
         public override bool Equals( object obj )
         {
-            if ( ReferenceEquals( null, obj ) )
-                return false;
-            return obj is AsyncCallId && this.Equals( (AsyncCallId) obj );
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>
         public override int GetHashCode()
         {
-            return this.id.GetHashCode();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -83,10 +60,7 @@ namespace PostSharp.Aspects
         /// <inheritdoc/>
         public override string ToString()
         {
-            if ( this.id == 0 )
-                return "null";
-            else
-                return this.id.ToString(CultureInfo.InvariantCulture);
+            throw new NotImplementedException();
         }
     }
 }

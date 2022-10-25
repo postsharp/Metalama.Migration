@@ -1,10 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using System.Diagnostics;
-using System.Reflection;
-using System.Runtime.InteropServices;
+﻿using System;
 using PostSharp.Extensibility;
 using PostSharp.Reflection;
 
@@ -17,18 +11,15 @@ namespace PostSharp.Constraints
     /// </summary>
     /// <remarks>
     /// </remarks>
-
     public sealed class ComponentInternalAttribute : ReferenceConstraint
     {
-        private string[] friendNamespaces;
-
         /// <summary>
         /// Initializes a <see cref="ComponentInternalAttribute"/> restricting the target declaration from being used
         /// from another namespace than the namespace of the declaration.
         /// </summary>
         public ComponentInternalAttribute()
         {
-            this.Severity = SeverityType.Warning;
+            Severity = SeverityType.Warning;
         }
 
         /// <summary>
@@ -48,19 +39,7 @@ namespace PostSharp.Constraints
         public ComponentInternalAttribute( params Type[] friendTypes )
             : this()
         {
-            if ( friendTypes != null )
-            {
-                this.friendNamespaces = new string[friendTypes.Length];
-                for ( int i = 0; i < friendTypes.Length; i++ )
-                {
-                    string typeName = friendTypes[i].FullName;
-                    if ( typeName.EndsWith( ".NamespaceType", StringComparison.Ordinal ) )
-                    {
-                        typeName = typeName.Substring( 0, typeName.Length - 14 );
-                    }
-                    this.friendNamespaces[i] = typeName;
-                }
-            }
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -72,73 +51,13 @@ namespace PostSharp.Constraints
         public ComponentInternalAttribute( params string[] friendNamespaces )
             : this()
         {
-            this.friendNamespaces = friendNamespaces;
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
         protected override void ValidateReference( ICodeReference codeReference )
         {
-
-            if ( this.friendNamespaces == null )
-            {
-                this.friendNamespaces = new[] {ReflectionHelper.GetDeclaringType( codeReference.ReferencedDeclaration ).Namespace};
-            }
-
-            object referencingDeclaration = codeReference.ReferencingDeclaration;
-
-            Type usingType;
-
-            MethodInfo referencingMethod = referencingDeclaration as MethodInfo;
-
-            if ( referencingMethod != null && referencingMethod.GetStateMachineKind() != StateMachineKind.None )
-            {
-                referencingDeclaration = referencingMethod.GetStateMachinePublicMethod();
-                usingType = ReflectionHelper.GetNestingType( referencingMethod.DeclaringType );
-            }
-            else
-            {
-                Type referencingType;
-                MemberInfo referencingDeclarationMemberInfo;
-                ReflectionHelper.GetMemberInfo( referencingDeclaration, out referencingType, out referencingDeclarationMemberInfo );
-
-                if ( referencingDeclarationMemberInfo != null && referencingDeclarationMemberInfo.IsCompilerGenerated() )
-                    return;
-
-                usingType = ReflectionHelper.GetNestingType( referencingType );
-            }
-
-            if ( usingType.IsCompilerGenerated() )
-                return;
-
-            Type usedType = ReflectionHelper.GetNestingType( ReflectionHelper.GetDeclaringType( codeReference.ReferencedDeclaration ) );
-
-            if ( usingType == usedType )
-                return;
-
-            bool isValid = false;
-            foreach ( string friendNamespace in this.friendNamespaces )
-            {
-                string ns;
-                if ( usingType.FullName == friendNamespace || usingType.Namespace == friendNamespace ||
-                     ((ns = usingType.Namespace) != null && ns.StartsWith( friendNamespace, StringComparison.Ordinal ) && ns[friendNamespace.Length] == '.') )
-                {
-                    isValid = true;
-                    break;
-                }
-            }
-
-            if ( isValid )
-                return;
-
-            object[] arguments = new object[]
-                                 {
-                                     ReflectionHelper.GetReflectionObjectKindName( codeReference.ReferencedDeclaration ),
-                                     codeReference.ReferencedDeclaration,
-                                     ReflectionHelper.GetReflectionObjectKindName( referencingDeclaration ).ToLowerInvariant(),
-                                     referencingDeclaration,
-                                 };
-
-            ArchitectureMessageSource.Instance.Write( MessageLocation.Of( referencingDeclaration ), this.Severity, "AR0102", arguments );
+            throw new NotImplementedException();
         }
     }
 }

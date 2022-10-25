@@ -1,9 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System.Collections;
-using PostSharp.Aspects.Internals;
-using PostSharp.Extensibility;
 
 namespace PostSharp.Aspects
 {
@@ -11,10 +6,8 @@ namespace PostSharp.Aspects
     /// Extends the <see cref="IOnMethodBoundaryAspect"/> interface with two advises
     /// to be applied on state machines.
     /// </summary>
-    [HasInheritedAttribute]
     public interface IOnStateMachineBoundaryAspect : IOnMethodBoundaryAspect
     {
-
         /// <summary>
         /// Method executed when a state machine resumes execution after a <c>yield return</c> or
         /// <c>await</c> statement.
@@ -28,7 +21,6 @@ namespace PostSharp.Aspects
         /// </remarks>
         /// <param name = "args">Event arguments specifying which method
         ///   is being executed and which are its arguments.</param>
-        [RequiresMethodExecutionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut), HasInheritedAttribute]
         void OnResume( MethodExecutionArgs args );
 
         /// <summary>
@@ -46,7 +38,6 @@ namespace PostSharp.Aspects
         /// <param name = "args">Event arguments specifying which method
         ///   is being executed and which are its arguments. In iterator methods, the <see cref="MethodExecutionArgs.YieldValue"/>
         /// property gives access to the operand of the <c>yield return</c> statement.</param>
-        [RequiresMethodExecutionAdviceAnalysis, RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut), HasInheritedAttribute]
         void OnYield( MethodExecutionArgs args );
     }
 }

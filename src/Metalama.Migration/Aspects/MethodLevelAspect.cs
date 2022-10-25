@@ -1,13 +1,9 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
 using PostSharp.Aspects.Configuration;
-using PostSharp.Aspects.Internals;
 using PostSharp.Extensibility;
 using PostSharp.Serialization;
 
@@ -22,19 +18,18 @@ namespace PostSharp.Aspects
     /// <br/>
     /// <include file="Documentation.xml" path="/documentation/section[@name='aspectSerialization']/*"/>
     /// </remarks>
-#if SERIALIZABLE
     [Serializable]
-#endif
     [SuppressMessage( "Microsoft.Naming", "CA1710" /* IdentifiersShouldHaveCorrectSuffix */ )]
     [MulticastAttributeUsage( MulticastTargets.Method | MulticastTargets.InstanceConstructor | MulticastTargets.StaticConstructor )]
-    [AttributeUsage( AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Property |
-                     AttributeTargets.Event | AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true )]
+    [AttributeUsage(
+        AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Property |
+        AttributeTargets.Event | AttributeTargets.Method | AttributeTargets.Constructor,
+        AllowMultiple = true )]
     [DebuggerStepThrough]
     [DebuggerNonUserCode]
-    [Serializer(null)]
+    [Serializer( null )]
     public abstract class MethodLevelAspect : Aspect, IMethodLevelAspect, IMethodLevelAspectBuildSemantics
     {
-
         /// <summary>
         ///   Method invoked at build time to ensure that the aspect has been applied to the right target.
         /// </summary>
@@ -55,18 +50,22 @@ namespace PostSharp.Aspects
         /// <inheritdoc />
         public sealed override bool CompileTimeValidate( object target )
         {
-            MethodBase method = target as MethodBase;
-            if ( method == null )
-                throw new ArgumentException( string.Format(CultureInfo.InvariantCulture, "Aspects of type {0} can be applied to methods only.",
-                                                            this.GetType().FullName ) );
+            var method = target as MethodBase;
 
-            return this.CompileTimeValidate( method );
+            if (method == null)
+            {
+                throw new ArgumentException(
+                    string.Format(
+                        CultureInfo.InvariantCulture,
+                        "Aspects of type {0} can be applied to methods only.",
+                        GetType().FullName ) );
+            }
+
+            return CompileTimeValidate( method );
         }
 
         /// <inheritdoc />
-        public virtual void CompileTimeInitialize( MethodBase method, AspectInfo aspectInfo )
-        {
-        }
+        public virtual void CompileTimeInitialize( MethodBase method, AspectInfo aspectInfo ) { }
 
         /// <summary>
         ///   Method invoked at build time to set up an <see cref = "AspectConfiguration" /> object according to the current 
@@ -81,22 +80,18 @@ namespace PostSharp.Aspects
         ///     <see cref = "AspectConfiguration" />.</para>
         /// </remarks>
         /// <include file = "Documentation.xml" path = "/documentation/section[@name='seeAlsoConfiguringAspects']/*" />
-        protected virtual void SetAspectConfiguration( AspectConfiguration aspectConfiguration, MethodBase targetMethod )
-        {
-        }
+        protected virtual void SetAspectConfiguration( AspectConfiguration aspectConfiguration, MethodBase targetMethod ) { }
 
         /// <inheritdoc />
-        protected sealed override void SetAspectConfiguration( AspectConfiguration aspectConfiguration,
-                                                               object targetElement )
+        protected sealed override void SetAspectConfiguration(
+            AspectConfiguration aspectConfiguration,
+            object targetElement )
         {
             base.SetAspectConfiguration( aspectConfiguration, targetElement );
-            this.SetAspectConfiguration( aspectConfiguration, (MethodBase) targetElement );
+            SetAspectConfiguration( aspectConfiguration, (MethodBase)targetElement );
         }
 
         /// <inheritdoc />
-        [RuntimeInitializeOptimization( RuntimeInitializeOptimizations.Ignore )]
-        public virtual void RuntimeInitialize( MethodBase method )
-        {
-        }
+        public virtual void RuntimeInitialize( MethodBase method ) { }
     }
 }

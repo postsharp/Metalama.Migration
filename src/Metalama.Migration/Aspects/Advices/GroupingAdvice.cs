@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using PostSharp.Aspects.Dependencies;
 
@@ -15,7 +12,7 @@ namespace PostSharp.Aspects.Advices
     /// </summary>
     /// <remarks>
     /// </remarks>
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
+    [AttributeUsage( AttributeTargets.Method, AllowMultiple = false, Inherited = false )]
     public abstract class GroupingAdvice : Advice
     {
         /// <summary>

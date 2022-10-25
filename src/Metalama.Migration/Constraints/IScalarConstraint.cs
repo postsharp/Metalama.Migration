@@ -1,9 +1,5 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using System.Reflection;
-using System.Runtime.InteropServices;
 
 namespace PostSharp.Constraints
 {
@@ -24,5 +20,4 @@ namespace PostSharp.Constraints
         /// <see cref="EventInfo"/>, <see cref="FieldInfo"/>, <see cref="ParameterInfo"/>).</param>
         void ValidateCode( object target );
     }
-
 }

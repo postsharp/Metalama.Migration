@@ -1,11 +1,6 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
-using PostSharp.Constraints;
 
 #pragma warning disable CA2227 // Collection properties should be read only
 
@@ -22,10 +17,9 @@ namespace PostSharp.Aspects
     public class MethodExecutionArgs : AdviceArgs
     {
         /// <exclude />
-        [DebuggerHidden]
         public MethodExecutionArgs( object instance, Arguments arguments ) : base( instance )
         {
-            this.Arguments = arguments;
+            Arguments = arguments;
         }
 
         /// <summary>
@@ -47,14 +41,7 @@ namespace PostSharp.Aspects
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgsProperty']/*" />
         /// </remarks>
         /// <seealso cref = "MethodLevelAspect.CompileTimeInitialize" />
-        public MethodBase Method
-        {
-            [DebuggerHidden]
-            get;
-            [DebuggerHidden]
-            [Internal]
-            set;
-        }
+        public MethodBase Method { get; }
 
         /// <summary>
         ///   Gets the arguments with which the method has been invoked.
@@ -63,15 +50,7 @@ namespace PostSharp.Aspects
         ///   <note>The property setter should never be used in user code.</note>
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgsProperty']/*" />
         /// </remarks>
-        public Arguments Arguments
-        {
-            [DebuggerHidden]
-            get;
-            [DebuggerHidden]
-            [Internal]
-            set;
-        }
-
+        public Arguments Arguments { get; }
 
         /// <summary>
         ///   Gets or sets the method return value.
@@ -92,7 +71,7 @@ namespace PostSharp.Aspects
         ///   When a method returns a null <see cref="System.Threading.Tasks.Task"/>, this property is equal to <see cref="NullTaskSentinel"/>.<see cref="NullTaskSentinel.Instance"/>
         ///   and its value cannot be modified.
         /// </note>
-        public object ReturnValue { [DebuggerHidden]get; [DebuggerHidden]set; }
+        public object ReturnValue { get; set; }
 
         /// <summary>
         /// Gets or sets the value yielded by the iterator method.
@@ -105,8 +84,7 @@ namespace PostSharp.Aspects
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgsProperty']/*" />
         /// </remarks>
         /// <seealso cref="IOnStateMachineBoundaryAspect"/>
-        public object YieldValue { [DebuggerHidden]get; [DebuggerHidden]set; }
-
+        public object YieldValue { get; set; }
 
         /// <summary>
         ///   Gets or sets the exception thrown by the target method.
@@ -116,7 +94,7 @@ namespace PostSharp.Aspects
         ///   <para>This property is only available inside the <see cref="IOnMethodBoundaryAspect.OnException"/> and <see cref="IOnExceptionAspect.OnException"/> advices.</para>
         ///   <para>You can replace the exception by setting this property and also setting <see cref="FlowBehavior"/> to <see cref="Aspects.FlowBehavior.ThrowException"/>. You can also throw a new exception from the advice if you need to replace the current exception.</para>
         /// </remarks>
-        public Exception Exception { [DebuggerHidden]get; [DebuggerHidden]set; }
+        public Exception Exception { get; set; }
 
         /// <summary>
         ///   Determines the control flow of the target method once the advice is exited.
@@ -126,7 +104,7 @@ namespace PostSharp.Aspects
         ///    When this advice is applied to a state machine, you only have limited flow behavior options available. See documentation
         /// for <see cref="Aspects.FlowBehavior"/> for details.
         /// </remarks>
-        public FlowBehavior FlowBehavior { [DebuggerHidden]get; [DebuggerHidden]set; }
+        public FlowBehavior FlowBehavior { get; set; }
 
         /// <summary>
         ///   User-defined state information whose lifetime is linked to the
@@ -138,6 +116,6 @@ namespace PostSharp.Aspects
         /// <remarks>
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgsProperty']/*" />
         /// </remarks>
-        public object MethodExecutionTag { [DebuggerHidden]get; [DebuggerHidden]set; }
+        public object MethodExecutionTag { get; set; }
     }
 }

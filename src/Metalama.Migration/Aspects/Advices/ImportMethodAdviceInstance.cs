@@ -1,7 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using System.Reflection;
 
 namespace PostSharp.Aspects.Advices
@@ -11,8 +8,6 @@ namespace PostSharp.Aspects.Advices
     /// </summary>
     public sealed class ImportMethodAdviceInstance : ImportMemberAdviceInstance
     {
-        private readonly string[] memberNames;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ImportMethodAdviceInstance"/>.
         /// </summary>
@@ -22,13 +17,13 @@ namespace PostSharp.Aspects.Advices
         /// <param name="order">Determines whether the <paramref name="aspectField"/> should be bound to the member
         /// as resolved before or after introduction of new members into the target class by the current advise.
         /// </param>
-        public ImportMethodAdviceInstance( FieldInfo aspectField, string methodName, bool isRequired = false,
-                                           ImportMemberOrder order = ImportMemberOrder.Default ) : base( aspectField, order, isRequired )
+        public ImportMethodAdviceInstance(
+            FieldInfo aspectField,
+            string methodName,
+            bool isRequired = false,
+            ImportMemberOrder order = ImportMemberOrder.Default )
         {
-            if ( string.IsNullOrEmpty( methodName ) )
-                throw new ArgumentNullException( nameof(methodName));
-
-            this.memberNames = new[] { methodName };
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -40,26 +35,19 @@ namespace PostSharp.Aspects.Advices
         /// <param name="order">Determines whether the <paramref name="aspectField"/> should be bound to the member
         /// as resolved before or after introduction of new members into the target class by the current advise.
         /// </param>
-        public ImportMethodAdviceInstance( FieldInfo aspectField, string[] methodNames, bool isRequired = false,
-                                           ImportMemberOrder order = ImportMemberOrder.Default )
-            : base( aspectField, order, isRequired )
+        public ImportMethodAdviceInstance(
+            FieldInfo aspectField,
+            string[] methodNames,
+            bool isRequired = false,
+            ImportMemberOrder order = ImportMemberOrder.Default )
         {
-            if (methodNames == null || methodNames.Length == 0)
-                throw new ArgumentNullException( nameof(methodNames));
-
-            this.memberNames = methodNames;
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
-        public override object Member
-        {
-            get { return null; }
-        }
+        public override object Member { get; }
 
         /// <inheritdoc />
-        public override string[] MemberNames
-        {
-            get { return this.memberNames; }
-        }
+        public override string[] MemberNames { get; }
     }
 }

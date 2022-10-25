@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 
 namespace PostSharp.Aspects.Advices
@@ -17,44 +14,35 @@ namespace PostSharp.Aspects.Advices
     /// <seealso cref="PropertySetter{TValue}"/>
     /// <seealso cref="ImportMemberAttribute"/>
     /// <include file="../Documentation.xml" path="/documentation/section[@name='seeAlsoIntroduceImportMembers']/*"/>
-#if SERIALIZABLE
     [Serializable]
-#endif
     public sealed class Property<TValue> : IProperty
     {
         /// <exclude />
         public Property( PropertyGetter<TValue> getter, PropertySetter<TValue> setter )
         {
-            this.Get = getter;
-            this.Set = setter;
+            throw new NotImplementedException();
         }
 
         /// <summary>
         ///   Gets a delegate enabling to invoke the <b>get</b> accessor
         ///   of the imported property.
         /// </summary>
-        public PropertyGetter<TValue> Get { get; private set; }
+        public PropertyGetter<TValue> get;
 
         /// <summary>
         ///   Gets a delegate enabling to invoke the <b>set</b> accessor
         ///   of the imported property.
         /// </summary>
-        public PropertySetter<TValue> Set { get; private set; }
+        public PropertySetter<TValue> set;
 
         object IProperty.GetValue()
         {
-            if ( this.Get == null )
-                throw new InvalidOperationException("The property has no getter.");
-
-            return this.Get();
+            throw new NotImplementedException();
         }
 
         void IProperty.SetValue( object value )
         {
-            if ( this.Set == null )
-                throw new InvalidOperationException("The property has no setter.");
-
-            this.Set( (TValue) value );
+            throw new NotImplementedException();
         }
     }
 
@@ -67,29 +55,26 @@ namespace PostSharp.Aspects.Advices
     /// <seealso cref="Property{TValue}"/>
     /// <seealso cref="PropertyGetter{TValue,TIndex}"/>
     /// <seealso cref="PropertySetter{TValue,TIndex}"/>
-#if SERIALIZABLE
     [Serializable]
-#endif
     public sealed class Property<TValue, TIndex>
     {
         /// <exclude />
         public Property( PropertyGetter<TValue, TIndex> getter, PropertySetter<TValue, TIndex> setter )
         {
-            this.Get = getter;
-            this.Set = setter;
+            throw new NotImplementedException();
         }
 
         /// <summary>
         ///   Gets a delegate enabling to invoke the <b>get</b> accessor
         ///   of the imported property.
         /// </summary>
-        public PropertyGetter<TValue, TIndex> Get { get; private set; }
+        public PropertyGetter<TValue, TIndex> get;
 
         /// <summary>
         ///   Gets a delegate enabling to invoke the <b>set</b> accessor
         ///   of the imported property.
         /// </summary>
-        public PropertySetter<TValue, TIndex> Set { get; private set; }
+        public PropertySetter<TValue, TIndex> set;
     }
 
     /// <summary>

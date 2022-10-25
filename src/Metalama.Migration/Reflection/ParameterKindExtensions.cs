@@ -1,6 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-namespace PostSharp.Reflection
+﻿namespace PostSharp.Reflection
 {
     /// <summary>
     /// Extensions for the <see cref="ParameterKind"/> class.
@@ -15,7 +13,7 @@ namespace PostSharp.Reflection
         /// otherwise <c>false</c>.</returns>
         public static bool IsInputParameter( this ParameterKind parameterKind )
         {
-            switch ( parameterKind )
+            switch (parameterKind)
             {
                 case ParameterKind.InValue:
                 case ParameterKind.ByRefIn:
@@ -35,7 +33,7 @@ namespace PostSharp.Reflection
         /// otherwise <c>false</c>.</returns>
         public static bool IsOutputParameter( this ParameterKind parameterKind )
         {
-            switch ( parameterKind )
+            switch (parameterKind)
             {
                 case ParameterKind.ByRefOut:
                 case ParameterKind.ByRefInOut:
@@ -53,7 +51,7 @@ namespace PostSharp.Reflection
         /// otherwise <c>false</c>.</returns>
         public static bool IsReturn( this ParameterKind parameterKind )
         {
-            switch ( parameterKind )
+            switch (parameterKind)
             {
                 case ParameterKind.ReturnValue:
                 case ParameterKind.ReturnRef:
@@ -72,7 +70,7 @@ namespace PostSharp.Reflection
         /// otherwise <c>false</c>.</returns>
         public static bool IsByRefParameter( this ParameterKind parameterKind )
         {
-            switch ( parameterKind )
+            switch (parameterKind)
             {
                 case ParameterKind.ByRefIn:
                 case ParameterKind.ByRefOut:
@@ -92,7 +90,7 @@ namespace PostSharp.Reflection
         /// otherwise <c>false</c>.</returns>
         public static bool IsParameter( this ParameterKind parameterKind )
         {
-            switch ( parameterKind )
+            switch (parameterKind)
             {
                 case ParameterKind.ByRefIn:
                 case ParameterKind.ByRefOut:

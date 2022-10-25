@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System.Collections.Generic;
 using PostSharp.Collections;
 
@@ -39,7 +36,7 @@ namespace PostSharp.Reflection.MethodBody
         /// Gets the collection of exception handlers that protect the block, in which the current block is in the <c>try</c> role.
         /// </summary>
         IReadOnlyLinkedList<IExceptionHandler> ExceptionHandlers { get; }
-        
+
         /// <summary>
         /// Gets the collection of local variables defined for the current block.
         /// </summary>

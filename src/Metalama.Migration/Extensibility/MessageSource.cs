@@ -1,12 +1,6 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-
 using System;
-using System.Globalization;
 using System.Reflection;
 using System.Resources;
-using PostSharp.Reflection;
 
 namespace PostSharp.Extensibility
 {
@@ -14,14 +8,9 @@ namespace PostSharp.Extensibility
     ///   Provides commodity methods to work with an <see cref = "IMessageSink" />.
     /// </summary>
     public class MessageSource :
-#if MARSHAL_BY_REF
         MarshalByRefObject,
-#endif
         IMessageSink
     {
-        private readonly IMessageDispenser messageDispenser;
-        private readonly string source;
-
         /// <summary>
         /// Instantiates a <see cref="MessageSource"/> backed by a <see cref="ResourceManager"/>.
         /// </summary>
@@ -30,21 +19,7 @@ namespace PostSharp.Extensibility
         public MessageSource( string source, ResourceManager resourceManager )
 
         {
-            #region Preconditions
-
-            if ( resourceManager == null )
-            {
-                throw new ArgumentNullException( nameof(resourceManager));
-            }
-            if ( string.IsNullOrEmpty( source ) )
-            {
-                throw new ArgumentNullException( nameof(source));
-            }
-
-            #endregion
-
-            this.messageDispenser = new ResourceManagerMessageDispenser( resourceManager );
-            this.source = source;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -55,21 +30,7 @@ namespace PostSharp.Extensibility
         ///   retrieve message texts.</param>
         public MessageSource( string source, IMessageDispenser messageDispenser )
         {
-            #region Preconditions
-
-            if ( messageDispenser == null )
-            {
-                throw new ArgumentNullException( nameof(messageDispenser));
-            }
-            if ( string.IsNullOrEmpty( source ) )
-            {
-                throw new ArgumentNullException( nameof(source));
-            }
-
-            #endregion
-
-            this.messageDispenser = messageDispenser;
-            this.source = source;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -81,72 +42,14 @@ namespace PostSharp.Extensibility
         /// <param name="innerException">Exception causing the message, or <c>null</c>.</param>
         /// <param name="arguments">Arguments of the message text.</param>
         /// <returns>A <see cref="Message"/>.</returns>
-        public Message CreateMessage( MessageLocation location, SeverityType severity, string messageId, Exception innerException,
-                                      params object[] arguments )
+        public Message CreateMessage(
+            MessageLocation location,
+            SeverityType severity,
+            string messageId,
+            Exception innerException,
+            params object[] arguments )
         {
-            string messageText;
-            string helpLink;
-            this.FormatMessage( messageId, arguments, out messageText, out helpLink );
-
-            return new Message( location, severity, messageId, messageText, helpLink, this.source, innerException );
-        }
-
-        private void FormatMessage( string messageId, object[] arguments, out string messageText, out string helpLink )
-        {
-            string messageTextFormattingString = this.messageDispenser.GetMessage( messageId );
-
-            if ( messageTextFormattingString == null )
-            {
-                messageText = string.Format( CultureInfo.InvariantCulture, "[{0}]. No message text found!.", messageId );
-            }
-            else if ( arguments == null )
-            {
-                messageText = messageTextFormattingString;
-            }
-            else
-            {
-                try
-                {
-                    if ( Formatter != null )
-                    {
-                        messageText = Formatter.Format(CultureInfo.InvariantCulture,  messageTextFormattingString, arguments );
-                    }
-                    else
-                    {
-                        messageText = string.Format(CultureInfo.InvariantCulture, messageTextFormattingString, arguments);
-                    }
-                }
-                catch ( FormatException e )
-                {
-                    throw new FormatException( "Cannot format the MessageText with id " +
-                                               messageId + ".", e );
-                }
-            }
-
-            string helpLinkFormattingString = this.messageDispenser.GetMessage( messageId + "?" );
-
-            if ( helpLinkFormattingString != null )
-            {
-                if ( arguments == null )
-                {
-                    helpLink = helpLinkFormattingString;
-                }
-                else
-                {
-                    try
-                    {
-                        helpLink = string.Format( CultureInfo.InvariantCulture, helpLinkFormattingString, arguments );
-                    }
-                    catch ( FormatException e )
-                    {
-                        throw new FormatException( "Cannot format the HelpLink with id " + messageId + ".", e );
-                    }
-                }
-            }
-            else
-            {
-                helpLink = null;
-            }
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -162,7 +65,7 @@ namespace PostSharp.Extensibility
         ///   exception.</param>
         public void Write( MessageLocation location, SeverityType severity, string messageId, Exception innerException, params object[] arguments )
         {
-            this.Write( this.CreateMessage( location, severity, messageId, innerException, arguments ) );
+            Write( CreateMessage( location, severity, messageId, innerException, arguments ) );
         }
 
         /// <summary>
@@ -175,7 +78,7 @@ namespace PostSharp.Extensibility
         ///   or <c>null</c> if this message has no argument.</param>
         public void Write( MessageLocation location, SeverityType severity, string messageId, params object[] arguments )
         {
-            this.Write( location, severity, messageId, null, arguments );
+            Write( location, severity, messageId, null, arguments );
         }
 
         /// <summary>
@@ -189,7 +92,7 @@ namespace PostSharp.Extensibility
         ///   or <c>null</c> if this message has no argument.</param>
         public void Write( MemberInfo codeElement, SeverityType severity, string messageId, params object[] arguments )
         {
-            this.Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
+            Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
         }
 
         /// <summary>
@@ -202,7 +105,7 @@ namespace PostSharp.Extensibility
         ///   or <c>null</c> if this message has no argument.</param>
         public void Write( ParameterInfo codeElement, SeverityType severity, string messageId, params object[] arguments )
         {
-            this.Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
+            Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
         }
 
         /// <summary>
@@ -213,10 +116,9 @@ namespace PostSharp.Extensibility
         /// <param name = "messageId">Identifier of the message type.</param>
         /// <param name = "arguments">Array of arguments used to format the message text,
         ///   or <c>null</c> if this message has no argument.</param>
-
         public void Write( Assembly codeElement, SeverityType severity, string messageId, params object[] arguments )
         {
-            this.Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
+            Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
         }
 
         #region IMessageSink Members
@@ -224,13 +126,15 @@ namespace PostSharp.Extensibility
         /// <inheritdoc />
         public void Write( Message message )
         {
-            if ( MessageSink == null )
+            if (MessageSink == null)
+            {
                 return;
+            }
 
             MessageSink.Write( message );
 
             // If we have a fatal error, throw an exception.
-            if ( message.Severity == SeverityType.Fatal )
+            if (message.Severity == SeverityType.Fatal)
             {
                 throw new MessageException( message );
             }
@@ -242,8 +146,5 @@ namespace PostSharp.Extensibility
         ///   Gets the current message sink.
         /// </summary>
         public static IMessageSink MessageSink { get; internal set; }
-
-        internal static IMessageFormatter Formatter { get; set; }
     }
 }
-

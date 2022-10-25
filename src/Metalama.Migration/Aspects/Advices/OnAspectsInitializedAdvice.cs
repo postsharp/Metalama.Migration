@@ -1,8 +1,4 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
-using PostSharp.Aspects.Internals;
 
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
@@ -16,9 +12,5 @@ namespace PostSharp.Aspects.Advices
     /// <remarks>
     /// </remarks>
     [AttributeUsage( AttributeTargets.Method, AllowMultiple = false, Inherited = false )]
-    [RequiresDebuggerEnhancement(DebuggerStepOverAspectBehavior.StepOut)]
-    public sealed class OnAspectsInitializedAdvice : Advice
-    {
-
-    }
+    public sealed class OnAspectsInitializedAdvice : Advice { }
 }

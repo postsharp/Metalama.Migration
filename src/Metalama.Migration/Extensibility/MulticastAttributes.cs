@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Diagnostics.CodeAnalysis;
 
@@ -28,7 +25,7 @@ namespace PostSharp.Extensibility
     /// to elements that are public or protected, but not private. Their other attributes (such as whether they are instance or static) do not matter. 
     /// </para>
     /// <para>
-    /// The categories are visibility (public, private, ...); scope (static or instance); abstraction (abstract or non-abstract); virtuality (virtual
+    /// The categories are visibility (public,  virtuality (virtual
     /// or non-virtual); implementation (managed or unmanaged); literality (literal or nonliteral); generation (compiler-generated or user-created); and
     /// parameter (in, ref, or out).
     /// </para>
@@ -47,7 +44,6 @@ namespace PostSharp.Extensibility
         ///   the parent custom attribute.
         /// </summary>
         Default = 0,
-
 
         /// <summary>
         ///   Private (visible inside the current type).

@@ -1,5 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
 namespace PostSharp.Aspects
 {
     /// <summary>
@@ -15,6 +13,6 @@ namespace PostSharp.Aspects
         /// <typeparam name="TValue">Type of the value of the <see cref="ILocationBinding"/> object.</typeparam>
         /// <param name="binding">The typed <see cref="ILocationBinding"/>.</param>
         /// <param name="payload">Payload.</param>
-        void Execute<TValue>(ILocationBinding<TValue> binding, ref TPayload payload);
+        void Execute<TValue>( ILocationBinding<TValue> binding, ref TPayload payload );
     }
 }

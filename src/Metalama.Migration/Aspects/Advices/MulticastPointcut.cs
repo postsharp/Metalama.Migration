@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
 using PostSharp.Extensibility;
@@ -28,7 +25,6 @@ namespace PostSharp.Aspects.Advices
         ///   Regular expressions should start with the <c>regex:</c> prefix.
         /// </value>
         public string MemberName { get; set; }
-
 
         /// <summary>
         ///   Gets or sets the kind of elements to which this aspect extension applies.

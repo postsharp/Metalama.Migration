@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 using System;
 using System.Reflection;
 using PostSharp.Reflection;
@@ -14,8 +11,6 @@ namespace PostSharp.Aspects.Advices
     /// <see cref="IntroduceMemberAttribute"/>
     public sealed class IntroduceMethodAdviceInstance : IntroduceMemberAdviceInstance
     {
-        private readonly MethodInfo method;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="IntroduceMethodAdviceInstance"/> class.
         /// </summary>
@@ -26,20 +21,12 @@ namespace PostSharp.Aspects.Advices
         /// <param name="overrideAction">Determines the action to be overtaken when the member to be introduced already exists
         ///   in the type to which the aspect is applied, or to a base type.
         /// </param>
-        public IntroduceMethodAdviceInstance( MethodInfo method, Visibility visibility, bool? isVirtual, MemberOverrideAction overrideAction ) 
-            : base(visibility, isVirtual, overrideAction)
+        public IntroduceMethodAdviceInstance( MethodInfo method, Visibility visibility, bool? isVirtual, MemberOverrideAction overrideAction )
         {
-            if ( method == null )
-                throw new ArgumentNullException(nameof(method));
-
-            this.method = method;
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
-        public override object MasterAspectMember
-        {
-            get { return this.method; }
-        }
-
+        public override object MasterAspectMember { get; }
     }
 }

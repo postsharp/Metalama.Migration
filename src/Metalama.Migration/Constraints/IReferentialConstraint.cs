@@ -1,9 +1,5 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
+﻿using System;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using PostSharp.Extensibility;
 
 namespace PostSharp.Constraints
@@ -19,7 +15,6 @@ namespace PostSharp.Constraints
     /// </summary>
     /// <remarks>
     /// </remarks>
-    
     public interface IReferentialConstraint : IConstraint
     {
         /// <summary>
@@ -32,6 +27,4 @@ namespace PostSharp.Constraints
         /// <param name="assembly">The assembly being currently processed.</param>
         void ValidateCode( object target, Assembly assembly );
     }
-
-
 }

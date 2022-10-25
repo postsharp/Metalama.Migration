@@ -1,10 +1,8 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
+﻿using System;
 using System.Collections.Generic;
-using System;
 using System.Reflection;
 using PostSharp.Extensibility;
+
 #pragma warning disable CA1801 // Parameters kept for backwards compatibility.
 
 namespace PostSharp.Reflection
@@ -49,7 +47,7 @@ namespace PostSharp.Reflection
         /// </remarks>
         public static CustomAttributeInstance[] GetCustomAttributesOfType( Type customAttributeType, ReflectionSearchOptions options )
         {
-            return ServiceCache.Current.AnnotationRepositoryService.GetCustomAttributesOfType( customAttributeType, options );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -82,7 +80,7 @@ namespace PostSharp.Reflection
         /// </remarks>
         public static CustomAttributeInstance[] GetCustomAttributesOnTarget( object target, ReflectionSearchOptions options )
         {
-            return ServiceCache.Current.AnnotationRepositoryService.GetCustomAttributesOnTarget( target );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -98,20 +96,10 @@ namespace PostSharp.Reflection
         ///   <include file = "Documentation.xml" path = "/documentation/section[@name='annotationRepository']/*" />
         /// <include file = "../Documentation.xml" path = "/documentation/section[@name='buildTime']/*" />
         /// </remarks>
-        public static IList<T> GetCustomAttributesOnTarget<T>(object target, ReflectionSearchOptions options = ReflectionSearchOptions.IncludeDerivedTypes) where T : Attribute
+        public static IList<T> GetCustomAttributesOnTarget<T>( object target, ReflectionSearchOptions options = ReflectionSearchOptions.IncludeDerivedTypes )
+            where T : Attribute
         {
-            List<T> list = new List<T>();
-            foreach ( CustomAttributeInstance customAttributeInstance in GetCustomAttributesOnTarget( target, ReflectionSearchOptions.None ) )
-            {
-                Type attributeType = customAttributeInstance.Construction.Constructor.DeclaringType;
-                if ( ((options & ReflectionSearchOptions.IncludeDerivedTypes) != 0 && typeof(T).IsAssignableFrom( attributeType ))
-                     || typeof(T) == attributeType )
-                {
-                    list.Add( (T) customAttributeInstance.Attribute );
-                }
-            }
-
-            return list;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -124,24 +112,9 @@ namespace PostSharp.Reflection
         /// <param name="inherit"><c>true</c> to consider custom attributes derived from <paramref name="type"/>, <c>false</c> to consider
         /// only custom attributes strictly of type <paramref name="type"/>.</param>
         /// <returns>True if <paramref name="type"/> has a custom attribute of type <paramref name="type"/>, otherwise <c>false</c>.</returns>
-        public static bool HasCustomAttribute(object target, Type type, bool inherit = false )
+        public static bool HasCustomAttribute( object target, Type type, bool inherit = false )
         {
-            foreach ( CustomAttributeInstance attribute in GetCustomAttributesOnTarget(target) )
-            {
-                if ( inherit )
-                {
-                    if ( type.IsAssignableFrom(  attribute.Construction.Constructor.DeclaringType ))
-                        return true;
-                }
-                else
-                {
-                    if ( attribute.Construction.Constructor.DeclaringType == type )
-                        return true;
-                }
-                
-            }
-
-            return false;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -175,7 +148,7 @@ namespace PostSharp.Reflection
         /// </remarks>
         public static MethodUsageCodeReference[] GetDeclarationsUsedByMethod( MethodBase method, ReflectionSearchOptions options )
         {
-            return ServiceCache.Current.IndexUsageService.GetMembersUsedByMethod( method );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -204,7 +177,7 @@ namespace PostSharp.Reflection
         ///   <see cref = "FieldInfo" />, <see cref = "MethodInfo" /> or <see cref = "ConstructorInfo" />
         ///   whose references are requested.</param>
         /// <param name = "options">This parameter has no effect and is kept only for backwards compatibility.</param>
-         /// <returns>An array of <see cref = "MethodUsageCodeReference" /> containing one
+        /// <returns>An array of <see cref = "MethodUsageCodeReference" /> containing one
         ///   item for each method or constructor whose body references <paramref name = "declaration" />.
         /// </returns>
         /// <remarks>
@@ -212,7 +185,7 @@ namespace PostSharp.Reflection
         /// </remarks>
         public static MethodUsageCodeReference[] GetMethodsUsingDeclaration( MemberInfo declaration, ReflectionSearchOptions options )
         {
-            return ServiceCache.Current.IndexUsageService.GetMethodsUsingMember( declaration );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -243,7 +216,7 @@ namespace PostSharp.Reflection
         /// </remarks>
         public static TypeInheritanceCodeReference[] GetDerivedTypes( Type baseType, ReflectionSearchOptions options )
         {
-            return ServiceCache.Current.TypeHierarchyService.GetDerivedTypes( baseType, options );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -272,7 +245,7 @@ namespace PostSharp.Reflection
         /// </remarks>
         public static MemberTypeCodeReference[] GetMembersOfType( Type memberType, ReflectionSearchOptions options )
         {
-            return ServiceCache.Current.MemberTypeIndexService.GetMembersOfType( memberType, options );
+            throw new NotImplementedException();
         }
     }
 }

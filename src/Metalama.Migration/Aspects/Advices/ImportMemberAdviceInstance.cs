@@ -1,8 +1,4 @@
-﻿// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
-using System;
-using System.Reflection;
+﻿using System.Reflection;
 using PostSharp.Reflection;
 
 namespace PostSharp.Aspects.Advices
@@ -12,25 +8,12 @@ namespace PostSharp.Aspects.Advices
     /// </summary>
     /// <seealso cref="IAdviceProvider"/>
     /// <seealso cref="ImportMemberAttribute"/>
-    public abstract class ImportMemberAdviceInstance : AdviceInstance, IImportMemberAdviseProperties
+    public abstract class ImportMemberAdviceInstance : AdviceInstance
     {
-
-        internal ImportMemberAdviceInstance(FieldInfo aspectField, ImportMemberOrder order, bool isRequired )
-        {
-            this.Order = order;
-            if ( aspectField == null )
-                throw new ArgumentNullException(nameof(aspectField));
-
-            // TODO: validate that the type is compatible.
-
-            this.AspectField = aspectField;
-            this.IsRequired = isRequired;
-        }
-
         /// <summary>
         /// Gets the field of the aspect class to which the field or property needs to be bound.
         /// </summary>
-        public FieldInfo AspectField { get; private set; }
+        public FieldInfo AspectField { get; }
 
         /// <summary>
         /// Determines whether a build-time error should be emitted if the member cannot be found.
@@ -39,7 +22,7 @@ namespace PostSharp.Aspects.Advices
         /// <remarks>
         /// <para>This property is always <c>true</c> when the <see cref="Member"/> property is set.</para>
         /// </remarks>
-        public bool IsRequired { get; private set; }
+        public bool IsRequired { get; }
 
         /// <summary>
         /// Gets the reflection object (<see cref="LocationInfo"/> or <see cref="MethodInfo"/>) that needs to be
@@ -58,15 +41,9 @@ namespace PostSharp.Aspects.Advices
         /// Determines whether the <see cref="AspectField"/> should be bound to the member
         /// as resolved before or after introduction of new members into the target class by the current advise.
         /// </summary>
-        public ImportMemberOrder Order { get; private set; }
+        public ImportMemberOrder Order { get; }
 
         /// <inheritdoc />
-        public override object MasterAspectMember
-        {
-            get { return this.AspectField; }
-        }
-        
+        public override object MasterAspectMember { get; }
     }
-
-    
 }

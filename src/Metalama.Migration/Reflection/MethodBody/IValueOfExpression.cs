@@ -1,6 +1,3 @@
-// Copyright (c) SharpCrafters s.r.o. This file is not open source. It is released under a commercial
-// source-available license. Please see the LICENSE.md file in the repository root for details.
-
 namespace PostSharp.Reflection.MethodBody
 {
     /// <summary>
@@ -13,7 +10,6 @@ namespace PostSharp.Reflection.MethodBody
         /// by a different thread than the current one.
         /// </summary>
         bool IsVolatile { get; }
-
 
         /// <summary>
         /// Gets the alignment of the value at the address.
