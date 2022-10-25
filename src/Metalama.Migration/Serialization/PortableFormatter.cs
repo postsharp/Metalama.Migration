@@ -6,10 +6,7 @@ namespace PostSharp.Serialization
 {
     public class PortableFormatter
     {
-        public PortableFormatter()
-        {
-            
-        }
+        public PortableFormatter() { }
 
         public static PortableSerializationBinder DefaultBinder { get; set; }
 

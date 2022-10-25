@@ -9,7 +9,7 @@ using Spectre.Console.Cli;
 
 var product = new Product( Dependencies.MetalamaMigration )
 {
-    Solutions = new[] { new DotNetSolution( "src\\Metalama.Migration.sln" ) },
+    Solutions = new[] { new DotNetSolution( "src\\Metalama.Migration.sln" ) { CanFormatCode = true } },
     PublicArtifacts = Pattern.Create( "Metalama.Migration.$(PackageVersion).nupkg" ),
     Dependencies = new[] { Dependencies.PostSharpEngineering, Dependencies.Metalama }
 };
