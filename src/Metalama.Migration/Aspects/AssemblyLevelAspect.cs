@@ -1,8 +1,11 @@
-using System;
-using System.Reflection;
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using Metalama.Framework.Aspects;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
+using System;
+using System.Reflection;
 
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
@@ -27,7 +30,7 @@ namespace PostSharp.Aspects
         /// <inheritdoc/>
         public sealed override bool CompileTimeValidate( object target )
         {
-            return CompileTimeValidate( (Assembly)target );
+            return this.CompileTimeValidate( (Assembly) target );
         }
 
         /// <summary>
@@ -46,7 +49,7 @@ namespace PostSharp.Aspects
             object targetElement )
         {
             base.SetAspectConfiguration( aspectConfiguration, targetElement );
-            SetAspectConfiguration( aspectConfiguration, (Assembly)targetElement );
+            this.SetAspectConfiguration( aspectConfiguration, (Assembly) targetElement );
         }
     }
 }

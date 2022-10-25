@@ -1,8 +1,11 @@
-using System;
-using System.Reflection;
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
 using Metalama.Framework.Code.Advised;
+using System;
+using System.Reflection;
 
 #pragma warning disable CA2227 // Collection properties should be read only
 
@@ -16,7 +19,7 @@ namespace PostSharp.Aspects
     {
         public MethodExecutionArgs( object instance, Arguments arguments ) : base( instance )
         {
-            Arguments = arguments;
+            this.Arguments = arguments;
         }
 
         /// <summary>

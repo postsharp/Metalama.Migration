@@ -1,9 +1,12 @@
-using System;
-using System.Reflection;
-using System.Threading.Tasks;
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using Metalama.Framework.Aspects;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
+using System;
+using System.Reflection;
+using System.Threading.Tasks;
 
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 

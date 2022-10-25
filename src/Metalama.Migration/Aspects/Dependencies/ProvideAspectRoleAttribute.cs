@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using System;
 
 namespace PostSharp.Aspects.Dependencies
@@ -10,7 +13,7 @@ namespace PostSharp.Aspects.Dependencies
     {
         public ProvideAspectRoleAttribute( string role ) : base( AspectDependencyAction.None )
         {
-            Role = role;
+            this.Role = role;
         }
 
         public string Role { get; }

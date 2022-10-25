@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using System;
 
 namespace PostSharp.Serialization
@@ -19,7 +22,7 @@ namespace PostSharp.Serialization
 
         public void AddSerializer<TObject, TSerializer>() where TSerializer : ISerializer, new()
         {
-            AddSerializer( typeof(TObject), typeof(TSerializer) );
+            this.AddSerializer( typeof(TObject), typeof(TSerializer) );
         }
 
         public void AddSerializer( Type objectType, Type serializerType )

@@ -1,7 +1,10 @@
-using System.Collections.Generic;
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Fabrics;
 using PostSharp.Extensibility;
+using System.Collections.Generic;
 
 namespace PostSharp.Aspects
 {

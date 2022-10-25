@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using System;
 using System.Reflection;
 
@@ -44,12 +47,12 @@ namespace PostSharp.Reflection
 
         public override bool Equals( object obj )
         {
-            if (ReferenceEquals( null, obj ))
+            if ( ReferenceEquals( null, obj ) )
             {
                 return false;
             }
 
-            return obj is DeclarationIdentifier && Equals( (DeclarationIdentifier)obj );
+            return obj is DeclarationIdentifier && this.Equals( (DeclarationIdentifier) obj );
         }
 
         public override int GetHashCode()

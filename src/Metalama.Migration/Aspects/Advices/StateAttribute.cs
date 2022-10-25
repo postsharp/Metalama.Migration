@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 namespace PostSharp.Aspects.Advices
 {
     /// <summary>
@@ -7,13 +10,13 @@ namespace PostSharp.Aspects.Advices
     {
         public StateAttribute( StateScope scope )
         {
-            Scope = scope;
+            this.Scope = scope;
         }
 
         public StateAttribute( StateScope scope, string slotName )
         {
-            Scope = scope;
-            SlotName = slotName;
+            this.Scope = scope;
+            this.SlotName = slotName;
         }
 
         public StateScope Scope { get; }

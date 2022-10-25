@@ -1,8 +1,11 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
+using Metalama.Framework.Aspects;
+using Metalama.Framework.Code.Advised;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Metalama.Framework.Aspects;
-using Metalama.Framework.Code.Advised;
 
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
@@ -40,20 +43,20 @@ namespace PostSharp.Aspects
 
         public object[] ToArray()
         {
-            var array = new object[Count];
-            CopyTo( array, 0 );
+            var array = new object[this.Count];
+            this.CopyTo( array, 0 );
 
             return array;
         }
 
         public Arguments Clone()
         {
-            return (Arguments)MemberwiseClone();
+            return (Arguments) this.MemberwiseClone();
         }
 
         object ICloneable.Clone()
         {
-            return Clone();
+            return this.Clone();
         }
 
         public static Arguments Create<T>( T arg0 )

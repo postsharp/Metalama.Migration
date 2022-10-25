@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using System;
 
 namespace PostSharp.Serialization
@@ -15,8 +18,8 @@ namespace PostSharp.Serialization
 
         void ISerializer.SerializeObject( object obj, IArgumentsWriter constructorArguments, IArgumentsWriter initializationArguments )
         {
-            var typedValue = (T)obj;
-            SerializeObject( typedValue, constructorArguments );
+            var typedValue = (T) obj;
+            this.SerializeObject( typedValue, constructorArguments );
         }
 
         public virtual object Convert( object value, Type targetType )
@@ -26,7 +29,7 @@ namespace PostSharp.Serialization
 
         object ISerializer.CreateInstance( Type type, IArgumentsReader constructorArguments )
         {
-            return DeserializeObject( constructorArguments );
+            return this.DeserializeObject( constructorArguments );
         }
 
         void ISerializer.DeserializeFields( ref object o, IArgumentsReader initializationArguments ) { }

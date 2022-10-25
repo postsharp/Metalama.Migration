@@ -1,6 +1,9 @@
-﻿using System;
+﻿// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
+using System;
 
 namespace PostSharp.Aspects
 {
@@ -12,35 +15,35 @@ namespace PostSharp.Aspects
     {
         public ManagedResourceIntroductionAspect( string name, byte[] data )
         {
-            if (string.IsNullOrEmpty( name ))
+            if ( string.IsNullOrEmpty( name ) )
             {
                 throw new ArgumentNullException( nameof(name) );
             }
 
-            if (data == null)
+            if ( data == null )
             {
                 throw new ArgumentNullException( nameof(data) );
             }
 
-            Name = name;
-            Data = data;
-            DataProvider = () => data;
+            this.Name = name;
+            this.Data = data;
+            this.DataProvider = () => data;
         }
 
         public ManagedResourceIntroductionAspect( string name, Func<byte[]> dataProvider )
         {
-            if (string.IsNullOrEmpty( name ))
+            if ( string.IsNullOrEmpty( name ) )
             {
                 throw new ArgumentNullException( nameof(name) );
             }
 
-            if (dataProvider == null)
+            if ( dataProvider == null )
             {
                 throw new ArgumentNullException( nameof(dataProvider) );
             }
 
-            Name = name;
-            DataProvider = dataProvider;
+            this.Name = name;
+            this.DataProvider = dataProvider;
         }
 
         public string Name { get; }
@@ -56,7 +59,7 @@ namespace PostSharp.Aspects
 
         AspectConfiguration IAspectBuildSemantics.GetAspectConfiguration( object targetElement )
         {
-            return new ManagedResourceIntroductionAspectConfiguration( Name, DataProvider );
+            return new ManagedResourceIntroductionAspectConfiguration( this.Name, this.DataProvider );
         }
     }
 }

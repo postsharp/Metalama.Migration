@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using System;
 using System.Reflection;
 using System.Resources;
@@ -34,34 +37,34 @@ namespace PostSharp.Extensibility
 
         public void Write( MessageLocation location, SeverityType severity, string messageId, Exception innerException, params object[] arguments )
         {
-            Write( CreateMessage( location, severity, messageId, innerException, arguments ) );
+            this.Write( this.CreateMessage( location, severity, messageId, innerException, arguments ) );
         }
 
         public void Write( MessageLocation location, SeverityType severity, string messageId, params object[] arguments )
         {
-            Write( location, severity, messageId, null, arguments );
+            this.Write( location, severity, messageId, null, arguments );
         }
 
         public void Write( MemberInfo codeElement, SeverityType severity, string messageId, params object[] arguments )
         {
-            Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
+            this.Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
         }
 
         public void Write( ParameterInfo codeElement, SeverityType severity, string messageId, params object[] arguments )
         {
-            Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
+            this.Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
         }
 
         public void Write( Assembly codeElement, SeverityType severity, string messageId, params object[] arguments )
         {
-            Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
+            this.Write( MessageLocation.Of( codeElement ), severity, messageId, null, arguments );
         }
 
         #region IMessageSink Members
 
         public void Write( Message message )
         {
-            if (MessageSink == null)
+            if ( MessageSink == null )
             {
                 return;
             }
@@ -69,7 +72,7 @@ namespace PostSharp.Extensibility
             MessageSink.Write( message );
 
             // If we have a fatal error, throw an exception.
-            if (message.Severity == SeverityType.Fatal)
+            if ( message.Severity == SeverityType.Fatal )
             {
                 throw new MessageException( message );
             }

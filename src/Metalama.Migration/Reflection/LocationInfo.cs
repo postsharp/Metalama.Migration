@@ -1,8 +1,11 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
+using Metalama.Framework.RunTime;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.Serialization;
-using Metalama.Framework.RunTime;
 
 namespace PostSharp.Reflection
 {
@@ -86,7 +89,7 @@ namespace PostSharp.Reflection
 
         public object GetValue( object instance )
         {
-            return GetValue( instance, null );
+            return this.GetValue( instance, null );
         }
 
         public object GetValue( object instance, object[] index )
@@ -96,7 +99,7 @@ namespace PostSharp.Reflection
 
         public void SetValue( object instance, object value )
         {
-            SetValue( instance, value, null );
+            this.SetValue( instance, value, null );
         }
 
         public void SetValue( object instance, object value, object[] index )

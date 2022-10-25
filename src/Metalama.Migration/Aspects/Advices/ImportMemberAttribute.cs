@@ -1,6 +1,9 @@
-using System;
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using Metalama.Framework.Code;
 using Metalama.Framework.Code.SyntaxBuilders;
+using System;
 
 namespace PostSharp.Aspects.Advices
 {
@@ -16,12 +19,12 @@ namespace PostSharp.Aspects.Advices
     {
         public ImportMemberAttribute( params string[] memberNames )
         {
-            MemberNames = memberNames;
+            this.MemberNames = memberNames;
         }
 
         public ImportMemberAttribute( string memberName )
         {
-            MemberNames = new[] { memberName };
+            this.MemberNames = new[] { memberName };
         }
 
         public bool IsRequired { get; set; }

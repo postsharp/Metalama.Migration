@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 namespace PostSharp.Aspects.Dependencies
 {
     /// <summary>
@@ -11,13 +14,13 @@ namespace PostSharp.Aspects.Dependencies
             string adviceMethodName )
             : base( action, position )
         {
-            AdviceMethodName = adviceMethodName;
+            this.AdviceMethodName = adviceMethodName;
         }
 
         public AdviceDependencyAttribute( AspectDependencyAction action, string adviceMethodName )
             : base( action )
         {
-            AdviceMethodName = adviceMethodName;
+            this.AdviceMethodName = adviceMethodName;
         }
 
         public string AdviceMethodName { get; }

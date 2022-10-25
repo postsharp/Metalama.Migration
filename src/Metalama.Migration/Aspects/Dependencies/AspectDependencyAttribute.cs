@@ -1,5 +1,8 @@
-using System;
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using Metalama.Framework.Aspects;
+using System;
 
 namespace PostSharp.Aspects.Dependencies
 {
@@ -12,13 +15,13 @@ namespace PostSharp.Aspects.Dependencies
     {
         protected AspectDependencyAttribute( AspectDependencyAction action )
         {
-            Action = action;
+            this.Action = action;
         }
 
         protected AspectDependencyAttribute( AspectDependencyAction action, AspectDependencyPosition position )
         {
-            Action = action;
-            Position = position;
+            this.Action = action;
+            this.Position = position;
         }
 
         public AspectDependencyAction Action { get; }

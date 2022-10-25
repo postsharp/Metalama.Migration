@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using System;
 
 namespace PostSharp.Serialization
@@ -10,8 +13,8 @@ namespace PostSharp.Serialization
     {
         public ImportSerializerAttribute( Type objectType, Type serializerType )
         {
-            ObjectType = objectType;
-            SerializerType = serializerType;
+            this.ObjectType = objectType;
+            this.SerializerType = serializerType;
         }
 
         public Type ObjectType { get; }

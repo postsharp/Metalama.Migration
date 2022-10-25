@@ -1,6 +1,9 @@
-using System;
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using Metalama.Framework.Advising;
 using Metalama.Framework.Aspects;
+using System;
 
 namespace PostSharp.Aspects.Advices
 {
@@ -15,14 +18,14 @@ namespace PostSharp.Aspects.Advices
             InterfaceOverrideAction overrideAction = InterfaceOverrideAction.Fail,
             InterfaceOverrideAction ancestorOverrideAction = InterfaceOverrideAction.Fail )
         {
-            if (interfaceType == null)
+            if ( interfaceType == null )
             {
                 throw new ArgumentNullException( nameof(interfaceType) );
             }
 
-            InterfaceType = interfaceType;
-            OverrideAction = overrideAction;
-            AncestorOverrideAction = ancestorOverrideAction;
+            this.InterfaceType = interfaceType;
+            this.OverrideAction = overrideAction;
+            this.AncestorOverrideAction = ancestorOverrideAction;
         }
 
         public Type InterfaceType { get; }

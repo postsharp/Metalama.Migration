@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using System;
 
 #pragma warning disable 3006 // CLS Compliance.
@@ -13,12 +16,12 @@ namespace PostSharp.Serialization
 
         void ISerializer.DeserializeFields( ref object obj, IArgumentsReader initializationArguments )
         {
-            DeserializeFields( obj, initializationArguments );
+            this.DeserializeFields( obj, initializationArguments );
         }
 
         void ISerializer.SerializeObject( object obj, IArgumentsWriter constructorArguments, IArgumentsWriter initializationArguments )
         {
-            SerializeObject( obj, constructorArguments, initializationArguments );
+            this.SerializeObject( obj, constructorArguments, initializationArguments );
         }
 
         public abstract object CreateInstance( Type type, IArgumentsReader constructorArguments );

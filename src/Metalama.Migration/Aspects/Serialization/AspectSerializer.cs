@@ -1,8 +1,11 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
+using PostSharp.Reflection;
 using System;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
-using PostSharp.Reflection;
 
 namespace PostSharp.Aspects.Serialization
 {
@@ -17,19 +20,19 @@ namespace PostSharp.Aspects.Serialization
 
         public IAspect[] Deserialize( Assembly assembly, string resourceName, IMetadataDispenser metadataDispenser )
         {
-            if (assembly == null)
+            if ( assembly == null )
             {
                 throw new ArgumentNullException( nameof(assembly) );
             }
 
-            if (resourceName == null)
+            if ( resourceName == null )
             {
                 throw new ArgumentNullException( nameof(resourceName) );
             }
 
             var stream = assembly.GetManifestResourceStream( resourceName );
 
-            if (stream == null)
+            if ( stream == null )
             {
                 throw new Exception(
                     string.Format(
@@ -39,9 +42,9 @@ namespace PostSharp.Aspects.Serialization
                         resourceName ) );
             }
 
-            using (stream)
+            using ( stream )
             {
-                return Deserialize( stream, metadataDispenser );
+                return this.Deserialize( stream, metadataDispenser );
             }
         }
     }

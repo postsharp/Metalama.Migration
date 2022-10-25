@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 namespace PostSharp.Aspects.Dependencies
 {
     /// <summary>
@@ -11,13 +14,13 @@ namespace PostSharp.Aspects.Dependencies
             string role )
             : base( action, position )
         {
-            Role = role;
+            this.Role = role;
         }
 
         public AspectRoleDependencyAttribute( AspectDependencyAction action, string role )
             : base( action )
         {
-            Role = role;
+            this.Role = role;
         }
 
         public string Role { get; }

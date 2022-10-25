@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using System;
 using System.Globalization;
 using System.Reflection;
@@ -51,20 +54,20 @@ namespace PostSharp.Reflection
         {
             MethodBase selectedMethod = null;
 
-            foreach (var candidate in match)
+            foreach ( var candidate in match )
             {
                 var candidateParameters = candidate.GetParameters();
 
-                if (candidateParameters.Length != types.Length)
+                if ( candidateParameters.Length != types.Length )
                 {
                     continue;
                 }
 
                 var isMatch = true;
 
-                for (var i = 0; i < candidateParameters.Length; i++)
+                for ( var i = 0; i < candidateParameters.Length; i++ )
                 {
-                    if (!ReflectionTypeComparer.GetInstance().Equals( candidateParameters[i].ParameterType, types[i] ))
+                    if ( !ReflectionTypeComparer.GetInstance().Equals( candidateParameters[i].ParameterType, types[i] ) )
                     {
                         isMatch = false;
 
@@ -72,12 +75,12 @@ namespace PostSharp.Reflection
                     }
                 }
 
-                if (!isMatch)
+                if ( !isMatch )
                 {
                     continue;
                 }
 
-                if (selectedMethod != null)
+                if ( selectedMethod != null )
                 {
                     throw new AmbiguousMatchException();
                 }

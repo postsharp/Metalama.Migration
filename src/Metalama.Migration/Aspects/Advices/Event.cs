@@ -1,3 +1,6 @@
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using Metalama.Framework.Code;
 
 namespace PostSharp.Aspects.Advices
@@ -11,8 +14,8 @@ namespace PostSharp.Aspects.Advices
     {
         public Event( EventAccessor<TDelegate> addDelegate, EventAccessor<TDelegate> removeDelegate )
         {
-            Add = addDelegate;
-            Remove = removeDelegate;
+            this.Add = addDelegate;
+            this.Remove = removeDelegate;
         }
 
         public EventAccessor<TDelegate> Add { get; }

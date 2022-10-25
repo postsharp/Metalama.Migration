@@ -1,8 +1,11 @@
-using System;
-using System.Reflection;
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Eligibility;
 using PostSharp.Aspects.Configuration;
+using System;
+using System.Reflection;
 
 namespace PostSharp.Aspects
 {
@@ -42,7 +45,7 @@ namespace PostSharp.Aspects
             object targetElement )
         {
             base.SetAspectConfiguration( aspectConfiguration, targetElement );
-            SetAspectConfiguration( aspectConfiguration, (FieldInfo)targetElement );
+            this.SetAspectConfiguration( aspectConfiguration, (FieldInfo) targetElement );
         }
 
         /// <inheritdoc/>

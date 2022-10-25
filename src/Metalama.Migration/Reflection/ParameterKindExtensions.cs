@@ -1,4 +1,7 @@
-﻿using Metalama.Framework.Code;
+﻿// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
+using Metalama.Framework.Code;
 
 namespace PostSharp.Reflection
 {
@@ -9,7 +12,7 @@ namespace PostSharp.Reflection
     {
         public static bool IsInputParameter( this ParameterKind parameterKind )
         {
-            switch (parameterKind)
+            switch ( parameterKind )
             {
                 case ParameterKind.InValue:
                 case ParameterKind.ByRefIn:
@@ -23,7 +26,7 @@ namespace PostSharp.Reflection
 
         public static bool IsOutputParameter( this ParameterKind parameterKind )
         {
-            switch (parameterKind)
+            switch ( parameterKind )
             {
                 case ParameterKind.ByRefOut:
                 case ParameterKind.ByRefInOut:
@@ -36,7 +39,7 @@ namespace PostSharp.Reflection
 
         public static bool IsReturn( this ParameterKind parameterKind )
         {
-            switch (parameterKind)
+            switch ( parameterKind )
             {
                 case ParameterKind.ReturnValue:
                 case ParameterKind.ReturnRef:
@@ -49,7 +52,7 @@ namespace PostSharp.Reflection
 
         public static bool IsByRefParameter( this ParameterKind parameterKind )
         {
-            switch (parameterKind)
+            switch ( parameterKind )
             {
                 case ParameterKind.ByRefIn:
                 case ParameterKind.ByRefOut:
@@ -63,7 +66,7 @@ namespace PostSharp.Reflection
 
         public static bool IsParameter( this ParameterKind parameterKind )
         {
-            switch (parameterKind)
+            switch ( parameterKind )
             {
                 case ParameterKind.ByRefIn:
                 case ParameterKind.ByRefOut:

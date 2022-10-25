@@ -1,9 +1,12 @@
-﻿using System;
-using System.Reflection;
+﻿// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
+
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Validation;
 using PostSharp.Extensibility;
 using PostSharp.Reflection;
+using System;
+using System.Reflection;
 
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
@@ -15,7 +18,7 @@ namespace PostSharp.Constraints
     /// </summary>
     /// <seealso href="@validating-references"/>
     [AttributeUsage(
-        AttributeTargets.All & ~( AttributeTargets.Parameter | AttributeTargets.ReturnValue | AttributeTargets.GenericParameter ),
+        AttributeTargets.All & ~(AttributeTargets.Parameter | AttributeTargets.ReturnValue | AttributeTargets.GenericParameter),
         AllowMultiple = true )]
     [MulticastAttributeUsage(
         MulticastTargets.AnyType | MulticastTargets.Method | MulticastTargets.InstanceConstructor | MulticastTargets.Field,
@@ -30,27 +33,27 @@ namespace PostSharp.Constraints
         {
             var targetMember = target as MemberInfo;
 
-            if (targetMember != null)
+            if ( targetMember != null )
             {
                 var targetType = target as Type;
 
-                if (targetType != null)
+                if ( targetType != null )
                 {
                     foreach (
-                        var reference in ReflectionSearch.GetDerivedTypes( targetType, ReflectionSearchOptions.IncludeTypeElement ))
+                        var reference in ReflectionSearch.GetDerivedTypes( targetType, ReflectionSearchOptions.IncludeTypeElement ) )
                     {
-                        ValidateReference( reference );
+                        this.ValidateReference( reference );
                     }
 
-                    foreach (var reference in ReflectionSearch.GetMembersOfType( targetType, ReflectionSearchOptions.IncludeTypeElement ))
+                    foreach ( var reference in ReflectionSearch.GetMembersOfType( targetType, ReflectionSearchOptions.IncludeTypeElement ) )
                     {
-                        ValidateReference( reference );
+                        this.ValidateReference( reference );
                     }
                 }
 
-                foreach (var methodUsageCodeReference in ReflectionSearch.GetMethodsUsingDeclaration( targetMember ))
+                foreach ( var methodUsageCodeReference in ReflectionSearch.GetMethodsUsingDeclaration( targetMember ) )
                 {
-                    ValidateReference( methodUsageCodeReference );
+                    this.ValidateReference( methodUsageCodeReference );
                 }
             }
         }
