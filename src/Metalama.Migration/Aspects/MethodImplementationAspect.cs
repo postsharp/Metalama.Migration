@@ -8,16 +8,6 @@ using PostSharp.Serialization;
 
 namespace PostSharp.Aspects
 {
-    /// <summary>
-    /// Aspect that, when applied on an abstract or <c>extern</c> method, creates an implementation for this method.
-    /// </summary>
-    /// <seealso cref="MethodInterceptionAspectConfigurationAttribute"/>
-    /// <remarks>
-    /// <para>This aspect is exactly identical to <see cref="MethodInterceptionAspect"/>, with the difference
-    /// that it applies to abstract methods.</para>
-    /// <br/>
-    /// <include file="Documentation.xml" path="/documentation/section[@name='aspectSerialization']/*"/>
-    /// </remarks>
     [Serializable]
     [MulticastAttributeUsage(
         MulticastTargets.Method,
@@ -35,10 +25,8 @@ namespace PostSharp.Aspects
     [Serializer( null )]
     public abstract class MethodImplementationAspect : MethodLevelAspect, IMethodInterceptionAspect
     {
-        /// <inheritdoc />
         public abstract void OnInvoke( MethodInterceptionArgs args );
 
-        /// <inheritdoc />
         protected override AspectConfiguration CreateAspectConfiguration()
         {
             return new MethodInterceptionAspectConfiguration();

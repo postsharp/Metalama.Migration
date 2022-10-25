@@ -5,11 +5,5 @@
 
 namespace PostSharp.Aspects.Advices
 {
-    /// <summary>
-    ///   <see cref = "Pointcut" /> that selects exactly the aspect target.
-    /// </summary>
-    /// <include file = "../Documentation.xml" path = "/documentation/section[@name='seeAlsoAddBehaviorsToMembers']/*" />
-    /// <remarks>
-    /// </remarks>
     public sealed class SelfPointcut : Pointcut { }
 }

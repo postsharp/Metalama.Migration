@@ -2,8 +2,5 @@
 
 namespace PostSharp.Extensibility
 {
-    /// <summary>
-    /// A service exposed by the build-time part of PostSharp.
-    /// </summary>
     public interface IService { }
 }

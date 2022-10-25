@@ -14,379 +14,379 @@ namespace PostSharp.Extensibility.BuildTimeLogging
 	public partial class BuildTimeLogger
 	{
 
-			/// <summary>
-        ///   Appends a string to the next message and formats it using a formatting string and 1 argument. 
-        ///   The message is sent and flushed when the <see cref="WriteLine(string)"/> method is invoked.
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
+			
+        
+        
+        
+        
+				
+		
 			public void Write<T1>( string format, T1 arg1 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        ///   Writes a message given a formatting string and 1 argument. 
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
+		
+        
+        
+        
+				
+		
 			public void WriteLine<T1>( string format, T1 arg1 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        /// Writes a message given a formatting string and 1 argument, and increases the indentation level. To decrease the indentation level, dispose the <see cref="BuildTimeLogActivity"/>
-        /// returned by this method.
-        /// </summary>
-        /// <param name="format">Message.</param>
-        /// <returns>An opaque object to be disposed at the end of the activity to decrease the indentation level.</returns>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
+		
+        
+        
+        
+        
+        
+				
+		
 			public BuildTimeLogActivity Activity<T1>( string format, T1 arg1 )
 		{
 			throw new NotImplementedException();
 		}
 
-			/// <summary>
-        ///   Appends a string to the next message and formats it using a formatting string and 2 arguments. 
-        ///   The message is sent and flushed when the <see cref="WriteLine(string)"/> method is invoked.
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
+			
+        
+        
+        
+        
+				
+		
+			
+		
 			public void Write<T1, T2>( string format, T1 arg1, T2 arg2 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        ///   Writes a message given a formatting string and 2 arguments. 
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
+		
+        
+        
+        
+				
+		
+			
+		
 			public void WriteLine<T1, T2>( string format, T1 arg1, T2 arg2 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        /// Writes a message given a formatting string and 2 arguments, and increases the indentation level. To decrease the indentation level, dispose the <see cref="BuildTimeLogActivity"/>
-        /// returned by this method.
-        /// </summary>
-        /// <param name="format">Message.</param>
-        /// <returns>An opaque object to be disposed at the end of the activity to decrease the indentation level.</returns>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
+		
+        
+        
+        
+        
+        
+				
+		
+			
+		
 			public BuildTimeLogActivity Activity<T1, T2>( string format, T1 arg1, T2 arg2 )
 		{
 			throw new NotImplementedException();
 		}
 
-			/// <summary>
-        ///   Appends a string to the next message and formats it using a formatting string and 3 arguments. 
-        ///   The message is sent and flushed when the <see cref="WriteLine(string)"/> method is invoked.
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
+			
+        
+        
+        
+        
+				
+		
+			
+		
+			
+		
 			public void Write<T1, T2, T3>( string format, T1 arg1, T2 arg2, T3 arg3 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        ///   Writes a message given a formatting string and 3 arguments. 
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
+		
+        
+        
+        
+				
+		
+			
+		
+			
+		
 			public void WriteLine<T1, T2, T3>( string format, T1 arg1, T2 arg2, T3 arg3 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        /// Writes a message given a formatting string and 3 arguments, and increases the indentation level. To decrease the indentation level, dispose the <see cref="BuildTimeLogActivity"/>
-        /// returned by this method.
-        /// </summary>
-        /// <param name="format">Message.</param>
-        /// <returns>An opaque object to be disposed at the end of the activity to decrease the indentation level.</returns>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
+		
+        
+        
+        
+        
+        
+				
+		
+			
+		
+			
+		
 			public BuildTimeLogActivity Activity<T1, T2, T3>( string format, T1 arg1, T2 arg2, T3 arg3 )
 		{
 			throw new NotImplementedException();
 		}
 
-			/// <summary>
-        ///   Appends a string to the next message and formats it using a formatting string and 4 arguments. 
-        ///   The message is sent and flushed when the <see cref="WriteLine(string)"/> method is invoked.
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
+			
+        
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
 			public void Write<T1, T2, T3, T4>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        ///   Writes a message given a formatting string and 4 arguments. 
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
+		
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
 			public void WriteLine<T1, T2, T3, T4>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        /// Writes a message given a formatting string and 4 arguments, and increases the indentation level. To decrease the indentation level, dispose the <see cref="BuildTimeLogActivity"/>
-        /// returned by this method.
-        /// </summary>
-        /// <param name="format">Message.</param>
-        /// <returns>An opaque object to be disposed at the end of the activity to decrease the indentation level.</returns>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
+		
+        
+        
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
 			public BuildTimeLogActivity Activity<T1, T2, T3, T4>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4 )
 		{
 			throw new NotImplementedException();
 		}
 
-			/// <summary>
-        ///   Appends a string to the next message and formats it using a formatting string and 5 arguments. 
-        ///   The message is sent and flushed when the <see cref="WriteLine(string)"/> method is invoked.
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
-			/// <typeparam name="T5">Type of the 5-th parameter.</typeparam>
-		/// <param name="arg5">Value of the 5-th parameter.</param>
+			
+        
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
+			
+		
 			public void Write<T1, T2, T3, T4, T5>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        ///   Writes a message given a formatting string and 5 arguments. 
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
-			/// <typeparam name="T5">Type of the 5-th parameter.</typeparam>
-		/// <param name="arg5">Value of the 5-th parameter.</param>
+		
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
+			
+		
 			public void WriteLine<T1, T2, T3, T4, T5>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        /// Writes a message given a formatting string and 5 arguments, and increases the indentation level. To decrease the indentation level, dispose the <see cref="BuildTimeLogActivity"/>
-        /// returned by this method.
-        /// </summary>
-        /// <param name="format">Message.</param>
-        /// <returns>An opaque object to be disposed at the end of the activity to decrease the indentation level.</returns>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
-			/// <typeparam name="T5">Type of the 5-th parameter.</typeparam>
-		/// <param name="arg5">Value of the 5-th parameter.</param>
+		
+        
+        
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
+			
+		
 			public BuildTimeLogActivity Activity<T1, T2, T3, T4, T5>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5 )
 		{
 			throw new NotImplementedException();
 		}
 
-			/// <summary>
-        ///   Appends a string to the next message and formats it using a formatting string and 6 arguments. 
-        ///   The message is sent and flushed when the <see cref="WriteLine(string)"/> method is invoked.
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
-			/// <typeparam name="T5">Type of the 5-th parameter.</typeparam>
-		/// <param name="arg5">Value of the 5-th parameter.</param>
-			/// <typeparam name="T6">Type of the 6-th parameter.</typeparam>
-		/// <param name="arg6">Value of the 6-th parameter.</param>
+			
+        
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
 			public void Write<T1, T2, T3, T4, T5, T6>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        ///   Writes a message given a formatting string and 6 arguments. 
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
-			/// <typeparam name="T5">Type of the 5-th parameter.</typeparam>
-		/// <param name="arg5">Value of the 5-th parameter.</param>
-			/// <typeparam name="T6">Type of the 6-th parameter.</typeparam>
-		/// <param name="arg6">Value of the 6-th parameter.</param>
+		
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
 			public void WriteLine<T1, T2, T3, T4, T5, T6>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        /// Writes a message given a formatting string and 6 arguments, and increases the indentation level. To decrease the indentation level, dispose the <see cref="BuildTimeLogActivity"/>
-        /// returned by this method.
-        /// </summary>
-        /// <param name="format">Message.</param>
-        /// <returns>An opaque object to be disposed at the end of the activity to decrease the indentation level.</returns>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
-			/// <typeparam name="T5">Type of the 5-th parameter.</typeparam>
-		/// <param name="arg5">Value of the 5-th parameter.</param>
-			/// <typeparam name="T6">Type of the 6-th parameter.</typeparam>
-		/// <param name="arg6">Value of the 6-th parameter.</param>
+		
+        
+        
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
 			public BuildTimeLogActivity Activity<T1, T2, T3, T4, T5, T6>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6 )
 		{
 			throw new NotImplementedException();
 		}
 
-			/// <summary>
-        ///   Appends a string to the next message and formats it using a formatting string and 7 arguments. 
-        ///   The message is sent and flushed when the <see cref="WriteLine(string)"/> method is invoked.
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
-			/// <typeparam name="T5">Type of the 5-th parameter.</typeparam>
-		/// <param name="arg5">Value of the 5-th parameter.</param>
-			/// <typeparam name="T6">Type of the 6-th parameter.</typeparam>
-		/// <param name="arg6">Value of the 6-th parameter.</param>
-			/// <typeparam name="T7">Type of the 7-th parameter.</typeparam>
-		/// <param name="arg7">Value of the 7-th parameter.</param>
+			
+        
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
 			public void Write<T1, T2, T3, T4, T5, T6, T7>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        ///   Writes a message given a formatting string and 7 arguments. 
-        /// </summary>
-        /// <param name = "format">Message formatting string.</param>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
-			/// <typeparam name="T5">Type of the 5-th parameter.</typeparam>
-		/// <param name="arg5">Value of the 5-th parameter.</param>
-			/// <typeparam name="T6">Type of the 6-th parameter.</typeparam>
-		/// <param name="arg6">Value of the 6-th parameter.</param>
-			/// <typeparam name="T7">Type of the 7-th parameter.</typeparam>
-		/// <param name="arg7">Value of the 7-th parameter.</param>
+		
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
 			public void WriteLine<T1, T2, T3, T4, T5, T6, T7>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7 )
 		{
 			throw new NotImplementedException();
 		}
 
-		/// <summary>
-        /// Writes a message given a formatting string and 7 arguments, and increases the indentation level. To decrease the indentation level, dispose the <see cref="BuildTimeLogActivity"/>
-        /// returned by this method.
-        /// </summary>
-        /// <param name="format">Message.</param>
-        /// <returns>An opaque object to be disposed at the end of the activity to decrease the indentation level.</returns>
-				/// <typeparam name="T1">Type of the 1-th parameter.</typeparam>
-		/// <param name="arg1">Value of the 1-th parameter.</param>
-			/// <typeparam name="T2">Type of the 2-th parameter.</typeparam>
-		/// <param name="arg2">Value of the 2-th parameter.</param>
-			/// <typeparam name="T3">Type of the 3-th parameter.</typeparam>
-		/// <param name="arg3">Value of the 3-th parameter.</param>
-			/// <typeparam name="T4">Type of the 4-th parameter.</typeparam>
-		/// <param name="arg4">Value of the 4-th parameter.</param>
-			/// <typeparam name="T5">Type of the 5-th parameter.</typeparam>
-		/// <param name="arg5">Value of the 5-th parameter.</param>
-			/// <typeparam name="T6">Type of the 6-th parameter.</typeparam>
-		/// <param name="arg6">Value of the 6-th parameter.</param>
-			/// <typeparam name="T7">Type of the 7-th parameter.</typeparam>
-		/// <param name="arg7">Value of the 7-th parameter.</param>
+		
+        
+        
+        
+        
+        
+				
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
 			public BuildTimeLogActivity Activity<T1, T2, T3, T4, T5, T6, T7>( string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7 )
 		{
 			throw new NotImplementedException();

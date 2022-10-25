@@ -6,31 +6,20 @@ using System.Security;
 
 namespace PostSharp.Aspects
 {
-    /// <summary>
-    /// Represents the awaiter for the completion of the asynchronous proceed operation.
-    /// </summary>
     public struct MethodInterceptionProceedAwaiter : ICriticalNotifyCompletion
     {
-        /// <summary>
-        /// Gets a value that indicates whether a yield is not required.
-        /// </summary>
         public bool IsCompleted { get; }
 
-        /// <summary>
-        /// Ends the await operation.
-        /// </summary>
         public void GetResult()
         {
             throw new NotImplementedException();
         }
 
-        /// <inheritdoc />
         public void OnCompleted( Action continuation )
         {
             throw new NotImplementedException();
         }
 
-        /// <inheritdoc />
         [SecurityCritical]
         public void UnsafeOnCompleted( Action continuation )
         {

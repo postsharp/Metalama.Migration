@@ -2,10 +2,8 @@
 
 namespace PostSharp.Aspects
 {
-    /// <exclude/>
     public interface ILicensedAspect
     {
-        /// <exclude/>
         string GetLicenseRequirements();
     }
 }

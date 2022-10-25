@@ -7,13 +7,6 @@ using System;
 
 namespace PostSharp.Aspects.Advices
 {
-    /// <summary>
-    ///   Custom attribute, typically accompanying an advice, specifying
-    ///   to which code elements the advice applies.
-    /// </summary>
-    /// <remarks>
-    /// </remarks>
-    /// <include file = "../Documentation.xml" path = "/documentation/section[@name='seeAlsoAddBehaviorsToMembers']/*" />
     [AttributeUsage( AttributeTargets.Method, AllowMultiple = true )]
     public abstract class Pointcut : Attribute { }
 }

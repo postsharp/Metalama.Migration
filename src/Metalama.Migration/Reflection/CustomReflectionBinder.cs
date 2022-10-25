@@ -5,20 +5,12 @@ using System.Reflection;
 
 namespace PostSharp.Reflection
 {
-    /// <summary>
-    ///   Custom implementation of a reflection <see cref = "Binder" /> that select
-    ///   methods based on exact matches using the <see cref = "ReflectionTypeComparer" />.
-    /// </summary>
     public sealed class CustomReflectionBinder : Binder
     {
-        /// <summary>
-        ///   Singleton instance.
-        /// </summary>
         [SuppressMessage( "Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes" )]
         public static readonly CustomReflectionBinder Instance =
             new();
 
-        /// <inheritdoc />
         public override FieldInfo BindToField(
             BindingFlags bindingFlags,
             FieldInfo[] match,
@@ -28,7 +20,6 @@ namespace PostSharp.Reflection
             throw new NotImplementedException();
         }
 
-        /// <inheritdoc />
         public override MethodBase BindToMethod(
             BindingFlags bindingFlags,
             MethodBase[] match,
@@ -41,19 +32,16 @@ namespace PostSharp.Reflection
             throw new NotImplementedException();
         }
 
-        /// <inheritdoc />
         public override object ChangeType( object value, Type type, CultureInfo culture )
         {
             throw new NotImplementedException();
         }
 
-        /// <inheritdoc />
         public override void ReorderArgumentArray( ref object[] args, object state )
         {
             throw new NotImplementedException();
         }
 
-        /// <inheritdoc />
         public override MethodBase SelectMethod(
             BindingFlags bindingFlags,
             MethodBase[] match,
@@ -99,7 +87,6 @@ namespace PostSharp.Reflection
             return selectedMethod;
         }
 
-        /// <inheritdoc />
         public override PropertyInfo SelectProperty(
             BindingFlags bindingFlags,
             PropertyInfo[] match,

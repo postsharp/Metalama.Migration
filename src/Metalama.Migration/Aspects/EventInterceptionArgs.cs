@@ -4,103 +4,30 @@ using System.Reflection;
 
 namespace PostSharp.Aspects
 {
-    /// <summary>
-    ///   Arguments of handlers of aspects of the type <see cref = "EventInterceptionAspect" />.
-    /// </summary>
-    /// <seealso cref = "EventInterceptionAspect" />
-    /// <remarks>
-    ///   <include file = "Documentation.xml" path = "/documentation/section[@name='aspectArgs']/*" />
-    /// </remarks>
-    /// <seealso cref = "EventInterceptionAspect" />
     [DebuggerStepThrough]
     [DebuggerNonUserCode]
     public abstract class EventInterceptionArgs : AdviceArgs
     {
-        /// <summary>
-        ///   Gets an interface that allows to invoke the next node in the chain of invocation of the intercepted method.
-        /// </summary>
-        /// <remarks>
-        ///   <include file = "Documentation.xml" path = "/documentation/section[@name='bindingProperty']/*" />
-        /// </remarks>
         public abstract IEventBinding Binding { get; }
 
-        /// <summary>
-        ///   Gets the delegate being added, removed, or invoked.
-        /// </summary>
         public Delegate Handler { get; }
 
-        /// <summary>
-        ///   Gets the return value of the delegate.
-        /// </summary>
-        /// <remarks>
-        ///   <para>This property is meaningful only during a delegate invocation (not during an addition or removal).</para>
-        ///   <para>This property is typically set by the <see cref = "ProceedInvokeHandler" /> method. It is also legal for
-        ///     an implementation of <see cref = "IEventInterceptionAspect.OnInvokeHandler" /> to change the value of this property.</para>
-        /// </remarks>
         public object ReturnValue { get; set; }
 
-        /// <summary>
-        ///   Gets the event to which the current aspect has been applied.
-        /// </summary>
-        /// <remarks>
-        ///   <note>
-        ///     Using this property causes the aspect weaver to generate code that has non-trivial runtime overhead. Avoid using
-        ///     this property whenever possible. One of the possible solution is to use compile-time initialization of
-        ///     aspect instances and to make use of reflection only at build time.
-        ///   </note>
-        /// </remarks>
         public EventInfo Event { get; set; }
 
-        /// <summary>
-        ///   Gets the delegate arguments.
-        /// </summary>
-        /// <remarks>
-        ///   <para>This property is meaningful only during a delegate invocation (not during an addition or removal).</para>
-        ///   <para>This property is typically accessed by the <see cref = "ProceedInvokeHandler" /> method. Implementations of
-        ///     <see cref = "IEventInterceptionAspect.OnInvokeHandler" /> can also get or change the value of this property.</para>
-        /// </remarks>
         public Arguments Arguments { get; }
 
-        /// <summary>
-        ///   Proceeds with adding the <see cref = "Delegate" /> to the event to which the current aspect. 
-        ///   This method invokes the next handler in chain. 
-        ///   It is typically invoked from the implementation of <see cref = "IEventInterceptionAspect.OnAddHandler" />.
-        /// </summary>
         public abstract void ProceedAddHandler();
 
-        /// <summary>
-        ///   Adds a handler to the event by invoking the <c>Add</c> semantic of the next node in the chain of invocation.
-        /// </summary>
-        /// <param name = "handler">The handler to add to the event.</param>
         public abstract void AddHandler( Delegate handler );
 
-        /// <summary>
-        ///   Proceeds with removing the <see cref = "Delegate" /> from the event to which the current aspect. 
-        ///   This method invokes the next handler in chain. 
-        ///   It is typically invoked from the implementation of <see cref = "IEventInterceptionAspect.OnRemoveHandler" />.
-        /// </summary>
         public abstract void ProceedRemoveHandler();
 
-        /// <summary>
-        ///   Removes a handler from the event by invoking the <c>Remove</c> semantic of the next node in the chain of invocation.
-        /// </summary>
-        /// <param name = "handler">Handler to be removed.</param>
         public abstract void RemoveHandler( Delegate handler );
 
-        /// <summary>
-        ///   Proceeds with invoking the <see cref = "Delegate" /> with the arguments specified in the <see cref = "Arguments" /> property.
-        ///   The delegate may change the <see cref = "Arguments" /> and set the <see cref = "ReturnValue" />.
-        ///   This method invokes the next handler in chain. 
-        ///   It is typically invoked from the implementation of <see cref = "IEventInterceptionAspect.OnInvokeHandler" />.
-        /// </summary>
         public abstract void ProceedInvokeHandler();
 
-        /// <summary>
-        ///   Invokes a handler by calling the <c>Invoke</c> semantic of the next node in the chain of invocation.
-        /// </summary>
-        /// <param name = "handler">Handler to be invoked.</param>
-        /// <param name = "arguments">Arguments passed to the handler.</param>
-        /// <returns>Return value of the handler.</returns>
         public abstract object InvokeHandler( Delegate handler, Arguments arguments );
     }
 }

@@ -7,9 +7,6 @@ using PostSharp.Reflection;
 
 namespace PostSharp.Constraints
 {
-    /// <summary>
-    /// Base class for constraints validating code references.
-    /// </summary>
     [AttributeUsage(
         AttributeTargets.All & ~( AttributeTargets.Parameter | AttributeTargets.ReturnValue | AttributeTargets.GenericParameter ),
         AllowMultiple = true )]
@@ -20,13 +17,8 @@ namespace PostSharp.Constraints
         TargetMemberAttributes = MulticastAttributes.AnyVisibility & ~MulticastAttributes.Private )]
     public abstract class ReferenceConstraint : ReferentialConstraint
     {
-        /// <summary>
-        /// Validates a reference to the target declaration of the current constraint.
-        /// </summary>
-        /// <param name="reference">Represents a reference to the target of the current constraint.</param>
         protected abstract void ValidateReference( ICodeReference reference );
 
-        /// <exclude />
         public sealed override void ValidateCode( object target, Assembly assembly )
         {
             var targetMember = target as MemberInfo;

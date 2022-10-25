@@ -2,13 +2,10 @@
 
 namespace PostSharp.Extensibility
 {
-    /// <exclude/>
     public static class DebuggerInterop
     {
-        /// <exclude/>
         public static long NextStateMachineId = 1;
 
-        /// <exclude/>
 #pragma warning disable CA1805 // Do not initialize unnecessarily
         public static bool IsInInspectionQuery = false;
 #pragma warning restore CA1805 // Do not initialize unnecessarily

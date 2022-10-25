@@ -2,31 +2,16 @@
 
 namespace PostSharp.Extensibility
 {
-    /// <summary>
-    /// Instructs PostSharp to ignore warnings and information messages. Errors cannot be ignored.
-    /// </summary>
-    /// <remarks>
-    /// </remarks>
     [AttributeUsage( AttributeTargets.All, AllowMultiple = true, Inherited = false )]
     public class SuppressWarningAttribute : Attribute
     {
-        /// <summary>
-        /// Creates a new instance of <see cref="SuppressWarningAttribute"/>.
-        /// </summary>
-        /// <param name="messageId">Identifier of the ignored warning.</param>
         public SuppressWarningAttribute( string messageId )
         {
             MessageId = messageId;
         }
 
-        /// <summary>
-        /// Gets the identifier of the ignored warning.
-        /// </summary>
         public string MessageId { get; }
 
-        /// <summary>
-        /// Gets or set the reason (a human-readable text) why the warning must be ignored.
-        /// </summary>
         public string Reason { get; set; }
     }
 }
