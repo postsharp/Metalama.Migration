@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<documentation>
+  <section name="annotationRepository">
+    <para>
+      <note>
+        This method returns custom attributes from the internal annotation repository of PostSharp. This repository contains more
+        than only custom attributes added in source code. For instance, if you use
+        <see cref="MulticastAttribute" />
+        to add a custom attribute to several elements of code in a single line of code, this method will return
+        one custom attribute instance for every target of the
+        <see cref="MulticastAttribute" />
+        .
+      </note>
+    </para>
+  </section>  
+</documentation>
