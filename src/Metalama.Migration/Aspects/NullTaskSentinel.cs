@@ -8,11 +8,6 @@ namespace PostSharp.Aspects
     /// </summary>
     public sealed class NullTaskSentinel
     {
-        static NullTaskSentinel()
-        {
-            Instance = new NullTaskSentinel();
-        }
-
         public static NullTaskSentinel Instance { get; }
     }
 }

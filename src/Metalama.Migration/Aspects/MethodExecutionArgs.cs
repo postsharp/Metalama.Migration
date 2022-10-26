@@ -17,9 +17,9 @@ namespace PostSharp.Aspects
     /// </summary>
     public class MethodExecutionArgs : AdviceArgs
     {
-        public MethodExecutionArgs( object instance, Arguments arguments ) : base( instance )
+        private MethodExecutionArgs()
         {
-            this.Arguments = arguments;
+            throw new NotImplementedException();
         }
 
         /// <summary>

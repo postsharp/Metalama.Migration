@@ -33,7 +33,7 @@ namespace PostSharp.Aspects
         /// <returns></returns>
         protected virtual Type[] GetPublicInterfaces( Type targetType )
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace PostSharp.Aspects
 
         protected sealed override AspectConfiguration CreateAspectConfiguration()
         {
-            return new CompositionAspectConfiguration();
+            throw new NotImplementedException();
         }
 
         protected override void SetAspectConfiguration( AspectConfiguration aspectConfiguration, Type targetType ) { }

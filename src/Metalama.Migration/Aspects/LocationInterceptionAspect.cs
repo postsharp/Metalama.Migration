@@ -26,25 +26,25 @@ namespace PostSharp.Aspects
         /// <inheritdoc/>
         public virtual void OnGetValue( LocationInterceptionArgs args )
         {
-            args.ProceedGetValue();
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>
         public virtual void OnSetValue( LocationInterceptionArgs args )
         {
-            args.ProceedSetValue();
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>
         public virtual void OnInstanceLocationInitialized( LocationInitializationArgs args )
         {
-            // Do nothing.
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>
         protected sealed override AspectConfiguration CreateAspectConfiguration()
         {
-            return new LocationInterceptionAspectConfiguration();
+            throw new NotImplementedException();
         }
     }
 }

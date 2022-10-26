@@ -13,7 +13,7 @@ namespace PostSharp.Aspects.Dependencies
     {
         public ProvideAspectRoleAttribute( string role ) : base( AspectDependencyAction.None )
         {
-            this.Role = role;
+            throw new NotImplementedException();
         }
 
         public string Role { get; }

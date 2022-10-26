@@ -16,12 +16,12 @@ namespace PostSharp.Serialization
 
         void ISerializer.DeserializeFields( ref object obj, IArgumentsReader initializationArguments )
         {
-            this.DeserializeFields( obj, initializationArguments );
+            throw new NotImplementedException();
         }
 
         void ISerializer.SerializeObject( object obj, IArgumentsWriter constructorArguments, IArgumentsWriter initializationArguments )
         {
-            this.SerializeObject( obj, constructorArguments, initializationArguments );
+            throw new NotImplementedException();
         }
 
         public abstract object CreateInstance( Type type, IArgumentsReader constructorArguments );
@@ -32,7 +32,7 @@ namespace PostSharp.Serialization
 
         public virtual object Convert( object value, Type targetType )
         {
-            return value;
+            throw new NotImplementedException();
         }
     }
 }

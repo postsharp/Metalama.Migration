@@ -21,7 +21,7 @@ namespace PostSharp.Reflection
         /// </summary>
         public static CustomAttributeInstance[] GetCustomAttributesOfType( Type customAttributeType )
         {
-            return GetCustomAttributesOfType( customAttributeType, ReflectionSearchOptions.None );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace PostSharp.Reflection
         /// </summary>
         public static CustomAttributeInstance[] GetCustomAttributesOnTarget( object target )
         {
-            return GetCustomAttributesOnTarget( target, ReflectionSearchOptions.None );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace PostSharp.Reflection
         /// <seealso href="@validating-references"/>
         public static MethodUsageCodeReference[] GetDeclarationsUsedByMethod( MethodBase method )
         {
-            return GetDeclarationsUsedByMethod( method, ReflectionSearchOptions.None );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace PostSharp.Reflection
         /// <seealso href="@validating-references"/>
         public static MethodUsageCodeReference[] GetMethodsUsingDeclaration( MemberInfo declaration )
         {
-            return GetMethodsUsingDeclaration( declaration, ReflectionSearchOptions.None );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace PostSharp.Reflection
         /// </summary>
         public static TypeInheritanceCodeReference[] GetDerivedTypes( Type baseType )
         {
-            return GetDerivedTypes( baseType, ReflectionSearchOptions.None );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace PostSharp.Reflection
         /// <seealso href="@validating-references"/>
         public static MemberTypeCodeReference[] GetMembersOfType( Type memberType )
         {
-            return GetMembersOfType( memberType, ReflectionSearchOptions.None );
+            throw new NotImplementedException();
         }
 
         /// <summary>

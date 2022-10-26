@@ -18,13 +18,13 @@ namespace PostSharp.Aspects.Dependencies
             Type aspectType )
             : base( action, position )
         {
-            this.AspectType = aspectType;
+            throw new NotImplementedException();
         }
 
         public AspectTypeDependencyAttribute( AspectDependencyAction action, Type aspectType )
             : base( action )
         {
-            this.AspectType = aspectType;
+            throw new NotImplementedException();
         }
 
         public Type AspectType { get; }

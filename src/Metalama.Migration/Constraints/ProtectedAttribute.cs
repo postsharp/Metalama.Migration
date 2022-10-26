@@ -21,7 +21,7 @@ namespace PostSharp.Constraints
     {
         public ProtectedAttribute()
         {
-            this.Severity = SeverityType.Warning;
+            throw new NotImplementedException();
         }
 
         public SeverityType Severity { get; set; }

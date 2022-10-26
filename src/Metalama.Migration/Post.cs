@@ -17,7 +17,7 @@ namespace PostSharp
             where TSource : class
             where TTarget : class
         {
-            return (TTarget) (object) o;
+            throw new NotImplementedException();
         }
 
         /// <summary>

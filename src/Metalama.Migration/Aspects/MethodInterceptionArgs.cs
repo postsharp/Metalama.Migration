@@ -15,6 +15,8 @@ namespace PostSharp.Aspects
     /// </summary>
     public abstract class MethodInterceptionArgs : AdviceArgs
     {
+        internal MethodInterceptionArgs() { }
+
         /// <summary>
         /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.
         /// </summary>

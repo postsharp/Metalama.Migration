@@ -4,7 +4,7 @@
 namespace PostSharp.Reflection
 {
     /// <summary>
-    /// In Metalama, use <see cref="Metalama.Framework.Code.AsyncInfo"/>.
+    /// In Metalama, use <see cref="Metalama.Framework.Code.AsyncInfo"/> at compile time. There is no equivalent at run time.
     /// </summary>
     public enum StateMachineKind
     {

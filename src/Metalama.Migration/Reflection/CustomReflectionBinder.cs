@@ -52,43 +52,7 @@ namespace PostSharp.Reflection
             Type[] types,
             ParameterModifier[] modifiers )
         {
-            MethodBase selectedMethod = null;
-
-            foreach ( var candidate in match )
-            {
-                var candidateParameters = candidate.GetParameters();
-
-                if ( candidateParameters.Length != types.Length )
-                {
-                    continue;
-                }
-
-                var isMatch = true;
-
-                for ( var i = 0; i < candidateParameters.Length; i++ )
-                {
-                    if ( !ReflectionTypeComparer.GetInstance().Equals( candidateParameters[i].ParameterType, types[i] ) )
-                    {
-                        isMatch = false;
-
-                        break;
-                    }
-                }
-
-                if ( !isMatch )
-                {
-                    continue;
-                }
-
-                if ( selectedMethod != null )
-                {
-                    throw new AmbiguousMatchException();
-                }
-
-                selectedMethod = candidate;
-            }
-
-            return selectedMethod;
+            throw new NotImplementedException();
         }
 
         public override PropertyInfo SelectProperty(

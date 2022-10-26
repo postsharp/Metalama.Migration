@@ -15,8 +15,6 @@ namespace PostSharp.Extensibility
     {
         public HasInheritedAttributeAttribute() { }
 
-        // TODO: Used in compiler.
-
         [Obsolete( "Do not use this custom attribute in user code.", false )]
         public HasInheritedAttributeAttribute( long[] ids ) { }
     }

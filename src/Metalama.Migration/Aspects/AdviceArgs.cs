@@ -13,9 +13,7 @@ namespace PostSharp.Aspects
     /// </summary>
     public class AdviceArgs
     {
-        public AdviceArgs( object instance ) { }
-
-        protected AdviceArgs() { }
+        internal AdviceArgs() { }
 
         /// <summary>
         /// In Metalama, use <see cref="meta"/>.<see cref="meta.This"/>.

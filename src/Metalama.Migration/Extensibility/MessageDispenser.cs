@@ -13,7 +13,7 @@ namespace PostSharp.Extensibility
     {
         protected MessageDispenser( string prefix )
         {
-            this.Prefix = prefix ?? "";
+            throw new NotImplementedException();
         }
 
         public string Prefix { get; }

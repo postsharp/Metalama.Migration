@@ -15,7 +15,7 @@ namespace PostSharp.Aspects.Dependencies
 
         public WaiveAspectEffectAttribute( params string[] effects )
         {
-            this.Effects = effects;
+            throw new NotImplementedException();
         }
 
         public string[] Effects { get; }

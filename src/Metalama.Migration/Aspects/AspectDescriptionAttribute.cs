@@ -14,7 +14,7 @@ namespace PostSharp.Aspects
     {
         public AspectDescriptionAttribute( string description )
         {
-            this.Description = description;
+            throw new NotImplementedException();
         }
 
         public string Description { get; }

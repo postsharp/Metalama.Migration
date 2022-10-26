@@ -23,7 +23,7 @@ namespace PostSharp.Aspects
 
         public virtual object GetArgument( int index )
         {
-            throw new ArgumentOutOfRangeException( nameof(index) );
+            throw new NotImplementedException();
         }
 
         public object this[ int index ]
@@ -43,20 +43,17 @@ namespace PostSharp.Aspects
 
         public object[] ToArray()
         {
-            var array = new object[this.Count];
-            this.CopyTo( array, 0 );
-
-            return array;
+            throw new NotImplementedException();
         }
 
         public Arguments Clone()
         {
-            return (Arguments) this.MemberwiseClone();
+            throw new NotImplementedException();
         }
 
         object ICloneable.Clone()
         {
-            return this.Clone();
+            throw new NotImplementedException();
         }
 
         public static Arguments Create<T>( T arg0 )

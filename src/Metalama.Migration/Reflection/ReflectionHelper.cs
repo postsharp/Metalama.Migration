@@ -1,7 +1,6 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
-using PostSharp.Extensibility;
 using System;
 using System.Reflection;
 
@@ -64,7 +63,7 @@ namespace PostSharp.Reflection
 
         public static bool AreInternalsVisibleToCurrentProject( this Assembly definingAssembly )
         {
-            return definingAssembly.AreInternalsVisibleTo( PostSharpEnvironment.Current.CurrentProject.TargetAssembly );
+            throw new NotImplementedException();
         }
 
         public static bool AreInternalsVisibleTo( this Assembly definingAssembly, Assembly referencingAssembly )

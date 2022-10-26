@@ -1,7 +1,6 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
-using PostSharp.Reflection;
 using System;
 
 namespace PostSharp.Serialization
@@ -21,7 +20,7 @@ namespace PostSharp.Serialization
 
         public virtual Type BindToType( string typeName, string assemblyName )
         {
-            return Type.GetType( ReflectionHelper.GetAssemblyQualifiedTypeName( typeName, assemblyName ) );
+            throw new NotImplementedException();
         }
 
         public virtual void BindToName( Type type, out string typeName, out string assemblyName )

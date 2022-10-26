@@ -22,10 +22,7 @@ namespace PostSharp.Aspects.Configuration
 
         public string Name { get; }
 
-        [Obsolete( "Use DataProvider." )]
-#pragma warning disable CA1819 // Properties should not return arrays (TODO)
         public byte[] Data { get; }
-#pragma warning restore CA1819 // Properties should not return arrays (TODO)
 
         public Func<byte[]> DataProvider { get; }
     }

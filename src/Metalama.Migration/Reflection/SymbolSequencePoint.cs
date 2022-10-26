@@ -58,22 +58,22 @@ namespace PostSharp.Reflection
 
         public static bool operator <( SymbolSequencePoint left, SymbolSequencePoint right )
         {
-            return ReferenceEquals( left, null ) ? !ReferenceEquals( right, null ) : left.CompareTo( right ) < 0;
+            throw new NotImplementedException();
         }
 
         public static bool operator <=( SymbolSequencePoint left, SymbolSequencePoint right )
         {
-            return ReferenceEquals( left, null ) || left.CompareTo( right ) <= 0;
+            throw new NotImplementedException();
         }
 
         public static bool operator >( SymbolSequencePoint left, SymbolSequencePoint right )
         {
-            return !ReferenceEquals( left, null ) && left.CompareTo( right ) > 0;
+            throw new NotImplementedException();
         }
 
         public static bool operator >=( SymbolSequencePoint left, SymbolSequencePoint right )
         {
-            return ReferenceEquals( left, null ) ? ReferenceEquals( right, null ) : left.CompareTo( right ) >= 0;
+            throw new NotImplementedException();
         }
 
         #endregion

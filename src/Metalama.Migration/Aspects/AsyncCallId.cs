@@ -31,12 +31,12 @@ namespace PostSharp.Aspects
 
         public static bool operator ==( AsyncCallId left, AsyncCallId right )
         {
-            return left.Equals( right );
+            throw new NotImplementedException();
         }
 
         public static bool operator !=( AsyncCallId left, AsyncCallId right )
         {
-            return !left.Equals( right );
+            throw new NotImplementedException();
         }
 
         public override string ToString()

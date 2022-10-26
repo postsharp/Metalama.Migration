@@ -15,7 +15,7 @@ namespace PostSharp.Extensibility
     {
         public AssemblyIdAttribute( int id )
         {
-            this.AssemblyId = id;
+            throw new NotImplementedException();
         }
 
         public int AssemblyId { get; }

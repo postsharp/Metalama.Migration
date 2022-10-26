@@ -7,7 +7,6 @@ using Metalama.Framework.Eligibility;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
 using System;
-using System.Globalization;
 using System.Reflection;
 
 namespace PostSharp.Aspects
@@ -28,24 +27,13 @@ namespace PostSharp.Aspects
         /// </summary>
         public virtual bool CompileTimeValidate( MethodBase method )
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>
         public sealed override bool CompileTimeValidate( object target )
         {
-            var method = target as MethodBase;
-
-            if ( method == null )
-            {
-                throw new ArgumentException(
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        "Aspects of type {0} can be applied to methods only.",
-                        this.GetType().FullName ) );
-            }
-
-            return this.CompileTimeValidate( method );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -63,8 +51,7 @@ namespace PostSharp.Aspects
             AspectConfiguration aspectConfiguration,
             object targetElement )
         {
-            base.SetAspectConfiguration( aspectConfiguration, targetElement );
-            this.SetAspectConfiguration( aspectConfiguration, (MethodBase) targetElement );
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>

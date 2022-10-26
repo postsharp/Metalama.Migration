@@ -20,7 +20,7 @@ namespace PostSharp.Aspects
         /// </summary>
         public virtual bool CompileTimeValidate( FieldInfo field )
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>
@@ -44,8 +44,7 @@ namespace PostSharp.Aspects
             AspectConfiguration aspectConfiguration,
             object targetElement )
         {
-            base.SetAspectConfiguration( aspectConfiguration, targetElement );
-            this.SetAspectConfiguration( aspectConfiguration, (FieldInfo) targetElement );
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>

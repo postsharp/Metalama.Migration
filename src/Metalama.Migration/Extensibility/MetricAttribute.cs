@@ -17,8 +17,7 @@ namespace PostSharp.Extensibility
 
         public MetricAttribute( string metricName, object operand )
         {
-            this.MetricName = metricName;
-            this.Operand = operand;
+            throw new NotImplementedException();
         }
 
         public bool AllowImplementationMetrics { get; set; }

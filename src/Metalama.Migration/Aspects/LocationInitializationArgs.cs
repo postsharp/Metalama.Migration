@@ -8,9 +8,7 @@ namespace PostSharp.Aspects
 {
     public sealed class LocationInitializationArgs : LocationLevelAdviceArgs
     {
-        /// <exclude />
-        public LocationInitializationArgs( object instance, object backingFieldValue )
-            : base( instance )
+        internal LocationInitializationArgs()
         {
             throw new NotImplementedException();
         }

@@ -2,6 +2,7 @@
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
 using Metalama.Framework.Aspects;
+using System;
 
 #pragma warning disable CA1710 // Identifiers should have correct suffix
 
@@ -14,7 +15,7 @@ namespace PostSharp.Aspects.Advices
     {
         public MethodPointcut( string methodName )
         {
-            this.MethodName = methodName;
+            throw new NotImplementedException();
         }
 
         public string MethodName { get; }

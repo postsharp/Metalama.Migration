@@ -62,12 +62,12 @@ namespace PostSharp.Reflection
 
         public static bool operator ==( DeclarationIdentifier left, DeclarationIdentifier right )
         {
-            return left.Equals( right );
+            throw new NotImplementedException();
         }
 
         public static bool operator !=( DeclarationIdentifier left, DeclarationIdentifier right )
         {
-            return !left.Equals( right );
+            throw new NotImplementedException();
         }
     }
 }

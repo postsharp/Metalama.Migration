@@ -15,7 +15,7 @@ namespace PostSharp.Aspects
     {
         public ModuleInitializerAttribute( int order )
         {
-            this.Order = order;
+            throw new NotImplementedException();
         }
 
         public int Order { get; }

@@ -18,10 +18,7 @@ namespace PostSharp.Aspects.Advices
 
         public abstract object Member { get; }
 
-#pragma warning disable CA1819 // Properties should not return arrays (TODO)
-
         public abstract string[] MemberNames { get; }
-#pragma warning restore CA1819 // Properties should not return arrays
 
         public ImportMemberOrder Order { get; }
 

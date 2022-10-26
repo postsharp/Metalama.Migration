@@ -21,7 +21,6 @@ namespace PostSharp.Aspects.Configuration
 
         public bool NonSerializedImplementation { get; set; }
 
-        [Obsolete( "This property has no effect and will be removed in a future version." )]
         public bool GenerateImplementationAccessor { get; set; }
 
         protected override AspectConfiguration CreateAspectConfiguration()

@@ -17,7 +17,7 @@ namespace PostSharp.Reflection
         /// </summary>
         public static PropertyInfo GetAutomaticProperty( this FieldInfo field )
         {
-            return GetAutomaticProperty( field, true );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace PostSharp.Reflection
         /// </summary>
         public static bool IsAutomaticProperty( this PropertyInfo propertyInfo )
         {
-            return GetBackingField( propertyInfo ) != null;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace PostSharp.Reflection
         }
 
         /// <summary>
-        /// Not exposed in Metalama.
+        /// In Metalama, use <see cref="IMethod"/>.<see cref="MethodExtensions.GetAsyncInfo"/> at compile time. There is no equivalent at run time.
         /// </summary>
         public static StateMachineKind GetStateMachineKind( this MethodInfo method )
         {
@@ -53,7 +53,7 @@ namespace PostSharp.Reflection
         }
 
         /// <summary>
-        /// Not exposed in Metalama.
+        /// In Metalama, use <see cref="IMethod"/>.<see cref="MethodExtensions.GetAsyncInfo"/> at compile time. There is no equivalent at run time.
         /// </summary>
         public static MethodInfo GetStateMachinePublicMethod( this MethodInfo method )
         {

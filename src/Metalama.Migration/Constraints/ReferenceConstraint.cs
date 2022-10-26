@@ -31,31 +31,7 @@ namespace PostSharp.Constraints
 
         public sealed override void ValidateCode( object target, Assembly assembly )
         {
-            var targetMember = target as MemberInfo;
-
-            if ( targetMember != null )
-            {
-                var targetType = target as Type;
-
-                if ( targetType != null )
-                {
-                    foreach (
-                        var reference in ReflectionSearch.GetDerivedTypes( targetType, ReflectionSearchOptions.IncludeTypeElement ) )
-                    {
-                        this.ValidateReference( reference );
-                    }
-
-                    foreach ( var reference in ReflectionSearch.GetMembersOfType( targetType, ReflectionSearchOptions.IncludeTypeElement ) )
-                    {
-                        this.ValidateReference( reference );
-                    }
-                }
-
-                foreach ( var methodUsageCodeReference in ReflectionSearch.GetMethodsUsingDeclaration( targetMember ) )
-                {
-                    this.ValidateReference( methodUsageCodeReference );
-                }
-            }
+            throw new NotImplementedException();
         }
     }
 }

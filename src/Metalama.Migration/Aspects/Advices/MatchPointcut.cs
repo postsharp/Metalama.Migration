@@ -3,6 +3,7 @@
 
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
+using System;
 
 namespace PostSharp.Aspects.Advices
 {
@@ -15,7 +16,7 @@ namespace PostSharp.Aspects.Advices
     {
         public MatchPointcut( string methodName )
         {
-            this.MethodName = methodName;
+            throw new NotImplementedException();
         }
 
         public bool MatchParameterCount { get; set; } = true;

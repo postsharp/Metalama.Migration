@@ -13,12 +13,12 @@ namespace PostSharp.Aspects.Advices
     {
         public CopyCustomAttributesAttribute( Type type )
         {
-            this.Types = new[] { type };
+            throw new NotImplementedException();
         }
 
         public CopyCustomAttributesAttribute( params Type[] types )
         {
-            this.Types = types;
+            throw new NotImplementedException();
         }
 
         public CustomAttributeOverrideAction OverrideAction { get; set; }

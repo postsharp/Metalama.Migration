@@ -34,7 +34,7 @@ namespace PostSharp.Aspects
         /// <inheritdoc/>
         bool IValidableAnnotation.CompileTimeValidate( object target )
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         AspectConfiguration IAspectBuildSemantics.GetAspectConfiguration( object targetElement )

@@ -57,7 +57,7 @@ namespace PostSharp.Aspects
         /// </summary>
         protected sealed override AspectConfiguration CreateAspectConfiguration()
         {
-            return new OnMethodBoundaryAspectConfiguration();
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>

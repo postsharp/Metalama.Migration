@@ -13,8 +13,7 @@ namespace PostSharp.Serialization
     {
         public ImportSerializerAttribute( Type objectType, Type serializerType )
         {
-            this.ObjectType = objectType;
-            this.SerializerType = serializerType;
+            throw new NotImplementedException();
         }
 
         public Type ObjectType { get; }

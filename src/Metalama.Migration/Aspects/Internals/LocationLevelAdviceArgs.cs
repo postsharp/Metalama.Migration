@@ -4,7 +4,6 @@
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
 using PostSharp.Reflection;
-using System;
 
 namespace PostSharp.Aspects.Internals
 {
@@ -14,12 +13,7 @@ namespace PostSharp.Aspects.Internals
     /// </summary>
     public abstract class LocationLevelAdviceArgs : AdviceArgs
     {
-        protected LocationLevelAdviceArgs( object instance ) : base( instance ) { }
-
-        protected LocationLevelAdviceArgs()
-        {
-            throw new NotImplementedException();
-        }
+        internal LocationLevelAdviceArgs() { }
 
         /// <summary>
         /// In Metalama, use the <c>value</c> template parameter.

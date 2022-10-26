@@ -18,7 +18,7 @@ namespace PostSharp.Constraints
     {
         public InternalImplementAttribute()
         {
-            this.Severity = SeverityType.Warning;
+            throw new NotImplementedException();
         }
 
         public SeverityType Severity { get; set; }

@@ -22,7 +22,7 @@ namespace PostSharp.Serialization
 
         public void AddSerializer<TObject, TSerializer>() where TSerializer : ISerializer, new()
         {
-            this.AddSerializer( typeof(TObject), typeof(TSerializer) );
+            throw new NotImplementedException();
         }
 
         public void AddSerializer( Type objectType, Type serializerType )
@@ -32,7 +32,7 @@ namespace PostSharp.Serialization
 
         public virtual Type GetSurrogateType( Type objectType )
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         public virtual ISerializerFactory GetSerializerFactory( Type objectType )

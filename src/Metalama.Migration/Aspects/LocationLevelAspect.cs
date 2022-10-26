@@ -39,7 +39,7 @@ namespace PostSharp.Aspects
         /// </summary>
         public virtual bool CompileTimeValidate( LocationInfo locationInfo )
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -54,14 +54,13 @@ namespace PostSharp.Aspects
             AspectConfiguration aspectConfiguration,
             object targetElement )
         {
-            base.SetAspectConfiguration( aspectConfiguration, targetElement );
-            this.SetAspectConfiguration( aspectConfiguration, (LocationInfo) targetElement );
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>
         public sealed override bool CompileTimeValidate( object target )
         {
-            return this.CompileTimeValidate( (LocationInfo) target );
+            throw new NotImplementedException();
         }
     }
 }

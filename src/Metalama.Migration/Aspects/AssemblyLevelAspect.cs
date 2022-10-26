@@ -24,13 +24,13 @@ namespace PostSharp.Aspects
         /// </summary>
         public virtual bool CompileTimeValidate( Assembly assembly )
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>
         public sealed override bool CompileTimeValidate( object target )
         {
-            return this.CompileTimeValidate( (Assembly) target );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -48,8 +48,7 @@ namespace PostSharp.Aspects
             AspectConfiguration aspectConfiguration,
             object targetElement )
         {
-            base.SetAspectConfiguration( aspectConfiguration, targetElement );
-            this.SetAspectConfiguration( aspectConfiguration, (Assembly) targetElement );
+            throw new NotImplementedException();
         }
     }
 }

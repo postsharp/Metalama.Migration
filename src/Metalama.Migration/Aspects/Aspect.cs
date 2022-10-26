@@ -35,7 +35,7 @@ namespace PostSharp.Aspects
         /// <inheritdoc/>
         bool IValidableAnnotation.CompileTimeValidate( object target )
         {
-            return this.CompileTimeValidate( target );
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace PostSharp.Aspects
         /// </summary>
         protected virtual AspectConfiguration CreateAspectConfiguration()
         {
-            return new AspectConfiguration();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace PostSharp.Aspects
         /// </summary>
         public virtual bool CompileTimeValidate( object target )
         {
-            return true;
+            throw new NotImplementedException();
         }
     }
 }

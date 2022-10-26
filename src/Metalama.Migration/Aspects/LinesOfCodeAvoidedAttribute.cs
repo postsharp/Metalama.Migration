@@ -13,7 +13,7 @@ namespace PostSharp.Aspects
     {
         public LinesOfCodeAvoidedAttribute( int lines )
         {
-            this.Count = lines;
+            throw new NotImplementedException();
         }
 
         public int Count { get; }

@@ -18,14 +18,7 @@ namespace PostSharp.Aspects.Advices
             InterfaceOverrideAction overrideAction = InterfaceOverrideAction.Fail,
             InterfaceOverrideAction ancestorOverrideAction = InterfaceOverrideAction.Fail )
         {
-            if ( interfaceType == null )
-            {
-                throw new ArgumentNullException( nameof(interfaceType) );
-            }
-
-            this.InterfaceType = interfaceType;
-            this.OverrideAction = overrideAction;
-            this.AncestorOverrideAction = ancestorOverrideAction;
+            throw new NotImplementedException();
         }
 
         public Type InterfaceType { get; }

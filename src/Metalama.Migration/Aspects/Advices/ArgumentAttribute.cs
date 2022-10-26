@@ -3,6 +3,7 @@
 
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code.Advised;
+using System;
 
 namespace PostSharp.Aspects.Advices
 {
@@ -18,7 +19,7 @@ namespace PostSharp.Aspects.Advices
 
         public ArgumentAttribute( int index )
         {
-            this.Index = index;
+            throw new NotImplementedException();
         }
     }
 }

@@ -89,7 +89,7 @@ namespace PostSharp.Reflection
 
         public object GetValue( object instance )
         {
-            return this.GetValue( instance, null );
+            throw new NotImplementedException();
         }
 
         public object GetValue( object instance, object[] index )
@@ -99,7 +99,7 @@ namespace PostSharp.Reflection
 
         public void SetValue( object instance, object value )
         {
-            this.SetValue( instance, value, null );
+            throw new NotImplementedException();
         }
 
         public void SetValue( object instance, object value, object[] index )
@@ -114,12 +114,12 @@ namespace PostSharp.Reflection
 
         public static bool operator ==( LocationInfo left, LocationInfo right )
         {
-            return Equals( left, right );
+            throw new NotImplementedException();
         }
 
         public static bool operator !=( LocationInfo left, LocationInfo right )
         {
-            return !Equals( left, right );
+            throw new NotImplementedException();
         }
 
         public void GetObjectData( SerializationInfo info, StreamingContext context )

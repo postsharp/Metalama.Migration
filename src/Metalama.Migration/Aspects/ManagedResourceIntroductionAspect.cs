@@ -15,35 +15,12 @@ namespace PostSharp.Aspects
     {
         public ManagedResourceIntroductionAspect( string name, byte[] data )
         {
-            if ( string.IsNullOrEmpty( name ) )
-            {
-                throw new ArgumentNullException( nameof(name) );
-            }
-
-            if ( data == null )
-            {
-                throw new ArgumentNullException( nameof(data) );
-            }
-
-            this.Name = name;
-            this.Data = data;
-            this.DataProvider = () => data;
+            throw new NotImplementedException();
         }
 
         public ManagedResourceIntroductionAspect( string name, Func<byte[]> dataProvider )
         {
-            if ( string.IsNullOrEmpty( name ) )
-            {
-                throw new ArgumentNullException( nameof(name) );
-            }
-
-            if ( dataProvider == null )
-            {
-                throw new ArgumentNullException( nameof(dataProvider) );
-            }
-
-            this.Name = name;
-            this.DataProvider = dataProvider;
+            throw new NotImplementedException();
         }
 
         public string Name { get; }
@@ -59,7 +36,7 @@ namespace PostSharp.Aspects
 
         AspectConfiguration IAspectBuildSemantics.GetAspectConfiguration( object targetElement )
         {
-            return new ManagedResourceIntroductionAspectConfiguration( this.Name, this.DataProvider );
+            throw new NotImplementedException();
         }
     }
 }

@@ -38,7 +38,7 @@ namespace PostSharp.Aspects
         /// </summary>
         public virtual bool CompileTimeValidate( EventInfo targetEvent )
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         /// <summary>

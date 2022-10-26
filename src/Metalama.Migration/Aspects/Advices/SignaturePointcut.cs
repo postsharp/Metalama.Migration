@@ -18,8 +18,7 @@ namespace PostSharp.Aspects.Advices
     {
         public SignaturePointcut( string name, params Type[] parameterTypes )
         {
-            this.Name = name;
-            this.ArgumentTypes = parameterTypes;
+            throw new NotImplementedException();
         }
 
         public string Name { get; }

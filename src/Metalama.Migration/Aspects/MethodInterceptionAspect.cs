@@ -48,13 +48,13 @@ namespace PostSharp.Aspects
         /// <inheritdoc/>
         public virtual void OnInvoke( MethodInterceptionArgs args )
         {
-            args.Proceed();
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>
         public virtual Task OnInvokeAsync( MethodInterceptionArgs args )
         {
-            return args.ProceedAsync().GetTask();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace PostSharp.Aspects
         /// </summary>
         protected override AspectConfiguration CreateAspectConfiguration()
         {
-            return new MethodInterceptionAspectConfiguration();
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>

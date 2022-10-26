@@ -50,7 +50,7 @@ namespace PostSharp.Aspects
         /// </summary>
         public virtual Type GetExceptionType( MethodBase targetMethod )
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace PostSharp.Aspects
         /// </summary>
         protected sealed override AspectConfiguration CreateAspectConfiguration()
         {
-            return new OnExceptionAspectConfiguration();
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>

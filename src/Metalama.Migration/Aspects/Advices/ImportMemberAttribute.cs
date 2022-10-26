@@ -19,12 +19,12 @@ namespace PostSharp.Aspects.Advices
     {
         public ImportMemberAttribute( params string[] memberNames )
         {
-            this.MemberNames = memberNames;
+            throw new NotImplementedException();
         }
 
         public ImportMemberAttribute( string memberName )
         {
-            this.MemberNames = new[] { memberName };
+            throw new NotImplementedException();
         }
 
         public bool IsRequired { get; set; }

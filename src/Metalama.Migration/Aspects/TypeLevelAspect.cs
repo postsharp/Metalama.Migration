@@ -22,7 +22,7 @@ namespace PostSharp.Aspects
         /// </summary>
         public virtual bool CompileTimeValidate( Type type )
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc/>

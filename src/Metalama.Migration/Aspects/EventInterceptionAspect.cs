@@ -46,7 +46,7 @@ namespace PostSharp.Aspects
 
         protected override AspectConfiguration CreateAspectConfiguration()
         {
-            return new EventInterceptionAspectConfiguration();
+            throw new NotImplementedException();
         }
     }
 }

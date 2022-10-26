@@ -18,18 +18,17 @@ namespace PostSharp.Serialization
 
         void ISerializer.SerializeObject( object obj, IArgumentsWriter constructorArguments, IArgumentsWriter initializationArguments )
         {
-            var typedValue = (T) obj;
-            this.SerializeObject( typedValue, constructorArguments );
+            throw new NotImplementedException();
         }
 
         public virtual object Convert( object value, Type targetType )
         {
-            return value;
+            throw new NotImplementedException();
         }
 
         object ISerializer.CreateInstance( Type type, IArgumentsReader constructorArguments )
         {
-            return this.DeserializeObject( constructorArguments );
+            throw new NotImplementedException();
         }
 
         void ISerializer.DeserializeFields( ref object o, IArgumentsReader initializationArguments ) { }

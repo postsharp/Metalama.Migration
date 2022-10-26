@@ -13,13 +13,12 @@ namespace PostSharp.Extensibility
     {
         public AllowFreeInstancesAttribute( string featureName )
         {
-            this.FeatureName = featureName;
+            throw new NotImplementedException();
         }
 
         public AllowFreeInstancesAttribute( string featureName, int count )
         {
-            this.FeatureName = featureName;
-            this.FreeInstanceCount = count;
+            throw new NotImplementedException();
         }
 
         public string FeatureName { get; }

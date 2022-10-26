@@ -14,7 +14,7 @@ namespace PostSharp.Serialization
     {
         public SerializerAttribute( Type serializerType )
         {
-            this.SerializerType = serializerType;
+            throw new NotImplementedException();
         }
 
         public Type SerializerType { get; }
