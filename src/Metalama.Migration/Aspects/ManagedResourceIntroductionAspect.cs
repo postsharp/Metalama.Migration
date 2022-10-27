@@ -25,9 +25,7 @@ namespace PostSharp.Aspects
 
         public string Name { get; }
 
-#pragma warning disable CA1819 // Properties should not return arrays (TODO)
         public byte[] Data { get; }
-#pragma warning restore CA1819 // Properties should not return arrays (TODO)
 
         public Func<byte[]> DataProvider { get; }
 

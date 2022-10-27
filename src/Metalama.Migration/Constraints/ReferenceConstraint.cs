@@ -8,8 +8,6 @@ using PostSharp.Reflection;
 using System;
 using System.Reflection;
 
-#pragma warning disable CA1710 // Identifiers should have correct suffix
-
 namespace PostSharp.Constraints
 {
     /// <summary>

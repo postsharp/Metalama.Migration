@@ -6,8 +6,6 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Security;
 
-#pragma warning disable CA1815 // Override equals and operator equals on value types
-
 namespace PostSharp.Aspects
 {
     /// <summary>

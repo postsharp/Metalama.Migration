@@ -5,8 +5,6 @@ using Metalama.Framework.Aspects;
 using Metalama.Framework.Validation;
 using System.Reflection;
 
-#pragma warning disable CA1710 // Identifiers should have correct suffix
-
 namespace PostSharp.Constraints
 {
     /// <summary>

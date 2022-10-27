@@ -3,7 +3,6 @@
 
 namespace PostSharp.Reflection.MethodBody
 {
-#pragma warning disable CA1815 // Override equals and operator equals on value types
 
     /// <summary>
     /// The source code of method bodies and expression bodies is not represented in the high-level API of Metalama.

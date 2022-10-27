@@ -10,7 +10,7 @@ using System.Reflection;
 namespace PostSharp.Aspects.Advices
 {
     /// <summary>
-    /// In Metalama, call the <c>builder</c>.<see cref="IAspectBuilder{TAspectTarget}.Advice"/>.<see cref="IAdviceFactory.IntroduceMethod"/> method.
+    /// In Metalama, call the <c>builder</c>.<see cref="IAspectBuilder.Advice"/>.<see cref="IAdviceFactory.IntroduceMethod"/> method.
     /// </summary>
     /// <seealso href="@introducing-members"/>
     public sealed class IntroduceMethodAdviceInstance : IntroduceMemberAdviceInstance

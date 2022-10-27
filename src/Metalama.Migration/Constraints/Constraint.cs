@@ -4,8 +4,6 @@
 using PostSharp.Extensibility;
 using System;
 
-#pragma warning disable CA1710 // Identifiers should have correct suffix
-
 namespace PostSharp.Constraints
 {
     public abstract class Constraint : MulticastAttribute, IConstraint

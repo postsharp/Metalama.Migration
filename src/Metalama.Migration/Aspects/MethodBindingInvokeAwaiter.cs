@@ -8,7 +8,6 @@ using System.Security;
 
 namespace PostSharp.Aspects
 {
-#pragma warning disable CA1815 // Override equals and operator equals on value types
 
     /// <summary>
     /// No equivalent in Metalama. To override an async method, implement the <see cref="OverrideMethodAspect"/>.<see cref="OverrideMethodAspect.OverrideAsyncMethod"/>

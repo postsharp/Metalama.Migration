@@ -11,10 +11,7 @@ namespace PostSharp.Aspects.Configuration
     /// </summary>
     public sealed class CompositionAspectConfiguration : AspectConfiguration
     {
-#pragma warning disable CA1819 // Properties should not return arrays (TODO)
-
         public TypeIdentity[] PublicInterfaces { get; set; }
-#pragma warning restore CA1819 // Properties should not return arrays (TODO)
 
         public InterfaceOverrideAction? OverrideAction { get; set; }
 

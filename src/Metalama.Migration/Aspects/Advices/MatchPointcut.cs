@@ -7,7 +7,6 @@ using System;
 
 namespace PostSharp.Aspects.Advices
 {
-#pragma warning disable CA1710 // Identifiers should have correct suffix
 
     /// <summary>
     /// In Metalama, use a <c>foreach</c> loop in the <see cref="Metalama.Framework.Aspects.IAspect{T}.BuildAspect"/> method, iterate <c>builder</c>.<see cref="IAspectBuilder{TAspectTarget}.Target"/>.<see cref="INamedType"/>.<see cref="INamedType.Methods"/>, and add advice using methods of <c>builder</c>.<see cref="IAspectBuilder.Advice"/>.

@@ -3,8 +3,6 @@
 
 using Metalama.Framework.Code;
 
-#pragma warning disable CA1028 // Enum Storage should be Int32
-
 namespace PostSharp.Reflection
 {
     /// <summary>

@@ -4,8 +4,6 @@
 using Metalama.Framework.Aspects;
 using System;
 
-#pragma warning disable CA1710 // Identifiers should have correct suffix
-
 namespace PostSharp.Aspects.Advices
 {
     /// <summary>

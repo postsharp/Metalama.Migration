@@ -9,7 +9,7 @@ namespace PostSharp.Aspects.Advices
 {
     /// <summary>
     /// In PostSharp, this class allowed the run-time code of the aspect to access a property in the target code. In Metalama,
-    /// no run-time helper is required because the template directly generates run-time code. Use <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="Metalama.Framework.Code.IProperty.Invokers"/>
+    /// no run-time helper is required because the template directly generates run-time code. Use <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="Metalama.Framework.Code.IFieldOrProperty.Invokers"/>
     /// or <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>
     /// to generate run-time code for any event.
     /// </summary>
@@ -20,9 +20,9 @@ namespace PostSharp.Aspects.Advices
             throw new NotImplementedException();
         }
 
-        public PropertyGetter<TValue> get;
+        public PropertyGetter<TValue> Get;
 
-        public PropertySetter<TValue> set;
+        public PropertySetter<TValue> Set;
 
         object IProperty.GetValue()
         {
@@ -37,7 +37,7 @@ namespace PostSharp.Aspects.Advices
 
     /// <summary>
     /// In PostSharp, this class allowed the run-time code of the aspect to access a property in the target code. In Metalama,
-    /// no run-time helper is required because the template directly generates run-time code. Use <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="Metalama.Framework.Code.IProperty.Invokers"/>
+    /// no run-time helper is required because the template directly generates run-time code. Use <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="Metalama.Framework.Code.IFieldOrProperty.Invokers"/>
     /// or <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>
     /// to generate run-time code for any event.
     /// </summary>
@@ -48,14 +48,14 @@ namespace PostSharp.Aspects.Advices
             throw new NotImplementedException();
         }
 
-        public PropertyGetter<TValue, TIndex> get;
+        public PropertyGetter<TValue, TIndex> Get;
 
-        public PropertySetter<TValue, TIndex> set;
+        public PropertySetter<TValue, TIndex> Set;
     }
 
     /// <summary>
     /// In PostSharp, this delegate allowed the run-time code of the aspect to access a property in the target code. In Metalama,
-    /// no run-time helper is required because the template directly generates run-time code. Use <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="Metalama.Framework.Code.IProperty.Invokers"/>
+    /// no run-time helper is required because the template directly generates run-time code. Use <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="Metalama.Framework.Code.IFieldOrProperty.Invokers"/>
     /// or <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>
     /// to generate run-time code for any event.
     /// </summary>
@@ -63,7 +63,7 @@ namespace PostSharp.Aspects.Advices
 
     /// <summary>
     /// In PostSharp, this delegate allowed the run-time code of the aspect to access a property in the target code. In Metalama,
-    /// no run-time helper is required because the template directly generates run-time code. Use <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="Metalama.Framework.Code.IProperty.Invokers"/>
+    /// no run-time helper is required because the template directly generates run-time code. Use <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="Metalama.Framework.Code.IFieldOrProperty.Invokers"/>
     /// or <see cref="Metalama.Framework.Code.IProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>
     /// to generate run-time code for any event.
     /// </summary>

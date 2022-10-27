@@ -4,8 +4,6 @@
 using Metalama.Framework.Aspects;
 using PostSharp.Aspects.Dependencies;
 
-#pragma warning disable CA2227 // Collection properties should be read only
-
 namespace PostSharp.Aspects.Configuration
 {
     /// <summary>

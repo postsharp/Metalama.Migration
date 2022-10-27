@@ -5,9 +5,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-#pragma warning disable CA1710 // Identifiers should have correct suffix
-#pragma warning disable CA1815 // Override equals and operator equals on value types
-
 namespace PostSharp.Collections
 {
     public struct ReadOnlySinglyLinkedList<T> : IEnumerable<T>

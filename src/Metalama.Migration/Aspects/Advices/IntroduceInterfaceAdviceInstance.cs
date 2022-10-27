@@ -8,7 +8,7 @@ using System;
 namespace PostSharp.Aspects.Advices
 {
     /// <summary>
-    /// In Metalama, use <c>builder</c>.<see cref="IAspectBuilder{TAspectTarget}.Advice"/>.<see cref="IAdviceFactory.ImplementInterface(Metalama.Framework.Code.INamedType,Metalama.Framework.Code.INamedType,Metalama.Framework.Aspects.OverrideStrategy,object?)"/>.
+    /// In Metalama, use <c>builder</c>.<see cref="IAspectBuilder.Advice"/>.<see cref="IAdviceFactory.ImplementInterface(Metalama.Framework.Code.INamedType,Metalama.Framework.Code.INamedType,Metalama.Framework.Aspects.OverrideStrategy,object?)"/>.
     /// </summary>
     /// <seealso href="@implementing-interfaces"/>
     public sealed class IntroduceInterfaceAdviceInstance : AdviceInstance

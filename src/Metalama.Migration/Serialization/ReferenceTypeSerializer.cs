@@ -3,8 +3,6 @@
 
 using System;
 
-#pragma warning disable 3006 // CLS Compliance.
-
 namespace PostSharp.Serialization
 {
     /// <summary>

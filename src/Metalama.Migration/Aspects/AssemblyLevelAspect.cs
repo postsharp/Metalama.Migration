@@ -2,12 +2,11 @@
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
 using Metalama.Framework.Aspects;
+using Metalama.Framework.Eligibility;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
 using System;
 using System.Reflection;
-
-#pragma warning disable CA1710 // Identifiers should have correct suffix
 
 namespace PostSharp.Aspects
 {

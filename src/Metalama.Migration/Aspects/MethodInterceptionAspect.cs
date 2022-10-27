@@ -8,8 +8,6 @@ using System;
 using System.Reflection;
 using System.Threading.Tasks;
 
-#pragma warning disable CA1710 // Identifiers should have correct suffix
-
 namespace PostSharp.Aspects
 {
     /// <summary>

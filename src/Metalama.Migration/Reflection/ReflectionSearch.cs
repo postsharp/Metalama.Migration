@@ -7,8 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-#pragma warning disable CA1801 // Parameters kept for backwards compatibility.
-
 namespace PostSharp.Reflection
 {
     /// <summary>

@@ -13,10 +13,6 @@ namespace PostSharp.Reflection
     /// </summary>
     public sealed class ObjectConstruction
     {
-#pragma warning disable CA1825 // Avoid zero-length array allocations. (API not available in .NET 4.0)
-
-#pragma warning restore CA1825 // Avoid zero-length array allocations. (API not available in .NET 4.0)
-
         public ObjectConstruction( string typeName, params object[] constructorArguments )
         {
             throw new NotImplementedException();
