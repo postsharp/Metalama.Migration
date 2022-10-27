@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace PostSharp.Reflection
 {
     /// <summary>
-    /// In Metalama, use <see cref="ICompilation"/>.<see cref="ICompilation.InvariantComparer"/>.
+    /// In Metalama, use <see cref="ICompilation"/>.<see cref="ICompilation.Comparers"/>.
     /// </summary>
     public sealed class ReflectionTypeComparer : IEqualityComparer<Type>, IEqualityComparer<Type[]>
     {
