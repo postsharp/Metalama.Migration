@@ -15,7 +15,7 @@
         <PostSharpEngineeringVersion>1.0.101-preview</PostSharpEngineeringVersion>
 		<MetalamaVersion>branch:master</MetalamaVersion>
 		<MetalamaVersion Condition="$(VcsBranch.StartsWith('master'))">0.5.55-preview</MetalamaVersion>
-        <MetalamaExtensionsVersion>branch:master</MetalamaExtensionsVersion>
+        <MetalamaExtensionsVersion>branch:dev</MetalamaExtensionsVersion>
 		<MetalamaExtensionsVersion Condition="$(VcsBranch.StartsWith('master'))">0.5.55-preview</MetalamaExtensionsVersion>
     </PropertyGroup>
 
