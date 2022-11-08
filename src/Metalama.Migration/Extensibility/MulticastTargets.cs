@@ -9,7 +9,8 @@ namespace PostSharp.Extensibility
 {
     /// <summary>
     /// In Metalama, the valid targets are determined by the declaration types for which the <see cref="IAspect{T}"/> interface is implemented.
-    /// Additionally, you can implement the <see cref="IEligible{T}.BuildEligibility"/> method.
+    /// Additionally, you can implement the <see cref="IEligible{T}.BuildEligibility"/> method. However, the main features of <see cref="MulticastAttribute"/>
+    /// have been ported to Metalama. The equivalent to this attribute is <see cref="Metalama.Extensions.Multicast.MulticastTargets"/>.
     /// </summary>
     [Flags]
     public enum MulticastTargets

@@ -11,7 +11,7 @@ namespace PostSharp.Extensibility
 {
     /// <summary>
     /// There is no full equivalent of this attribute in Metalama, and there will not be. To mark an aspect as inherited, use the <see cref="InheritedAttribute"/>
-    /// custom attribute.
+    /// custom attribute. To specify the eligibility of an aspect, implement the <see cref="IEligible{T}.BuildEligibility"/> method.
     /// </summary>
     [AttributeUsage( AttributeTargets.Class )]
     public sealed class MulticastAttributeUsageAttribute : Attribute

@@ -20,7 +20,7 @@ namespace PostSharp.Aspects
         AspectConfiguration AspectConfiguration { get; }
 
         /// <summary>
-        /// Use <see cref="Metalama.Framework.Aspects.IAspectInstance.Predecessors"/>/
+        /// Use <see cref="Metalama.Framework.Aspects.IAspectPredecessor.Predecessors"/>/
         /// </summary>
         ObjectConstruction AspectConstruction { get; }
 

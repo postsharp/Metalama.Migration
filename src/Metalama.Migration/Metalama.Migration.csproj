@@ -12,6 +12,7 @@
 
     <ItemGroup>
         <PackageReference Include="Metalama.Framework" Version="$(MetalamaVersion)" />
+        <PackageReference Include="Metalama.Extensions.Multicast" Version="$(MetalamaExtensionsVersion)" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,13 +1,15 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using Metalama.Extensions.Multicast;
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
 
 namespace PostSharp.Extensibility
 {
     /// <summary>
-    /// In Metalama, use the <see cref="InheritedAttribute"/> custom attribute, but multicast inheritance must be implemented manually.
+    /// In Metalama, use the <see cref="InheritedAttribute"/> custom attribute to enable aspect inheritance. By default, Metalama implements the
+    /// <see cref="Strict"/> inheritance mode. If you need multicasting, see <see cref="MulticastAspect"/> or <see cref="MulticastImplementation"/>.
     /// </summary>
     public enum MulticastInheritance
     {
