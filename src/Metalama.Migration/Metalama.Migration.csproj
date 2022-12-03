@@ -7,7 +7,7 @@
         <Nullable>disable</Nullable>
         <RootNamespace>PostSharp</RootNamespace>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
-        <NoWarn>CS1591;CS0659;CS0660;CS0661</NoWarn>
+        <NoWarn>CS1591;CS0659;CS0660;CS0661;CS0618</NoWarn>
         <MetalamaCompilerTransformerOrder>Metalama.Framework.CompilerExtensions.MetalamaSourceTransformer;Metalama.Migr
             ation.Transformer.Transformer</MetalamaCompilerTransformerOrder>
         <MetalamaEmitCompilerTransformedFiles>True</MetalamaEmitCompilerTransformedFiles>
@@ -17,8 +17,6 @@
         <PackageReference Include="Metalama.Framework.Redist" Version="$(MetalamaVersion)" />
         <PackageReference Include="Metalama.Extensions.Multicast" Version="$(MetalamaExtensionsVersion)"  />
     </ItemGroup>
-    
-    
 
     <ItemGroup>
         <ProjectReference Include="../Metalama.Migration.Transformer/Metalama.Migration.Transformer.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />

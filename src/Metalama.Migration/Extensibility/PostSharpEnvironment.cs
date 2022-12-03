@@ -10,12 +10,15 @@ namespace PostSharp.Extensibility
     /// </summary>
     public static class PostSharpEnvironment
     {
+        /// <summary>
+        /// In Metalama, use <see cref="MetalamaExecutionContext.Current"/>.
+        /// </summary>
         public static IPostSharpEnvironment Current { get; }
 
         public static IProject CurrentProject { get; }
 
         /// <summary>
-        /// No equivalent in Metalama.
+        /// No equivalent in Metalama/
         /// </summary>
         public static bool IsPostSharpRunning { get; }
     }
