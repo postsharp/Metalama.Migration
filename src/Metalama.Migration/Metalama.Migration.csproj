@@ -8,8 +8,7 @@
         <RootNamespace>PostSharp</RootNamespace>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <NoWarn>CS1591;CS0659;CS0660;CS0661;CS0618</NoWarn>
-        <MetalamaCompilerTransformerOrder>Metalama.Framework.CompilerExtensions.MetalamaSourceTransformer;Metalama.Migr
-            ation.Transformer.Transformer</MetalamaCompilerTransformerOrder>
+        <MetalamaCompilerTransformerOrder>Metalama.Framework.CompilerExtensions.MetalamaSourceTransformer,Metalama.Migration.Transformer.Transformer</MetalamaCompilerTransformerOrder>
         <MetalamaEmitCompilerTransformedFiles>True</MetalamaEmitCompilerTransformedFiles>
     </PropertyGroup>
 
