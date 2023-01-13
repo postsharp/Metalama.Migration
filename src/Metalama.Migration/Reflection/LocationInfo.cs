@@ -63,29 +63,11 @@ namespace PostSharp.Reflection
 
         public MemberInfo MemberInfo { get; }
 
-        public Type DeclaringType
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Type DeclaringType => throw new NotImplementedException();
 
-        public string Name
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string Name => throw new NotImplementedException();
 
-        public bool IsStatic
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public bool IsStatic => throw new NotImplementedException();
 
         public object GetValue( object instance )
         {

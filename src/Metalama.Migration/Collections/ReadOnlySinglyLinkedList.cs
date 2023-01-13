@@ -42,13 +42,7 @@ namespace PostSharp.Collections
                 throw new NotSupportedException();
             }
 
-            public T Current
-            {
-                get
-                {
-                    throw new NotImplementedException();
-                }
-            }
+            public T Current => throw new NotImplementedException();
 
             object IEnumerator.Current { get; }
         }

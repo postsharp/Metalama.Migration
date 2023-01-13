@@ -16,7 +16,7 @@ namespace PostSharp.Aspects
     {
         /// <summary>
         /// In Metalama, add an initializer from the <see cref="Metalama.Framework.Aspects.IAspect{T}.BuildAspect"/> method by calling
-        /// <c>builder</c>.<see cref="Advice"/>.<see cref="IAdviceFactory.AddInitializer(Metalama.Framework.Code.INamedType,string,Metalama.Framework.Aspects.InitializerKind,object?,object?)"/>.
+        /// <c>builder</c>.<see cref="Advice"/>.<see cref="IAdviceFactory.AddInitializer(Metalama.Framework.Code.INamedType,string,InitializerKind,object?,object?)"/>.
         /// </summary>
         /// <seealso href="@initializers"/>
         void RuntimeInitialize( FieldInfo field );
