@@ -8,6 +8,7 @@
         <RootNamespace>PostSharp</RootNamespace>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <NoWarn>CS1591;CS0659;CS0660;CS0661</NoWarn>
+		<PackageDescription>A package containing annotated PostSharp API, documenting its Metalama equivalent.</PackageDescription>
     </PropertyGroup>
 
     <ItemGroup>
