@@ -13,10 +13,10 @@
     <!-- Set the default versions of dependencies -->
     <PropertyGroup>
         <PostSharpEngineeringVersion>1.0.113-preview</PostSharpEngineeringVersion>
-		<MetalamaVersion>0.5.79-preview</MetalamaVersion>
-		<MetalamaVersion Condition="$(VcsBranch)!=''">branch:master</MetalamaVersion>
-        <MetalamaExtensionsVersion>0.5.79-preview</MetalamaExtensionsVersion>
-		<MetalamaExtensionsVersion Condition="$(VcsBranch)!=''">branch:dev</MetalamaExtensionsVersion>
+		    <MetalamaVersion>0.5.80-preview</MetalamaVersion>
+		    <MetalamaVersion Condition="$(VcsBranch)!=''">branch:master</MetalamaVersion>
+        <MetalamaExtensionsVersion>0.5.80-preview</MetalamaExtensionsVersion>
+		    <MetalamaExtensionsVersion Condition="$(VcsBranch)!=''">branch:dev</MetalamaExtensionsVersion>
     </PropertyGroup>
 
     <!-- Override versions (both this product and dependencies) for the local build -->
