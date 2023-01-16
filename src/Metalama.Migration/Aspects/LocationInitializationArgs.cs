@@ -6,6 +6,10 @@ using System;
 
 namespace PostSharp.Aspects
 {
+    /// <summary>
+    /// In PostSharp, this object exposed the run-time execution context to the advice. However, in Metalama, advice do not execute at run time.
+    /// Instead, advice are templates that generate run-time code. This run-time code does not need helper objects to represent the execution context.
+    /// </summary>
     public sealed class LocationInitializationArgs : LocationLevelAdviceArgs
     {
         internal LocationInitializationArgs()
@@ -13,6 +17,9 @@ namespace PostSharp.Aspects
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// In Metalama, use the <c>value</c> template parameter.
+        /// </summary>
         public override object Value { get; set; }
     }
 }

@@ -14,7 +14,7 @@ var product = new Product( Dependencies.MetalamaMigration )
 {
     Solutions = new[] { new DotNetSolution( "src\\Metalama.Migration.sln" ) { CanFormatCode = true } },
     PublicArtifacts = Pattern.Create( "Metalama.Migration.$(PackageVersion).nupkg" ),
-    Dependencies = new[] { Dependencies.PostSharpEngineering, Dependencies.Metalama, Dependencies.MetalamaExtensions },
+    Dependencies = new[] { Dependencies.PostSharpEngineering, Dependencies.Metalama, Dependencies.MetalamaExtensions, Dependencies.MetalamaCompiler },
     MainVersionDependency = Dependencies.Metalama,
     Configurations = Product.DefaultConfigurations
         .WithValue(
