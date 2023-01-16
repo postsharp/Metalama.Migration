@@ -10,6 +10,7 @@
         <NoWarn>CS1591;CS0659;CS0660;CS0661;CS0618</NoWarn>
         <MetalamaCompilerTransformerOrder>Metalama.Framework.CompilerExtensions.MetalamaSourceTransformer,Metalama.Migration.Transformer.Transformer</MetalamaCompilerTransformerOrder>
         <MetalamaEmitCompilerTransformedFiles>True</MetalamaEmitCompilerTransformedFiles>
+		<PackageDescription>A package containing annotated PostSharp API, documenting its Metalama equivalent.</PackageDescription>
     </PropertyGroup>
 
     <ItemGroup>
