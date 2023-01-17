@@ -7,8 +7,8 @@ using Metalama.Framework.Validation;
 namespace PostSharp.Constraints
 {
     /// <summary>
-    /// In Metalama, use an aspect or a fabric, and register a reference validator using the  <see cref="IValidatorReceiver{TDeclaration}.Validate"/>  method.
-    /// For instance, from the <see cref="IAspect{T}.BuildAspect"/> method of an aspect, call <c>builder</c>.<see cref="IAspectReceiverSelector{TTarget}.With{TMember}(System.Func{TTarget,System.Collections.Generic.IEnumerable{TMember}})"/><c>(...)</c>.<see cref="IValidatorReceiver{TDeclaration}.Validate"/>.
+    /// In Metalama, use an aspect or a fabric, and register a reference validator using the  <see cref="IValidatorReceiver.ValidateReferences(ReferenceValidator)"/>  method.
+    /// For instance, from the <see cref="IAspect{T}.BuildAspect"/> method of an aspect, call <c>builder</c>.<see cref="IAspectReceiverSelector{TTarget}.With{TMember}(System.Func{TTarget,System.Collections.Generic.IEnumerable{TMember}})"/><c>(...)</c>.<see cref="IValidatorReceiver.Validate(ValidatorDelegate{DeclarationValidationContext})"/>.
     /// </summary>
     /// <seealso href="@validating-declarations"/>
     public interface IScalarConstraint : IConstraint

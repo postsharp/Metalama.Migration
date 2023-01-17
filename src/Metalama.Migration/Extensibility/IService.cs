@@ -6,7 +6,7 @@
 namespace PostSharp.Extensibility
 {
     /// <summary>
-    /// In Metalama, use <see cref="Metalama.Framework.Project.IService"/>.
+    /// In Metalama, use <see cref="Metalama.Framework.Services.IService"/>.
     /// </summary>
     public interface IService { }
 }

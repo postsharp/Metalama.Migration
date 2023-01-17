@@ -6,7 +6,7 @@ using System;
 namespace PostSharp.Serialization
 {
     /// <summary>
-    /// In Metalama, use <see cref="Metalama.Framework.Serialization.LamaNonSerializedAttribute"/>.
+    /// In Metalama, use <see cref="Metalama.Framework.Serialization.NonCompileTimeSerializedAttribute"/>.
     /// </summary>
     [AttributeUsage( AttributeTargets.Field )]
     public sealed class PNonSerializedAttribute : Attribute { }
