@@ -9,7 +9,7 @@ using System;
 namespace PostSharp.Serialization
 {
     /// <summary>
-    /// In Metalama, make the type implement the <see cref="ILamaSerializable"/> interface.
+    /// In Metalama, make the type implement the <see cref="ICompileTimeSerializable"/> interface.
     /// </summary>
     [AttributeUsage( AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Assembly )]
     [MulticastAttributeUsage( MulticastTargets.Class | MulticastTargets.Struct )]

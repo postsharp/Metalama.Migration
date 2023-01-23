@@ -82,6 +82,10 @@ object DebugBuild : BuildType({
                      onDependencyFailure = FailureAction.FAIL_TO_START
                 }
 
+        snapshot(AbsoluteId("Metalama_MetalamaCompiler_ReleaseBuild")) {
+                     onDependencyFailure = FailureAction.FAIL_TO_START
+                }
+
      }
 
 })
@@ -137,6 +141,10 @@ object PublicBuild : BuildType({
                      onDependencyFailure = FailureAction.FAIL_TO_START
                 }
 
+        snapshot(AbsoluteId("Metalama_MetalamaCompiler_PublicBuild")) {
+                     onDependencyFailure = FailureAction.FAIL_TO_START
+                }
+
      }
 
 })
@@ -184,6 +192,10 @@ object PublicDeployment : BuildType({
                 }
 
         snapshot(AbsoluteId("Metalama_MetalamaExtensions_PublicDeployment")) {
+                     onDependencyFailure = FailureAction.FAIL_TO_START
+                }
+
+        snapshot(AbsoluteId("Metalama_MetalamaCompiler_PublicDeployment")) {
                      onDependencyFailure = FailureAction.FAIL_TO_START
                 }
 

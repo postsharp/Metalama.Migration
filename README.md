@@ -1,17 +1,8 @@
-# PostSharp.Engineering.ProductTemplate
+# Metalama.Migration
 
-This repo is a template for new repos that are built using `PostSharp.Engineering`.
+This repo contains PostSharp API annotated for migration to Metalama.
 
-This repo assumes it builds a product named `Metalama.Migration`. A _product_, in the context of PostSharp.Engineering, is essentially synonym to a repo, and it can produce several deployable artifacts, typically several NuGet packages. All artifacts in the same product have the same version and build number.
+You can find mapping between PostSharp API and its Metalama equivalent here.
 
-After cloning the repo, you should do this:
-
-* Use `Build.ps1 tools git rename` to rename `Metalama.Migration` into your product name, _with_ dots.
-* Use Visual Studio Code find-and-replace all to rename:
-  * `Metalama.Migration` into your product name _with_ dots,
-  * `MetalamaMigration` into your product name _without_ dots.
-
-The build entry point is `Build.ps1`.
-
-For more instructions, see https://github.com/postsharp/PostSharp.Engineering.
-
+### View migration in the documentation:
+* [PostSharp API Migration](https://doc.metalama.net/migration-api)

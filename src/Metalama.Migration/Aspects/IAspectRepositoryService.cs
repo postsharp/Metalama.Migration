@@ -13,12 +13,12 @@ namespace PostSharp.Aspects
     public interface IAspectRepositoryService : IService
     {
         /// <summary>
-        /// Use <see cref="IDeclaration"/>.<see cref="DeclarationExtensions.Aspects{T}"/>.
+        /// Use <see cref="IDeclaration"/>.<see cref="DeclarationExtensions.Enhancements{T}"/>.
         /// </summary>
         IAspectInstance[] GetAspectInstances( object declaration );
 
         /// <summary>
-        /// Use <see cref="IDeclaration"/>.<see cref="DeclarationExtensions.Aspects{T}"/>.<c>Any()</c>.
+        /// Use <see cref="IDeclaration"/>.<see cref="DeclarationExtensions.Enhancements{T}"/>.<c>Any()</c>.
         /// </summary>
         bool HasAspect( object declaration, Type aspectType );
 

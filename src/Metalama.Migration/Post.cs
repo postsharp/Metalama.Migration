@@ -16,9 +16,7 @@ namespace PostSharp
         public static TTarget Cast<TSource, TTarget>( TSource o )
             where TSource : class
             where TTarget : class
-        {
-            throw new NotImplementedException();
-        }
+            => (TTarget) (object) o;
 
         /// <summary>
         /// No equivalent in Metalama.
@@ -34,11 +32,8 @@ namespace PostSharp
         }
 
         /// <summary>
-        /// No equivalent in Metalama.
+        /// Not required in Metalama.
         /// </summary>
-        public static T GetValue<T>( T value ) where T : struct
-        {
-            throw new NotImplementedException();
-        }
+        public static T GetValue<T>( T value ) where T : struct => value;
     }
 }

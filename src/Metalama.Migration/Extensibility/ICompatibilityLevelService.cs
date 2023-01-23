@@ -8,6 +8,7 @@ namespace PostSharp.Extensibility
     /// <summary>
     /// No equivalent in Metalama.
     /// </summary>
+    [Obsolete( "", true )]
     public interface ICompatibilityLevelService : IService
     {
         Version CompatibilityLevel { get; }

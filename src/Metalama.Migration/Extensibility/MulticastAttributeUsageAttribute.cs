@@ -10,7 +10,7 @@ using System;
 namespace PostSharp.Extensibility
 {
     /// <summary>
-    /// There is no full equivalent of this attribute in Metalama, and there will not be. To mark an aspect as inherited, use the <see cref="InheritedAttribute"/>
+    /// There is no full equivalent of this attribute in Metalama, and there will not be. To mark an aspect as inherited, use the <see cref="InheritableAttribute"/>
     /// custom attribute. To specify the eligibility of an aspect, implement the <see cref="IEligible{T}.BuildEligibility"/> method.
     /// </summary>
     [AttributeUsage( AttributeTargets.Class )]
@@ -42,7 +42,7 @@ namespace PostSharp.Extensibility
         public bool AllowMultiple { get; set; }
 
         /// <summary>
-        /// To mark an aspect as inherited, use <see cref="InheritedAttribute"/>. Multicast inheritance is not supported in Metalama, but you can build a similar feature
+        /// To mark an aspect as inherited, use <see cref="InheritableAttribute"/> or implement <see cref="IConditionallyInheritableAspect"/>. Multicast inheritance is not supported in Metalama, but you can build a similar feature
         /// by making the aspect implement the <see cref="IAspect{T}"/> for <see cref="INamedType"/> and implement multicasting in the <see cref="IAspect{T}.BuildAspect"/>
         /// method.
         /// </summary>
