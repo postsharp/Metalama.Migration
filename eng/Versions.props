@@ -13,11 +13,11 @@
     <!-- Set the default versions of dependencies -->
     <PropertyGroup>
         <PostSharpEngineeringVersion>1.0.114-preview</PostSharpEngineeringVersion>
-		<MetalamaVersion>0.5.83-preview</MetalamaVersion>
+		<MetalamaVersion>2023.0.101-rc</MetalamaVersion>
 		<MetalamaVersion Condition="$(VcsBranch)!=''">branch:master</MetalamaVersion>
-        <MetalamaExtensionsVersion>0.5.83-preview</MetalamaExtensionsVersion>
+        <MetalamaExtensionsVersion>2023.0.101-rc</MetalamaExtensionsVersion>
 		<MetalamaExtensionsVersion Condition="$(VcsBranch)!=''">branch:dev</MetalamaExtensionsVersion>
-		<MetalamaCompilerVersion>4.4.1014-preview</MetalamaCompilerVersion>
+		<MetalamaCompilerVersion>2023.0.101-rc</MetalamaCompilerVersion>
 		<MetalamaCompilerVersion Condition="$(VcsBranch)!=''">branch:master</MetalamaCompilerVersion>
     </PropertyGroup>
 
