@@ -95,7 +95,7 @@ namespace PostSharp.Reflection
 
         /// <summary>
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
-        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences"/> method.
+        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
         /// <seealso href="@validating-references"/>
         public static MethodUsageCodeReference[] GetMethodsUsingDeclaration( MemberInfo declaration, ReflectionSearchOptions options )
@@ -104,7 +104,7 @@ namespace PostSharp.Reflection
         }
 
         /// <summary>
-        /// In Metalama, use <see cref="ICompilation"/>.<see cref="ICompilation.GetDerivedTypes(Metalama.Framework.Code.INamedType,bool)"/>.
+        /// In Metalama, use <see cref="ICompilation"/>.<see cref="ICompilation.GetDerivedTypes(Metalama.Framework.Code.INamedType,Metalama.Framework.Code.DerivedTypesOptions)"/>.
         /// </summary>
         public static TypeInheritanceCodeReference[] GetDerivedTypes( Type baseType )
         {
@@ -112,7 +112,7 @@ namespace PostSharp.Reflection
         }
 
         /// <summary>
-        /// In Metalama, use <see cref="ICompilation"/>.<see cref="ICompilation.GetDerivedTypes(Metalama.Framework.Code.INamedType,bool)"/>.
+        /// In Metalama, use <see cref="ICompilation"/>.<see cref="ICompilation.GetDerivedTypes(Metalama.Framework.Code.INamedType,Metalama.Framework.Code.DerivedTypesOptions)"/>.
         /// </summary>
         public static TypeInheritanceCodeReference[] GetDerivedTypes( Type baseType, ReflectionSearchOptions options )
         {
@@ -121,7 +121,7 @@ namespace PostSharp.Reflection
 
         /// <summary>
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
-        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences"/> method.
+        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
         /// <seealso href="@validating-references"/>
         public static MemberTypeCodeReference[] GetMembersOfType( Type memberType )

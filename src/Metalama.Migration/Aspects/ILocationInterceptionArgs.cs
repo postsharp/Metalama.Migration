@@ -3,7 +3,6 @@
 
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
-using Metalama.Framework.Code.Advised;
 using Metalama.Framework.Code.SyntaxBuilders;
 using PostSharp.Reflection;
 
@@ -21,8 +20,7 @@ namespace PostSharp.Aspects
         ILocationBinding Binding { get; }
 
         /// <summary>
-        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Parameters"/>.<see cref="IAdvisedParameterList.Values"/>, but in case of the setter,
-        /// this will also contain the <c>value</c>.
+        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Parameters"/>.
         /// </summary>
         Arguments Index { get; }
 

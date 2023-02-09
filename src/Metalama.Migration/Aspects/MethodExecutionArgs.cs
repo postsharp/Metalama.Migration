@@ -3,7 +3,6 @@
 
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
-using Metalama.Framework.Code.Advised;
 using System;
 using System.Reflection;
 
@@ -27,7 +26,7 @@ namespace PostSharp.Aspects
         public MethodBase Method { get; }
 
         /// <summary>
-        /// In Metalama, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Parameters"/>.<see cref="IAdvisedParameterList.Values"/>.
+        /// In Metalama, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Parameters"/>
         /// </summary>
         public Arguments Arguments { get; }
 

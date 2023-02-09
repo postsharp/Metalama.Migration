@@ -2,7 +2,7 @@
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
 using Metalama.Framework.Aspects;
-using Metalama.Framework.Code.Advised;
+using Metalama.Framework.Code.Invokers;
 using System.Reflection;
 
 namespace PostSharp.Aspects
@@ -31,7 +31,7 @@ namespace PostSharp.Aspects
         public MethodBase Method { get; set; }
 
         /// <summary>
-        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Parameters"/>.<see cref="IAdvisedParameterList.Values"/>.
+        /// Use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Parameters"/>.
         /// </summary>
         public Arguments Arguments { get; protected set; }
 
@@ -41,7 +41,7 @@ namespace PostSharp.Aspects
         public abstract void Proceed();
 
         /// <summary>
-        /// Use  <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.<see cref="IAdvisedMethod.Invoke"/>.
+        /// Use  <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.<see cref="IMethodInvoker.Invoke"/>.
         /// </summary>
         public abstract object Invoke( Arguments arguments );
 
@@ -61,7 +61,7 @@ namespace PostSharp.Aspects
         public abstract MethodInterceptionProceedAwaitable ProceedAsync();
 
         /// <summary>
-        /// Use  <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.<see cref="IAdvisedMethod.Invoke"/>.
+        /// Use  <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.<see cref="IMethodInvoker.Invoke"/>.
         /// </summary>
         public abstract MethodBindingInvokeAwaitable InvokeAsync( Arguments arguments );
     }
