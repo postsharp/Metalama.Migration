@@ -1,4 +1,4 @@
-
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
 
     <!-- Set the default version of the current product -->
@@ -12,13 +12,10 @@
     
     <!-- Set the default versions of dependencies -->
     <PropertyGroup>
-        <PostSharpEngineeringVersion>1.0.114-preview</PostSharpEngineeringVersion>
+        <PostSharpEngineeringVersion>1.0.122-preview</PostSharpEngineeringVersion>
 		<MetalamaVersion>2023.0.102-rc</MetalamaVersion>
-		<MetalamaVersion Condition="$(VcsBranch)!=''">branch:master</MetalamaVersion>
         <MetalamaExtensionsVersion>2023.0.102-rc</MetalamaExtensionsVersion>
-		<MetalamaExtensionsVersion Condition="$(VcsBranch)!=''">branch:dev</MetalamaExtensionsVersion>
 		<MetalamaCompilerVersion>2023.0.102-rc</MetalamaCompilerVersion>
-		<MetalamaCompilerVersion Condition="$(VcsBranch)!=''">branch:master</MetalamaCompilerVersion>
     </PropertyGroup>
 
     <!-- Override versions (both this product and dependencies) for the local build -->
