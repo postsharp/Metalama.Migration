@@ -280,6 +280,14 @@ object PublicDeployment : BuildType({
 
         }
 
+        dependency(AbsoluteId("Metalama_Metalama_PublicDeployment")) {
+            snapshot {
+                     onDependencyFailure = FailureAction.FAIL_TO_START
+            }
+
+
+        }
+
         dependency(AbsoluteId("Metalama_MetalamaBackstage_PublicBuild")) {
             snapshot {
                      onDependencyFailure = FailureAction.FAIL_TO_START
@@ -306,6 +314,14 @@ object PublicDeployment : BuildType({
 
         }
 
+        dependency(AbsoluteId("Metalama_MetalamaCompiler_PublicDeployment")) {
+            snapshot {
+                     onDependencyFailure = FailureAction.FAIL_TO_START
+            }
+
+
+        }
+
         dependency(AbsoluteId("Metalama_MetalamaExtensions_PublicBuild")) {
             snapshot {
                      onDependencyFailure = FailureAction.FAIL_TO_START
@@ -316,6 +332,14 @@ object PublicDeployment : BuildType({
                 cleanDestination = true
                 artifactRules = "+:artifacts/publish/private/**/*=>dependencies/Metalama.Extensions"
             }
+
+        }
+
+        dependency(AbsoluteId("Metalama_MetalamaExtensions_PublicDeployment")) {
+            snapshot {
+                     onDependencyFailure = FailureAction.FAIL_TO_START
+            }
+
 
         }
 
