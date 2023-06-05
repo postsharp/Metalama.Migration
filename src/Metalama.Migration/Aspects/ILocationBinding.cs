@@ -13,21 +13,18 @@ namespace PostSharp.Aspects
     /// <summary>
     /// In PostSharp, a binding was a run-time object that allowed the run-time code of the aspect to call the target code. In Metalama, aspects no longer
     /// have run-time code. Instead, they have templates that are expanded at compile time and generate run-time code. Templates can generate run-time code
-    /// that accesses target code using dynamic code or invokers. For fields and properties, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-    /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+    /// that accesses target code using dynamic code or invokers. For fields and properties, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
     /// </summary>
     [InternalImplement]
     public interface ILocationBinding
     {
         /// <summary>
-        /// In Metalama, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// In Metalama, get <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
         /// </summary>
         object GetValue( ref object instance, Arguments index );
 
         /// <summary>
-        /// In Metalama, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// In Metalama, set <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
         /// </summary>
         void SetValue( ref object instance, Arguments index, object value );
 
@@ -57,20 +54,17 @@ namespace PostSharp.Aspects
     /// <summary>
     /// In PostSharp, a binding was a run-time object that allowed the run-time code of the aspect to call the target code. In Metalama, aspects no longer
     /// have run-time code. Instead, they have templates that are expanded at compile time and generate run-time code. Templates can generate run-time code
-    /// that accesses target code using dynamic code or invokers. For fields and properties, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-    /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+    /// that accesses target code using dynamic code or invokers. For fields and properties, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
     /// </summary>
     public interface ILocationBinding<T> : ILocationBinding
     {
         /// <summary>
-        /// In Metalama, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// In Metalama, get <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
         /// </summary>
         new T GetValue( ref object instance, Arguments index );
 
         /// <summary>
-        /// In Metalama, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// In Metalama, set <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
         /// </summary>
         void SetValue( ref object instance, Arguments index, T value );
     }

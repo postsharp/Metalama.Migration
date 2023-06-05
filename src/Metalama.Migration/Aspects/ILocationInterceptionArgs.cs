@@ -25,26 +25,22 @@ namespace PostSharp.Aspects
         Arguments Index { get; }
 
         /// <summary>
-        /// In the get override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// In the get override advice, get <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
         /// </summary>
         void ProceedGetValue();
 
         /// <summary>
-        /// In the set override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// In the set override advice, set <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
         /// </summary>
         void ProceedSetValue();
 
         /// <summary>
-        /// In the get override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// In the get override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, grt <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
         /// </summary>
         object GetCurrentValue();
 
         /// <summary>
-        /// In the set override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// In the set override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, set <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
         /// </summary>
         void SetNewValue( object value );
 
@@ -96,14 +92,12 @@ namespace PostSharp.Aspects
         new T Value { get; set; }
 
         /// <summary>
-        /// In the get override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// In the get override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, get <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
         /// </summary>
         new T GetCurrentValue();
 
         /// <summary>
-        /// In the set override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IFieldOrProperty.Invokers"/>
-        /// or <see cref="IFieldOrProperty"/>.<see cref="ExpressionFactory.ToExpression(Metalama.Framework.Code.IFieldOrProperty,Metalama.Framework.Code.IExpression?)"/>.<see cref="IExpression.Value"/>.
+        /// In the set override advice, call <see cref="meta"/>.<see cref="meta.Proceed"/>. Otherwise, set <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.FieldOrProperty"/>.<see cref="IExpression.Value"/>.
         /// </summary>
         void SetNewValue( T value );
     }

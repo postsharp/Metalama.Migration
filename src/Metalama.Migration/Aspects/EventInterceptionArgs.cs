@@ -3,6 +3,7 @@
 
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
+using Metalama.Framework.Code.Invokers;
 using System;
 using System.Reflection;
 
@@ -15,7 +16,7 @@ namespace PostSharp.Aspects
     public abstract class EventInterceptionArgs : AdviceArgs
     {
         /// <summary>
-        /// Use <see cref="IEvent"/>.<see cref="IEvent.Invokers"/> to generate run-time code that accesses the event.
+        /// Use <see cref="IEvent"/>.<see cref="IEventInvoker.Add"/>, <see cref="IEvent"/>.<see cref="IEventInvoker.Remove"/> or <see cref="IEvent"/>.<see cref="IEventInvoker.Raise"/> to generate run-time code that accesses the event.
         /// </summary>
         public abstract IEventBinding Binding { get; }
 
@@ -44,25 +45,25 @@ namespace PostSharp.Aspects
 
         /// <summary>
         /// Use <see cref="meta"/>.<see cref="meta.Proceed"/> from the advice that overrides the event adder, or use
-        /// <see cref="IEvent"/>.<see cref="IEvent.Invokers"/>.
+        /// <see cref="IEvent"/>.<see cref="IEventInvoker.Add"/>.
         /// </summary>
         public abstract void ProceedAddHandler();
 
         /// <summary>
         /// Use <see cref="meta"/>.<see cref="meta.Proceed"/> from the advice that overrides the event adder, or use
-        /// <see cref="IEvent"/>.<see cref="IEvent.Invokers"/>.
+        /// <see cref="IEvent"/>.<see cref="IEventInvoker.Add"/>.
         /// </summary>
         public abstract void AddHandler( Delegate handler );
 
         /// <summary>
         /// Use <see cref="meta"/>.<see cref="meta.Proceed"/> from the advice that overrides the event remover, or use
-        /// <see cref="IEvent"/>.<see cref="IEvent.Invokers"/>.
+        /// <see cref="IEvent"/>.<see cref="IEventInvoker.Remove"/>.
         /// </summary>
         public abstract void ProceedRemoveHandler();
 
         /// <summary>
         /// Use <see cref="meta"/>.<see cref="meta.Proceed"/> from the advice that overrides the event remover, or use
-        /// <see cref="IEvent"/>.<see cref="IEvent.Invokers"/>.
+        /// <see cref="IEvent"/>.<see cref="IEventInvoker.Remove"/>.
         /// </summary>
         public abstract void RemoveHandler( Delegate handler );
 
