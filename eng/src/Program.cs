@@ -12,12 +12,7 @@ var product = new Product( MetalamaDependencies.MetalamaMigration )
 {
     Solutions = new Solution[] { new DotNetSolution( "src\\Metalama.Migration.sln" ) { CanFormatCode = true } },
     PublicArtifacts = Pattern.Create( "Metalama.Migration.$(PackageVersion).nupkg" ),
-    Dependencies =
-        new[]
-        {
-            DevelopmentDependencies.PostSharpEngineering, MetalamaDependencies.Metalama,
-            MetalamaDependencies.MetalamaExtensions, MetalamaDependencies.MetalamaCompiler
-        },
+    Dependencies = new[] { DevelopmentDependencies.PostSharpEngineering, MetalamaDependencies.MetalamaExtensions },
     MainVersionDependency = MetalamaDependencies.Metalama
 };
 

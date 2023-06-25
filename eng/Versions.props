@@ -12,10 +12,10 @@
     
     <!-- Set the default versions of dependencies -->
     <PropertyGroup>
-        <PostSharpEngineeringVersion>2023.2.16</PostSharpEngineeringVersion>
-		<MetalamaVersion></MetalamaVersion>
+        <PostSharpEngineeringVersion>2023.2.22</PostSharpEngineeringVersion>
+        <MetalamaVersion></MetalamaVersion>
         <MetalamaExtensionsVersion></MetalamaExtensionsVersion>
-		<MetalamaCompilerVersion></MetalamaCompilerVersion>
+        <MetalamaCompilerVersion></MetalamaCompilerVersion>
     </PropertyGroup>
 
     <!-- Override versions (both this product and dependencies) for the local build -->
