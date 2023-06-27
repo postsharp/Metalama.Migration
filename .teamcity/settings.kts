@@ -348,14 +348,6 @@ object PublicDeployment : BuildType({
 
         }
 
-        dependency(AbsoluteId("Metalama_Metalama20232_Metalama_PublicDeployment")) {
-            snapshot {
-                     onDependencyFailure = FailureAction.FAIL_TO_START
-            }
-
-
-        }
-
         dependency(AbsoluteId("Metalama_Metalama20232_MetalamaBackstage_PublicBuild")) {
             snapshot {
                      onDependencyFailure = FailureAction.FAIL_TO_START
@@ -379,14 +371,6 @@ object PublicDeployment : BuildType({
                 cleanDestination = true
                 artifactRules = "+:artifacts/packages/Release/Shipping/**/*=>dependencies/Metalama.Compiler"
             }
-
-        }
-
-        dependency(AbsoluteId("Metalama_Metalama20232_MetalamaCompiler_PublicDeployment")) {
-            snapshot {
-                     onDependencyFailure = FailureAction.FAIL_TO_START
-            }
-
 
         }
 
