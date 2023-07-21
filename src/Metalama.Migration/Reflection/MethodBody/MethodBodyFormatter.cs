@@ -1,6 +1,7 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using System;
 using System.IO;
 
@@ -12,6 +13,7 @@ namespace PostSharp.Reflection.MethodBody
     /// </summary>
     /// <seealso href="@services"/>
     [Obsolete( "", true )]
+    [PublicAPI]
     public class MethodBodyFormatter : MethodBodyVisitor
     {
         public MethodBodyFormatter( TextWriter writer )

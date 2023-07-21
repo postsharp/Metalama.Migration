@@ -23,8 +23,7 @@ namespace PostSharp.Aspects
         AttributeTargets.Property |
         AttributeTargets.Event | AttributeTargets.Struct,
         AllowMultiple = true )]
-    public abstract class MethodInterceptionAspect : MethodLevelAspect, IMethodInterceptionAspect
-                                                   , IAsyncMethodInterceptionAspect
+    public abstract class MethodInterceptionAspect : MethodLevelAspect, IAsyncMethodInterceptionAspect
 
     {
         /// <summary>

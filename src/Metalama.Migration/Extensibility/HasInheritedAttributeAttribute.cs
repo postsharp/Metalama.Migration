@@ -1,6 +1,7 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using System;
 
 namespace PostSharp.Extensibility
@@ -11,6 +12,7 @@ namespace PostSharp.Extensibility
     [AttributeUsage(
         AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Interface |
         AttributeTargets.Method | AttributeTargets.Parameter | AttributeTargets.ReturnValue )]
+    [PublicAPI]
     public sealed class HasInheritedAttributeAttribute : Attribute
     {
         public HasInheritedAttributeAttribute() { }

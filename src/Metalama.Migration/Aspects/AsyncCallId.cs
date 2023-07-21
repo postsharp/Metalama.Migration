@@ -1,6 +1,7 @@
 ﻿// Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using System;
 
 namespace PostSharp.Aspects
@@ -8,6 +9,7 @@ namespace PostSharp.Aspects
     /// <summary>
     /// There is no equivalent to this type in Metalama. The equivalent concept can be built manually.
     /// </summary>
+    [PublicAPI]
     public struct AsyncCallId : IEquatable<AsyncCallId>
     {
         public bool IsNull { get; }

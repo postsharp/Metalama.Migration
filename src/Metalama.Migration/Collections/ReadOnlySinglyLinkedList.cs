@@ -1,12 +1,14 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
 namespace PostSharp.Collections
 {
+    [PublicAPI]
     public struct ReadOnlySinglyLinkedList<T> : IEnumerable<T>
     {
         public ISinglyLinkedListNode<T> FirstNode { get; }
@@ -28,6 +30,7 @@ namespace PostSharp.Collections
             throw new NotImplementedException();
         }
 
+        [PublicAPI]
         public struct Enumerator : IEnumerator<T>
         {
             public void Dispose() { }

@@ -1,6 +1,7 @@
 ﻿// Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using PostSharp.Reflection;
 using System;
 using System.IO;
@@ -11,6 +12,7 @@ namespace PostSharp.Serialization
     /// No equivalent in Metalama.
     /// </summary>
     [Obsolete( "", true )]
+    [PublicAPI]
     public class PortableFormatter
     {
         public PortableFormatter() { }

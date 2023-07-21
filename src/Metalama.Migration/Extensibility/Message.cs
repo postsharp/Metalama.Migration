@@ -1,6 +1,7 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using Metalama.Framework.Diagnostics;
 using PostSharp.Reflection;
 using System;
@@ -14,6 +15,7 @@ namespace PostSharp.Extensibility
     /// <see cref="DiagnosticDefinition{T}.WithArguments"/>.
     /// </summary>
     /// <seealso href="@diagnostics"/>
+    [PublicAPI]
     public sealed class Message
     {
         #region Fields

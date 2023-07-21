@@ -8,7 +8,7 @@ using Metalama.Framework.Code;
 namespace PostSharp.Extensibility
 {
     /// <summary>
-    /// In Metalama, use the <see cref="InheritedAttribute"/> custom attribute to enable aspect inheritance. By default, Metalama implements the
+    /// In Metalama, use the <see cref="InheritableAttribute"/> custom attribute to enable aspect inheritance. By default, Metalama implements the
     /// <see cref="Strict"/> inheritance mode. If you need multicasting, see <see cref="MulticastAspect"/> or <see cref="MulticastImplementation"/>.
     /// </summary>
     public enum MulticastInheritance
@@ -19,7 +19,7 @@ namespace PostSharp.Extensibility
         None,
 
         /// <summary>
-        /// In Metalama, use the <see cref="InheritedAttribute"/> custom attribute.
+        /// In Metalama, use the <see cref="InheritableAttribute"/> custom attribute.
         /// </summary>
         Strict,
 

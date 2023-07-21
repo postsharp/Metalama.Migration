@@ -5,8 +5,7 @@ using System;
 
 namespace PostSharp.Serialization
 {
-// ReSharper disable ClassWithVirtualMembersNeverInherited.Global
-
+    // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
     /// <summary>
     /// No equivalent in Metalama.
     /// </summary>

@@ -65,7 +65,7 @@ namespace PostSharp.Reflection
 
         /// <summary>
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
-        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences"/> method.
+        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
         /// <seealso href="@validating-references"/>
         public static MethodUsageCodeReference[] GetDeclarationsUsedByMethod( MethodBase method )
@@ -75,7 +75,7 @@ namespace PostSharp.Reflection
 
         /// <summary>
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
-        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences"/> method.
+        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
         /// <seealso href="@validating-references"/>
         public static MethodUsageCodeReference[] GetDeclarationsUsedByMethod( MethodBase method, ReflectionSearchOptions options )
@@ -85,7 +85,7 @@ namespace PostSharp.Reflection
 
         /// <summary>
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
-        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences"/> method.
+        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
         /// <seealso href="@validating-references"/>
         public static MethodUsageCodeReference[] GetMethodsUsingDeclaration( MemberInfo declaration )
@@ -131,7 +131,7 @@ namespace PostSharp.Reflection
 
         /// <summary>
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
-        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences"/> method.
+        /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
         /// <seealso href="@validating-references"/>
         public static MemberTypeCodeReference[] GetMembersOfType( Type memberType, ReflectionSearchOptions options )

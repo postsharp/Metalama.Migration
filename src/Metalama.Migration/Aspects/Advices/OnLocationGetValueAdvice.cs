@@ -8,8 +8,9 @@ using System;
 namespace PostSharp.Aspects.Advices
 {
     /// <summary>
-    /// In Metalama, implement the <see cref="IAspect{T}.BuildAspect"/> method and use <c>builder</c>.<see cref="IAspectBuilder.Advice"/>.<see cref="IAdviceFactory.OverrideAccessors(Metalama.Framework.Code.IFieldOrPropertyOrIndexer, in GetterTemplateSelector, string?, object?, object?)"/>
-    /// or <see cref="IAdviceFactory.Override(Metalama.Framework.Code.IFieldOrProperty, string, object?)"/>
+    /// In Metalama, implement the <see cref="IAspect{T}.BuildAspect"/> method and use
+    /// <c>builder</c>.<see cref="IAspectBuilder.Advice"/>.<see cref="M:IAdviceFactory.OverrideAccessors(IFieldOrPropertyOrIndexer, in GetterTemplateSelector, string?, object?, object?)"/>
+    /// or <see cref="IAdviceFactory.Override(Metalama.Framework.Code.IFieldOrProperty, string, object?)"/>.
     /// </summary>
     /// <seealso href="@overriding-properties"/>
     [AttributeUsage( AttributeTargets.Method, AllowMultiple = true )]

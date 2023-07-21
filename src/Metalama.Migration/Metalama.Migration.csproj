@@ -14,6 +14,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
         <PackageReference Include="Metalama.Framework.Redist" Version="$(MetalamaVersion)" />
         <PackageReference Include="Metalama.Extensions.Multicast" Version="$(MetalamaExtensionsVersion)" />
         <PackageReference Include="Metalama.Extensions.Architecture" Version="$(MetalamaExtensionsVersion)" />

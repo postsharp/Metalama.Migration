@@ -55,7 +55,7 @@ namespace PostSharp.Aspects
             throw new NotImplementedException();
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc cref="Aspect.CompileTimeValidate" />
         public sealed override bool CompileTimeValidate( object target )
         {
             throw new NotImplementedException();

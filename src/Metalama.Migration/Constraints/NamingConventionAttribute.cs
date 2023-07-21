@@ -1,6 +1,7 @@
 ﻿// Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using PostSharp.Extensibility;
 using System;
 
@@ -11,6 +12,7 @@ namespace PostSharp.Constraints
     /// </summary>
     [MulticastAttributeUsage( MulticastTargets.Class | MulticastTargets.Interface, Inheritance = MulticastInheritance.Strict )]
     [AttributeUsage( AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Assembly )]
+    [PublicAPI]
     public sealed class NamingConventionAttribute : ScalarConstraint
     {
         public NamingConventionAttribute( string pattern )

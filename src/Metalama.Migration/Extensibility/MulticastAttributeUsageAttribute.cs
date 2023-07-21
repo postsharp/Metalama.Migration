@@ -1,6 +1,7 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using Metalama.Framework.Advising;
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
@@ -14,6 +15,7 @@ namespace PostSharp.Extensibility
     /// custom attribute. To specify the eligibility of an aspect, implement the <see cref="IEligible{T}.BuildEligibility"/> method.
     /// </summary>
     [AttributeUsage( AttributeTargets.Class )]
+    [PublicAPI]
     public sealed class MulticastAttributeUsageAttribute : Attribute
     {
         /// <summary>

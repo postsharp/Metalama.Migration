@@ -3,7 +3,6 @@
 
 using System;
 
-
 namespace PostSharp.Aspects.Advices
 {
     [AttributeUsage( AttributeTargets.Method, Inherited = false )]

@@ -15,21 +15,21 @@ namespace PostSharp.Extensibility
     {
         public MulticastTargets AttributeTargetElements { get; set; }
 
-        [Obsolete("Adding aspects to external assemblies is not supported in Metalama.", true)]
+        [Obsolete( "Adding aspects to external assemblies is not supported in Metalama.", true )]
         public string AttributeTargetAssemblies { get; set; }
 
         public string AttributeTargetTypes { get; set; }
 
         public MulticastAttributes AttributeTargetTypeAttributes { get; set; }
 
-        [Obsolete("Adding aspects to external assemblies is not supported in Metalama.", true)]
+        [Obsolete( "Adding aspects to external assemblies is not supported in Metalama.", true )]
         public MulticastAttributes AttributeTargetExternalTypeAttributes { get; set; }
 
         public string AttributeTargetMembers { get; set; }
 
         public MulticastAttributes AttributeTargetMemberAttributes { get; set; }
 
-        [Obsolete("Adding aspects to external assemblies is not supported in Metalama.", true)]
+        [Obsolete( "Adding aspects to external assemblies is not supported in Metalama.", true )]
         public MulticastAttributes AttributeTargetExternalMemberAttributes { get; set; }
 
         public string AttributeTargetParameters { get; set; }

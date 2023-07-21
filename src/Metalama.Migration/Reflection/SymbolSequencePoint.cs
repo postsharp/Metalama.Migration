@@ -1,6 +1,7 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using System;
 
 namespace PostSharp.Reflection
@@ -8,10 +9,11 @@ namespace PostSharp.Reflection
     /// <summary>
     /// Not exposed in Metalama.
     /// </summary>
+    [PublicAPI]
     public class SymbolSequencePoint :
         IComparable<SymbolSequencePoint>, IEquatable<SymbolSequencePoint>
     {
-        public static readonly SymbolSequencePoint Hidden = null;
+        public static readonly SymbolSequencePoint Hidden;
 
         public bool IsHidden { get; }
 

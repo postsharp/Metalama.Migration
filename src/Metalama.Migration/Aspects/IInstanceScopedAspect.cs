@@ -13,7 +13,7 @@ namespace PostSharp.Aspects
     public interface IInstanceScopedAspect : IAspect
     {
         /// <summary>
-        /// No equivelent in Metalama.
+        /// No equivalent in Metalama.
         /// </summary>
         object CreateInstance( AdviceArgs adviceArgs );
 

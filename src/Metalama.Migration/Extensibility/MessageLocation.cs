@@ -1,6 +1,7 @@
 ﻿// Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using Metalama.Framework.Diagnostics;
 using PostSharp.Reflection;
 using PostSharp.Reflection.MethodBody;
@@ -12,6 +13,7 @@ namespace PostSharp.Extensibility
     /// <summary>
     /// In Metalama, the equivalent is <see cref="IDiagnosticLocation"/>.
     /// </summary>
+    [PublicAPI]
     public class MessageLocation
     {
         public static readonly MessageLocation Unknown;
