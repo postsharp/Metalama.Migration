@@ -1,6 +1,7 @@
 ﻿// Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using System.Reflection;
 
 namespace PostSharp.Aspects.Advices
@@ -10,6 +11,7 @@ namespace PostSharp.Aspects.Advices
     /// aspect accesses the target code using dynamic code or invokers.
     /// </summary>
     /// <seealso href="template-dynamic-code"/>
+    [PublicAPI]
     public abstract class ImportMemberAdviceInstance : AdviceInstance
     {
         public FieldInfo AspectField { get; }

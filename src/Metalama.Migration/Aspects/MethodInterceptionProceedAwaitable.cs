@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace PostSharp.Aspects
 {
-
     /// <summary>
     /// No equivalent in Metalama. To override an async method, implement the <see cref="OverrideMethodAspect"/>.<see cref="OverrideMethodAspect.OverrideAsyncMethod"/>
     /// method and call <see cref="meta"/>.<see cref="meta.ProceedAsync"/>.

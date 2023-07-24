@@ -1,6 +1,7 @@
 ﻿// Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using Metalama.Framework.Advising;
 using Metalama.Framework.Aspects;
 using PostSharp.Aspects.Configuration;
@@ -17,6 +18,7 @@ namespace PostSharp.Aspects
     /// from <see cref="IAspect{T}.BuildAspect"/>.
     /// </summary>
     [LinesOfCodeAvoided( 1 )]
+    [PublicAPI]
     public sealed class CustomAttributeIntroductionAspect : ICustomAttributeIntroductionAspect, IAspectBuildSemantics
     {
         public CustomAttributeIntroductionAspect( ObjectConstruction attribute )

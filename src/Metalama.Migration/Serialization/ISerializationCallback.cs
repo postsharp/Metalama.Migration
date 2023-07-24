@@ -4,7 +4,7 @@
 namespace PostSharp.Serialization
 {
     /// <summary>
-    /// In Metalama, use <see cref="Metalama.Framework.Serialization.ILamaSerializationCallback"/>.
+    /// In Metalama, use <see cref="Metalama.Framework.Serialization.ICompileTimeSerializationCallback"/>.
     /// </summary>
     public interface ISerializationCallback
     {

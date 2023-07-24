@@ -1,6 +1,7 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using Metalama.Framework.Advising;
 using Metalama.Framework.Aspects;
 using System;
@@ -13,6 +14,7 @@ namespace PostSharp.Aspects.Advices
     /// </summary>
     /// <seealso href="@implementing-interfaces"/>
     [AttributeUsage( AttributeTargets.Class, AllowMultiple = true )]
+    [PublicAPI]
     public sealed class IntroduceInterfaceAttribute : Advice
     {
         public IntroduceInterfaceAttribute( Type interfaceType )

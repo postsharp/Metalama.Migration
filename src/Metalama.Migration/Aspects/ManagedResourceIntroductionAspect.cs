@@ -1,6 +1,7 @@
 ﻿// Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using PostSharp.Aspects.Configuration;
 using PostSharp.Extensibility;
 using System;
@@ -11,6 +12,7 @@ namespace PostSharp.Aspects
     /// Not implemented in Metalama.
     /// </summary>
     [Obsolete( "", true )]
+    [PublicAPI]
     public sealed class ManagedResourceIntroductionAspect : IManagedResourceIntroductionAspect, IAspectBuildSemantics
     {
         public ManagedResourceIntroductionAspect( string name, byte[] data )

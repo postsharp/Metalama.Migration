@@ -1,6 +1,7 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code.Collections;
 using System;
@@ -12,8 +13,8 @@ namespace PostSharp.Aspects
     /// <summary>
     /// In Metalama, use <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Parameters"/>.<see cref="IParameterList.ToValueArray"/>.
     /// </summary>
+    [PublicAPI]
     public class Arguments : IList<object>, ICloneable
-
     {
         public static readonly Arguments Empty = new();
 

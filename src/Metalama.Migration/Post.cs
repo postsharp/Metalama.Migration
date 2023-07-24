@@ -1,6 +1,7 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using System;
 
 namespace PostSharp
@@ -8,10 +9,11 @@ namespace PostSharp
     /// <summary>
     /// No equivalent in Metalama.
     /// </summary>
+    [PublicAPI]
     public static class Post
     {
         /// <summary>
-        /// Not needed in Metalama. Hurah!
+        /// Not needed in Metalama. Hurrah!
         /// </summary>
         public static TTarget Cast<TSource, TTarget>( TSource o )
             where TSource : class

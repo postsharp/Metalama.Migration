@@ -11,8 +11,6 @@ namespace PostSharp.Aspects.Serialization
     /// </summary>
     public class BinaryAspectSerializationBinder : SerializationBinder
     {
-        public BinaryAspectSerializationBinder() { }
-
         public override Type BindToType( string assemblyName, string typeName )
         {
             throw new NotImplementedException();

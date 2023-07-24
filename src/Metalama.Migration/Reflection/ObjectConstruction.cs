@@ -1,6 +1,7 @@
 // Copyright (c) SharpCrafters s.r.o. All rights reserved.
 // This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
+using JetBrains.Annotations;
 using Metalama.Framework.Code.DeclarationBuilders;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace PostSharp.Reflection
     /// <summary>
     /// In Metalama, use <see cref="AttributeConstruction"/>.
     /// </summary>
+    [PublicAPI]
     public sealed class ObjectConstruction
     {
         public ObjectConstruction( string typeName, params object[] constructorArguments )
