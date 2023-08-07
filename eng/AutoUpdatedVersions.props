@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Project>
 
     <PropertyGroup>
-        <MetalamaVersion></MetalamaVersion>
-        <MetalamaExtensionsVersion></MetalamaExtensionsVersion>
-        <MetalamaCompilerVersion></MetalamaCompilerVersion>
-    </PropertyGroup>
+        <MetalamaVersion>2023.1.11</MetalamaVersion>
+        <MetalamaExtensionsVersion>2023.1.11</MetalamaExtensionsVersion>
+        <MetalamaCompilerVersion>2023.1.8</MetalamaCompilerVersion>
+    <MetalamaBackstageVersion>2023.1.7</MetalamaBackstageVersion></PropertyGroup>
 
 </Project>
