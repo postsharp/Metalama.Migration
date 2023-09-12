@@ -41,7 +41,7 @@ namespace PostSharp.Aspects
         public abstract void Proceed();
 
         /// <summary>
-        /// Use  <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.<see cref="IMethodInvoker.Invoke"/>.
+        /// Use  <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.<see cref="IMethodInvoker.Invoke(object[])"/>.
         /// </summary>
         public abstract object Invoke( Arguments arguments );
 
@@ -61,7 +61,7 @@ namespace PostSharp.Aspects
         public abstract MethodInterceptionProceedAwaitable ProceedAsync();
 
         /// <summary>
-        /// Use  <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.<see cref="IMethodInvoker.Invoke"/>.
+        /// Use  <see cref="meta"/>.<see cref="meta.Target"/>.<see cref="IMetaTarget.Method"/>.<see cref="IMethodInvoker.Invoke(object[])"/>.
         /// </summary>
         public abstract MethodBindingInvokeAwaitable InvokeAsync( Arguments arguments );
     }
