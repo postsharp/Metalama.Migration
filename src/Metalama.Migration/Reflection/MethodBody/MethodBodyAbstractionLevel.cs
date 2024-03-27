@@ -7,7 +7,7 @@ namespace PostSharp.Reflection.MethodBody
     /// The source code of method bodies and expression bodies is not represented in the high-level API of Metalama.
     /// If you need to access source code from an aspect, you must implement a service using Metalama SDK. 
     /// </summary>
-    /// <seealso href="@services"/>
+    /// <seealso href="@roslyn-api"/>
     public enum MethodBodyAbstractionLevel
     {
         Structure,
