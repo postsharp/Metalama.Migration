@@ -67,7 +67,8 @@ namespace PostSharp.Reflection
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
         /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
-        /// <seealso href="@validating-references"/>
+        /// <seealso href="@aspect-validating"/>
+        /// <seealso href="@validating-usage"/>
         public static MethodUsageCodeReference[] GetDeclarationsUsedByMethod( MethodBase method )
         {
             throw new NotImplementedException();
@@ -77,7 +78,8 @@ namespace PostSharp.Reflection
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
         /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
-        /// <seealso href="@validating-references"/>
+        /// <seealso href="@aspect-validating"/>
+        /// <seealso href="@validating-usage"/>
         public static MethodUsageCodeReference[] GetDeclarationsUsedByMethod( MethodBase method, ReflectionSearchOptions options )
         {
             throw new NotImplementedException();
@@ -87,7 +89,7 @@ namespace PostSharp.Reflection
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
         /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
-        /// <seealso href="@validating-references"/>
+        /// <seealso href="@validating-usage"/>
         public static MethodUsageCodeReference[] GetMethodsUsingDeclaration( MemberInfo declaration )
         {
             throw new NotImplementedException();
@@ -97,7 +99,7 @@ namespace PostSharp.Reflection
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
         /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
-        /// <seealso href="@validating-references"/>
+        /// <seealso href="@validating-usage"/>
         public static MethodUsageCodeReference[] GetMethodsUsingDeclaration( MemberInfo declaration, ReflectionSearchOptions options )
         {
             throw new NotImplementedException();
@@ -123,7 +125,7 @@ namespace PostSharp.Reflection
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
         /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
-        /// <seealso href="@validating-references"/>
+        /// <seealso href="@validating-usage"/>
         public static MemberTypeCodeReference[] GetMembersOfType( Type memberType )
         {
             throw new NotImplementedException();
@@ -133,7 +135,7 @@ namespace PostSharp.Reflection
         /// In Metalama, the feature is not exposed on the code model, but it is a part of the validation feature thanks to the
         /// <see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/> method.
         /// </summary>
-        /// <seealso href="@validating-references"/>
+        /// <seealso href="@validating-usage"/>
         public static MemberTypeCodeReference[] GetMembersOfType( Type memberType, ReflectionSearchOptions options )
         {
             throw new NotImplementedException();
