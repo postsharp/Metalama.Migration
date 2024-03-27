@@ -26,7 +26,7 @@ namespace PostSharp.Aspects
         /// This event is not exposed, but when you register validators, they get executed
         /// after all aspects have been applied.
         /// </summary>
-        /// <seealso href="@validating-declarations"/>
+        /// <seealso href="@aspect-validating"/>
         [Obsolete( "", true )]
         event EventHandler AspectDiscoveryCompleted;
     }
