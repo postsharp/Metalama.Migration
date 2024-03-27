@@ -12,7 +12,8 @@ namespace PostSharp.Constraints
     /// method. For instance, from the <see cref="IAspect{T}.BuildAspect"/> method of an aspect, call
     /// <c>builder</c>.<see cref="IAspectReceiverSelector{TTarget}.With{TMember}(System.Func{TTarget,System.Collections.Generic.IEnumerable{TMember}})"/><c>(...)</c>.<see cref="IValidatorReceiver{TDeclaration}.ValidateReferences{TValidator}"/>.
     /// </summary>
-    /// <seealso href="@validating-references"/>
+    /// <seealso href="@aspect-validating"/>
+    /// <seealso href="@validating-usage"/>
     public interface IReferentialConstraint : IConstraint
     {
         void ValidateCode( object target, Assembly assembly );
