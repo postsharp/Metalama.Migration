@@ -10,9 +10,9 @@ using MetalamaDependencies = PostSharp.Engineering.BuildTools.Dependencies.Defin
 
 var product = new Product( MetalamaDependencies.MetalamaMigration )
 {
-    Solutions = new Solution[] { new DotNetSolution( "src\\Metalama.Migration.sln" ) { CanFormatCode = true } },
+    Solutions = [new DotNetSolution( "src\\Metalama.Migration.sln" ) { CanFormatCode = true }],
     PublicArtifacts = Pattern.Create( "Metalama.Migration.$(PackageVersion).nupkg" ),
-    Dependencies = new[] { DevelopmentDependencies.PostSharpEngineering, MetalamaDependencies.MetalamaExtensions },
+    Dependencies = [DevelopmentDependencies.PostSharpEngineering, MetalamaDependencies.MetalamaExtensions],
     MainVersionDependency = MetalamaDependencies.Metalama
 };
 
