@@ -10,14 +10,14 @@
         <NoWarn>CS1591;CS0659;CS0660;CS0661;CS0618</NoWarn>
         <MetalamaCompilerTransformerOrder>Metalama.Framework.CompilerExtensions.MetalamaSourceTransformer,Metalama.Migration.Transformer.Transformer</MetalamaCompilerTransformerOrder>
         <MetalamaEmitCompilerTransformedFiles>True</MetalamaEmitCompilerTransformedFiles>
-		<PackageDescription>A package containing annotated PostSharp API, documenting its Metalama equivalent.</PackageDescription>
+        <PackageDescription>A package containing annotated PostSharp API, documenting its Metalama equivalent.</PackageDescription>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
-        <PackageReference Include="Metalama.Framework.Redist" Version="$(MetalamaVersion)" />
-        <PackageReference Include="Metalama.Extensions.Multicast" Version="$(MetalamaExtensionsVersion)" />
-        <PackageReference Include="Metalama.Extensions.Architecture" Version="$(MetalamaExtensionsVersion)" />
+        <PackageReference Include="JetBrains.Annotations" />
+        <PackageReference Include="Metalama.Framework.Redist" />
+        <PackageReference Include="Metalama.Extensions.Multicast" />
+        <PackageReference Include="Metalama.Extensions.Architecture" />
     </ItemGroup>
 
     <ItemGroup>
